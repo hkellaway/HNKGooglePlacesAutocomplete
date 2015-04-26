@@ -30,6 +30,23 @@
     NSLog(@"matchedSbustring.length = %ld, matchedSbustring.offset = %ld",
           (long)matchedSubstring.length,
           matchedSubstring.offset);
+
+    NSDictionary *predictionJSON = @{
+        @"description" : @"Victoria, BC, Canadá",
+        @"id" : @"d5892cffd777f0252b94ab2651fea7123d2aa34a",
+        @"matched_substrings" : @[ @{@"length" : @4, @"offset" : @0} ],
+        @"place_id" : @"ChIJcWGw3Ytzj1QR7Ui7HnTz6Dg",
+        @"reference" : @"CjQtAAAA903zyJZAu2FLA6KkdC7UAddRHAfHQDpArCk61FI_"
+        @"u1Ig7WaJqBiXYsQvORYMcgILEhAFvGtwa5VQpswubIIzwI5wGhTt8vgj6CSQp8QWYb4U1rXmlkg9bg",
+        @"terms" : @[
+            @{@"offset" : @0, @"value" : @"Victoria"},
+            @{@"offset" : @10, @"value" : @"BC"},
+            @{@"offset" : @14, @"value" : @"Canadá"}
+        ],
+        @"types" : @[ @"locality", @"political", @"geocode" ]
+    };
+    HNKQueryResponsePrediction *prediction = [HNKQueryResponsePrediction modelFromJSONDictionary:predictionJSON];
+    NSLog(@"prediction = %@", prediction);
 }
 
 @end
