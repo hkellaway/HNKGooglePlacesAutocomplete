@@ -13,7 +13,7 @@ Pod::Spec.new do |s|
   s.source_files  = 'Pod/Classes/HNKGooglePlacesAutocomplete.{h,m}'
 
   s.subspec 'Models' do |ss|
-    ss.source_files = 'Pod/Classes/HNKGooglePlacesAutocompleteModel.{h,m}', 'Pod/Classes/HNKQueryResponsePredictionTerm.{h,m}'
+    ss.source_files = 'Pod/Classes/HNKGooglePlacesAutocompleteModel.{h,m}', 'Pod/Classes/HNKQueryResponsePredictionMatchedSubstring.{h,m}', 'Pod/Classes/HNKQueryResponsePredictionTerm.{h,m}'
   end
 
   s.dependency "Mantle", "~> 1.5"
