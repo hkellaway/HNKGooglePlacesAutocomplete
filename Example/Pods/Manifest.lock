@@ -1,5 +1,8 @@
 PODS:
-  - HNKGooglePlacesAutocomplete (0.1.0):
+  - HNKGooglePlacesAutocomplete (0.2.0):
+    - HNKGooglePlacesAutocomplete/Models (= 0.2.0)
+    - Mantle (~> 1.5)
+  - HNKGooglePlacesAutocomplete/Models (0.2.0):
     - Mantle (~> 1.5)
   - Kiwi (2.3.1)
   - Mantle (1.5.4):
@@ -18,11 +21,11 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   HNKGooglePlacesAutocomplete:
-    :commit: d573f25624e0c1888c3a07f2e28957c6edf63536
+    :commit: b2a1d239fcc6affd3978803bfc725cdde972fccf
     :git: https://github.com/hkellaway/HNKGooglePlacesAutocomplete.git
 
 SPEC CHECKSUMS:
-  HNKGooglePlacesAutocomplete: b8c46b0c3f733bec54e569cc6efd1742403016ca
+  HNKGooglePlacesAutocomplete: 8da7893f29c488f92fb42a586176392875f6c746
   Kiwi: f038a6c61f7a9e4d7766bff5717aa3b3fdb75f55
   Mantle: 60acd0cd363e27d945bda0a6b8e90577112d28f3
 

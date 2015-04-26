@@ -1,6 +1,6 @@
 {
   "name": "HNKGooglePlacesAutocomplete",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "summary": "A modern objective-c wrapper for the Google Places Autocomplete API",
   "homepage": "https://github.com/hkellaway/HNKGooglePlacesAutocomplete",
   "license": {
@@ -12,16 +12,25 @@
   },
   "source": {
     "git": "https://github.com/hkellaway/HNKGooglePlacesAutocomplete.git",
-    "tag": "0.1.0"
+    "tag": "0.2.0"
   },
   "platforms": {
     "ios": "8.0"
   },
   "requires_arc": true,
-  "source_files": "Pod/Classes",
+  "source_files": "Pod/Classes/HNKGooglePlacesAutocomplete.{h,m}",
   "dependencies": {
     "Mantle": [
       "~> 1.5"
     ]
-  }
+  },
+  "subspecs": [
+    {
+      "name": "Models",
+      "source_files": [
+        "Pod/Classes/HNKGooglePlacesAutocompleteModel.{h,m}",
+        "Pod/Classes/HNKQueryResponsePredictionTerm.{h,m}"
+      ]
+    }
+  ]
 }

@@ -9,8 +9,14 @@
 // HNKGooglePlacesAutocomplete
 #define COCOAPODS_POD_AVAILABLE_HNKGooglePlacesAutocomplete
 #define COCOAPODS_VERSION_MAJOR_HNKGooglePlacesAutocomplete 0
-#define COCOAPODS_VERSION_MINOR_HNKGooglePlacesAutocomplete 1
+#define COCOAPODS_VERSION_MINOR_HNKGooglePlacesAutocomplete 2
 #define COCOAPODS_VERSION_PATCH_HNKGooglePlacesAutocomplete 0
+
+// HNKGooglePlacesAutocomplete/Models
+#define COCOAPODS_POD_AVAILABLE_HNKGooglePlacesAutocomplete_Models
+#define COCOAPODS_VERSION_MAJOR_HNKGooglePlacesAutocomplete_Models 0
+#define COCOAPODS_VERSION_MINOR_HNKGooglePlacesAutocomplete_Models 2
+#define COCOAPODS_VERSION_PATCH_HNKGooglePlacesAutocomplete_Models 0
 
 // Mantle
 #define COCOAPODS_POD_AVAILABLE_Mantle
