@@ -1,10 +1,29 @@
 PODS:
-  - HNKGooglePlacesAutocomplete (0.1.0)
+  - HNKGooglePlacesAutocomplete (0.1.0):
+    - Mantle (~> 1.5)
+  - Kiwi (2.3.1)
+  - Mantle (1.5.4):
+    - Mantle/extobjc (= 1.5.4)
+  - Mantle/extobjc (1.5.4)
 
 DEPENDENCIES:
-  - HNKGooglePlacesAutocomplete (~> 0.1)
+  - HNKGooglePlacesAutocomplete (from `https://github.com/hkellaway/HNKGooglePlacesAutocomplete.git`,
+    branch `core/model_setup`)
+  - Kiwi (~> 2.3)
+
+EXTERNAL SOURCES:
+  HNKGooglePlacesAutocomplete:
+    :branch: core/model_setup
+    :git: https://github.com/hkellaway/HNKGooglePlacesAutocomplete.git
+
+CHECKOUT OPTIONS:
+  HNKGooglePlacesAutocomplete:
+    :commit: d573f25624e0c1888c3a07f2e28957c6edf63536
+    :git: https://github.com/hkellaway/HNKGooglePlacesAutocomplete.git
 
 SPEC CHECKSUMS:
-  HNKGooglePlacesAutocomplete: 726f997f25323b1a334b453b488182bcc993aa2d
+  HNKGooglePlacesAutocomplete: b8c46b0c3f733bec54e569cc6efd1742403016ca
+  Kiwi: f038a6c61f7a9e4d7766bff5717aa3b3fdb75f55
+  Mantle: 60acd0cd363e27d945bda0a6b8e90577112d28f3
 
 COCOAPODS: 0.36.4
