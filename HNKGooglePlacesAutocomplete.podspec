@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "HNKGooglePlacesAutocomplete"
-  s.version      = "0.1.0"
+  s.version      = "0.2.0"
   s.summary      = "A modern objective-c wrapper for the Google Places Autocomplete API"
   s.homepage     = "https://github.com/hkellaway/HNKGooglePlacesAutocomplete"
   s.license      = { :type => "MIT", :file => "LICENSE" }
@@ -11,5 +11,7 @@ Pod::Spec.new do |s|
   s.requires_arc = true
 
   s.source_files  = 'Pod/Classes'
+
+  s.dependency "Mantle", "~> 1.5"
 
 end
