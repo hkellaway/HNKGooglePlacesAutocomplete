@@ -26,19 +26,19 @@
 #import "HNKGooglePlacesAutocompleteModel.h"
 
 /**
- *   Location of the entered term in the prediction result text, so that the
- *   term can be highlighted if desired
+ *  Location of the entered term in the prediction result text, so that the
+ *  term can be highlighted if desired
  */
 @interface HNKQueryResponsePredictionMatchedSubstring
     : HNKGooglePlacesAutocompleteModel
 
 /**
- *   Length of the entered term in the prediction result text
+ *  Length of the entered term in the prediction result text
  */
 @property(nonatomic, assign, readonly) NSInteger length;
 
 /**
- *   Offset of the entered term in the prediction result text
+ *  Offset of the entered term in the prediction result text
  */
 @property(nonatomic, assign, readonly) NSInteger offset;
 
