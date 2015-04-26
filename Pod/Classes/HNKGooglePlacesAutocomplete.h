@@ -24,3 +24,6 @@
 //
 
 #import <Foundation/Foundation.h>
+
+#import "HNKGooglePlacesAutocompleteModel.h"
+#import "HNKQueryResponsePredictionTerm.h"
