@@ -24,6 +24,24 @@
 //
 
 #import "HNKQueryResponsePrediction.h"
+#import "HNKQueryResponsePredictionMatchedSubstring.h"
+#import "HNKQueryResponsePredictionTerm.h"
+
+#import "NSValueTransformer+MTLPredefinedTransformerAdditions.h"
+
+typedef NS_ENUM(NSInteger, HNKGooglePlacesAutocompletePlaceType) {
+  HNKGooglePlacesAutocompletePlaceTypeUnknown = 0,
+  HNKGooglePlacesAutocompletePlaceTypeAddress,
+  HNKGooglePlacesAutocompletePlaceTypeAdministrativeAreaLevel1,
+  HNKGooglePlacesAutocompletePlaceTypeAdministrativeAreaLevel2,
+  HNKGooglePlacesAutocompletePlaceTypeAdministrativeAreaLevel3,
+  HNKGooglePlacesAutocompletePlaceTypeCountry,
+  HNKGooglePlacesAutocompletePlaceTypeEstablishment,
+  HNKGooglePlacesAutocompletePlaceTypeGeocode,
+  HNKGooglePlacesAutocompletePlaceTypeLocality,
+  HNKGooglePlacesAutocompletePlaceTypePostalCode,
+  HNKGooglePlacesAutocompletePlaceTypeSublocality
+};
 
 @implementation HNKQueryResponsePrediction
 
@@ -39,6 +57,38 @@
     @"terms" : @"terms",
     @"types" : @"types"
   };
+}
+
++ (NSValueTransformer *)matchedSubstringsJSONTransformer {
+  return [NSValueTransformer
+      mtl_JSONArrayTransformerWithModelClass:
+          [HNKQueryResponsePredictionMatchedSubstring class]];
+}
+
++ (NSValueTransformer *)termsJSONTransformer {
+  return [NSValueTransformer mtl_JSONArrayTransformerWithModelClass:
+                                 [HNKQueryResponsePredictionTerm class]];
+}
+
++ (NSValueTransformer *)typesJSONTransformer {
+  NSDictionary *typesDictionary = @{
+    @"address" : @(HNKGooglePlacesAutocompletePlaceTypeAddress),
+    @"administrative_area_level_1" :
+        @(HNKGooglePlacesAutocompletePlaceTypeAdministrativeAreaLevel1),
+    @"administrative_area_level_2" :
+        @(HNKGooglePlacesAutocompletePlaceTypeAdministrativeAreaLevel2),
+    @"administrative_area_level_3" :
+        @(HNKGooglePlacesAutocompletePlaceTypeAdministrativeAreaLevel3),
+    @"country" : @(HNKGooglePlacesAutocompletePlaceTypeCountry),
+    @"establishment" : @(HNKGooglePlacesAutocompletePlaceTypeEstablishment),
+    @"geocode" : @(HNKGooglePlacesAutocompletePlaceTypeGeocode),
+    @"locality" : @(HNKGooglePlacesAutocompletePlaceTypeLocality),
+    @"postal_code" : @(HNKGooglePlacesAutocompletePlaceTypePostalCode),
+    @"sublocality" : @(HNKGooglePlacesAutocompletePlaceTypeSublocality)
+  };
+
+  return [NSValueTransformer
+      mtl_valueMappingTransformerWithDictionary:typesDictionary];
 }
 
 @end
