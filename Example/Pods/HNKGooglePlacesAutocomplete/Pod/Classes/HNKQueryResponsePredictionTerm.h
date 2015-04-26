@@ -26,13 +26,13 @@
 #import "HNKGooglePlacesAutocompleteModel.h"
 
 /**
- *   Term identifying a section of the returned description
+ *  Term identifying a section of the returned description
  */
 @interface HNKQueryResponsePredictionTerm : HNKGooglePlacesAutocompleteModel
 
 /**
  *  Start position of this term in the description, measured in Unicode
- * characters
+ *  characters
  */
 @property(nonatomic, assign, readonly) NSInteger offset;
 
