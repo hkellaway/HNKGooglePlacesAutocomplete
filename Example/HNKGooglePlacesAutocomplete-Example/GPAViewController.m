@@ -8,6 +8,8 @@
 
 #import "GPAViewController.h"
 
+#import <HNKGooglePlacesAutocomplete/HNKGooglePlacesAutocomplete.h>
+
 @interface GPAViewController ()
 
 @end
@@ -17,13 +19,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
-}
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    NSDictionary *predictionTermJSON = @{ @"offset" : @10, @"value" : @"BC" };
+
+    HNKQueryResponsePredictionTerm *term = [HNKQueryResponsePredictionTerm modelFromJSONDictionary:predictionTermJSON];
+    NSLog(@"term.offest = %ld, term.value = %@", (long)term.offset, term.value);
 }
 
 @end
