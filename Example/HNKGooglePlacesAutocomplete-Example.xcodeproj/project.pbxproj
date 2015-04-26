@@ -10,6 +10,7 @@
 		DC0A83E31AED6F1E001EB35D /* _clang-format in Resources */ = {isa = PBXBuildFile; fileRef = DC0A83E21AED6F1E001EB35D /* _clang-format */; };
 		DC0A83ED1AED8229001EB35D /* HNKQueryResponsePredictionTermSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = DC0A83EC1AED8229001EB35D /* HNKQueryResponsePredictionTermSpec.m */; };
 		DC0A83F61AED8F1D001EB35D /* HNKQueryReqsponsePredctionMatchedSubstringSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = DC0A83F51AED8F1D001EB35D /* HNKQueryReqsponsePredctionMatchedSubstringSpec.m */; };
+		DC345C2A1AEDA518009D3645 /* HNKQueryResponsePredictionSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = DC345C291AEDA518009D3645 /* HNKQueryResponsePredictionSpec.m */; };
 		DCA78AFD1AED6AA800F5F3B9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DCA78AFC1AED6AA800F5F3B9 /* main.m */; };
 		DCA78B001AED6AA800F5F3B9 /* GPAAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DCA78AFF1AED6AA800F5F3B9 /* GPAAppDelegate.m */; };
 		DCA78B031AED6AA800F5F3B9 /* GPAViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DCA78B021AED6AA800F5F3B9 /* GPAViewController.m */; };
@@ -40,6 +41,7 @@
 		DC0A83E21AED6F1E001EB35D /* _clang-format */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "_clang-format"; sourceTree = "<group>"; };
 		DC0A83EC1AED8229001EB35D /* HNKQueryResponsePredictionTermSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HNKQueryResponsePredictionTermSpec.m; sourceTree = "<group>"; };
 		DC0A83F51AED8F1D001EB35D /* HNKQueryReqsponsePredctionMatchedSubstringSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HNKQueryReqsponsePredctionMatchedSubstringSpec.m; sourceTree = "<group>"; };
+		DC345C291AEDA518009D3645 /* HNKQueryResponsePredictionSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HNKQueryResponsePredictionSpec.m; sourceTree = "<group>"; };
 		DCA78AF71AED6AA800F5F3B9 /* HNKGooglePlacesAutocomplete-Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "HNKGooglePlacesAutocomplete-Example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCA78AFB1AED6AA800F5F3B9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DCA78AFC1AED6AA800F5F3B9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -112,6 +114,7 @@
 		DC0A83EE1AED8362001EB35D /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				DC345C291AEDA518009D3645 /* HNKQueryResponsePredictionSpec.m */,
 				DC0A83EC1AED8229001EB35D /* HNKQueryResponsePredictionTermSpec.m */,
 				DC0A83F51AED8F1D001EB35D /* HNKQueryReqsponsePredctionMatchedSubstringSpec.m */,
 			);
@@ -360,6 +363,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DC345C2A1AEDA518009D3645 /* HNKQueryResponsePredictionSpec.m in Sources */,
 				DC0A83F61AED8F1D001EB35D /* HNKQueryReqsponsePredctionMatchedSubstringSpec.m in Sources */,
 				DC0A83ED1AED8229001EB35D /* HNKQueryResponsePredictionTermSpec.m in Sources */,
 			);

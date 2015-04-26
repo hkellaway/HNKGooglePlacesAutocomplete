@@ -30,8 +30,8 @@
 #pragma mark - Deserialization
 
 /**
- *  Deserializes a JSON array representing model objects into an array of
- *objects
+ *  Deserializes a JSON array representing model objects into an array
+ *  of objects
  *
  *  @param JSONArray JSON array representing model objects
  *
