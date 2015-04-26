@@ -1,5 +1,5 @@
 //
-//  HNKQueryResponsePreditionTermSpec.m
+//  HNKQueryResponsePredictionTermSpec.m
 //  HNKGooglePlacesAutocomplete-Example
 //
 //  Created by Harlan Kellaway on 4/26/15.
@@ -10,7 +10,7 @@
 
 #import <HNKGooglePlacesAutocomplete/HNKGooglePlacesAutocomplete.h>
 
-SPEC_BEGIN(HNKQueryResponsePreditionTermSpec)
+SPEC_BEGIN(HNKQueryResponsePredictionTermSpec)
 
 __block HNKQueryResponsePredictionTerm *testInstance;
 __block NSDictionary *json;
