@@ -1,0 +1,10 @@
+PODS:
+  - HNKGooglePlacesAutocomplete (0.1.0)
+
+DEPENDENCIES:
+  - HNKGooglePlacesAutocomplete (~> 0.1)
+
+SPEC CHECKSUMS:
+  HNKGooglePlacesAutocomplete: 726f997f25323b1a334b453b488182bcc993aa2d
+
+COCOAPODS: 0.36.4
