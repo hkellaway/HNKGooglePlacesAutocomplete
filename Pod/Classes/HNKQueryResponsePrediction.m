@@ -39,6 +39,7 @@ typedef NS_ENUM(NSInteger, HNKGooglePlacesAutocompletePlaceType) {
   HNKGooglePlacesAutocompletePlaceTypeEstablishment,
   HNKGooglePlacesAutocompletePlaceTypeGeocode,
   HNKGooglePlacesAutocompletePlaceTypeLocality,
+  HNKGooglePlacesAutocompletePlaceTypePolitical,
   HNKGooglePlacesAutocompletePlaceTypePostalCode,
   HNKGooglePlacesAutocompletePlaceTypeSublocality
 };
@@ -83,12 +84,19 @@ typedef NS_ENUM(NSInteger, HNKGooglePlacesAutocompletePlaceType) {
     @"establishment" : @(HNKGooglePlacesAutocompletePlaceTypeEstablishment),
     @"geocode" : @(HNKGooglePlacesAutocompletePlaceTypeGeocode),
     @"locality" : @(HNKGooglePlacesAutocompletePlaceTypeLocality),
+    @"political" : @(HNKGooglePlacesAutocompletePlaceTypePolitical),
     @"postal_code" : @(HNKGooglePlacesAutocompletePlaceTypePostalCode),
     @"sublocality" : @(HNKGooglePlacesAutocompletePlaceTypeSublocality)
   };
 
-  return [NSValueTransformer
-      mtl_valueMappingTransformerWithDictionary:typesDictionary];
+  return [MTLValueTransformer transformerWithBlock:^(NSArray *types) {
+    NSMutableArray *typesToReturn =
+        [NSMutableArray arrayWithCapacity:[types count]];
+    for (NSString *type in types) {
+      [typesToReturn addObject:typesDictionary[type]];
+    }
+    return [typesToReturn copy];
+  }];
 }
 
 @end
