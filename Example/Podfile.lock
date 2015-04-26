@@ -11,21 +11,21 @@ PODS:
 
 DEPENDENCIES:
   - HNKGooglePlacesAutocomplete (from `https://github.com/hkellaway/HNKGooglePlacesAutocomplete.git`,
-    branch `core/model_setup`)
+    branch `core/model_setup_matched_substring`)
   - Kiwi (~> 2.3)
 
 EXTERNAL SOURCES:
   HNKGooglePlacesAutocomplete:
-    :branch: core/model_setup
+    :branch: core/model_setup_matched_substring
     :git: https://github.com/hkellaway/HNKGooglePlacesAutocomplete.git
 
 CHECKOUT OPTIONS:
   HNKGooglePlacesAutocomplete:
-    :commit: b2a1d239fcc6affd3978803bfc725cdde972fccf
+    :commit: bdc1158467bb7dc84d248e1194d14b2d1eedf407
     :git: https://github.com/hkellaway/HNKGooglePlacesAutocomplete.git
 
 SPEC CHECKSUMS:
-  HNKGooglePlacesAutocomplete: 8da7893f29c488f92fb42a586176392875f6c746
+  HNKGooglePlacesAutocomplete: b1f7a144638f17c1456e0f0178c64783b765fc69
   Kiwi: f038a6c61f7a9e4d7766bff5717aa3b3fdb75f55
   Mantle: 60acd0cd363e27d945bda0a6b8e90577112d28f3
 
