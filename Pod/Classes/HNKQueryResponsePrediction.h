@@ -15,27 +15,29 @@
  *
  *  Note: For establishment results, this is usually the business name
  */
-@property (nonatomic, strong, readonly) NSString *predictionDescription;
+@property(nonatomic, strong, readonly) NSString *predictionDescription;
 
 /**
- *  Collection of QueryResponsePredictionMatchedSubstrings that the location of the entered term in the prediction
- *  result text, so that the term can be highlighted if desired
+ *  Collection of QueryResponsePredictionMatchedSubstrings that the location
+ *  of the entered term in the predictionresult text, so that the term can be
+ *  highlighted if desired
  */
-@property (nonatomic, strong, readonly) NSArray *matchedSubStrings;
+@property(nonatomic, strong, readonly) NSArray *matchedSubstrings;
 
 /**
- *   A textual identifier that uniquely identifies a place
+ *  A textual identifier that uniquely identifies a place
  */
-@property (nonatomic, strong, readonly) NSString *placeId;
+@property(nonatomic, strong, readonly) NSString *placeId;
 
 /**
- *   A collection of QueryResponsePredictionTerms identifying each section of the returned description
+ *  A collection of QueryResponsePredictionTerms identifying each section
+ *  of the returned description
  */
-@property (nonatomic, strong, readonly) NSArray *terms;
+@property(nonatomic, strong, readonly) NSArray *terms;
 
 /**
- *   A collction of QueryResponsePredictionTypes that apply to this place
+ *  A collection of PlaceTypes that apply to this place
  */
-@property (nonatomic, strong, readonly) NSArray *types;
+@property(nonatomic, strong, readonly) NSArray *types;
 
 @end
