@@ -29,21 +29,6 @@
 
 #import "NSValueTransformer+MTLPredefinedTransformerAdditions.h"
 
-typedef NS_ENUM(NSInteger, HNKGooglePlacesAutocompletePlaceType) {
-  HNKGooglePlacesAutocompletePlaceTypeUnknown = 0,
-  HNKGooglePlacesAutocompletePlaceTypeAddress,
-  HNKGooglePlacesAutocompletePlaceTypeAdministrativeAreaLevel1,
-  HNKGooglePlacesAutocompletePlaceTypeAdministrativeAreaLevel2,
-  HNKGooglePlacesAutocompletePlaceTypeAdministrativeAreaLevel3,
-  HNKGooglePlacesAutocompletePlaceTypeCountry,
-  HNKGooglePlacesAutocompletePlaceTypeEstablishment,
-  HNKGooglePlacesAutocompletePlaceTypeGeocode,
-  HNKGooglePlacesAutocompletePlaceTypeLocality,
-  HNKGooglePlacesAutocompletePlaceTypePolitical,
-  HNKGooglePlacesAutocompletePlaceTypePostalCode,
-  HNKGooglePlacesAutocompletePlaceTypeSublocality
-};
-
 @implementation HNKQueryResponsePrediction
 
 #pragma mark - Protocol conformance
