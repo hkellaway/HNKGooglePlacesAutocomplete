@@ -27,4 +27,12 @@
 
 @implementation HNKQueryResponsePredictionMatchedSubstring
 
+#pragma mark - Protocol conformance
+
+#pragma mark <MTLJSONSerializing>
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+  return @{ @"length" : @"length", @"offset" : @"offset" };
+}
+
 @end
