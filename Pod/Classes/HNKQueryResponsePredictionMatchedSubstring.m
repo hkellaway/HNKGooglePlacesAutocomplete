@@ -1,5 +1,5 @@
 //
-//  HNKQueryResponsePreditionTerm.h
+//  HNKQueryResponsePredictionMatchedSubstring.m
 //  HNKGooglePlacesAutocomplete
 //
 // Copyright (c) 2015 Harlan Kellaway
@@ -23,22 +23,8 @@
 // THE SOFTWARE.
 //
 
-#import "HNKGooglePlacesAutocompleteModel.h"
+#import "HNKQueryResponsePredictionMatchedSubstring.h"
 
-/**
- *   Term identifying a section of the returned description
- */
-@interface HNKQueryResponsePredictionTerm : HNKGooglePlacesAutocompleteModel
-
-/**
- *  Start position of this term in the description, measured in Unicode
- * characters
- */
-@property(nonatomic, assign, readonly) NSInteger offset;
-
-/**
- *  Text of the term
- */
-@property(nonatomic, strong, readonly) NSString *value;
+@implementation HNKQueryResponsePredictionMatchedSubstring
 
 @end
