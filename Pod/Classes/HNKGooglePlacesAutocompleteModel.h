@@ -27,4 +27,9 @@
 
 @interface HNKGooglePlacesAutocompleteModel : MTLModel <MTLJSONSerializing>
 
+#pragma mark - Deserialization
+
++ (NSArray *)modelsArrayFromJSONArray:(NSArray *)JSONArray;
++ (instancetype)modelFromJSONDictionary:(NSDictionary *)JSONDictionary;
+
 @end

@@ -10,7 +10,11 @@ Pod::Spec.new do |s|
   s.platform     = :ios, "8.0"
   s.requires_arc = true
 
-  s.source_files  = 'Pod/Classes'
+  s.source_files  = 'Pod/Classes/HNKGooglePlacesAutocomplete.{h,m}'
+
+  s.subspec 'Models' do |ss|
+    ss.source_files = 'Pod/Classes/HNKGooglePlacesAutocompleteModel.{h,m}', 'Pod/Classes/HNKQueryResponsePredictionTerm.{h,m}'
+  end
 
   s.dependency "Mantle", "~> 1.5"
 
