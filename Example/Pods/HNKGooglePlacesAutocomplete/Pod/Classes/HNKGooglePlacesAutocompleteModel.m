@@ -1,5 +1,5 @@
 //
-//  HNKGooglePlacesAutocomplete.h
+//  HNKGooglePlacesAutocompleteModel.h
 //  HNKGooglePlacesAutocomplete
 //
 // Copyright (c) 2015 Harlan Kellaway
@@ -23,8 +23,45 @@
 // THE SOFTWARE.
 //
 
-#import <Foundation/Foundation.h>
-
 #import "HNKGooglePlacesAutocompleteModel.h"
-#import "HNKQueryResponsePredictionMatchedSubstring.h"
-#import "HNKQueryResponsePredictionTerm.h"
+
+@implementation HNKGooglePlacesAutocompleteModel
+
+#pragma mark - Deserialization
+
++ (NSArray *)modelsArrayFromJSONArray:(NSArray *)JSONArray {
+  NSMutableArray *models = [NSMutableArray arrayWithCapacity:[JSONArray count]];
+
+  [JSONArray enumerateObjectsUsingBlock:^(NSDictionary *JSONDictionary,
+                                          NSUInteger idx, BOOL *stop) {
+    HNKGooglePlacesAutocompleteModel *model =
+        [[self class] modelFromJSONDictionary:JSONDictionary];
+    [models addObject:model];
+  }];
+
+  return models;
+}
+
++ (instancetype)modelFromJSONDictionary:(NSDictionary *)JSONDictionary {
+  NSError *error = nil;
+  HNKGooglePlacesAutocompleteModel *model =
+      [MTLJSONAdapter modelOfClass:[self class]
+                fromJSONDictionary:JSONDictionary
+                             error:&error];
+
+  if (error) {
+    return nil;
+  }
+
+  return model;
+}
+
+#pragma mark - Protocol conformance
+
+#pragma mark <MTLJSONSerializing>
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+  return @{};
+}
+
+@end

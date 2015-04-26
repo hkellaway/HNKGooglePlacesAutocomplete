@@ -1,5 +1,5 @@
 //
-//  HNKGooglePlacesAutocomplete.h
+//  HNKQueryResponsePredictionMatchedSubstring.m
 //  HNKGooglePlacesAutocomplete
 //
 // Copyright (c) 2015 Harlan Kellaway
@@ -23,8 +23,8 @@
 // THE SOFTWARE.
 //
 
-#import <Foundation/Foundation.h>
-
-#import "HNKGooglePlacesAutocompleteModel.h"
 #import "HNKQueryResponsePredictionMatchedSubstring.h"
-#import "HNKQueryResponsePredictionTerm.h"
+
+@implementation HNKQueryResponsePredictionMatchedSubstring
+
+@end
