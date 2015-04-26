@@ -1,5 +1,5 @@
 //
-//  AppDelegate.h
+//  GPAAppDelegate.h
 //  HNKGooglePlacesAutocomplete-Example
 //
 //  Created by Harlan Kellaway on 4/26/15.
@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
+@interface GPAAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 

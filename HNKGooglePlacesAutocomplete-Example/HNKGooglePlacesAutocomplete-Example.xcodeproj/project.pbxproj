@@ -8,8 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		DCA78ACB1AED604200F5F3B9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DCA78ACA1AED604200F5F3B9 /* main.m */; };
-		DCA78ACE1AED604200F5F3B9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DCA78ACD1AED604200F5F3B9 /* AppDelegate.m */; };
-		DCA78AD11AED604200F5F3B9 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DCA78AD01AED604200F5F3B9 /* ViewController.m */; };
+		DCA78ACE1AED604200F5F3B9 /* GPAAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DCA78ACD1AED604200F5F3B9 /* GPAAppDelegate.m */; };
+		DCA78AD11AED604200F5F3B9 /* GPAViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DCA78AD01AED604200F5F3B9 /* GPAViewController.m */; };
 		DCA78AD41AED604200F5F3B9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DCA78AD21AED604200F5F3B9 /* Main.storyboard */; };
 		DCA78AD61AED604200F5F3B9 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DCA78AD51AED604200F5F3B9 /* Images.xcassets */; };
 		DCA78AD91AED604200F5F3B9 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = DCA78AD71AED604200F5F3B9 /* LaunchScreen.xib */; };
@@ -30,10 +30,10 @@
 		DCA78AC51AED604200F5F3B9 /* HNKGooglePlacesAutocomplete-Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "HNKGooglePlacesAutocomplete-Example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCA78AC91AED604200F5F3B9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DCA78ACA1AED604200F5F3B9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		DCA78ACC1AED604200F5F3B9 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		DCA78ACD1AED604200F5F3B9 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		DCA78ACF1AED604200F5F3B9 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		DCA78AD01AED604200F5F3B9 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		DCA78ACC1AED604200F5F3B9 /* GPAAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GPAAppDelegate.h; sourceTree = "<group>"; };
+		DCA78ACD1AED604200F5F3B9 /* GPAAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GPAAppDelegate.m; sourceTree = "<group>"; };
+		DCA78ACF1AED604200F5F3B9 /* GPAViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GPAViewController.h; sourceTree = "<group>"; };
+		DCA78AD01AED604200F5F3B9 /* GPAViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GPAViewController.m; sourceTree = "<group>"; };
 		DCA78AD31AED604200F5F3B9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DCA78AD51AED604200F5F3B9 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		DCA78AD81AED604200F5F3B9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -81,10 +81,10 @@
 		DCA78AC71AED604200F5F3B9 /* HNKGooglePlacesAutocomplete-Example */ = {
 			isa = PBXGroup;
 			children = (
-				DCA78ACC1AED604200F5F3B9 /* AppDelegate.h */,
-				DCA78ACD1AED604200F5F3B9 /* AppDelegate.m */,
-				DCA78ACF1AED604200F5F3B9 /* ViewController.h */,
-				DCA78AD01AED604200F5F3B9 /* ViewController.m */,
+				DCA78ACC1AED604200F5F3B9 /* GPAAppDelegate.h */,
+				DCA78ACD1AED604200F5F3B9 /* GPAAppDelegate.m */,
+				DCA78ACF1AED604200F5F3B9 /* GPAViewController.h */,
+				DCA78AD01AED604200F5F3B9 /* GPAViewController.m */,
 				DCA78AD21AED604200F5F3B9 /* Main.storyboard */,
 				DCA78AD51AED604200F5F3B9 /* Images.xcassets */,
 				DCA78AD71AED604200F5F3B9 /* LaunchScreen.xib */,
@@ -163,6 +163,7 @@
 		DCA78ABD1AED604200F5F3B9 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = GPA;
 				LastUpgradeCheck = 0630;
 				ORGANIZATIONNAME = "Harlan Kellaway";
 				TargetAttributes = {
@@ -219,8 +220,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DCA78AD11AED604200F5F3B9 /* ViewController.m in Sources */,
-				DCA78ACE1AED604200F5F3B9 /* AppDelegate.m in Sources */,
+				DCA78AD11AED604200F5F3B9 /* GPAViewController.m in Sources */,
+				DCA78ACE1AED604200F5F3B9 /* GPAAppDelegate.m in Sources */,
 				DCA78ACB1AED604200F5F3B9 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -299,7 +300,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -337,7 +338,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";

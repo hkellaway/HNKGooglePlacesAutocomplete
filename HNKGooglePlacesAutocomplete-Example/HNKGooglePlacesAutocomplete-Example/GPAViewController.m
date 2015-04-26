@@ -1,18 +1,18 @@
 //
-//  ViewController.m
+//  GPAViewController.m
 //  HNKGooglePlacesAutocomplete-Example
 //
 //  Created by Harlan Kellaway on 4/26/15.
 //  Copyright (c) 2015 Harlan Kellaway. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "GPAViewController.h"
 
-@interface ViewController ()
+@interface GPAViewController ()
 
 @end
 
-@implementation ViewController
+@implementation GPAViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];

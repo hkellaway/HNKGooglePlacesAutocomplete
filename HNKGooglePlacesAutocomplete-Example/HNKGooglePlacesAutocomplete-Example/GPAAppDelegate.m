@@ -1,18 +1,18 @@
 //
-//  AppDelegate.m
+//  GPAAppDelegate.m
 //  HNKGooglePlacesAutocomplete-Example
 //
 //  Created by Harlan Kellaway on 4/26/15.
 //  Copyright (c) 2015 Harlan Kellaway. All rights reserved.
 //
 
-#import "AppDelegate.h"
+#import "GPAAppDelegate.h"
 
-@interface AppDelegate ()
+@interface GPAAppDelegate ()
 
 @end
 
-@implementation AppDelegate
+@implementation GPAAppDelegate
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
