@@ -29,7 +29,27 @@
 
 #pragma mark - Deserialization
 
+/**
+ *  Deserializes a JSON array representing model objects into an array of
+ *objects
+ *
+ *  @param JSONArray JSON array representing model objects
+ *
+ *  @return Array of model objects
+ *
+ *  @warning Returns nil if an error occurs during deserialization
+ */
 + (NSArray *)modelsArrayFromJSONArray:(NSArray *)JSONArray;
+
+/**
+ *  Deserializes a JSON dictionary representing one model object into an object
+ *
+ *  @param JSONDictionary JSON dictionary representing one model object
+ *
+ *  @return A model object
+ *
+ *  @warning Returns nil if an error occurs during deserialization
+ */
 + (instancetype)modelFromJSONDictionary:(NSDictionary *)JSONDictionary;
 
 @end
