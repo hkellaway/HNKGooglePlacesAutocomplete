@@ -20,10 +20,10 @@ beforeAll(^{
 
 describe(@"Example", ^{
 
-    describe(@"shouldPass",
-             ^{
-                 [[theValue(shouldPass) should] equal:theValue(YES)];
-             });
+    it(@"shouldPass",
+       ^{
+           [[theValue(shouldPass) should] equal:theValue(YES)];
+       });
 });
 
 SPEC_END
