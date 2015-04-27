@@ -16,6 +16,7 @@ Pod::Spec.new do |s|
     ss.source_files = 'Pod/Classes/HNKGooglePlacesAutocompleteModel.{h,m}', 'Pod/Classes/HNKQueryResponse.{h,m}', 'Pod/Classes/HNKQueryResponsePrediction.{h,m}', 'Pod/Classes/HNKQueryResponsePredictionMatchedSubstring.{h,m}', 'Pod/Classes/HNKQueryResponsePredictionTerm.{h,m}'
   end
 
+  s.dependency "HNKServerFacade", "~> 0.2"
   s.dependency "Mantle", "~> 1.5"
 
 end
