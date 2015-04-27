@@ -22,14 +22,12 @@
 
     NSDictionary *predictionTermJSON = @{ @"offset" : @10, @"value" : @"BC" };
     HNKQueryResponsePredictionTerm *term = [HNKQueryResponsePredictionTerm modelFromJSONDictionary:predictionTermJSON];
-    NSLog(@"term.offest = %ld, term.value = %@", (long)term.offset, term.value);
+    NSLog(@"term = %@", term);
 
     NSDictionary *predictionMatchedSubstringJSON = @{ @"length" : @4, @"offset" : @0 };
     HNKQueryResponsePredictionMatchedSubstring *matchedSubstring =
         [HNKQueryResponsePredictionMatchedSubstring modelFromJSONDictionary:predictionMatchedSubstringJSON];
-    NSLog(@"matchedSbustring.length = %ld, matchedSbustring.offset = %ld",
-          (long)matchedSubstring.length,
-          matchedSubstring.offset);
+    NSLog(@"matched substring = %@", matchedSubstring);
 
     NSDictionary *predictionJSON = @{
         @"description" : @"Victoria, BC, Canadá",
@@ -47,6 +45,10 @@
     };
     HNKQueryResponsePrediction *prediction = [HNKQueryResponsePrediction modelFromJSONDictionary:predictionJSON];
     NSLog(@"prediction = %@", prediction);
+
+    NSDictionary *queryResponseJSON = @{ @"predictions" : @[ predictionJSON ], @"status" : @"OK" };
+    HNKQueryResponse *queryResponse = [HNKQueryResponse modelFromJSONDictionary:queryResponseJSON];
+    NSLog(@"query response = %@", queryResponse);
 }
 
 @end
