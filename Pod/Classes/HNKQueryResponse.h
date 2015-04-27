@@ -26,31 +26,32 @@
 #import "HNKGooglePlacesAutocompleteModel.h"
 
 typedef NS_ENUM(NSInteger, HNKQueryResponseStatus) {
-    /**
-     *  Unknown status
-     */
-    HNKQueryResponseStatusUnknown = 0,
-    /**
-     *  Indicates that the input parameter is missing, generally
-     */
-    HNKQueryResponseStatusInvalidRequest,
-    /**
-     *   Indicates that no errors occurred and at least one result was returned
-     */
-    HNKQueryResponseStatusOK,
-    /**
-     *  Indicates that you are over your quota
-     */
-    HNKQueryResponseStatusOverQueryLimit,
-    /**
-     *  Indicates that your request was denied, generally because of lack of an invalid key parameter
-     */
-    HNKQueryResponseStatusRequestDenied,
-    /**
-     *  Indicates that the search was successful but returned no results. This may occur if the search
-     *  was passed a bounds in a remote location
-     */
-    HNKQueryResponseStatusZeroResults
+  /**
+   *  Unknown status
+   */
+  HNKQueryResponseStatusUnknown = 0,
+  /**
+   *  Indicates that the input parameter is missing, generally
+   */
+  HNKQueryResponseStatusInvalidRequest,
+  /**
+   *   Indicates that no errors occurred and at least one result was returned
+   */
+  HNKQueryResponseStatusOK,
+  /**
+   *  Indicates that you are over your quota
+   */
+  HNKQueryResponseStatusOverQueryLimit,
+  /**
+   *  Indicates that your request was denied, generally because of lack of an
+   *  invalid key parameter
+   */
+  HNKQueryResponseStatusRequestDenied,
+  /**
+   *  Indicates that the search was successful but returned no results. This may
+   *  occur if the search was passed a bounds in a remote location
+   */
+  HNKQueryResponseStatusZeroResults
 };
 
 /**
@@ -61,12 +62,12 @@ typedef NS_ENUM(NSInteger, HNKQueryResponseStatus) {
 /**
  *  Collection of QueryResponsePredictions returned from the query
  */
-@property (nonatomic, strong, readonly) NSArray *predictions;
+@property(nonatomic, strong, readonly) NSArray *predictions;
 
 /**
- *  Status of the QueryResponse which may contain debugging information to help you track down why
- *  the query request failed
+ *  Status of the QueryResponse which may contain debugging information to help
+ *  you track down why the query request failed
  */
-@property (nonatomic, assign, readonly) HNKQueryResponseStatus status;
+@property(nonatomic, assign, readonly) HNKQueryResponseStatus status;
 
 @end

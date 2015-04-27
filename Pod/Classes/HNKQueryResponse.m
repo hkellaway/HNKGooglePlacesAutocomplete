@@ -24,7 +24,35 @@
 //
 
 #import "HNKQueryResponse.h"
+#import "HNKQueryResponsePrediction.h"
 
 @implementation HNKQueryResponse
+
+#pragma mark - Protocol conformance
+
+#pragma mark <MTLJSONSerializing>
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+  return @{ @"predictions" : @"predictions", @"status" : @"status" };
+}
+
++ (NSValueTransformer *)predictionsJSONTransformer {
+  return [NSValueTransformer mtl_JSONArrayTransformerWithModelClass:
+                                 [HNKQueryResponsePrediction class]];
+}
+
++ (NSValueTransformer *)typesJSONTransformer {
+  NSDictionary *statusesDictionary = @{
+    @"INVALID_REQUEST" : @(HNKQueryResponseStatusInvalidRequest),
+    @"OK" : @(HNKQueryResponseStatusOK),
+    @"OVER_QUERY_LIMIT" : @(HNKQueryResponseStatusOverQueryLimit),
+    @"REQUEST_DENIED" : @(HNKQueryResponseStatusRequestDenied),
+    @"ZERO_RESULTS" : @(HNKQueryResponseStatusZeroResults)
+  };
+
+  return [MTLValueTransformer transformerWithBlock:^(NSString *status) {
+    return statusesDictionary[status];
+  }];
+}
 
 @end
