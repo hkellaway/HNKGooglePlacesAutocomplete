@@ -1,5 +1,5 @@
 //
-//  HNKGooglePlacesAutocomplete.h
+//  HNKQueryResponse.m
 //  HNKGooglePlacesAutocomplete
 //
 // Copyright (c) 2015 Harlan Kellaway
@@ -23,10 +23,36 @@
 // THE SOFTWARE.
 //
 
-#import <Foundation/Foundation.h>
-
-#import "HNKGooglePlacesAutocompleteModel.h"
 #import "HNKQueryResponse.h"
 #import "HNKQueryResponsePrediction.h"
-#import "HNKQueryResponsePredictionMatchedSubstring.h"
-#import "HNKQueryResponsePredictionTerm.h"
+
+@implementation HNKQueryResponse
+
+#pragma mark - Protocol conformance
+
+#pragma mark <MTLJSONSerializing>
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+  return @{ @"predictions" : @"predictions", @"status" : @"status" };
+}
+
++ (NSValueTransformer *)predictionsJSONTransformer {
+  return [NSValueTransformer mtl_JSONArrayTransformerWithModelClass:
+                                 [HNKQueryResponsePrediction class]];
+}
+
++ (NSValueTransformer *)statusJSONTransformer {
+  NSDictionary *statusesDictionary = @{
+    @"INVALID_REQUEST" : @(HNKQueryResponseStatusInvalidRequest),
+    @"OK" : @(HNKQueryResponseStatusOK),
+    @"OVER_QUERY_LIMIT" : @(HNKQueryResponseStatusOverQueryLimit),
+    @"REQUEST_DENIED" : @(HNKQueryResponseStatusRequestDenied),
+    @"ZERO_RESULTS" : @(HNKQueryResponseStatusZeroResults)
+  };
+
+  return [MTLValueTransformer transformerWithBlock:^(NSString *status) {
+    return statusesDictionary[status];
+  }];
+}
+
+@end
