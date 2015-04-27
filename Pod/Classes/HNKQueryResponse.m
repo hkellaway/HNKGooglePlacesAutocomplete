@@ -41,7 +41,7 @@
                                  [HNKQueryResponsePrediction class]];
 }
 
-+ (NSValueTransformer *)typesJSONTransformer {
++ (NSValueTransformer *)statusJSONTransformer {
   NSDictionary *statusesDictionary = @{
     @"INVALID_REQUEST" : @(HNKQueryResponseStatusInvalidRequest),
     @"OK" : @(HNKQueryResponseStatusOK),
