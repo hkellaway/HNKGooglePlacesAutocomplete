@@ -26,53 +26,42 @@
 #import "HNKGooglePlacesAutocompleteServer.h"
 #import "HNKServer.h"
 
-static NSString *const kHNKServerBaseURL = @"https://maps.googleapis.com/maps/api/";
-
-@interface HNKGooglePlacesAutocompleteServer ()
-
-@property (nonatomic, strong) HNKServer *server;
-
-@end
+static NSString *const kHNKGooglePlacesAutocompleteServerBaseURL =
+    @"https://maps.googleapis.com/maps/api/";
 
 @implementation HNKGooglePlacesAutocompleteServer
 
-#pragma mark - Initialization
+#pragma mark - Overrides
 
-static HNKGooglePlacesAutocompleteServer *sharedServer = nil;
++ (void)initialize {
+  if (self == [HNKGooglePlacesAutocompleteServer class]) {
 
-+ (instancetype)sharedServer
-{
-    static dispatch_once_t onceToken;
-
-    dispatch_once(&onceToken,
-                  ^{
-                      sharedServer = [[self alloc] init];
-
-                      [HNKServer setupWithBaseUrl:kHNKServerBaseURL];
-                  });
-
-    return sharedServer;
+    [HNKServer setupWithBaseUrl:kHNKGooglePlacesAutocompleteServerBaseURL];
+  }
 }
 
 #pragma mark - Requests
 
-- (void)GET:(NSString *)path parameters:(NSDictionary *)parameters completion:(void (^)(id JSON, NSError *))completion
-{
-    [HNKServer GET:path
-        parameters:parameters
-        completion:^(id responseObject, NSError *error) {
++ (void)GET:(NSString *)path
+    parameters:(NSDictionary *)parameters
+    completion:(void (^)(id JSON, NSError *))completion {
+  NSAssert([HNKServer baseURLString] != nil, @"Server should be setup");
 
-            if (completion) {
+  [HNKServer GET:path
+      parameters:parameters
+      completion:^(id responseObject, NSError *error) {
 
-                if (error) {
-                    completion(nil, error);
-                    return;
-                }
+        if (completion) {
 
-                completion(responseObject, nil);
-            }
+          if (error) {
+            completion(nil, error);
+            return;
+          }
 
-        }];
+          completion(responseObject, nil);
+        }
+
+      }];
 }
 
 @end
