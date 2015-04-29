@@ -9,6 +9,7 @@
 #import "GPAViewController.h"
 
 #import <HNKGooglePlacesAutocomplete/HNKGooglePlacesAutocomplete.h>
+#import <HNKGooglePlacesAutocomplete/HNKGooglePlacesAutocompleteServer.h>
 
 @interface GPAViewController ()
 
@@ -49,6 +50,19 @@
     NSDictionary *queryResponseJSON = @{ @"predictions" : @[ predictionJSON ], @"status" : @"OK" };
     HNKQueryResponse *queryResponse = [HNKQueryResponse modelFromJSONDictionary:queryResponseJSON];
     NSLog(@"query response = %@", queryResponse);
+
+    [HNKGooglePlacesAutocompleteServer GET:@"place/autocomplete/json"
+                                parameters:@{
+                                    @"input" : @"Vict",
+                                    @"types" : @"geocode",
+                                    @"language" : @"en",
+                                    @"key" : @"AIzaSyAkR80JQgRgfnqBl6Db2RsnmkCG1LhuVn8"
+                                }
+                                completion:^(id JSON, NSError *error) {
+
+                                    NSLog(@"%@", JSON);
+
+                                }];
 }
 
 @end
