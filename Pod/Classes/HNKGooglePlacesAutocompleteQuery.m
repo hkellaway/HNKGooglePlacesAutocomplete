@@ -10,7 +10,7 @@
 
 @interface HNKGooglePlacesAutocompleteQuery ()
 
-@property (nonatomic, strong) NSString *apiKey;
+@property(nonatomic, strong) NSString *apiKey;
 
 @end
 
@@ -20,34 +20,38 @@
 
 static HNKGooglePlacesAutocompleteQuery *sharedQuery = nil;
 
-+ (instancetype)setupSharedQueryWithAPIKey:(NSString *)apiKey
-{
-    static dispatch_once_t onceToken;
++ (instancetype)setupSharedQueryWithAPIKey:(NSString *)apiKey {
+  static dispatch_once_t onceToken;
 
-    dispatch_once(&onceToken,
-                  ^{
-                      sharedQuery = [[self alloc] initWithAPIKey:apiKey];
-                  });
+  dispatch_once(&onceToken, ^{
+    sharedQuery = [[self alloc] initWithAPIKey:apiKey];
+  });
 
-    return sharedQuery;
+  return sharedQuery;
 }
 
-+ (instancetype)sharedQuery
-{
-    NSAssert(sharedQuery != nil, @"sharedQuery should not be called before setupSharedQueryWithAPIKey");
++ (instancetype)sharedQuery {
+  NSAssert(
+      sharedQuery != nil,
+      @"sharedQuery should not be called before setupSharedQueryWithAPIKey");
 
-    return sharedQuery;
+  return sharedQuery;
 }
 
-- (instancetype)initWithAPIKey:(NSString *)apiKey
-{
-    self = [super init];
+- (instancetype)initWithAPIKey:(NSString *)apiKey {
+  self = [super init];
 
-    if (self) {
-        self.apiKey = apiKey;
-    }
+  if (self) {
+    self.apiKey = apiKey;
+  }
 
-    return self;
+  return self;
+}
+
+- (instancetype)init {
+  NSAssert(FALSE, @"init should not be called");
+
+  return [self initWithAPIKey:@""];
 }
 
 @end
