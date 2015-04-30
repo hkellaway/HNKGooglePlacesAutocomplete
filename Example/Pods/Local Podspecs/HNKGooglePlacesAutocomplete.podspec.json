@@ -32,6 +32,7 @@
       "name": "Models",
       "source_files": [
         "Pod/Classes/HNKGooglePlacesAutocompleteModel.{h,m}",
+        "Pod/Classes/HNKGooglePlacesAutocompleteQuery.{h,m}",
         "Pod/Classes/HNKQueryResponse.{h,m}",
         "Pod/Classes/HNKQueryResponsePrediction.{h,m}",
         "Pod/Classes/HNKQueryResponsePredictionMatchedSubstring.{h,m}",
