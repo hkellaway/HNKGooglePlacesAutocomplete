@@ -33,7 +33,7 @@
     NSDictionary *predictionJSON = @{
         @"description" : @"Victoria, BC, Canadá",
         @"id" : @"d5892cffd777f0252b94ab2651fea7123d2aa34a",
-        @"matched_substrings" : @[ @{@"length" : @4, @"offset" : @0} ],
+        @"matched_substrings" : @[ predictionMatchedSubstringJSON ],
         @"place_id" : @"ChIJcWGw3Ytzj1QR7Ui7HnTz6Dg",
         @"reference" : @"CjQtAAAA903zyJZAu2FLA6KkdC7UAddRHAfHQDpArCk61FI_"
         @"u1Ig7WaJqBiXYsQvORYMcgILEhAFvGtwa5VQpswubIIzwI5wGhTt8vgj6CSQp8QWYb4U1rXmlkg9bg",
