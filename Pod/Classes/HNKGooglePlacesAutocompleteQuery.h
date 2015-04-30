@@ -44,7 +44,8 @@
 
 #pragma mark - Requests
 
-- (void)fetchPlacesWithInput:(NSString *)input
-                  completion:(void (^)(NSArray *places, NSError *))completion;
+- (void)fetchPlacesWithSearchQuery:(NSString *)searchQuery
+                        completion:
+                            (void (^)(NSArray *places, NSError *))completion;
 
 @end
