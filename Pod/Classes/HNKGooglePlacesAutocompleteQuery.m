@@ -98,27 +98,13 @@ static HNKGooglePlacesAutocompleteQuery *sharedQuery = nil;
 
           // TODO: If status is not OK, custom error
 
-          NSArray *places = [NSArray array];
+          NSAssert([JSON isKindOfClass:[NSDictionary class]],
+                   @"JSON should be a dictionary");
 
-          if ([JSON isKindOfClass:[NSDictionary class]]) {
-            HNKQueryResponse *queryResponse =
-                [HNKQueryResponse modelFromJSONDictionary:JSON];
-            places = queryResponse.predictions;
-          }
+          HNKQueryResponse *queryResponse =
+              [HNKQueryResponse modelFromJSONDictionary:JSON];
 
-          if ([JSON isKindOfClass:[NSArray class]]) {
-            NSArray *queryResponses =
-                [HNKQueryResponse modelsArrayFromJSONArray:JSON];
-            NSMutableArray *mutablePlaces = [NSMutableArray array];
-
-            for (HNKQueryResponse *queryResponse in queryResponses) {
-              [mutablePlaces addObjectsFromArray:queryResponse.predictions];
-            }
-
-            places = [mutablePlaces copy];
-          }
-
-          completion(places, nil);
+          completion(queryResponse.predictions, nil);
         }
 
       }];
