@@ -23,9 +23,12 @@
 // THE SOFTWARE.
 //
 
-#import "HNKGooglePlacesAutocompleteServer.h"
 #import "HNKGooglePlacesAutocompleteQuery.h"
+#import "HNKGooglePlacesAutocompleteServer.h"
 #import "HNKQueryResponse.h"
+
+static NSString *const kHNKGooglePlacesAutocompleteServerRequestPath =
+    @"place/autocomplete/json";
 
 @interface HNKGooglePlacesAutocompleteQuery ()
 
@@ -75,46 +78,50 @@ static HNKGooglePlacesAutocompleteQuery *sharedQuery = nil;
 
 #pragma mark - Requests
 
-- (void)fetchPlacesWithInput:(NSString *)input
-                  completion:(void (^)(NSArray *, NSError *))completion {
+- (void)fetchPlacesWithSearchQuery:(NSString *)searchQuery
+                        completion:(void (^)(NSArray *, NSError *))completion {
   [HNKGooglePlacesAutocompleteServer
-      GETRequestWithInput:input
-               completion:^(id JSON, NSError *error) {
+             GET:kHNKGooglePlacesAutocompleteServerRequestPath
+      parameters:@{
+        @"input" : searchQuery,
+        @"key" : self.apiKey,
+        @"radius" : @500
+      }
+      completion:^(id JSON, NSError *error) {
 
-                 if (completion) {
+        if (completion) {
 
-                   if (error) {
-                     completion(nil, error);
-                     return;
-                   }
+          if (error) {
+            completion(nil, error);
+            return;
+          }
 
-                   // TODO: If status is not OK, custom error
+          // TODO: If status is not OK, custom error
 
-                   NSArray *places = [NSArray array];
+          NSArray *places = [NSArray array];
 
-                   if ([JSON isKindOfClass:[NSDictionary class]]) {
-                     HNKQueryResponse *queryResponse =
-                         [HNKQueryResponse modelFromJSONDictionary:JSON];
-                     places = queryResponse.predictions;
-                   }
+          if ([JSON isKindOfClass:[NSDictionary class]]) {
+            HNKQueryResponse *queryResponse =
+                [HNKQueryResponse modelFromJSONDictionary:JSON];
+            places = queryResponse.predictions;
+          }
 
-                   if ([JSON isKindOfClass:[NSArray class]]) {
-                     NSArray *queryResponses =
-                         [HNKQueryResponse modelsArrayFromJSONArray:JSON];
-                     NSMutableArray *mutablePlaces = [NSMutableArray array];
+          if ([JSON isKindOfClass:[NSArray class]]) {
+            NSArray *queryResponses =
+                [HNKQueryResponse modelsArrayFromJSONArray:JSON];
+            NSMutableArray *mutablePlaces = [NSMutableArray array];
 
-                     for (HNKQueryResponse *queryResponse in queryResponses) {
-                       [mutablePlaces
-                           addObjectsFromArray:queryResponse.predictions];
-                     }
+            for (HNKQueryResponse *queryResponse in queryResponses) {
+              [mutablePlaces addObjectsFromArray:queryResponse.predictions];
+            }
 
-                     places = [mutablePlaces copy];
-                   }
+            places = [mutablePlaces copy];
+          }
 
-                   completion(places, nil);
-                 }
+          completion(places, nil);
+        }
 
-               }];
+      }];
 }
 
 @end
