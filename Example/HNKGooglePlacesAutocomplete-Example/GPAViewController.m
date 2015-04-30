@@ -8,61 +8,20 @@
 
 #import "GPAViewController.h"
 
-#import <HNKGooglePlacesAutocomplete/HNKGooglePlacesAutocomplete.h>
-#import <HNKGooglePlacesAutocomplete/HNKGooglePlacesAutocompleteQuery.h>
-
 @interface GPAViewController ()
 
 @end
 
 @implementation GPAViewController
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
+    // Do any additional setup after loading the view, typically from a nib.
+}
 
-    NSDictionary *predictionTermJSON = @{ @"offset" : @10, @"value" : @"BC" };
-    HNKQueryResponsePredictionTerm *term = [HNKQueryResponsePredictionTerm modelFromJSONDictionary:predictionTermJSON];
-    NSLog(@"term = %@", term);
-
-    NSDictionary *predictionMatchedSubstringJSON = @{ @"length" : @4, @"offset" : @0 };
-    HNKQueryResponsePredictionMatchedSubstring *matchedSubstring =
-        [HNKQueryResponsePredictionMatchedSubstring modelFromJSONDictionary:predictionMatchedSubstringJSON];
-    NSLog(@"matched substring = %@", matchedSubstring);
-
-    NSDictionary *predictionJSON = @{
-        @"description" : @"Victoria, BC, Canadá",
-        @"id" : @"d5892cffd777f0252b94ab2651fea7123d2aa34a",
-        @"matched_substrings" : @[ predictionMatchedSubstringJSON ],
-        @"place_id" : @"ChIJcWGw3Ytzj1QR7Ui7HnTz6Dg",
-        @"reference" : @"CjQtAAAA903zyJZAu2FLA6KkdC7UAddRHAfHQDpArCk61FI_"
-        @"u1Ig7WaJqBiXYsQvORYMcgILEhAFvGtwa5VQpswubIIzwI5wGhTt8vgj6CSQp8QWYb4U1rXmlkg9bg",
-        @"terms" : @[
-            @{@"offset" : @0, @"value" : @"Victoria"},
-            @{@"offset" : @10, @"value" : @"BC"},
-            @{@"offset" : @14, @"value" : @"Canadá"}
-        ],
-        @"types" : @[ @"locality", @"political", @"geocode" ]
-    };
-    HNKQueryResponsePrediction *prediction = [HNKQueryResponsePrediction modelFromJSONDictionary:predictionJSON];
-    NSLog(@"prediction = %@", prediction);
-
-    NSDictionary *queryResponseJSON = @{ @"predictions" : @[ predictionJSON ], @"status" : @"OK" };
-    HNKQueryResponse *queryResponse = [HNKQueryResponse modelFromJSONDictionary:queryResponseJSON];
-    NSLog(@"query response = %@", queryResponse);
-
-    [HNKGooglePlacesAutocompleteQuery setupSharedQueryWithAPIKey:@"AIzaSyAkR80JQgRgfnqBl6Db2RsnmkCG1LhuVn8"];
-    [[HNKGooglePlacesAutocompleteQuery sharedQuery] fetchPlacesWithSearchQuery:@"Vict"
-                                                                    completion:^(NSArray *places, NSError *error) {
-
-                                                                        if (error) {
-                                                                            NSLog(@"ERROR = %@", error);
-                                                                            return;
-                                                                        }
-
-                                                                        NSLog(@"PLACES = %@", places);
-
-                                                                    }];
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
 }
 
 @end

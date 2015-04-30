@@ -4,4 +4,4 @@ install:
   - brew install xctool --HEAD
 
 script:
-   - xctool test -workspace Example/HNKGooglePlacesAutocomplete-Example.xcworkspace -scheme HNKGooglePlacesAutocomplete-Example -sdk iphonesimulator8.1
+   - xctool test -workspace Example/HNKGooglePlacesAutocomplete-Example.xcworkspace -scheme HNKGooglePlacesAutocomplete-Example -sdk iphonesimulator8.3
