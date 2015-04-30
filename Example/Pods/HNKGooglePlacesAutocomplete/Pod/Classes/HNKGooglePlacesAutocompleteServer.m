@@ -26,44 +26,44 @@
 #import "HNKGooglePlacesAutocompleteServer.h"
 #import "HNKServer.h"
 
-static NSString *const kHNKGooglePlacesAutocompleteServerBaseURL = @"https://maps.googleapis.com/maps/api/";
-static NSString *const kHNKGooglePlacesAutocompleteServerRequestPath = @"place/autocomplete/json";
-static NSString *const kHNKGooglePlacesAutocompleteServerRequestApiKey = @"AIzaSyAkR80JQgRgfnqBl6Db2RsnmkCG1LhuVn8";
+static NSString *const kHNKGooglePlacesAutocompleteServerBaseURL =
+    @"https://maps.googleapis.com/maps/api/";
+static NSString *const kHNKGooglePlacesAutocompleteServerRequestPath =
+    @"place/autocomplete/json";
+static NSString *const kHNKGooglePlacesAutocompleteServerRequestApiKey =
+    @"AIzaSyAkR80JQgRgfnqBl6Db2RsnmkCG1LhuVn8";
 
 @implementation HNKGooglePlacesAutocompleteServer
 
 #pragma mark - Overrides
 
-+ (void)initialize
-{
-    if (self == [HNKGooglePlacesAutocompleteServer class]) {
++ (void)initialize {
+  if (self == [HNKGooglePlacesAutocompleteServer class]) {
 
-        [HNKServer setupWithBaseUrl:kHNKGooglePlacesAutocompleteServerBaseURL];
-    }
+    [HNKServer setupWithBaseUrl:kHNKGooglePlacesAutocompleteServerBaseURL];
+  }
 }
 
 #pragma mark - Requests
 
-+ (void)GETRequestWithInput:(NSString *)input completion:(void (^)(id, NSError *))completion
-{
-    [HNKServer GET:kHNKGooglePlacesAutocompleteServerRequestPath
-        parameters:@{
-            @"input" : input,
-            @"key" : kHNKGooglePlacesAutocompleteServerRequestApiKey
++ (void)GET:(NSString *)path
+    parameters:(NSDictionary *)parameters
+    completion:(void (^)(id, NSError *))completion {
+  [HNKServer GET:kHNKGooglePlacesAutocompleteServerRequestPath
+      parameters:parameters
+      completion:^(id responseObject, NSError *error) {
+
+        if (completion) {
+
+          if (error) {
+            completion(nil, error);
+            return;
+          }
+
+          completion(responseObject, nil);
         }
-        completion:^(id responseObject, NSError *error) {
 
-            if (completion) {
-
-                if (error) {
-                    completion(nil, error);
-                    return;
-                }
-
-                completion(responseObject, nil);
-            }
-
-        }];
+      }];
 }
 
 @end

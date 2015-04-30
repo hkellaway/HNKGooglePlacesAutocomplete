@@ -50,12 +50,12 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   HNKGooglePlacesAutocomplete:
-    :commit: 9dcb54ec804c4c2973819a84f5d43acd207b133e
+    :commit: c5b4fad66ff7305362833426810f808b2db5a006
     :git: https://github.com/hkellaway/HNKGooglePlacesAutocomplete.git
 
 SPEC CHECKSUMS:
   AFNetworking: e1d86c2a96bb5d2e7408da36149806706ee122fe
-  HNKGooglePlacesAutocomplete: acd38d9cc649025b613fda5a5c8cf99201cd4bfb
+  HNKGooglePlacesAutocomplete: 2d7caabaa425100667114ded9feda83bbed88d0a
   HNKServerFacade: 54102383a22b3aa61171574ad0b50ff24fd504cd
   Kiwi: f038a6c61f7a9e4d7766bff5717aa3b3fdb75f55
   Mantle: 60acd0cd363e27d945bda0a6b8e90577112d28f3

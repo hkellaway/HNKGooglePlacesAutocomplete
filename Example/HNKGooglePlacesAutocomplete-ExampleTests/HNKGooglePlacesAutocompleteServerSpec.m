@@ -38,7 +38,12 @@ describe(@"HNKGooglePlacesAutocompleteServer", ^{
                                              @"key" : @"AIzaSyAkR80JQgRgfnqBl6Db2RsnmkCG1LhuVn8" },
                                           any()];
 
-                        [HNKGooglePlacesAutocompleteServer GETRequestWithInput:@"Vict" completion:nil];
+                        [HNKGooglePlacesAutocompleteServer GET:@"place/autocomplete/json"
+                                                    parameters:@{
+                                                        @"input" : @"Vict",
+                                                        @"key" : @"AIzaSyAkR80JQgRgfnqBl6Db2RsnmkCG1LhuVn8"
+                                                    }
+                                                    completion:nil];
 
                     });
              });
