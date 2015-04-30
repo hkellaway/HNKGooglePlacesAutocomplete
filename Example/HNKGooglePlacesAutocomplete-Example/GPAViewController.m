@@ -9,7 +9,7 @@
 #import "GPAViewController.h"
 
 #import <HNKGooglePlacesAutocomplete/HNKGooglePlacesAutocomplete.h>
-#import <HNKGooglePlacesAutocomplete/HNKGooglePlacesAutocompleteServer.h>
+#import <HNKGooglePlacesAutocomplete/HNKGooglePlacesAutocompleteQuery.h>
 
 @interface GPAViewController ()
 
@@ -51,12 +51,18 @@
     HNKQueryResponse *queryResponse = [HNKQueryResponse modelFromJSONDictionary:queryResponseJSON];
     NSLog(@"query response = %@", queryResponse);
 
-    [HNKGooglePlacesAutocompleteServer GETRequestWithInput:@"Vict"
-                                                completion:^(id JSON, NSError *error) {
+    [HNKGooglePlacesAutocompleteQuery setupSharedQueryWithAPIKey:@"AIzaSyAkR80JQgRgfnqBl6Db2RsnmkCG1LhuVn8"];
+    [[HNKGooglePlacesAutocompleteQuery sharedQuery] fetchPlacesWithSearchQuery:@"Vict"
+                                                                    completion:^(NSArray *places, NSError *error) {
 
-                                                    NSLog(@"%@", JSON);
+                                                                        if (error) {
+                                                                            NSLog(@"ERROR = %@", error);
+                                                                            return;
+                                                                        }
 
-                                                }];
+                                                                        NSLog(@"PLACES = %@", places);
+
+                                                                    }];
 }
 
 @end

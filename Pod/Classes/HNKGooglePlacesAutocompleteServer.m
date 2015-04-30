@@ -46,13 +46,11 @@ static NSString *const kHNKGooglePlacesAutocompleteServerRequestApiKey =
 
 #pragma mark - Requests
 
-+ (void)GETRequestWithInput:(NSString *)input
-                 completion:(void (^)(id, NSError *))completion {
++ (void)GET:(NSString *)path
+    parameters:(NSDictionary *)parameters
+    completion:(void (^)(id, NSError *))completion {
   [HNKServer GET:kHNKGooglePlacesAutocompleteServerRequestPath
-      parameters:@{
-        @"input" : input,
-        @"key" : kHNKGooglePlacesAutocompleteServerRequestApiKey
-      }
+      parameters:parameters
       completion:^(id responseObject, NSError *error) {
 
         if (completion) {
