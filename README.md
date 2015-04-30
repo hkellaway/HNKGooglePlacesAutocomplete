@@ -22,3 +22,6 @@ HNKGooglePlacesAutocomplete was created by [Harlan Kellaway](http://harlankellaw
 ## License
 
 HNKGooglePlacesAutocomplete is available under the MIT license. See the [LICENSE](https://raw.githubusercontent.com/hkellaway/HNKGooglePlacesAutocomplete/master/LICENSE) file for more info.
+=======
+A modern objective-c wrapper for the Google Places autocomplete API.
+>>>>>>> parent of bbb927d... Merge pull request #2 from hkellaway/release/0.1.0
