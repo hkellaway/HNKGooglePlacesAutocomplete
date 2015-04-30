@@ -9,6 +9,7 @@
 #import "GPAViewController.h"
 
 #import <HNKGooglePlacesAutocomplete/HNKGooglePlacesAutocomplete.h>
+#import <HNKGooglePlacesAutocomplete/HNKGooglePlacesAutocompleteQuery.h>
 
 @interface GPAViewController ()
 
@@ -32,7 +33,7 @@
     NSDictionary *predictionJSON = @{
         @"description" : @"Victoria, BC, Canadá",
         @"id" : @"d5892cffd777f0252b94ab2651fea7123d2aa34a",
-        @"matched_substrings" : @[ @{@"length" : @4, @"offset" : @0} ],
+        @"matched_substrings" : @[ predictionMatchedSubstringJSON ],
         @"place_id" : @"ChIJcWGw3Ytzj1QR7Ui7HnTz6Dg",
         @"reference" : @"CjQtAAAA903zyJZAu2FLA6KkdC7UAddRHAfHQDpArCk61FI_"
         @"u1Ig7WaJqBiXYsQvORYMcgILEhAFvGtwa5VQpswubIIzwI5wGhTt8vgj6CSQp8QWYb4U1rXmlkg9bg",
@@ -49,6 +50,19 @@
     NSDictionary *queryResponseJSON = @{ @"predictions" : @[ predictionJSON ], @"status" : @"OK" };
     HNKQueryResponse *queryResponse = [HNKQueryResponse modelFromJSONDictionary:queryResponseJSON];
     NSLog(@"query response = %@", queryResponse);
+
+    [HNKGooglePlacesAutocompleteQuery setupSharedQueryWithAPIKey:@"AIzaSyAkR80JQgRgfnqBl6Db2RsnmkCG1LhuVn8"];
+    [[HNKGooglePlacesAutocompleteQuery sharedQuery] fetchPlacesWithSearchQuery:@"Vict"
+                                                                    completion:^(NSArray *places, NSError *error) {
+
+                                                                        if (error) {
+                                                                            NSLog(@"ERROR = %@", error);
+                                                                            return;
+                                                                        }
+
+                                                                        NSLog(@"PLACES = %@", places);
+
+                                                                    }];
 }
 
 @end
