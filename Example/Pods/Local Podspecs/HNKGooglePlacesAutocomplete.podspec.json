@@ -20,6 +20,9 @@
   "requires_arc": true,
   "source_files": "Pod/Classes/HNKGooglePlacesAutocomplete.{h,m}",
   "dependencies": {
+    "HNKServerFacade": [
+      "~> 0.2"
+    ],
     "Mantle": [
       "~> 1.5"
     ]
@@ -33,6 +36,12 @@
         "Pod/Classes/HNKQueryResponsePrediction.{h,m}",
         "Pod/Classes/HNKQueryResponsePredictionMatchedSubstring.{h,m}",
         "Pod/Classes/HNKQueryResponsePredictionTerm.{h,m}"
+      ],
+      "subspecs": [
+        {
+          "name": "Networking",
+          "source_files": "Pod/Classes/HNKGooglePlacesAutocompleteServer.{h,m}"
+        }
       ]
     }
   ]
