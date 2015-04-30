@@ -45,7 +45,6 @@ static NSString *const kHNKGooglePlacesAutocompleteServerBaseURL =
 + (void)GET:(NSString *)path
     parameters:(NSDictionary *)parameters
     completion:(void (^)(id JSON, NSError *))completion {
-  NSAssert([HNKServer baseURLString] != nil, @"Server should be setup");
 
   [HNKServer GET:path
       parameters:parameters
