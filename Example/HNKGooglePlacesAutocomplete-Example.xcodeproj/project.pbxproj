@@ -7,20 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		DC0A83E31AED6F1E001EB35D /* _clang-format in Resources */ = {isa = PBXBuildFile; fileRef = DC0A83E21AED6F1E001EB35D /* _clang-format */; };
-		DC0A83ED1AED8229001EB35D /* HNKQueryResponsePredictionTermSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = DC0A83EC1AED8229001EB35D /* HNKQueryResponsePredictionTermSpec.m */; };
-		DC0A83F61AED8F1D001EB35D /* HNKQueryReqsponsePredctionMatchedSubstringSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = DC0A83F51AED8F1D001EB35D /* HNKQueryReqsponsePredctionMatchedSubstringSpec.m */; };
-		DC345C2A1AEDA518009D3645 /* HNKQueryResponsePredictionSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = DC345C291AEDA518009D3645 /* HNKQueryResponsePredictionSpec.m */; };
-		DC345C2F1AEDC5C8009D3645 /* HNKQueryResponseSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = DC345C2E1AEDC5C8009D3645 /* HNKQueryResponseSpec.m */; };
-		DC345C3B1AF09FC7009D3645 /* HNKGooglePlacesAutocompleteServerSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = DC345C3A1AF09FC7009D3645 /* HNKGooglePlacesAutocompleteServerSpec.m */; };
 		DCA78AFD1AED6AA800F5F3B9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DCA78AFC1AED6AA800F5F3B9 /* main.m */; };
 		DCA78B001AED6AA800F5F3B9 /* GPAAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DCA78AFF1AED6AA800F5F3B9 /* GPAAppDelegate.m */; };
 		DCA78B031AED6AA800F5F3B9 /* GPAViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DCA78B021AED6AA800F5F3B9 /* GPAViewController.m */; };
 		DCA78B061AED6AA800F5F3B9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DCA78B041AED6AA800F5F3B9 /* Main.storyboard */; };
 		DCA78B081AED6AA800F5F3B9 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DCA78B071AED6AA800F5F3B9 /* Images.xcassets */; };
 		DCA78B0B1AED6AA800F5F3B9 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = DCA78B091AED6AA800F5F3B9 /* LaunchScreen.xib */; };
+		DCA78B171AED6AA800F5F3B9 /* HNKGooglePlacesAutocomplete_ExampleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = DCA78B161AED6AA800F5F3B9 /* HNKGooglePlacesAutocomplete_ExampleTests.m */; };
 		F506C4906E4964AE559012AE /* libPods-HNKGooglePlacesAutocomplete-Example.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D0EAF8F6FC72B250C169F3BB /* libPods-HNKGooglePlacesAutocomplete-Example.a */; };
-		FF43537F0B40492CE6E305C4 /* libPods-HNKGooglePlacesAutocomplete-ExampleTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 20B87C8F6F397F86222199FF /* libPods-HNKGooglePlacesAutocomplete-ExampleTests.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,18 +28,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0A5485CEF38C794987700904 /* Pods-HNKGooglePlacesAutocomplete-ExampleTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HNKGooglePlacesAutocomplete-ExampleTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HNKGooglePlacesAutocomplete-ExampleTests/Pods-HNKGooglePlacesAutocomplete-ExampleTests.debug.xcconfig"; sourceTree = "<group>"; };
-		20B87C8F6F397F86222199FF /* libPods-HNKGooglePlacesAutocomplete-ExampleTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-HNKGooglePlacesAutocomplete-ExampleTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		26A7E8D0F78A6E915F9B03AF /* Pods-HNKGooglePlacesAutocomplete-ExampleTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HNKGooglePlacesAutocomplete-ExampleTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-HNKGooglePlacesAutocomplete-ExampleTests/Pods-HNKGooglePlacesAutocomplete-ExampleTests.release.xcconfig"; sourceTree = "<group>"; };
 		7B836E5632B34FC1CB845488 /* Pods-HNKGooglePlacesAutocomplete-Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HNKGooglePlacesAutocomplete-Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-HNKGooglePlacesAutocomplete-Example/Pods-HNKGooglePlacesAutocomplete-Example.release.xcconfig"; sourceTree = "<group>"; };
 		D0EAF8F6FC72B250C169F3BB /* libPods-HNKGooglePlacesAutocomplete-Example.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-HNKGooglePlacesAutocomplete-Example.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA2524585B0166608A39236E /* Pods-HNKGooglePlacesAutocomplete-Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HNKGooglePlacesAutocomplete-Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HNKGooglePlacesAutocomplete-Example/Pods-HNKGooglePlacesAutocomplete-Example.debug.xcconfig"; sourceTree = "<group>"; };
-		DC0A83E21AED6F1E001EB35D /* _clang-format */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "_clang-format"; sourceTree = "<group>"; };
-		DC0A83EC1AED8229001EB35D /* HNKQueryResponsePredictionTermSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HNKQueryResponsePredictionTermSpec.m; sourceTree = "<group>"; };
-		DC0A83F51AED8F1D001EB35D /* HNKQueryReqsponsePredctionMatchedSubstringSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HNKQueryReqsponsePredctionMatchedSubstringSpec.m; sourceTree = "<group>"; };
-		DC345C291AEDA518009D3645 /* HNKQueryResponsePredictionSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HNKQueryResponsePredictionSpec.m; sourceTree = "<group>"; };
-		DC345C2E1AEDC5C8009D3645 /* HNKQueryResponseSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HNKQueryResponseSpec.m; sourceTree = "<group>"; };
-		DC345C3A1AF09FC7009D3645 /* HNKGooglePlacesAutocompleteServerSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HNKGooglePlacesAutocompleteServerSpec.m; sourceTree = "<group>"; };
 		DCA78AF71AED6AA800F5F3B9 /* HNKGooglePlacesAutocomplete-Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "HNKGooglePlacesAutocomplete-Example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCA78AFB1AED6AA800F5F3B9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DCA78AFC1AED6AA800F5F3B9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -58,6 +43,7 @@
 		DCA78B0A1AED6AA800F5F3B9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		DCA78B101AED6AA800F5F3B9 /* HNKGooglePlacesAutocomplete-ExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "HNKGooglePlacesAutocomplete-ExampleTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCA78B151AED6AA800F5F3B9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DCA78B161AED6AA800F5F3B9 /* HNKGooglePlacesAutocomplete_ExampleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HNKGooglePlacesAutocomplete_ExampleTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,7 +59,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FF43537F0B40492CE6E305C4 /* libPods-HNKGooglePlacesAutocomplete-ExampleTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -84,7 +69,6 @@
 			isa = PBXGroup;
 			children = (
 				D0EAF8F6FC72B250C169F3BB /* libPods-HNKGooglePlacesAutocomplete-Example.a */,
-				20B87C8F6F397F86222199FF /* libPods-HNKGooglePlacesAutocomplete-ExampleTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -94,45 +78,8 @@
 			children = (
 				DA2524585B0166608A39236E /* Pods-HNKGooglePlacesAutocomplete-Example.debug.xcconfig */,
 				7B836E5632B34FC1CB845488 /* Pods-HNKGooglePlacesAutocomplete-Example.release.xcconfig */,
-				0A5485CEF38C794987700904 /* Pods-HNKGooglePlacesAutocomplete-ExampleTests.debug.xcconfig */,
-				26A7E8D0F78A6E915F9B03AF /* Pods-HNKGooglePlacesAutocomplete-ExampleTests.release.xcconfig */,
 			);
 			name = Pods;
-			sourceTree = "<group>";
-		};
-		DC0A83EA1AED81F9001EB35D /* Pod Tests */ = {
-			isa = PBXGroup;
-			children = (
-				DC0A83EE1AED8362001EB35D /* Models */,
-			);
-			name = "Pod Tests";
-			sourceTree = "<group>";
-		};
-		DC0A83EB1AED820E001EB35D /* Example Project Tests */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = "Example Project Tests";
-			sourceTree = "<group>";
-		};
-		DC0A83EE1AED8362001EB35D /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				DC345C391AF09F6C009D3645 /* Networking */,
-				DC345C2E1AEDC5C8009D3645 /* HNKQueryResponseSpec.m */,
-				DC345C291AEDA518009D3645 /* HNKQueryResponsePredictionSpec.m */,
-				DC0A83EC1AED8229001EB35D /* HNKQueryResponsePredictionTermSpec.m */,
-				DC0A83F51AED8F1D001EB35D /* HNKQueryReqsponsePredctionMatchedSubstringSpec.m */,
-			);
-			name = Models;
-			sourceTree = "<group>";
-		};
-		DC345C391AF09F6C009D3645 /* Networking */ = {
-			isa = PBXGroup;
-			children = (
-				DC345C3A1AF09FC7009D3645 /* HNKGooglePlacesAutocompleteServerSpec.m */,
-			);
-			name = Networking;
 			sourceTree = "<group>";
 		};
 		DCA78AEE1AED6AA800F5F3B9 = {
@@ -175,7 +122,6 @@
 			children = (
 				DCA78AFB1AED6AA800F5F3B9 /* Info.plist */,
 				DCA78AFC1AED6AA800F5F3B9 /* main.m */,
-				DC0A83E21AED6F1E001EB35D /* _clang-format */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -183,8 +129,7 @@
 		DCA78B131AED6AA800F5F3B9 /* HNKGooglePlacesAutocomplete-ExampleTests */ = {
 			isa = PBXGroup;
 			children = (
-				DC0A83EB1AED820E001EB35D /* Example Project Tests */,
-				DC0A83EA1AED81F9001EB35D /* Pod Tests */,
+				DCA78B161AED6AA800F5F3B9 /* HNKGooglePlacesAutocomplete_ExampleTests.m */,
 				DCA78B141AED6AA800F5F3B9 /* Supporting Files */,
 			);
 			path = "HNKGooglePlacesAutocomplete-ExampleTests";
@@ -224,11 +169,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DCA78B1D1AED6AA800F5F3B9 /* Build configuration list for PBXNativeTarget "HNKGooglePlacesAutocomplete-ExampleTests" */;
 			buildPhases = (
-				E2D498F5E4DE8E8F7AEB2403 /* Check Pods Manifest.lock */,
 				DCA78B0C1AED6AA800F5F3B9 /* Sources */,
 				DCA78B0D1AED6AA800F5F3B9 /* Frameworks */,
 				DCA78B0E1AED6AA800F5F3B9 /* Resources */,
-				525622BDEC7E2D68BB31BEB4 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -286,7 +229,6 @@
 				DCA78B061AED6AA800F5F3B9 /* Main.storyboard in Resources */,
 				DCA78B0B1AED6AA800F5F3B9 /* LaunchScreen.xib in Resources */,
 				DCA78B081AED6AA800F5F3B9 /* Images.xcassets in Resources */,
-				DC0A83E31AED6F1E001EB35D /* _clang-format in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -315,21 +257,6 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		525622BDEC7E2D68BB31BEB4 /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HNKGooglePlacesAutocomplete-ExampleTests/Pods-HNKGooglePlacesAutocomplete-ExampleTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		7ED68BB202E0F8FFEDE93FE4 /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -343,21 +270,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HNKGooglePlacesAutocomplete-Example/Pods-HNKGooglePlacesAutocomplete-Example-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		E2D498F5E4DE8E8F7AEB2403 /* Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -377,11 +289,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DC345C2A1AEDA518009D3645 /* HNKQueryResponsePredictionSpec.m in Sources */,
-				DC0A83F61AED8F1D001EB35D /* HNKQueryReqsponsePredctionMatchedSubstringSpec.m in Sources */,
-				DC345C3B1AF09FC7009D3645 /* HNKGooglePlacesAutocompleteServerSpec.m in Sources */,
-				DC345C2F1AEDC5C8009D3645 /* HNKQueryResponseSpec.m in Sources */,
-				DC0A83ED1AED8229001EB35D /* HNKQueryResponsePredictionTermSpec.m in Sources */,
+				DCA78B171AED6AA800F5F3B9 /* HNKGooglePlacesAutocomplete_ExampleTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -521,7 +429,6 @@
 		};
 		DCA78B1E1AED6AA800F5F3B9 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0A5485CEF38C794987700904 /* Pods-HNKGooglePlacesAutocomplete-ExampleTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -541,7 +448,6 @@
 		};
 		DCA78B1F1AED6AA800F5F3B9 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 26A7E8D0F78A6E915F9B03AF /* Pods-HNKGooglePlacesAutocomplete-ExampleTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (
