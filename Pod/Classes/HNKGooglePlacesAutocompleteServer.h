@@ -29,8 +29,7 @@
 
 #pragma mark - Requests
 
-+ (void)GET:(NSString *)path
-    parameters:(NSDictionary *)parameters
-    completion:(void (^)(id JSON, NSError *))completion;
++ (void)GETRequestWithInput:(NSString *)input
+                 completion:(void (^)(id JSON, NSError *))completion;
 
 @end
