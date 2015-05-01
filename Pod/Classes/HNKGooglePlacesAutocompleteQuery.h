@@ -27,8 +27,6 @@
 
 @interface HNKGooglePlacesAutocompleteQuery : NSObject
 
-#pragma mark - Initialization
-
 /**
  *  Sets up shared HNKGooglePlacesAutocompleteQuery instance with provided API
  * key
