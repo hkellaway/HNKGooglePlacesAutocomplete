@@ -26,12 +26,27 @@
 #import "HNKQueryResponse.h"
 
 /**
+ *  Status descriptions
+ */
+extern NSString *const HNKGooglePlacesAutocompleteQueryStatusDescriptionUnknown;
+extern NSString *const
+    HNKGooglePlacesAutocompleteQueryStatusDescriptionInvalidRequest;
+extern NSString *const HNKGooglePlacesAutocompleteQueryStatusDescriptionOK;
+extern NSString *const
+    HNKGooglePlacesAutocompleteQueryStatusDescriptionOverQueryLimit;
+extern NSString *const
+    HNKGooglePlacesAutocompleteQueryStatusDescriptionRequestDenied;
+extern NSString *const
+    HNKGooglePlacesAutocompleteQueryStatusDescriptionZeroResults;
+extern NSString *const
+    HNKGooglePlacesAutocompleteQueryStatusDescriptionSearchQueryNil;
+
+/**
  *  Error domain for HNKGooglePlacesAutocompleteQuery
  */
 extern NSString *const HNKGooglePlacesAutocompleteQueryErrorDomain;
 
 typedef NS_ENUM(NSInteger, HNKGooglePlacesAutocompleteQueryErrorCode) {
-  HNKGooglePlacesAutcompleteQueryErrorCodeRequestFailed = -1,
   HNKGooglePlacesAutocompleteQueryErrorCodeUnknown =
       HNKQueryResponseStatusUnknown,
   HNKGooglePlacesAutocompleteQueryErrorCodeInvalidRequest =
@@ -39,7 +54,9 @@ typedef NS_ENUM(NSInteger, HNKGooglePlacesAutocompleteQueryErrorCode) {
   HNKGooglePlacesAutocompleteQueryErrorCodeOverQueryLimit =
       HNKQueryResponseStatusOverQueryLimit,
   HNKGooglePlacesAutocompleteQueryErrorRequestDenied =
-      HNKQueryResponseStatusRequestDenied
+      HNKQueryResponseStatusRequestDenied,
+  HNKGooglePlacesAutcompleteQueryErrorCodeServerRequestFailed = 6,
+  HNKgooglePlacesAutocompleteQueryErrorCodeSearchQueryNil = 7
 };
 
 @interface HNKGooglePlacesAutocompleteQuery : NSObject
@@ -47,8 +64,8 @@ typedef NS_ENUM(NSInteger, HNKGooglePlacesAutocompleteQueryErrorCode) {
 #pragma mark - Initialization
 
 /**
- *  Sets up shared HNKGooglePlacesAutocompleteQuery instance with provided API
- * key
+ *  Sets up shared HNKGooglePlacesAutocompleteQuery instance with provided
+ *  API key
  */
 + (instancetype)setupSharedQueryWithAPIKey:(NSString *)apiKey;
 

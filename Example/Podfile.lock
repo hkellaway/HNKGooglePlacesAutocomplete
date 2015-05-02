@@ -50,7 +50,7 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   HNKGooglePlacesAutocomplete:
-    :commit: c8ef3c2507cc11245c52204620d8f51e06c0eb1a
+    :commit: 996ec7905da84181cbb1dba76183dd3366e6287f
     :git: https://github.com/hkellaway/HNKGooglePlacesAutocomplete.git
 
 SPEC CHECKSUMS:
