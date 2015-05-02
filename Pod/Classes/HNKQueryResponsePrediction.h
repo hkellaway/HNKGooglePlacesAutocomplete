@@ -31,12 +31,14 @@ typedef NS_ENUM(NSInteger, HNKGooglePlacesAutocompletePlaceType) {
   HNKGooglePlacesAutocompletePlaceTypeAdministrativeAreaLevel1,
   HNKGooglePlacesAutocompletePlaceTypeAdministrativeAreaLevel2,
   HNKGooglePlacesAutocompletePlaceTypeAdministrativeAreaLevel3,
+  HNKGooglePlacesAutocompletePlaceTypeCities,
   HNKGooglePlacesAutocompletePlaceTypeCountry,
   HNKGooglePlacesAutocompletePlaceTypeEstablishment,
   HNKGooglePlacesAutocompletePlaceTypeGeocode,
   HNKGooglePlacesAutocompletePlaceTypeLocality,
   HNKGooglePlacesAutocompletePlaceTypePolitical,
   HNKGooglePlacesAutocompletePlaceTypePostalCode,
+  HNKGooglePlacesAutocompletePlaceTypeRegions,
   HNKGooglePlacesAutocompletePlaceTypeSublocality
 };
 
