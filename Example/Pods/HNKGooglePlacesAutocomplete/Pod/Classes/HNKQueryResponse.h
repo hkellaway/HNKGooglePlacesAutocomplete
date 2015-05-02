@@ -31,27 +31,25 @@ typedef NS_ENUM(NSInteger, HNKQueryResponseStatus) {
    */
   HNKQueryResponseStatusUnknown = 0,
   /**
-   *  Indicates that the input parameter is missing, generally
+   *  Invalid request; the input parameter may be missing
    */
-  HNKQueryResponseStatusInvalidRequest,
+  HNKQueryResponseStatusInvalidRequest = 1,
   /**
-   *   Indicates that no errors occurred and at least one result was returned
+   *   No errors occurred and at least one result was returned
    */
-  HNKQueryResponseStatusOK,
+  HNKQueryResponseStatusOK = 2,
   /**
-   *  Indicates that you are over your quota
+   *  Query quota has been exceeded for provided API key
    */
-  HNKQueryResponseStatusOverQueryLimit,
+  HNKQueryResponseStatusOverQueryLimit = 3,
   /**
-   *  Indicates that your request was denied, generally because of lack of an
-   *  invalid key parameter
+   *  Request denied; the key parameter may be invalid
    */
-  HNKQueryResponseStatusRequestDenied,
+  HNKQueryResponseStatusRequestDenied = 4,
   /**
-   *  Indicates that the search was successful but returned no results. This may
-   *  occur if the search was passed a bounds in a remote location
+   *  No errors occurred but no results were returned
    */
-  HNKQueryResponseStatusZeroResults
+  HNKQueryResponseStatusZeroResults = 5
 };
 
 /**
