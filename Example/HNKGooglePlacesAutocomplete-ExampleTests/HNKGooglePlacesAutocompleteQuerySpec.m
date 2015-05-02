@@ -164,7 +164,12 @@ describe(@"HNKGooglePlacesAutocompleteQuery", ^{
                                                             errorToRecieve = error;
                                                         }];
 
-                           [[errorToRecieve should] equal:testError];
+                           [[errorToRecieve should]
+                               equal:[NSError errorWithDomain:@"com.hnkgoogleplacesautocomplete.query.fetch.error"
+                                                         code:-1
+                                                     userInfo:@{
+                                                         @"NSUnderlyingErrorKey" : testError
+                                                     }]];
 
                        });
 
