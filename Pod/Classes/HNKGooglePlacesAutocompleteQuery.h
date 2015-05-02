@@ -47,8 +47,8 @@ typedef NS_ENUM(NSInteger, HNKGooglePlacesAutocompleteQueryErrorCode) {
 #pragma mark - Initialization
 
 /**
- *  Sets up shared HNKGooglePlacesAutocompleteQuery instance with provided API
- * key
+ *  Sets up shared HNKGooglePlacesAutocompleteQuery instance with provided
+ *  API key
  */
 + (instancetype)setupSharedQueryWithAPIKey:(NSString *)apiKey;
 
