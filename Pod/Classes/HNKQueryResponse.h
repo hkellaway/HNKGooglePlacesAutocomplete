@@ -37,7 +37,7 @@ typedef NS_ENUM(NSInteger, HNKQueryResponseStatus) {
   /**
    *   No errors occurred and at least one result was returned
    */
-  HNKQueryResponseStatusOK = 1,
+  HNKQueryResponseStatusOK = 2,
   /**
    *  Query quota has been exceeded for provided API key
    */
@@ -67,11 +67,5 @@ typedef NS_ENUM(NSInteger, HNKQueryResponseStatus) {
  *  you track down why the query request failed
  */
 @property(nonatomic, assign, readonly) HNKQueryResponseStatus status;
-
-/**
- *  Provides a short description for the provided status
- *
- */
-+ (NSString *)descriptionForStatus:(HNKQueryResponseStatus)status;
 
 @end
