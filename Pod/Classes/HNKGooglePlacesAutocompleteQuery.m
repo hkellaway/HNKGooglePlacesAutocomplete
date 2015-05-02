@@ -27,6 +27,8 @@
 #import "HNKGooglePlacesAutocompleteServer.h"
 #import "HNKQueryResponse.h"
 
+NSString *const HNKGooglePlacesAutocompleteQueryErrorDomain =
+    @"com.hnkgoogleplacesautocomplete.query.fetch.error";
 static NSString *const kHNKGooglePlacesAutocompleteServerRequestPath =
     @"place/autocomplete/json";
 
@@ -93,8 +95,7 @@ static HNKGooglePlacesAutocompleteQuery *sharedQuery = nil;
 
           if (error) {
             NSError *errorToReturn = [NSError
-                errorWithDomain:
-                    @"com.hnkgoogleplacesautocomplete.query.fetch.error"
+                errorWithDomain:HNKGooglePlacesAutocompleteQueryErrorDomain
                            code:-1
                        userInfo:@{
                          @"NSUnderlyingErrorKey" : error
@@ -129,10 +130,10 @@ static HNKGooglePlacesAutocompleteQuery *sharedQuery = nil;
       status == HNKQueryResponseStatusUnknown) {
     // TODO: Provide NSLocalizedDescriptionKey and
     // NSLocalizedFailureReasonErrorKey with description of error
-    NSError *error = [NSError
-        errorWithDomain:@"com.hnkgoogleplacesautocomplete.query.fetch.error"
-                   code:status
-               userInfo:nil];
+    NSError *error =
+        [NSError errorWithDomain:HNKGooglePlacesAutocompleteQueryErrorDomain
+                            code:status
+                        userInfo:nil];
     return error;
   }
 

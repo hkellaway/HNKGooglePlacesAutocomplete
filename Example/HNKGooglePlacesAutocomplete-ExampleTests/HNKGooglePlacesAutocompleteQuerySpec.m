@@ -165,7 +165,7 @@ describe(@"HNKGooglePlacesAutocompleteQuery", ^{
                                                         }];
 
                            [[errorToRecieve should]
-                               equal:[NSError errorWithDomain:@"com.hnkgoogleplacesautocomplete.query.fetch.error"
+                               equal:[NSError errorWithDomain:HNKGooglePlacesAutocompleteQueryErrorDomain
                                                          code:-1
                                                      userInfo:@{
                                                          @"NSUnderlyingErrorKey" : testError

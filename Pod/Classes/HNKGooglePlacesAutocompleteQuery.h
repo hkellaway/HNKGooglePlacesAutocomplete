@@ -25,7 +25,14 @@
 
 #import <Foundation/Foundation.h>
 
+/**
+ *  Error domain for HNKGooglePlacesAutocompleteQuery
+ */
+extern NSString *const HNKGooglePlacesAutocompleteQueryErrorDomain;
+
 @interface HNKGooglePlacesAutocompleteQuery : NSObject
+
+#pragma mark - Initialization
 
 /**
  *  Sets up shared HNKGooglePlacesAutocompleteQuery instance with provided API
@@ -42,8 +49,8 @@
 
 #pragma mark - Requests
 
-- (void)fetchPlacesWithSearchQuery:(NSString *)searchQuery
-                        completion:
-                            (void (^)(NSArray *places, NSError *))completion;
+- (void)fetchPlacesForSearchQuery:(NSString *)searchQuery
+                       completion:
+                           (void (^)(NSArray *places, NSError *))completion;
 
 @end
