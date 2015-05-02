@@ -96,7 +96,8 @@ static HNKGooglePlacesAutocompleteQuery *sharedQuery = nil;
           if (error) {
             NSError *errorToReturn = [NSError
                 errorWithDomain:HNKGooglePlacesAutocompleteQueryErrorDomain
-                           code:-1
+                           code:
+                               HNKGooglePlacesAutcompleteQueryErrorCodeRequestFailed
                        userInfo:@{
                          @"NSUnderlyingErrorKey" : error
                        }];
