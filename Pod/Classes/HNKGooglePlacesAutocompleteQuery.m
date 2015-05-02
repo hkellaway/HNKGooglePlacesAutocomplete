@@ -27,10 +27,36 @@
 #import "HNKGooglePlacesAutocompleteServer.h"
 #import "HNKQueryResponse.h"
 
-NSString *const HNKGooglePlacesAutocompleteQueryErrorDomain =
-    @"com.hnkgoogleplacesautocomplete.query.fetch.error";
+#pragma mark Request Path
+
 static NSString *const kHNKGooglePlacesAutocompleteServerRequestPath =
     @"place/autocomplete/json";
+
+#pragma mark Error Constants
+
+NSString *const HNKGooglePlacesAutocompleteQueryErrorDomain =
+    @"com.hnkgoogleplacesautocomplete.query.fetch.error";
+
+static NSString *const
+    kHNKGooglePlacesAutocompleteQueryStatusUnknownDescription =
+        @"Status unknown";
+static NSString *const
+    kHNKGooglePlacesAutocompleteQueryStatusInvalidRequestDescription =
+        @"Invalid request; the input parameter may be missing";
+static NSString *const kHNKGooglePlacesAutocompleteQueryStatusOKDescription =
+    @"No errors occurred and at least one result was returned";
+static NSString *const
+    kHNKGooglePlacesAutocompleteQueryStatusOverQueryLimitDescription =
+        @"Query quota has been exceeded for provided API key";
+static NSString *const
+    kHNKGooglePlacesAutocompleteQueryStatusRequestDeniedDescription =
+        @"Request denied; the key parameter may be invalid";
+static NSString *const
+    kHNKGooglePlacesAutocompleteQueryStatusZeroResultsDescription =
+        @"No errors occurred but no results were returned";
+static NSString *const
+    kHNKGooglePlacesAutocompleteQueryStatusSerchQueryNilDescription =
+        @"Search query cannot be nil";
 
 @interface HNKGooglePlacesAutocompleteQuery ()
 
@@ -83,13 +109,14 @@ static HNKGooglePlacesAutocompleteQuery *sharedQuery = nil;
 - (void)fetchPlacesForSearchQuery:(NSString *)searchQuery
                        completion:(void (^)(NSArray *, NSError *))completion {
   if (searchQuery == nil) {
-    NSString *errorDescription = @"Search query cannot be nil";
     NSError *error = [NSError
         errorWithDomain:HNKGooglePlacesAutocompleteQueryErrorDomain
                    code:HNKgooglePlacesAutocompleteQueryErrorCodeSearchQueryNil
                userInfo:@{
-                 @"NSLocalizedDescriptionKey" : errorDescription,
-                 @"NSLocalizedFailureReasonErrorKey" : errorDescription
+                 @"NSLocalizedDescriptionKey" :
+                     kHNKGooglePlacesAutocompleteQueryStatusSerchQueryNilDescription,
+                 @"NSLocalizedFailureReasonErrorKey" :
+                     kHNKGooglePlacesAutocompleteQueryStatusSerchQueryNilDescription
                }];
 
     completion(nil, error);
@@ -144,8 +171,7 @@ static HNKGooglePlacesAutocompleteQuery *sharedQuery = nil;
       status == HNKQueryResponseStatusRequestDenied ||
       status == HNKQueryResponseStatusUnknown) {
 
-    NSString *localizedDescription =
-        [HNKQueryResponse descriptionForStatus:status];
+    NSString *localizedDescription = [self errorDescriptionForStatus:status];
     NSError *error = [NSError
         errorWithDomain:HNKGooglePlacesAutocompleteQueryErrorDomain
                    code:status
@@ -157,6 +183,10 @@ static HNKGooglePlacesAutocompleteQuery *sharedQuery = nil;
   }
 
   return nil;
+}
+
+- (NSString *)errorDescriptionForStatus:(HNKQueryResponseStatus)status {
+  return @"Invalid request; the input parameter may be missing";
 }
 
 @end

@@ -31,8 +31,6 @@
 extern NSString *const HNKGooglePlacesAutocompleteQueryErrorDomain;
 
 typedef NS_ENUM(NSInteger, HNKGooglePlacesAutocompleteQueryErrorCode) {
-  HNKGooglePlacesAutcompleteQueryErrorCodeServerRequestFailed = -2,
-  HNKgooglePlacesAutocompleteQueryErrorCodeSearchQueryNil = -1,
   HNKGooglePlacesAutocompleteQueryErrorCodeUnknown =
       HNKQueryResponseStatusUnknown,
   HNKGooglePlacesAutocompleteQueryErrorCodeInvalidRequest =
@@ -40,7 +38,9 @@ typedef NS_ENUM(NSInteger, HNKGooglePlacesAutocompleteQueryErrorCode) {
   HNKGooglePlacesAutocompleteQueryErrorCodeOverQueryLimit =
       HNKQueryResponseStatusOverQueryLimit,
   HNKGooglePlacesAutocompleteQueryErrorRequestDenied =
-      HNKQueryResponseStatusRequestDenied
+      HNKQueryResponseStatusRequestDenied,
+  HNKGooglePlacesAutcompleteQueryErrorCodeServerRequestFailed = 6,
+  HNKgooglePlacesAutocompleteQueryErrorCodeSearchQueryNil = 7
 };
 
 @interface HNKGooglePlacesAutocompleteQuery : NSObject
