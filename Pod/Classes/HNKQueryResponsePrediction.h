@@ -25,20 +25,66 @@
 
 #import "HNKGooglePlacesAutocompleteModel.h"
 
+/**
+ *  Place types
+ */
 typedef NS_ENUM(NSInteger, HNKGooglePlacesAutocompletePlaceType) {
+  /**
+   *  Places of type unknown
+   */
   HNKGooglePlacesAutocompletePlaceTypeUnknown = 0,
+  /**
+   *  Places with a precise address
+   */
   HNKGooglePlacesAutocompletePlaceTypeAddress,
+  /**
+   *  Places of type Administrative Area Level 1
+   */
   HNKGooglePlacesAutocompletePlaceTypeAdministrativeAreaLevel1,
+  /**
+   *  Places of type Administrative Area Level 2
+   */
   HNKGooglePlacesAutocompletePlaceTypeAdministrativeAreaLevel2,
+  /**
+   *  Places of type Administrative Area Level 3
+   */
   HNKGooglePlacesAutocompletePlaceTypeAdministrativeAreaLevel3,
+  /**
+   *  Places of type locality or Administrative Area 3
+   */
   HNKGooglePlacesAutocompletePlaceTypeCities,
+  /**
+   *  Places of type country
+   */
   HNKGooglePlacesAutocompletePlaceTypeCountry,
+  /**
+   *  Places from only business results
+   */
   HNKGooglePlacesAutocompletePlaceTypeEstablishment,
+  /**
+   *  Places from only geocoding results, not business results
+   */
   HNKGooglePlacesAutocompletePlaceTypeGeocode,
+  /**
+   *  Places of type locality
+   */
   HNKGooglePlacesAutocompletePlaceTypeLocality,
+  /**
+   *  Places of type political
+   */
   HNKGooglePlacesAutocompletePlaceTypePolitical,
+  /**
+   *  Places of type postal code
+   */
   HNKGooglePlacesAutocompletePlaceTypePostalCode,
+  /**
+   *  Places of type locality, sub-locality, postal code, country,
+   *  Administrative Area Level 1 or Administrative Area Level 2
+   */
   HNKGooglePlacesAutocompletePlaceTypeRegions,
+  /**
+   *  Places of type sub-locality
+   */
   HNKGooglePlacesAutocompletePlaceTypeSublocality
 };
 
@@ -47,14 +93,13 @@ typedef NS_ENUM(NSInteger, HNKGooglePlacesAutocompletePlaceType) {
 /**
  *  Human-readable name for the returned result
  *
- *  Note: For establishment results, this is usually the business name
+ *  Note: For establishment type results, this is usually the business name
  */
 @property(nonatomic, strong, readonly) NSString *predictionDescription;
 
 /**
- *  Collection of QueryResponsePredictionMatchedSubstrings that the location
- *  of the entered term in the predictionresult text, so that the term can be
- *  highlighted if desired
+ *  Collection of Substrings describe the location of the entered term in the
+ *  prediction result text, so that the term can be highlighted if desired
  */
 @property(nonatomic, strong, readonly) NSArray *matchedSubstrings;
 
@@ -64,13 +109,12 @@ typedef NS_ENUM(NSInteger, HNKGooglePlacesAutocompletePlaceType) {
 @property(nonatomic, strong, readonly) NSString *placeId;
 
 /**
- *  A collection of QueryResponsePredictionTerms identifying each section
- *  of the returned description
+ *  A collection of Terms identifying each section of the returned description
  */
 @property(nonatomic, strong, readonly) NSArray *terms;
 
 /**
- *  A collection of PlaceTypes that apply to this place
+ *  A collection of Types that apply to this place
  */
 @property(nonatomic, strong, readonly) NSArray *types;
 
