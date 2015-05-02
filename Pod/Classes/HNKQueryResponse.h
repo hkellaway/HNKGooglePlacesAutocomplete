@@ -33,23 +33,23 @@ typedef NS_ENUM(NSInteger, HNKQueryResponseStatus) {
   /**
    *  Invalid request; the input parameter may be missing
    */
-  HNKQueryResponseStatusInvalidRequest,
+  HNKQueryResponseStatusInvalidRequest = 1,
   /**
    *   No errors occurred and at least one result was returned
    */
-  HNKQueryResponseStatusOK,
+  HNKQueryResponseStatusOK = 1,
   /**
    *  Query quota has been exceeded for provided API key
    */
-  HNKQueryResponseStatusOverQueryLimit,
+  HNKQueryResponseStatusOverQueryLimit = 3,
   /**
    *  Request denied; the key parameter may be invalid
    */
-  HNKQueryResponseStatusRequestDenied,
+  HNKQueryResponseStatusRequestDenied = 4,
   /**
    *  No errors occurred but no results were returned
    */
-  HNKQueryResponseStatusZeroResults
+  HNKQueryResponseStatusZeroResults = 5
 };
 
 /**
