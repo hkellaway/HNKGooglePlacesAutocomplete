@@ -31,7 +31,8 @@
 extern NSString *const HNKGooglePlacesAutocompleteQueryErrorDomain;
 
 typedef NS_ENUM(NSInteger, HNKGooglePlacesAutocompleteQueryErrorCode) {
-  HNKGooglePlacesAutcompleteQueryErrorCodeRequestFailed = -1,
+  HNKGooglePlacesAutcompleteQueryErrorCodeServerRequestFailed = -2,
+  HNKgooglePlacesAutocompleteQueryErrorCodeSearchQueryNil = -1,
   HNKGooglePlacesAutocompleteQueryErrorCodeUnknown =
       HNKQueryResponseStatusUnknown,
   HNKGooglePlacesAutocompleteQueryErrorCodeInvalidRequest =
