@@ -82,6 +82,20 @@ static HNKGooglePlacesAutocompleteQuery *sharedQuery = nil;
 
 - (void)fetchPlacesForSearchQuery:(NSString *)searchQuery
                        completion:(void (^)(NSArray *, NSError *))completion {
+  if (searchQuery == nil) {
+    NSString *errorDescription = @"Search query cannot be nil";
+    NSError *error = [NSError
+        errorWithDomain:HNKGooglePlacesAutocompleteQueryErrorDomain
+                   code:HNKgooglePlacesAutocompleteQueryErrorCodeSearchQueryNil
+               userInfo:@{
+                 @"NSLocalizedDescriptionKey" : errorDescription,
+                 @"NSLocalizedFailureReasonErrorKey" : errorDescription
+               }];
+
+    completion(nil, error);
+    return;
+  }
+
   [HNKGooglePlacesAutocompleteServer
              GET:kHNKGooglePlacesAutocompleteServerRequestPath
       parameters:@{
@@ -97,7 +111,7 @@ static HNKGooglePlacesAutocompleteQuery *sharedQuery = nil;
             NSError *errorToReturn = [NSError
                 errorWithDomain:HNKGooglePlacesAutocompleteQueryErrorDomain
                            code:
-                               HNKGooglePlacesAutcompleteQueryErrorCodeRequestFailed
+                               HNKGooglePlacesAutcompleteQueryErrorCodeServerRequestFailed
                        userInfo:@{
                          @"NSUnderlyingErrorKey" : error
                        }];
