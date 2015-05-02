@@ -167,7 +167,12 @@ describe(@"HNKGooglePlacesAutocompleteQuery", ^{
                                    NSError *expectedError =
                                        [NSError errorWithDomain:HNKGooglePlacesAutocompleteQueryErrorDomain
                                                            code:HNKGooglePlacesAutocompleteQueryErrorCodeInvalidRequest
-                                                       userInfo:nil];
+                                                       userInfo:@{
+                                                           @"NSLocalizedDescriptionKey" :
+                                                               @"Invalid request; the input parameter may be missing",
+                                                           @"NSLocalizedFailureReasonErrorKey" :
+                                                               @"Invalid request; the input parameter may be missing"
+                                                       }];
 
                                    [testInstance fetchPlacesForSearchQuery:@"Vict"
                                                                 completion:^(NSArray *places, NSError *error) {
