@@ -31,17 +31,16 @@ describe(@"HNKGooglePlacesAutocompleteServer", ^{
              ^{
                  it(@"Should call HNKServer GET",
                     ^{
-                        [[HNKServer should]
-                                  receive:@selector(GET:parameters:completion:)
-                            withArguments:@"place/autocomplete/json",
-                                          @{ @"input" : @"Vict",
-                                             @"key" : @"AIzaSyAkR80JQgRgfnqBl6Db2RsnmkCG1LhuVn8" },
-                                          any()];
+                        [[HNKServer should] receive:@selector(GET:parameters:completion:)
+                                      withArguments:@"place/autocomplete/json",
+                                                    @{ @"input" : @"Vict",
+                                                       @"key" : @"apikey" },
+                                                    any()];
 
                         [HNKGooglePlacesAutocompleteServer GET:@"place/autocomplete/json"
                                                     parameters:@{
                                                         @"input" : @"Vict",
-                                                        @"key" : @"AIzaSyAkR80JQgRgfnqBl6Db2RsnmkCG1LhuVn8"
+                                                        @"key" : @"apikey"
                                                     }
                                                     completion:nil];
 

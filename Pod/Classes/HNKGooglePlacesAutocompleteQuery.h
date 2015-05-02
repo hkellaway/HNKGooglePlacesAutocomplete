@@ -23,12 +23,24 @@
 // THE SOFTWARE.
 //
 
-#import <Foundation/Foundation.h>
+#import "HNKQueryResponse.h"
 
 /**
  *  Error domain for HNKGooglePlacesAutocompleteQuery
  */
 extern NSString *const HNKGooglePlacesAutocompleteQueryErrorDomain;
+
+typedef NS_ENUM(NSInteger, HNKGooglePlacesAutocompleteQueryErrorCode) {
+  HNKGooglePlacesAutcompleteQueryErrorCodeRequestFailed = -1,
+  HNKGooglePlacesAutocompleteQueryErrorCodeUnknown =
+      HNKQueryResponseStatusUnknown,
+  HNKGooglePlacesAutocompleteQueryErrorCodeInvalidRequest =
+      HNKQueryResponseStatusInvalidRequest,
+  HNKGooglePlacesAutocompleteQueryErrorCodeOverQueryLimit =
+      HNKQueryResponseStatusOverQueryLimit,
+  HNKGooglePlacesAutocompleteQueryErrorRequestDenied =
+      HNKQueryResponseStatusRequestDenied
+};
 
 @interface HNKGooglePlacesAutocompleteQuery : NSObject
 
