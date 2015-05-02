@@ -46,16 +46,37 @@ extern NSString *const
  */
 extern NSString *const HNKGooglePlacesAutocompleteQueryErrorDomain;
 
+/**
+ *  Error codes for HNKGooglePlacesAutcompleteQuery requests
+ */
 typedef NS_ENUM(NSInteger, HNKGooglePlacesAutocompleteQueryErrorCode) {
+  /**
+   *  Unknown status code returned
+   */
   HNKGooglePlacesAutocompleteQueryErrorCodeUnknown =
       HNKQueryResponseStatusUnknown,
+  /**
+   *  Invalid request; the search query may have been missing
+   */
   HNKGooglePlacesAutocompleteQueryErrorCodeInvalidRequest =
       HNKQueryResponseStatusInvalidRequest,
+  /**
+   *  Query quota has been exceeded for provided API key
+   */
   HNKGooglePlacesAutocompleteQueryErrorCodeOverQueryLimit =
       HNKQueryResponseStatusOverQueryLimit,
+  /**
+   *  Request denied; the API key may be invalid
+   */
   HNKGooglePlacesAutocompleteQueryErrorRequestDenied =
       HNKQueryResponseStatusRequestDenied,
+  /**
+   *  Non-API error occurred while making a request to the server
+   */
   HNKGooglePlacesAutcompleteQueryErrorCodeServerRequestFailed = 6,
+  /**
+   *  Search query was nil
+   */
   HNKgooglePlacesAutocompleteQueryErrorCodeSearchQueryNil = 7
 };
 

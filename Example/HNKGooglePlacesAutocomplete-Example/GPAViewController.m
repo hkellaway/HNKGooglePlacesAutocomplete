@@ -8,7 +8,6 @@
 
 #import "GPAViewController.h"
 
-#import <HNKGooglePlacesAutocomplete/HNKGooglePlacesAutocomplete.h>
 #import <HNKGooglePlacesAutocomplete/HNKGooglePlacesAutocompleteQuery.h>
 
 @interface GPAViewController ()
