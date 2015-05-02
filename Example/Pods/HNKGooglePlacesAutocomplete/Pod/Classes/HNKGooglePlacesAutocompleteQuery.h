@@ -23,15 +23,49 @@
 // THE SOFTWARE.
 //
 
-#import <Foundation/Foundation.h>
+#import "HNKQueryResponse.h"
+
+/**
+ *  Status descriptions
+ */
+extern NSString *const HNKGooglePlacesAutocompleteQueryStatusDescriptionUnknown;
+extern NSString *const
+    HNKGooglePlacesAutocompleteQueryStatusDescriptionInvalidRequest;
+extern NSString *const HNKGooglePlacesAutocompleteQueryStatusDescriptionOK;
+extern NSString *const
+    HNKGooglePlacesAutocompleteQueryStatusDescriptionOverQueryLimit;
+extern NSString *const
+    HNKGooglePlacesAutocompleteQueryStatusDescriptionRequestDenied;
+extern NSString *const
+    HNKGooglePlacesAutocompleteQueryStatusDescriptionZeroResults;
+extern NSString *const
+    HNKGooglePlacesAutocompleteQueryStatusDescriptionSearchQueryNil;
+
+/**
+ *  Error domain for HNKGooglePlacesAutocompleteQuery
+ */
+extern NSString *const HNKGooglePlacesAutocompleteQueryErrorDomain;
+
+typedef NS_ENUM(NSInteger, HNKGooglePlacesAutocompleteQueryErrorCode) {
+  HNKGooglePlacesAutocompleteQueryErrorCodeUnknown =
+      HNKQueryResponseStatusUnknown,
+  HNKGooglePlacesAutocompleteQueryErrorCodeInvalidRequest =
+      HNKQueryResponseStatusInvalidRequest,
+  HNKGooglePlacesAutocompleteQueryErrorCodeOverQueryLimit =
+      HNKQueryResponseStatusOverQueryLimit,
+  HNKGooglePlacesAutocompleteQueryErrorRequestDenied =
+      HNKQueryResponseStatusRequestDenied,
+  HNKGooglePlacesAutcompleteQueryErrorCodeServerRequestFailed = 6,
+  HNKgooglePlacesAutocompleteQueryErrorCodeSearchQueryNil = 7
+};
 
 @interface HNKGooglePlacesAutocompleteQuery : NSObject
 
 #pragma mark - Initialization
 
 /**
- *  Sets up shared HNKGooglePlacesAutocompleteQuery instance with provided API
- * key
+ *  Sets up shared HNKGooglePlacesAutocompleteQuery instance with provided
+ *  API key
  */
 + (instancetype)setupSharedQueryWithAPIKey:(NSString *)apiKey;
 
@@ -44,8 +78,8 @@
 
 #pragma mark - Requests
 
-- (void)fetchPlacesWithSearchQuery:(NSString *)searchQuery
-                        completion:
-                            (void (^)(NSArray *places, NSError *))completion;
+- (void)fetchPlacesForSearchQuery:(NSString *)searchQuery
+                       completion:
+                           (void (^)(NSArray *places, NSError *))completion;
 
 @end
