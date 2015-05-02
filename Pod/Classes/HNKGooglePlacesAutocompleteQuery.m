@@ -129,12 +129,16 @@ static HNKGooglePlacesAutocompleteQuery *sharedQuery = nil;
       status == HNKQueryResponseStatusOverQueryLimit ||
       status == HNKQueryResponseStatusRequestDenied ||
       status == HNKQueryResponseStatusUnknown) {
-    // TODO: Provide NSLocalizedDescriptionKey and
-    // NSLocalizedFailureReasonErrorKey with description of error
-    NSError *error =
-        [NSError errorWithDomain:HNKGooglePlacesAutocompleteQueryErrorDomain
-                            code:status
-                        userInfo:nil];
+
+    NSString *localizedDescription =
+        [HNKQueryResponse descriptionForStatus:status];
+    NSError *error = [NSError
+        errorWithDomain:HNKGooglePlacesAutocompleteQueryErrorDomain
+                   code:status
+               userInfo:@{
+                 @"NSLocalizedDescriptionKey" : localizedDescription,
+                 @"NSLocalizedFailureReasonErrorKey" : localizedDescription
+               }];
     return error;
   }
 
