@@ -38,6 +38,8 @@ static NSString *const kHNKGooglePlacesAutocompleteServerRequestPath =
 
 @implementation HNKGooglePlacesAutocompleteQuery
 
+#pragma mark - Initialization
+
 static HNKGooglePlacesAutocompleteQuery *sharedQuery = nil;
 
 + (instancetype)setupSharedQueryWithAPIKey:(NSString *)apiKey {
@@ -91,7 +93,8 @@ static HNKGooglePlacesAutocompleteQuery *sharedQuery = nil;
 
           if (error) {
             NSError *errorToReturn = [NSError
-                errorWithDomain:@"HNKGooglePlacesAutocompleteQueryError"
+                errorWithDomain:
+                    @"com.hnkgoogleplacesautocomplete.query.fetch.error"
                            code:-1
                        userInfo:@{
                          @"NSUnderlyingErrorKey" : error
@@ -126,10 +129,10 @@ static HNKGooglePlacesAutocompleteQuery *sharedQuery = nil;
       status == HNKQueryResponseStatusUnknown) {
     // TODO: Provide NSLocalizedDescriptionKey and
     // NSLocalizedFailureReasonErrorKey with description of error
-    NSError *error =
-        [NSError errorWithDomain:@"HNKGooglePlacesAutocompleteQueryError"
-                            code:status
-                        userInfo:nil];
+    NSError *error = [NSError
+        errorWithDomain:@"com.hnkgoogleplacesautocomplete.query.fetch.error"
+                   code:status
+               userInfo:nil];
     return error;
   }
 
