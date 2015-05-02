@@ -26,6 +26,22 @@
 #import "HNKQueryResponse.h"
 
 /**
+ *  Status descriptions
+ */
+extern NSString *const HNKGooglePlacesAutocompleteQueryStatusDescriptionUnknown;
+extern NSString *const
+    HNKGooglePlacesAutocompleteQueryStatusDescriptionInvalidRequest;
+extern NSString *const HNKGooglePlacesAutocompleteQueryStatusDescriptionOK;
+extern NSString *const
+    HNKGooglePlacesAutocompleteQueryStatusDescriptionOverQueryLimit;
+extern NSString *const
+    HNKGooglePlacesAutocompleteQueryStatusDescriptionRequestDenied;
+extern NSString *const
+    HNKGooglePlacesAutocompleteQueryStatusDescriptionZeroResults;
+extern NSString *const
+    HNKGooglePlacesAutocompleteQueryStatusDescriptionSearchQueryNil;
+
+/**
  *  Error domain for HNKGooglePlacesAutocompleteQuery
  */
 extern NSString *const HNKGooglePlacesAutocompleteQueryErrorDomain;

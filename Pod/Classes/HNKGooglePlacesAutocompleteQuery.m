@@ -37,25 +37,22 @@ static NSString *const kHNKGooglePlacesAutocompleteServerRequestPath =
 NSString *const HNKGooglePlacesAutocompleteQueryErrorDomain =
     @"com.hnkgoogleplacesautocomplete.query.fetch.error";
 
-static NSString *const
-    kHNKGooglePlacesAutocompleteQueryStatusUnknownDescription =
-        @"Status unknown";
-static NSString *const
-    kHNKGooglePlacesAutocompleteQueryStatusInvalidRequestDescription =
+NSString *const HNKGooglePlacesAutocompleteQueryStatusDescriptionUnknown =
+    @"Status unknown";
+NSString *const
+    HNKGooglePlacesAutocompleteQueryStatusDescriptionInvalidRequest =
         @"Invalid request; the input parameter may be missing";
-static NSString *const kHNKGooglePlacesAutocompleteQueryStatusOKDescription =
+NSString *const HNKGooglePlacesAutocompleteQueryStatusDescriptionOK =
     @"No errors occurred and at least one result was returned";
-static NSString *const
-    kHNKGooglePlacesAutocompleteQueryStatusOverQueryLimitDescription =
+NSString *const
+    HNKGooglePlacesAutocompleteQueryStatusDescriptionOverQueryLimit =
         @"Query quota has been exceeded for provided API key";
-static NSString *const
-    kHNKGooglePlacesAutocompleteQueryStatusRequestDeniedDescription =
-        @"Request denied; the key parameter may be invalid";
-static NSString *const
-    kHNKGooglePlacesAutocompleteQueryStatusZeroResultsDescription =
-        @"No errors occurred but no results were returned";
-static NSString *const
-    kHNKGooglePlacesAutocompleteQueryStatusSerchQueryNilDescription =
+NSString *const HNKGooglePlacesAutocompleteQueryStatusDescriptionRequestDenied =
+    @"Request denied; the key parameter may be invalid";
+NSString *const HNKGooglePlacesAutocompleteQueryStatusDescriptionZeroResults =
+    @"No errors occurred but no results were returned";
+NSString *const
+    HNKGooglePlacesAutocompleteQueryStatusDescriptionSearchQueryNil =
         @"Search query cannot be nil";
 
 @interface HNKGooglePlacesAutocompleteQuery ()
@@ -114,9 +111,9 @@ static HNKGooglePlacesAutocompleteQuery *sharedQuery = nil;
                    code:HNKgooglePlacesAutocompleteQueryErrorCodeSearchQueryNil
                userInfo:@{
                  @"NSLocalizedDescriptionKey" :
-                     kHNKGooglePlacesAutocompleteQueryStatusSerchQueryNilDescription,
+                     HNKGooglePlacesAutocompleteQueryStatusDescriptionSearchQueryNil,
                  @"NSLocalizedFailureReasonErrorKey" :
-                     kHNKGooglePlacesAutocompleteQueryStatusSerchQueryNilDescription
+                     HNKGooglePlacesAutocompleteQueryStatusDescriptionSearchQueryNil
                }];
 
     completion(nil, error);
@@ -186,7 +183,36 @@ static HNKGooglePlacesAutocompleteQuery *sharedQuery = nil;
 }
 
 - (NSString *)errorDescriptionForStatus:(HNKQueryResponseStatus)status {
-  return @"Invalid request; the input parameter may be missing";
+  switch (status) {
+  case HNKQueryResponseStatusUnknown: {
+    return HNKGooglePlacesAutocompleteQueryStatusDescriptionUnknown;
+    break;
+  }
+  case HNKQueryResponseStatusInvalidRequest: {
+    return HNKGooglePlacesAutocompleteQueryStatusDescriptionInvalidRequest;
+    break;
+  }
+  case HNKQueryResponseStatusOK: {
+    return HNKGooglePlacesAutocompleteQueryStatusDescriptionOK;
+    break;
+  }
+  case HNKQueryResponseStatusOverQueryLimit: {
+    return HNKGooglePlacesAutocompleteQueryStatusDescriptionOverQueryLimit;
+    break;
+  }
+  case HNKQueryResponseStatusRequestDenied: {
+    return HNKGooglePlacesAutocompleteQueryStatusDescriptionRequestDenied;
+    break;
+  }
+  case HNKQueryResponseStatusZeroResults: {
+    return HNKGooglePlacesAutocompleteQueryStatusDescriptionZeroResults;
+    break;
+  }
+  default: {
+    return HNKGooglePlacesAutocompleteQueryStatusDescriptionUnknown;
+    break;
+  }
+  }
 }
 
 @end
