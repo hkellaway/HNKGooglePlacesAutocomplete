@@ -27,6 +27,8 @@
 #import "HNKGooglePlacesAutocompleteServer.h"
 #import "HNKQueryResponse.h"
 
+NSString *const HNKGooglePlacesAutocompleteQueryErrorDomain =
+    @"com.hnkgoogleplacesautocomplete.query.fetch.error";
 static NSString *const kHNKGooglePlacesAutocompleteServerRequestPath =
     @"place/autocomplete/json";
 
@@ -78,8 +80,8 @@ static HNKGooglePlacesAutocompleteQuery *sharedQuery = nil;
 
 #pragma mark - Requests
 
-- (void)fetchPlacesWithSearchQuery:(NSString *)searchQuery
-                        completion:(void (^)(NSArray *, NSError *))completion {
+- (void)fetchPlacesForSearchQuery:(NSString *)searchQuery
+                       completion:(void (^)(NSArray *, NSError *))completion {
   [HNKGooglePlacesAutocompleteServer
              GET:kHNKGooglePlacesAutocompleteServerRequestPath
       parameters:@{
@@ -87,27 +89,56 @@ static HNKGooglePlacesAutocompleteQuery *sharedQuery = nil;
         @"key" : self.apiKey,
         @"radius" : @500
       }
-      completion:^(id JSON, NSError *error) {
+      completion:^(NSDictionary *JSON, NSError *error) {
 
         if (completion) {
 
           if (error) {
-            completion(nil, error);
+            NSError *errorToReturn = [NSError
+                errorWithDomain:HNKGooglePlacesAutocompleteQueryErrorDomain
+                           code:
+                               HNKGooglePlacesAutcompleteQueryErrorCodeRequestFailed
+                       userInfo:@{
+                         @"NSUnderlyingErrorKey" : error
+                       }];
+
+            completion(nil, errorToReturn);
             return;
           }
 
-          // TODO: If status is not OK, custom error
-
-          NSAssert([JSON isKindOfClass:[NSDictionary class]],
-                   @"JSON should be a dictionary");
-
           HNKQueryResponse *queryResponse =
               [HNKQueryResponse modelFromJSONDictionary:JSON];
+
+          NSError *statusError = [self errorForStatus:queryResponse.status];
+
+          if (statusError) {
+            completion(nil, statusError);
+            return;
+          }
 
           completion(queryResponse.predictions, nil);
         }
 
       }];
+}
+
+#pragma mark - Helpers
+
+- (NSError *)errorForStatus:(HNKQueryResponseStatus)status {
+  if (status == HNKQueryResponseStatusInvalidRequest ||
+      status == HNKQueryResponseStatusOverQueryLimit ||
+      status == HNKQueryResponseStatusRequestDenied ||
+      status == HNKQueryResponseStatusUnknown) {
+    // TODO: Provide NSLocalizedDescriptionKey and
+    // NSLocalizedFailureReasonErrorKey with description of error
+    NSError *error =
+        [NSError errorWithDomain:HNKGooglePlacesAutocompleteQueryErrorDomain
+                            code:status
+                        userInfo:nil];
+    return error;
+  }
+
+  return nil;
 }
 
 @end
