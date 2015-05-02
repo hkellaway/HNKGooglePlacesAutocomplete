@@ -30,8 +30,6 @@ static NSString *const kHNKGooglePlacesAutocompleteServerBaseURL =
     @"https://maps.googleapis.com/maps/api/";
 static NSString *const kHNKGooglePlacesAutocompleteServerRequestPath =
     @"place/autocomplete/json";
-static NSString *const kHNKGooglePlacesAutocompleteServerRequestApiKey =
-    @"AIzaSyAkR80JQgRgfnqBl6Db2RsnmkCG1LhuVn8";
 
 @implementation HNKGooglePlacesAutocompleteServer
 
