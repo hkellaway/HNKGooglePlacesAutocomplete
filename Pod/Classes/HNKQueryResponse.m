@@ -28,6 +28,41 @@
 
 @implementation HNKQueryResponse
 
++ (NSString *)descriptionForStatus:(HNKQueryResponseStatus)status {
+  NSString *defaultStatusDescription = @"Unknown status";
+
+  switch (status) {
+  case HNKQueryResponseStatusUnknown: {
+    return defaultStatusDescription;
+    break;
+  }
+  case HNKQueryResponseStatusInvalidRequest: {
+    return @"Invalid request; the input parameter may be missing";
+    break;
+  }
+  case HNKQueryResponseStatusOK: {
+    return @"No errors occurred and at least one result was returned";
+    break;
+  }
+  case HNKQueryResponseStatusOverQueryLimit: {
+    return @"Query quota has been exceeded for provided API key";
+    break;
+  }
+  case HNKQueryResponseStatusRequestDenied: {
+    return @"Request denied; the key parameter may be invalid";
+    break;
+  }
+  case HNKQueryResponseStatusZeroResults: {
+    return @"No errors occurred but no results were returned";
+    break;
+  }
+  default: {
+    return defaultStatusDescription;
+    break;
+  }
+  }
+}
+
 #pragma mark - Protocol conformance
 
 #pragma mark <MTLJSONSerializing>
