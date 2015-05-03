@@ -8,7 +8,7 @@
 
 #import "GPAViewController.h"
 
-#import <HNKGooglePlacesAutocomplete/HNKGooglePlacesAutocomplete.h>
+#import <HNKGooglePlacesAutocomplete/HNKGooglePlacesAutocompleteQuery.h>
 
 @interface GPAViewController ()
 
@@ -20,35 +20,26 @@
 {
     [super viewDidLoad];
 
-    NSDictionary *predictionTermJSON = @{ @"offset" : @10, @"value" : @"BC" };
-    HNKQueryResponsePredictionTerm *term = [HNKQueryResponsePredictionTerm modelFromJSONDictionary:predictionTermJSON];
-    NSLog(@"term = %@", term);
+    [HNKGooglePlacesAutocompleteQuery setupSharedQueryWithAPIKey:@"AIzaSyAkR80JQgRgfnqBl6Db2RsnmkCG1LhuVn8"];
 
-    NSDictionary *predictionMatchedSubstringJSON = @{ @"length" : @4, @"offset" : @0 };
-    HNKQueryResponsePredictionMatchedSubstring *matchedSubstring =
-        [HNKQueryResponsePredictionMatchedSubstring modelFromJSONDictionary:predictionMatchedSubstringJSON];
-    NSLog(@"matched substring = %@", matchedSubstring);
+    void (^GPAViewControllerQueryCompletion)(NSArray *, NSError *) = ^(NSArray *places, NSError *error) {
+        if (error) {
+            NSLog(@"ERROR = %@", error);
+            return;
+        }
 
-    NSDictionary *predictionJSON = @{
-        @"description" : @"Victoria, BC, Canadá",
-        @"id" : @"d5892cffd777f0252b94ab2651fea7123d2aa34a",
-        @"matched_substrings" : @[ @{@"length" : @4, @"offset" : @0} ],
-        @"place_id" : @"ChIJcWGw3Ytzj1QR7Ui7HnTz6Dg",
-        @"reference" : @"CjQtAAAA903zyJZAu2FLA6KkdC7UAddRHAfHQDpArCk61FI_"
-        @"u1Ig7WaJqBiXYsQvORYMcgILEhAFvGtwa5VQpswubIIzwI5wGhTt8vgj6CSQp8QWYb4U1rXmlkg9bg",
-        @"terms" : @[
-            @{@"offset" : @0, @"value" : @"Victoria"},
-            @{@"offset" : @10, @"value" : @"BC"},
-            @{@"offset" : @14, @"value" : @"Canadá"}
-        ],
-        @"types" : @[ @"locality", @"political", @"geocode" ]
+        NSLog(@"PLACES = %@", places);
     };
-    HNKQueryResponsePrediction *prediction = [HNKQueryResponsePrediction modelFromJSONDictionary:predictionJSON];
-    NSLog(@"prediction = %@", prediction);
 
-    NSDictionary *queryResponseJSON = @{ @"predictions" : @[ predictionJSON ], @"status" : @"OK" };
-    HNKQueryResponse *queryResponse = [HNKQueryResponse modelFromJSONDictionary:queryResponseJSON];
-    NSLog(@"query response = %@", queryResponse);
+    // Error-causing requests
+    [[HNKGooglePlacesAutocompleteQuery sharedQuery] fetchPlacesForSearchQuery:@""
+                                                                   completion:GPAViewControllerQueryCompletion];
+    [[HNKGooglePlacesAutocompleteQuery sharedQuery] fetchPlacesForSearchQuery:nil
+                                                                   completion:GPAViewControllerQueryCompletion];
+
+    // Successful request
+    [[HNKGooglePlacesAutocompleteQuery sharedQuery] fetchPlacesForSearchQuery:@"Vict"
+                                                                   completion:GPAViewControllerQueryCompletion];
 }
 
 @end
