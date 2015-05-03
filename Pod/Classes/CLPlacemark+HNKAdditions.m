@@ -24,14 +24,71 @@
 //
 
 #import "HNKQueryResponsePrediction.h"
+#import "HNKGooglePlacesAutocompleteServer.h"
 
 #import "CLPlacemark+HNKAdditions.h"
 
 @implementation CLPlacemark (HNKAdditions)
 
-+ (instancetype)hnk_placemarkFromGooglePlace:(HNKQueryResponsePrediction *)place
-                                  completion:(void (^)(CLPlacemark *, NSString *, NSError *))completion
-{
++ (void)hnk_placemarkFromGooglePlace:(HNKQueryResponsePrediction *)place
+                          completion:(void (^)(CLPlacemark *, NSString *,
+                                               NSError *))completion {
+  [self addressForPlace:place
+             completion:^(NSString *addressString, NSError *error) {
+
+               CLGeocoder *geocoder = [[CLGeocoder alloc] init];
+
+               [geocoder
+                   geocodeAddressString:addressString
+                      completionHandler:^(NSArray *placemarks, NSError *error) {
+                        if (error) {
+                          completion(nil, nil, error);
+                        } else {
+                          CLPlacemark *placemark =
+                              [placemarks count] >= 1 ? placemarks[0] : nil;
+                          completion(placemark, addressString, nil);
+                        }
+                      }];
+             }];
+}
+
+#pragma mark - Helpers
+
++ (void)addressForPlace:(HNKQueryResponsePrediction *)place
+             completion:
+                 (void (^)(NSString *addressString, NSError *error))completion {
+  // TODO: Don't make API call for Geocode results - they already have their
+  // address in their name property
+  [HNKGooglePlacesAutocompleteServer
+             GET:@"place/details/json"
+      parameters:@{
+        @"placeid" : place.placeId,
+        @"key" : @"AIzaSyAkR80JQgRgfnqBl6Db2RsnmkCG1LhuVn8"
+      }
+      completion:^(id JSON, NSError *error) {
+
+        if (error) {
+          NSLog(@"%@", error);
+          completion(nil, error);
+          return;
+        }
+
+        completion(JSON[@"result"][@"formatted_address"], nil);
+
+      }];
+}
+
++ (BOOL)isGeocodeResult:(HNKQueryResponsePrediction *)place {
+  NSArray *allTypes = place.types;
+
+  for (int i = 0; i < [allTypes count]; i++) {
+    NSInteger type = (NSInteger)allTypes[i];
+    if (type == HNKGooglePlacesAutocompletePlaceTypeGeocode) {
+      return YES;
+    }
+  }
+
+  return NO;
 }
 
 @end

@@ -36,8 +36,10 @@
  *
  *  @return CLPlacemark resolved from Google Place
  */
-+ (instancetype)hnk_placemarkFromGooglePlace:(HNKQueryResponsePrediction *)place
-                                  completion:(void (^)(CLPlacemark *placemark, NSString *addressString,
-                                                       NSError *error))completion;
++ (void)
+    hnk_placemarkFromGooglePlaceDictionary:(HNKQueryResponsePrediction *)place
+                                completion:(void (^)(CLPlacemark *placemark,
+                                                     NSString *addressString,
+                                                     NSError *error))completion;
 
 @end
