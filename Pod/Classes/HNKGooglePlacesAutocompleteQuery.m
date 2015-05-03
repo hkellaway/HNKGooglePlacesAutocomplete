@@ -27,15 +27,17 @@
 #import "HNKGooglePlacesAutocompleteServer.h"
 #import "HNKQueryResponse.h"
 
+#pragma mark Error Domain
+
+NSString *const HNKGooglePlacesAutocompleteQueryErrorDomain =
+    @"com.hnkgoogleplacesautocomplete.query.fetch.error";
+
 #pragma mark Request Path
 
 static NSString *const kHNKGooglePlacesAutocompleteServerRequestPath =
     @"place/autocomplete/json";
 
-#pragma mark Error Constants
-
-NSString *const HNKGooglePlacesAutocompleteQueryErrorDomain =
-    @"com.hnkgoogleplacesautocomplete.query.fetch.error";
+#pragma mark Status Constants
 
 NSString *const HNKGooglePlacesAutocompleteQueryStatusDescriptionUnknown =
     @"Status unknown";
