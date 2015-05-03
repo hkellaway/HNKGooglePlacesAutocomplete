@@ -89,8 +89,8 @@
   NSArray *allTypes = place.types;
 
   for (int i = 0; i < [allTypes count]; i++) {
-    NSInteger type = (NSInteger)allTypes[i];
-    if (type == HNKGooglePlacesAutocompletePlaceTypeGeocode) {
+    NSNumber *number = allTypes[i];
+    if (number.integerValue == HNKGooglePlacesAutocompletePlaceTypeGeocode) {
       return YES;
     }
   }

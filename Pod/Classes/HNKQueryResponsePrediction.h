@@ -117,7 +117,8 @@ typedef NS_ENUM(NSInteger, HNKGooglePlacesAutocompletePlaceType) {
 @property(nonatomic, strong, readonly) NSArray *terms;
 
 /**
- *  A collection of Types that apply to this place
+ *  A collection of NSNumbers whose integerValues corresponse to
+ * HNKGooglePlacesAutocompletePlaceTypes
  */
 @property(nonatomic, strong, readonly) NSArray *types;
 

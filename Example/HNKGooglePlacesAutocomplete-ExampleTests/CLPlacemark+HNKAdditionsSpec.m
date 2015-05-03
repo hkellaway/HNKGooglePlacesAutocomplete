@@ -68,19 +68,18 @@ describe(@"CLPlacemark+HNKAdditions", ^{
 
                  });
 
-                 //                 context(@"Place is a geocode result",
-                 //                         ^{
-                 //
-                 //                             it(@"Should return YES",
-                 //                                ^{
-                 //                                    BOOL isGeocode = [CLPlacemark
-                 //                                    isGeocodeResult:geocodeResultPlace];
-                 //
-                 //                                    [[theValue(isGeocode) should] equal:theValue(YES)];
-                 //
-                 //                                });
-                 //
-                 //                         });
+                 context(@"Place is a geocode result",
+                         ^{
+
+                             it(@"Should return YES",
+                                ^{
+                                    BOOL isGeocode = [CLPlacemark isGeocodeResult:geocodeResultPlace];
+
+                                    [[theValue(isGeocode) should] equal:theValue(YES)];
+
+                                });
+
+                         });
 
                  context(@"Place is not a geocode result",
                          ^{
@@ -343,15 +342,48 @@ describe(@"CLPlacemark+HNKAdditions", ^{
 
                         });
 
-                    context(@"Fetching Place Details not successful",
-                            ^{
+                    context(
+                        @"Fetching Place Details not successful",
+                        ^{
 
-                                it(@"Should return error",
-                                   ^{
-                                     // TODO
-                                   });
+                            __block NSError *testError;
+
+                            beforeEach(^{
+
+                                testError =
+                                    [NSError errorWithDomain:@"Test Domain" code:100 userInfo:@{
+                                        @"user" : @"info"
+                                    }];
+
+                                [HNKGooglePlacesAutocompleteServer stub:@selector(GET:parameters:completion:)
+                                                              withBlock:^id(NSArray *params) {
+
+                                                                  HNKGooglePlacesAutocompleteServerCallback completion =
+                                                                      params[2];
+                                                                  completion(nil, testError);
+
+                                                                  return nil;
+
+                                                              }];
 
                             });
+
+                            it(@"Should return error",
+                               ^{
+                                   __block NSError *errorReturned;
+                                   [CLPlacemark hnk_placemarkFromGooglePlace:testPlace
+                                                                  completion:^(CLPlacemark *placemark,
+                                                                               NSString *addressString,
+                                                                               NSError *error) {
+
+                                                                      errorReturned = error;
+
+                                                                  }];
+
+                                   [[expectFutureValue(errorReturned) shouldEventually] equal:testError];
+                               });
+
+                        });
 
                 });
 
