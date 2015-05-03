@@ -36,6 +36,11 @@
   [self addressForPlace:place
              completion:^(NSString *addressString, NSError *error) {
 
+               if (error) {
+                 completion(nil, nil, error);
+                 return;
+               }
+
                CLGeocoder *geocoder = [[CLGeocoder alloc] init];
 
                [geocoder
@@ -57,18 +62,20 @@
 + (void)addressForPlace:(HNKQueryResponsePrediction *)place
              completion:
                  (void (^)(NSString *addressString, NSError *error))completion {
-  // TODO: Don't make API call for Geocode results - they already have their
-  // address in their name property
+  if ([self isGeocodeResult:place]) {
+    completion(place.predictionDescription, nil);
+    return;
+  }
+
   [HNKGooglePlacesAutocompleteServer
              GET:@"place/details/json"
       parameters:@{
         @"placeid" : place.placeId,
         @"key" : @"AIzaSyAkR80JQgRgfnqBl6Db2RsnmkCG1LhuVn8"
       }
-      completion:^(id JSON, NSError *error) {
+      completion:^(NSDictionary *JSON, NSError *error) {
 
         if (error) {
-          NSLog(@"%@", error);
           completion(nil, error);
           return;
         }
