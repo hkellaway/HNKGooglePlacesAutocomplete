@@ -103,17 +103,60 @@ describe(@"CLPlacemark+HNKAdditions", ^{
             typedef void (^CLGeocoderGeocodeAddressCallback)(NSArray *placemarks, NSError *error);
             typedef void (^CLPlacemarkResolveToGooglePlaceCallback)(CLPlacemark *, NSString *, NSError *);
 
-            __block HNKQueryResponsePrediction *testPlace;
-            __block id testGeocoder;
+            __block NSString *testPlaceId;
+            __block HNKQueryResponsePrediction *mockPlace;
+            __block id mockGeocoder;
+            __block NSString *testApiKey;
+            __block NSDictionary *testDetailsJSON;
 
             beforeEach(^{
 
-                testPlace = [[HNKQueryResponsePrediction alloc] init];
-                [testPlace stub:@selector(predictionDescription) andReturn:@"123 XYZ St, New York, NY, USA"];
-                [testPlace stub:@selector(placeId) andReturn:@"abc"];
+                testPlaceId = @"ChIJcWGw3Ytzj1QR7Ui7HnTz6Dg";
+                mockPlace = [HNKQueryResponse nullMock];
+                [mockPlace stub:@selector(predictionDescription) andReturn:@"123 XYZ St, New York, NY, USA"];
+                [mockPlace stub:@selector(placeId) andReturn:testPlaceId];
 
-                testGeocoder = [CLGeocoder nullMock];
-                [CLGeocoder stub:@selector(alloc) andReturn:testGeocoder];
+                mockGeocoder = [CLGeocoder nullMock];
+                [CLGeocoder stub:@selector(alloc) andReturn:mockGeocoder];
+
+                testApiKey = @"xyz";
+
+                testDetailsJSON = @{
+                    @"html_attributions" : @[],
+                    @"result" : @{
+                        @"address_components" : @[],
+                        @"adr_address" : @"",
+                        @"formatted_address" : @"Victoria, BC, Canada",
+                        @"geometry" : @{
+                            @"location" : @{@"lat" : @48.4284207, @"lng" : @-123.3656444},
+                            @"viewport" : @{
+                                @"northeast" : @{@"lat" : @48.450518, @"lng" : @-123.322346},
+                                @"southwest" : @{@"lat" : @48.4028414, @"lng" : @-123.394489}
+                            }
+                        },
+                        @"icon" : @"http://maps.gstatic.com/mapfiles/place_api/icons/geocode-71.png",
+                        @"id" : @"d5892cffd777f0252b94ab2651fea7123d2aa34a",
+                        @"name" : @"Victoria",
+                        @"place_id" : testPlaceId,
+                        @"reference" : @"",
+                        @"scope" : @"GOOGLE",
+                        @"types" : @[ @"locality", @"political" ],
+                        @"url" : @"https://maps.google.com/maps/"
+                        @"place?q=Victoria,+BC,+Canada&ftid=0x548f738bddb06171:" @"0x38e8f3741ebb48ed",
+                        @"vicinity" : @"Victoria"
+                    },
+                    @"status" : @"OK"
+                };
+
+                [HNKGooglePlacesAutocompleteServer stub:@selector(GET:parameters:completion:)
+                                              withBlock:^id(NSArray *params) {
+
+                                                  HNKGooglePlacesAutocompleteServerCallback completion = params[2];
+                                                  completion(testDetailsJSON, nil);
+
+                                                  return nil;
+
+                                              }];
 
             });
 
@@ -132,16 +175,16 @@ describe(@"CLPlacemark+HNKAdditions", ^{
                                [[HNKGooglePlacesAutocompleteServer shouldNot]
                                    receive:@selector(GET:parameters:completion:)];
 
-                               [CLPlacemark hnk_placemarkFromGooglePlace:testPlace completion:nil];
+                               [CLPlacemark hnk_placemarkFromGooglePlace:mockPlace apiKey:testApiKey completion:nil];
 
                            });
 
                         it(@"Should call Geocoder with Places description",
                            ^{
-                               [[testGeocoder should] receive:@selector(geocodeAddressString:completionHandler:)
-                                                withArguments:testPlace.predictionDescription, any()];
+                               [[mockGeocoder should] receive:@selector(geocodeAddressString:completionHandler:)
+                                                withArguments:mockPlace.predictionDescription, any()];
 
-                               [CLPlacemark hnk_placemarkFromGooglePlace:testPlace completion:nil];
+                               [CLPlacemark hnk_placemarkFromGooglePlace:mockPlace apiKey:testApiKey completion:nil];
                            });
 
                     });
@@ -162,13 +205,11 @@ describe(@"CLPlacemark+HNKAdditions", ^{
                            [[HNKGooglePlacesAutocompleteServer should]
                                      receive:@selector(GET:parameters:completion:)
                                withArguments:@"place/details/json",
-                                             @{
-                                                 @"placeid" : @"abc",
-                                                 @"key" : @"AIzaSyAkR80JQgRgfnqBl6Db2RsnmkCG1LhuVn8"
-                                             },
+                                             @{ @"placeid" : testPlaceId,
+                                                @"key" : testApiKey },
                                              any()];
 
-                           [CLPlacemark hnk_placemarkFromGooglePlace:testPlace completion:nil];
+                           [CLPlacemark hnk_placemarkFromGooglePlace:mockPlace apiKey:testApiKey completion:nil];
 
                        });
 
@@ -177,33 +218,6 @@ describe(@"CLPlacemark+HNKAdditions", ^{
                         ^{
 
                             beforeEach(^{
-
-                                NSDictionary *testDetailsJSON = @{
-                                    @"html_attributions" : @[],
-                                    @"result" : @{
-                                        @"address_components" : @[],
-                                        @"adr_address" : @"",
-                                        @"formatted_address" : @"Victoria, BC, Canada",
-                                        @"geometry" : @{
-                                            @"location" : @{@"lat" : @48.4284207, @"lng" : @-123.3656444},
-                                            @"viewport" : @{
-                                                @"northeast" : @{@"lat" : @48.450518, @"lng" : @-123.322346},
-                                                @"southwest" : @{@"lat" : @48.4028414, @"lng" : @-123.394489}
-                                            }
-                                        },
-                                        @"icon" : @"http://maps.gstatic.com/mapfiles/place_api/icons/geocode-71.png",
-                                        @"id" : @"d5892cffd777f0252b94ab2651fea7123d2aa34a",
-                                        @"name" : @"Victoria",
-                                        @"place_id" : @"ChIJcWGw3Ytzj1QR7Ui7HnTz6Dg",
-                                        @"reference" : @"",
-                                        @"scope" : @"GOOGLE",
-                                        @"types" : @[ @"locality", @"political" ],
-                                        @"url" : @"https://maps.google.com/maps/"
-                                        @"place?q=Victoria,+BC,+Canada&ftid=0x548f738bddb06171:" @"0x38e8f3741ebb48ed",
-                                        @"vicinity" : @"Victoria"
-                                    },
-                                    @"status" : @"OK"
-                                };
 
                                 [HNKGooglePlacesAutocompleteServer stub:@selector(GET:parameters:completion:)
                                                               withBlock:^id(NSArray *params) {
@@ -220,10 +234,12 @@ describe(@"CLPlacemark+HNKAdditions", ^{
 
                             it(@"Should call Geocoder with Place formatted address",
                                ^{
-                                   [[testGeocoder should] receive:@selector(geocodeAddressString:completionHandler:)
+                                   [[mockGeocoder should] receive:@selector(geocodeAddressString:completionHandler:)
                                                     withArguments:@"Victoria, BC, Canada", any()];
 
-                                   [CLPlacemark hnk_placemarkFromGooglePlace:testPlace completion:nil];
+                                   [CLPlacemark hnk_placemarkFromGooglePlace:mockPlace
+                                                                      apiKey:testApiKey
+                                                                  completion:nil];
                                });
 
                             context(@"Less than one placemark returned by geocoder",
@@ -231,7 +247,7 @@ describe(@"CLPlacemark+HNKAdditions", ^{
 
                                         beforeEach(^{
 
-                                            [testGeocoder stub:@selector(geocodeAddressString:completionHandler:)
+                                            [mockGeocoder stub:@selector(geocodeAddressString:completionHandler:)
                                                      withBlock:^id(NSArray *params) {
 
                                                          CLGeocoderGeocodeAddressCallback completionHandler = params[1];
@@ -246,7 +262,8 @@ describe(@"CLPlacemark+HNKAdditions", ^{
                                            ^{
                                                __block id placemarkReturned;
 
-                                               [CLPlacemark hnk_placemarkFromGooglePlace:testPlace
+                                               [CLPlacemark hnk_placemarkFromGooglePlace:mockPlace
+                                                                                  apiKey:testApiKey
                                                                               completion:^(CLPlacemark *placemark,
                                                                                            NSString *addressString,
                                                                                            NSError *error) {
@@ -269,7 +286,7 @@ describe(@"CLPlacemark+HNKAdditions", ^{
                                             testPlacemark = [CLPlacemark nullMock];
                                             [CLPlacemark stub:@selector(alloc) andReturn:testPlacemark];
 
-                                            [testGeocoder stub:@selector(geocodeAddressString:completionHandler:)
+                                            [mockGeocoder stub:@selector(geocodeAddressString:completionHandler:)
                                                      withBlock:^id(NSArray *params) {
 
                                                          CLGeocoderGeocodeAddressCallback completionHandler = params[1];
@@ -284,7 +301,8 @@ describe(@"CLPlacemark+HNKAdditions", ^{
                                            ^{
                                                __block id placemarkReturned;
 
-                                               [CLPlacemark hnk_placemarkFromGooglePlace:testPlace
+                                               [CLPlacemark hnk_placemarkFromGooglePlace:mockPlace
+                                                                                  apiKey:testApiKey
                                                                               completion:^(CLPlacemark *placemark,
                                                                                            NSString *addressString,
                                                                                            NSError *error) {
@@ -311,7 +329,7 @@ describe(@"CLPlacemark+HNKAdditions", ^{
 
                                             testPlacemarks = @[ testPlacemark1, testPlacemark2 ];
 
-                                            [testGeocoder stub:@selector(geocodeAddressString:completionHandler:)
+                                            [mockGeocoder stub:@selector(geocodeAddressString:completionHandler:)
                                                      withBlock:^id(NSArray *params) {
 
                                                          CLGeocoderGeocodeAddressCallback completionHandler = params[1];
@@ -325,7 +343,8 @@ describe(@"CLPlacemark+HNKAdditions", ^{
                                         it(@"Should return the first placemark",
                                            ^{
                                                __block id placemarkReturned;
-                                               [CLPlacemark hnk_placemarkFromGooglePlace:testPlace
+                                               [CLPlacemark hnk_placemarkFromGooglePlace:mockPlace
+                                                                                  apiKey:testApiKey
                                                                               completion:^(CLPlacemark *placemark,
                                                                                            NSString *addressString,
                                                                                            NSError *error) {
@@ -371,7 +390,8 @@ describe(@"CLPlacemark+HNKAdditions", ^{
                             it(@"Should return error",
                                ^{
                                    __block NSError *errorReturned;
-                                   [CLPlacemark hnk_placemarkFromGooglePlace:testPlace
+                                   [CLPlacemark hnk_placemarkFromGooglePlace:mockPlace
+                                                                      apiKey:testApiKey
                                                                   completion:^(CLPlacemark *placemark,
                                                                                NSString *addressString,
                                                                                NSError *error) {
