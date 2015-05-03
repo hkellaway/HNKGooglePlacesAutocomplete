@@ -25,6 +25,9 @@
 
 #import "HNKQueryResponse.h"
 
+typedef void (^HNKGooglePlacesAutocompleteQueryCallback)(id JSON,
+                                                         NSError *error);
+
 /**
  *  Status descriptions
  */
@@ -38,6 +41,8 @@ extern NSString *const
     HNKGooglePlacesAutocompleteQueryStatusDescriptionRequestDenied;
 extern NSString *const
     HNKGooglePlacesAutocompleteQueryStatusDescriptionZeroResults;
+extern NSString *const
+    HNKGooglePlacesAutocompleteQueryStatusDescriptionServerRequestFailed;
 extern NSString *const
     HNKGooglePlacesAutocompleteQueryStatusDescriptionSearchQueryNil;
 
@@ -115,6 +120,6 @@ typedef NS_ENUM(NSInteger, HNKGooglePlacesAutocompleteQueryErrorCode) {
  */
 - (void)fetchPlacesForSearchQuery:(NSString *)searchQuery
                        completion:
-                           (void (^)(NSArray *places, NSError *))completion;
+                           (HNKGooglePlacesAutocompleteQueryCallback)completion;
 
 @end

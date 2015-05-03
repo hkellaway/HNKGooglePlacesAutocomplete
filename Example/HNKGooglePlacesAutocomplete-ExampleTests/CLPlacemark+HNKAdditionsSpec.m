@@ -99,7 +99,7 @@ describe(@"CLPlacemark+HNKAdditions", ^{
     describe(
         @"Method: placemarkFromGooglePlace:completion:",
         ^{
-            typedef void (^HNKGooglePlacesAutocompleteServerCallback)(id JSON, NSError *error);
+            typedef void (^HNKGooglePlacesAutocompleteServerCallback)(id responseObject, NSError *error);
             typedef void (^CLGeocoderGeocodeAddressCallback)(NSArray *placemarks, NSError *error);
             typedef void (^CLPlacemarkResolveToGooglePlaceCallback)(CLPlacemark *, NSString *, NSError *);
 

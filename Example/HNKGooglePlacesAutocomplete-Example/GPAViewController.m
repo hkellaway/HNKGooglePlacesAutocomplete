@@ -25,24 +25,24 @@
 
     [HNKGooglePlacesAutocompleteQuery setupSharedQueryWithAPIKey:@"AIzaSyAkR80JQgRgfnqBl6Db2RsnmkCG1LhuVn8"];
 
-    //    void (^GPAViewControllerQueryCompletion)(NSArray *, NSError *) = ^(NSArray *places, NSError *error) {
-    //        if (error) {
-    //            NSLog(@"ERROR = %@", error);
-    //            return;
-    //        }
-    //
-    //        NSLog(@"PLACES = %@", places);
-    //    };
-    //
-    //    // Error-causing requests
-    //    [[HNKGooglePlacesAutocompleteQuery sharedQuery] fetchPlacesForSearchQuery:@""
-    //                                                                   completion:GPAViewControllerQueryCompletion];
-    //    [[HNKGooglePlacesAutocompleteQuery sharedQuery] fetchPlacesForSearchQuery:nil
-    //                                                                   completion:GPAViewControllerQueryCompletion];
-    //
-    //    // Successful request
-    //    [[HNKGooglePlacesAutocompleteQuery sharedQuery] fetchPlacesForSearchQuery:@"Vict"
-    //                                                                   completion:GPAViewControllerQueryCompletion];
+    void (^GPAViewControllerQueryCompletion)(NSArray *, NSError *) = ^(NSArray *places, NSError *error) {
+        if (error) {
+            NSLog(@"ERROR = %@", error);
+            return;
+        }
+
+        NSLog(@"PLACES = %@", places);
+    };
+
+    // Error-causing requests
+    [[HNKGooglePlacesAutocompleteQuery sharedQuery] fetchPlacesForSearchQuery:@""
+                                                                   completion:GPAViewControllerQueryCompletion];
+    [[HNKGooglePlacesAutocompleteQuery sharedQuery] fetchPlacesForSearchQuery:nil
+                                                                   completion:GPAViewControllerQueryCompletion];
+
+    // Successful request
+    [[HNKGooglePlacesAutocompleteQuery sharedQuery] fetchPlacesForSearchQuery:@"Vict"
+                                                                   completion:GPAViewControllerQueryCompletion];
 
     // Placemark
     [[HNKGooglePlacesAutocompleteQuery sharedQuery] fetchPlacesForSearchQuery:
