@@ -12,7 +12,7 @@ A modern objective-c wrapper for the Google Places autocomplete API
 #### Podfile
 
 ```ruby
-pod "HNKGooglePlacesAutocomplete", "~> 0.1"
+pod "HNKGooglePlacesAutocomplete", "~> 0.2"
 ```
 
 ## Credits

@@ -40,22 +40,22 @@ PODS:
 
 DEPENDENCIES:
   - HNKGooglePlacesAutocomplete (from `https://github.com/hkellaway/HNKGooglePlacesAutocomplete.git`,
-    branch `core/networking_errors_for_failed_requests`)
+    branch `release/0.2.0`)
   - Kiwi (~> 2.3)
 
 EXTERNAL SOURCES:
   HNKGooglePlacesAutocomplete:
-    :branch: core/networking_errors_for_failed_requests
+    :branch: release/0.2.0
     :git: https://github.com/hkellaway/HNKGooglePlacesAutocomplete.git
 
 CHECKOUT OPTIONS:
   HNKGooglePlacesAutocomplete:
-    :commit: 996ec7905da84181cbb1dba76183dd3366e6287f
+    :commit: 0c528adbf72a80e98e9899c8b57bf2c9d2f6184e
     :git: https://github.com/hkellaway/HNKGooglePlacesAutocomplete.git
 
 SPEC CHECKSUMS:
   AFNetworking: e1d86c2a96bb5d2e7408da36149806706ee122fe
-  HNKGooglePlacesAutocomplete: 2d7caabaa425100667114ded9feda83bbed88d0a
+  HNKGooglePlacesAutocomplete: 44d58c0a9da516d814d4a0199c2c4d024bb8d7e0
   HNKServerFacade: 54102383a22b3aa61171574ad0b50ff24fd504cd
   Kiwi: f038a6c61f7a9e4d7766bff5717aa3b3fdb75f55
   Mantle: 60acd0cd363e27d945bda0a6b8e90577112d28f3

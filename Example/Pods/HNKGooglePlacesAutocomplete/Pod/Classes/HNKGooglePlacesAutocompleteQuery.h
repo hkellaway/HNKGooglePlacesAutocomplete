@@ -46,19 +46,43 @@ extern NSString *const
  */
 extern NSString *const HNKGooglePlacesAutocompleteQueryErrorDomain;
 
+/**
+ *  Error codes for HNKGooglePlacesAutcompleteQuery requests
+ */
 typedef NS_ENUM(NSInteger, HNKGooglePlacesAutocompleteQueryErrorCode) {
+  /**
+   *  Unknown status code returned
+   */
   HNKGooglePlacesAutocompleteQueryErrorCodeUnknown =
       HNKQueryResponseStatusUnknown,
+  /**
+   *  Invalid request; the search query may have been missing
+   */
   HNKGooglePlacesAutocompleteQueryErrorCodeInvalidRequest =
       HNKQueryResponseStatusInvalidRequest,
+  /**
+   *  Query quota has been exceeded for provided API key
+   */
   HNKGooglePlacesAutocompleteQueryErrorCodeOverQueryLimit =
       HNKQueryResponseStatusOverQueryLimit,
+  /**
+   *  Request denied; the API key may be invalid
+   */
   HNKGooglePlacesAutocompleteQueryErrorRequestDenied =
       HNKQueryResponseStatusRequestDenied,
+  /**
+   *  Non-API error occurred while making a request to the server
+   */
   HNKGooglePlacesAutcompleteQueryErrorCodeServerRequestFailed = 6,
+  /**
+   *  Search query was nil
+   */
   HNKgooglePlacesAutocompleteQueryErrorCodeSearchQueryNil = 7
 };
 
+/**
+ *  Query used to fetch objects from the API
+ */
 @interface HNKGooglePlacesAutocompleteQuery : NSObject
 
 #pragma mark - Initialization
@@ -78,6 +102,12 @@ typedef NS_ENUM(NSInteger, HNKGooglePlacesAutocompleteQueryErrorCode) {
 
 #pragma mark - Requests
 
+/**
+ *  Fetches Places given a search query
+ *
+ *  @param searchQuery String to search for Places with
+ *  @param completion  Block to be executed when the fetch finishes
+ */
 - (void)fetchPlacesForSearchQuery:(NSString *)searchQuery
                        completion:
                            (void (^)(NSArray *places, NSError *))completion;
