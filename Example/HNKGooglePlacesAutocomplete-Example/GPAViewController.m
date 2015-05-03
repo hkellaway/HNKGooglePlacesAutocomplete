@@ -8,7 +8,10 @@
 
 #import "GPAViewController.h"
 
-#import <HNKGooglePlacesAutocomplete/HNKGooglePlacesAutocompleteQuery.h>
+#import <CoreLocation/CLPlacemark.h>
+#import <HNKGooglePlacesAutocomplete/HNKGooglePlacesAutocomplete.h>
+
+#import "CLPlacemark+HNKAdditions.h"
 
 @interface GPAViewController ()
 
@@ -22,24 +25,49 @@
 
     [HNKGooglePlacesAutocompleteQuery setupSharedQueryWithAPIKey:@"AIzaSyAkR80JQgRgfnqBl6Db2RsnmkCG1LhuVn8"];
 
-    void (^GPAViewControllerQueryCompletion)(NSArray *, NSError *) = ^(NSArray *places, NSError *error) {
+    //    void (^GPAViewControllerQueryCompletion)(NSArray *, NSError *) = ^(NSArray *places, NSError *error) {
+    //        if (error) {
+    //            NSLog(@"ERROR = %@", error);
+    //            return;
+    //        }
+    //
+    //        NSLog(@"PLACES = %@", places);
+    //    };
+    //
+    //    // Error-causing requests
+    //    [[HNKGooglePlacesAutocompleteQuery sharedQuery] fetchPlacesForSearchQuery:@""
+    //                                                                   completion:GPAViewControllerQueryCompletion];
+    //    [[HNKGooglePlacesAutocompleteQuery sharedQuery] fetchPlacesForSearchQuery:nil
+    //                                                                   completion:GPAViewControllerQueryCompletion];
+    //
+    //    // Successful request
+    //    [[HNKGooglePlacesAutocompleteQuery sharedQuery] fetchPlacesForSearchQuery:@"Vict"
+    //                                                                   completion:GPAViewControllerQueryCompletion];
+
+    // Placemark
+    [[HNKGooglePlacesAutocompleteQuery sharedQuery] fetchPlacesForSearchQuery:
+                                                        @"Vict" completion:^(NSArray *places, NSError *error) {
+
         if (error) {
             NSLog(@"ERROR = %@", error);
             return;
         }
 
-        NSLog(@"PLACES = %@", places);
-    };
+        for (HNKQueryResponsePrediction *place in places) {
+            [CLPlacemark hnk_placemarkFromGooglePlace:place
+                                           completion:^(CLPlacemark *placemark, NSString *address, NSError *error) {
 
-    // Error-causing requests
-    [[HNKGooglePlacesAutocompleteQuery sharedQuery] fetchPlacesForSearchQuery:@""
-                                                                   completion:GPAViewControllerQueryCompletion];
-    [[HNKGooglePlacesAutocompleteQuery sharedQuery] fetchPlacesForSearchQuery:nil
-                                                                   completion:GPAViewControllerQueryCompletion];
+                                               if (error) {
+                                                   NSLog(@"ERROR DURING PLACEMARK CREATION = %@", error);
+                                                   return;
+                                               }
 
-    // Successful request
-    [[HNKGooglePlacesAutocompleteQuery sharedQuery] fetchPlacesForSearchQuery:@"Vict"
-                                                                   completion:GPAViewControllerQueryCompletion];
+                                               NSLog(@"PLACEMARK ADDRESS = %@", address);
+
+                                           }];
+        }
+
+    }];
 }
 
 @end
