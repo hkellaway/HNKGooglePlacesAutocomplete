@@ -58,6 +58,34 @@ describe(@"HNKGooglePlacesAutocompleteQuery", ^{
                 @"Invalid search query",
                 ^{
                     context(
+                        @"Empty string",
+                        ^{
+
+                            it(@"Should return custom error",
+                               ^{
+
+                                   __block NSError *errorToRecieve;
+                                   NSError *expectedError = [NSError
+                                       errorWithDomain:HNKGooglePlacesAutocompleteQueryErrorDomain
+                                                  code:HNKQueryResponseStatusInvalidRequest
+                                              userInfo:@{
+                                                  @"NSLocalizedDescriptionKey" :
+                                                      HNKGooglePlacesAutocompleteQueryStatusDescriptionInvalidRequest,
+                                                  @"NSLocalizedFailureReasonErrorKey" :
+                                                      HNKGooglePlacesAutocompleteQueryStatusDescriptionInvalidRequest
+                                              }];
+
+                                   [testInstance fetchPlacesForSearchQuery:@""
+                                                                completion:^(NSArray *places, NSError *error) {
+                                                                    errorToRecieve = error;
+                                                                }];
+
+                                   [[errorToRecieve should] equal:expectedError];
+                               });
+
+                        });
+
+                    context(
                         @"nil",
                         ^{
                             it(@"Should return custom error",
@@ -83,35 +111,6 @@ describe(@"HNKGooglePlacesAutocompleteQuery", ^{
                                });
 
                         });
-
-                    //                    context(
-                    //                        @"Empty string",
-                    //                        ^{
-                    //
-                    //                            it(@"Should return custom error",
-                    //                               ^{
-                    //
-                    //                                   __block NSError *errorToRecieve;
-                    //                                   NSError *expectedError = [NSError
-                    //                                       errorWithDomain:HNKGooglePlacesAutocompleteQueryErrorDomain
-                    //                                                  code:HNKQueryResponseStatusInvalidRequest
-                    //                                              userInfo:@{
-                    //                                                  @"NSLocalizedDescriptionKey" :
-                    //                                                      HNKGooglePlacesAutocompleteQueryStatusDescriptionInvalidRequest,
-                    //                                                  @"NSLocalizedFailureReasonErrorKey" :
-                    //                                                      HNKGooglePlacesAutocompleteQueryStatusDescriptionInvalidRequest
-                    //                                              }];
-                    //
-                    //                                   [testInstance fetchPlacesForSearchQuery:@""
-                    //                                                                completion:^(NSArray *places,
-                    //                                                                NSError *error) {
-                    //                                                                    errorToRecieve = error;
-                    //                                                                }];
-                    //
-                    //                                   [[errorToRecieve should] equal:expectedError];
-                    //                               });
-                    //
-                    //                        });
                 });
 
             context(
