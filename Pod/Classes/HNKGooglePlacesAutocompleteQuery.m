@@ -59,7 +59,7 @@ NSString *const
 
 @interface HNKGooglePlacesAutocompleteQuery ()
 
-@property(nonatomic, strong) NSString *apiKey;
+@property(nonatomic, copy, readwrite) NSString *apiKey;
 
 @end
 
@@ -101,6 +101,12 @@ static HNKGooglePlacesAutocompleteQuery *sharedQuery = nil;
   NSAssert(FALSE, @"init should not be called");
 
   return [self initWithAPIKey:@""];
+}
+
+#pragma mark - Getters
+
+- (NSString *)apiKey {
+  return _apiKey;
 }
 
 #pragma mark - Requests
