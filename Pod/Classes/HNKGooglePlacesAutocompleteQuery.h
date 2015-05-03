@@ -80,6 +80,9 @@ typedef NS_ENUM(NSInteger, HNKGooglePlacesAutocompleteQueryErrorCode) {
   HNKgooglePlacesAutocompleteQueryErrorCodeSearchQueryNil = 7
 };
 
+/**
+ *  Query used to fetch objects from the API
+ */
 @interface HNKGooglePlacesAutocompleteQuery : NSObject
 
 #pragma mark - Initialization
@@ -99,6 +102,12 @@ typedef NS_ENUM(NSInteger, HNKGooglePlacesAutocompleteQueryErrorCode) {
 
 #pragma mark - Requests
 
+/**
+ *  Fetches Places given a search query
+ *
+ *  @param searchQuery String to search for Places with
+ *  @param completion  Block to be executed when the fetch finishes
+ */
 - (void)fetchPlacesForSearchQuery:(NSString *)searchQuery
                        completion:
                            (void (^)(NSArray *places, NSError *))completion;
