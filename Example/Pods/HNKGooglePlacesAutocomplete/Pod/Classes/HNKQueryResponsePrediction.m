@@ -65,12 +65,14 @@
         @(HNKGooglePlacesAutocompletePlaceTypeAdministrativeAreaLevel2),
     @"administrative_area_level_3" :
         @(HNKGooglePlacesAutocompletePlaceTypeAdministrativeAreaLevel3),
+    @"(cities)" : @(HNKGooglePlacesAutocompletePlaceTypeCities),
     @"country" : @(HNKGooglePlacesAutocompletePlaceTypeCountry),
     @"establishment" : @(HNKGooglePlacesAutocompletePlaceTypeEstablishment),
     @"geocode" : @(HNKGooglePlacesAutocompletePlaceTypeGeocode),
     @"locality" : @(HNKGooglePlacesAutocompletePlaceTypeLocality),
     @"political" : @(HNKGooglePlacesAutocompletePlaceTypePolitical),
     @"postal_code" : @(HNKGooglePlacesAutocompletePlaceTypePostalCode),
+    @"(regions)" : @(HNKGooglePlacesAutocompletePlaceTypeRegions),
     @"sublocality" : @(HNKGooglePlacesAutocompletePlaceTypeSublocality)
   };
 
