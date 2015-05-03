@@ -28,13 +28,23 @@
 
 #import "CLPlacemark+HNKAdditions.h"
 
+static NSString *const kHNKGooglePlacesDetailsServerRequestPath =
+    @"place/details/json";
+
 @implementation CLPlacemark (HNKAdditions)
 
 + (void)hnk_placemarkFromGooglePlace:(HNKQueryResponsePrediction *)place
+                              apiKey:(NSString *)apiKey
                           completion:(void (^)(CLPlacemark *, NSString *,
                                                NSError *))completion {
   [self addressForPlace:place
+                 apiKey:apiKey
              completion:^(NSString *addressString, NSError *error) {
+
+               if (error) {
+                 completion(nil, nil, error);
+                 return;
+               }
 
                CLGeocoder *geocoder = [[CLGeocoder alloc] init];
 
@@ -55,20 +65,23 @@
 #pragma mark - Helpers
 
 + (void)addressForPlace:(HNKQueryResponsePrediction *)place
+                 apiKey:(NSString *)apiKey
              completion:
                  (void (^)(NSString *addressString, NSError *error))completion {
-  // TODO: Don't make API call for Geocode results - they already have their
-  // address in their name property
+  if ([self isGeocodeResult:place]) {
+    completion(place.predictionDescription, nil);
+    return;
+  }
+
   [HNKGooglePlacesAutocompleteServer
-             GET:@"place/details/json"
+             GET:kHNKGooglePlacesDetailsServerRequestPath
       parameters:@{
         @"placeid" : place.placeId,
-        @"key" : @"AIzaSyAkR80JQgRgfnqBl6Db2RsnmkCG1LhuVn8"
+        @"key" : apiKey
       }
-      completion:^(id JSON, NSError *error) {
+      completion:^(NSDictionary *JSON, NSError *error) {
 
         if (error) {
-          NSLog(@"%@", error);
           completion(nil, error);
           return;
         }
@@ -82,8 +95,8 @@
   NSArray *allTypes = place.types;
 
   for (int i = 0; i < [allTypes count]; i++) {
-    NSInteger type = (NSInteger)allTypes[i];
-    if (type == HNKGooglePlacesAutocompletePlaceTypeGeocode) {
+    NSNumber *number = allTypes[i];
+    if (number.integerValue == HNKGooglePlacesAutocompletePlaceTypeGeocode) {
       return YES;
     }
   }

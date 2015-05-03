@@ -23,7 +23,9 @@
 {
     [super viewDidLoad];
 
-    [HNKGooglePlacesAutocompleteQuery setupSharedQueryWithAPIKey:@"AIzaSyAkR80JQgRgfnqBl6Db2RsnmkCG1LhuVn8"];
+    NSString *apiKey = @"AIzaSyAkR80JQgRgfnqBl6Db2RsnmkCG1LhuVn8";
+
+    [HNKGooglePlacesAutocompleteQuery setupSharedQueryWithAPIKey:apiKey];
 
     void (^GPAViewControllerQueryCompletion)(NSArray *, NSError *) = ^(NSArray *places, NSError *error) {
         if (error) {
@@ -55,6 +57,7 @@
 
         for (HNKQueryResponsePrediction *place in places) {
             [CLPlacemark hnk_placemarkFromGooglePlace:place
+                                               apiKey:apiKey
                                            completion:^(CLPlacemark *placemark, NSString *address, NSError *error) {
 
                                                if (error) {

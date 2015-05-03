@@ -25,21 +25,8 @@
 
 #import "HNKQueryResponse.h"
 
-/**
- *  Status descriptions
- */
-extern NSString *const HNKGooglePlacesAutocompleteQueryStatusDescriptionUnknown;
-extern NSString *const
-    HNKGooglePlacesAutocompleteQueryStatusDescriptionInvalidRequest;
-extern NSString *const HNKGooglePlacesAutocompleteQueryStatusDescriptionOK;
-extern NSString *const
-    HNKGooglePlacesAutocompleteQueryStatusDescriptionOverQueryLimit;
-extern NSString *const
-    HNKGooglePlacesAutocompleteQueryStatusDescriptionRequestDenied;
-extern NSString *const
-    HNKGooglePlacesAutocompleteQueryStatusDescriptionZeroResults;
-extern NSString *const
-    HNKGooglePlacesAutocompleteQueryStatusDescriptionSearchQueryNil;
+typedef void (^HNKGooglePlacesAutocompleteQueryCallback)(id JSON,
+                                                         NSError *error);
 
 /**
  *  Error domain for HNKGooglePlacesAutocompleteQuery
@@ -68,7 +55,7 @@ typedef NS_ENUM(NSInteger, HNKGooglePlacesAutocompleteQueryErrorCode) {
   /**
    *  Request denied; the API key may be invalid
    */
-  HNKGooglePlacesAutocompleteQueryErrorRequestDenied =
+  HNKGooglePlacesAutocompleteQueryErrorCodeRequestDenied =
       HNKQueryResponseStatusRequestDenied,
   /**
    *  Non-API error occurred while making a request to the server
@@ -77,13 +64,24 @@ typedef NS_ENUM(NSInteger, HNKGooglePlacesAutocompleteQueryErrorCode) {
   /**
    *  Search query was nil
    */
-  HNKgooglePlacesAutocompleteQueryErrorCodeSearchQueryNil = 7
+  HNKGooglePlacesAutocompleteQueryErrorCodeSearchQueryNil = 7
 };
+
+/**
+ *  Short description of error for provided error code
+ */
+extern NSString *HNKGooglePlacesAutocompleteQueryDescriptionForErrorCode(
+    HNKGooglePlacesAutocompleteQueryErrorCode errorCode);
 
 /**
  *  Query used to fetch objects from the API
  */
 @interface HNKGooglePlacesAutocompleteQuery : NSObject
+
+/**
+ *  API key used for all requests
+ */
+@property(nonatomic, copy, readonly) NSString *apiKey;
 
 #pragma mark - Initialization
 
@@ -110,6 +108,6 @@ typedef NS_ENUM(NSInteger, HNKGooglePlacesAutocompleteQueryErrorCode) {
  */
 - (void)fetchPlacesForSearchQuery:(NSString *)searchQuery
                        completion:
-                           (void (^)(NSArray *places, NSError *))completion;
+                           (HNKGooglePlacesAutocompleteQueryCallback)completion;
 
 @end
