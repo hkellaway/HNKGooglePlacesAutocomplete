@@ -85,6 +85,11 @@ typedef NS_ENUM(NSInteger, HNKGooglePlacesAutocompleteQueryErrorCode) {
  */
 @interface HNKGooglePlacesAutocompleteQuery : NSObject
 
+/**
+ *  API key used for setup
+ */
+@property(nonatomic, copy, readonly) NSString *apiKey;
+
 #pragma mark - Initialization
 
 /**
