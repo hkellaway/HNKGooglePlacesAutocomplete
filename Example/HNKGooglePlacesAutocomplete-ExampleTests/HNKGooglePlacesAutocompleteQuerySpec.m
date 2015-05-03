@@ -278,7 +278,11 @@ describe(@"HNKGooglePlacesAutocompleteQuery", ^{
                                        errorWithDomain:HNKGooglePlacesAutocompleteQueryErrorDomain
                                                   code:HNKGooglePlacesAutcompleteQueryErrorCodeServerRequestFailed
                                               userInfo:@{
-                                                  @"NSUnderlyingErrorKey" : testError
+                                                  @"NSUnderlyingErrorKey" : testError,
+                                                  @"NSLocalizedDescriptionKey" :
+                                                      HNKGooglePlacesAutocompleteQueryStatusDescriptionServerRequestFailed,
+                                                  @"NSLocalizedFailureReasonErrorKey" :
+                                                      HNKGooglePlacesAutocompleteQueryStatusDescriptionServerRequestFailed
                                               }];
 
                                    [testInstance fetchPlacesForSearchQuery:@"Vict"
