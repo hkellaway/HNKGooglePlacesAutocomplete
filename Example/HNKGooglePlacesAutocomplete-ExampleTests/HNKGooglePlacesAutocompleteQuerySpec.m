@@ -57,60 +57,62 @@ describe(@"HNKGooglePlacesAutocompleteQuery", ^{
             context(
                 @"Invalid search query",
                 ^{
-                    context(
-                        @"Empty string",
-                        ^{
+                    context(@"Empty string",
+                            ^{
 
-                            it(@"Should return custom error",
-                               ^{
+                                it(@"Should return custom error",
+                                   ^{
 
-                                   __block NSError *errorToRecieve;
-                                   NSError *expectedError = [NSError
-                                       errorWithDomain:HNKGooglePlacesAutocompleteQueryErrorDomain
-                                                  code:HNKQueryResponseStatusInvalidRequest
-                                              userInfo:@{
-                                                  @"NSLocalizedDescriptionKey" :
-                                                      HNKGooglePlacesAutocompleteQueryStatusDescriptionInvalidRequest,
-                                                  @"NSLocalizedFailureReasonErrorKey" :
-                                                      HNKGooglePlacesAutocompleteQueryStatusDescriptionInvalidRequest
-                                              }];
+                                       __block NSError *errorToRecieve;
+                                       NSError *expectedError = [NSError
+                                           errorWithDomain:HNKGooglePlacesAutocompleteQueryErrorDomain
+                                                      code:HNKQueryResponseStatusInvalidRequest
+                                                  userInfo:@{
+                                                      @"NSLocalizedDescriptionKey" :
+                                                          HNKGooglePlacesAutocompleteQueryDescriptionForErrorCode(
+                                                              HNKGooglePlacesAutocompleteQueryErrorCodeInvalidRequest),
+                                                      @"NSLocalizedFailureReasonErrorKey" :
+                                                          HNKGooglePlacesAutocompleteQueryDescriptionForErrorCode(
+                                                              HNKGooglePlacesAutocompleteQueryErrorCodeInvalidRequest)
+                                                  }];
 
-                                   [testInstance fetchPlacesForSearchQuery:@""
-                                                                completion:^(NSArray *places, NSError *error) {
-                                                                    errorToRecieve = error;
-                                                                }];
+                                       [testInstance fetchPlacesForSearchQuery:@""
+                                                                    completion:^(NSArray *places, NSError *error) {
+                                                                        errorToRecieve = error;
+                                                                    }];
 
-                                   [[errorToRecieve should] equal:expectedError];
-                               });
+                                       [[errorToRecieve should] equal:expectedError];
+                                   });
 
-                        });
+                            });
 
-                    context(
-                        @"nil",
-                        ^{
-                            it(@"Should return custom error",
-                               ^{
+                    context(@"nil",
+                            ^{
+                                it(@"Should return custom error",
+                                   ^{
 
-                                   __block NSError *errorToRecieve;
-                                   NSError *expectedError = [NSError
-                                       errorWithDomain:HNKGooglePlacesAutocompleteQueryErrorDomain
-                                                  code:HNKgooglePlacesAutocompleteQueryErrorCodeSearchQueryNil
-                                              userInfo:@{
-                                                  @"NSLocalizedDescriptionKey" :
-                                                      HNKGooglePlacesAutocompleteQueryStatusDescriptionSearchQueryNil,
-                                                  @"NSLocalizedFailureReasonErrorKey" :
-                                                      HNKGooglePlacesAutocompleteQueryStatusDescriptionSearchQueryNil
-                                              }];
+                                       __block NSError *errorToRecieve;
+                                       NSError *expectedError = [NSError
+                                           errorWithDomain:HNKGooglePlacesAutocompleteQueryErrorDomain
+                                                      code:HNKGooglePlacesAutocompleteQueryErrorCodeSearchQueryNil
+                                                  userInfo:@{
+                                                      @"NSLocalizedDescriptionKey" :
+                                                          HNKGooglePlacesAutocompleteQueryDescriptionForErrorCode(
+                                                              HNKGooglePlacesAutocompleteQueryErrorCodeSearchQueryNil),
+                                                      @"NSLocalizedFailureReasonErrorKey" :
+                                                          HNKGooglePlacesAutocompleteQueryDescriptionForErrorCode(
+                                                              HNKGooglePlacesAutocompleteQueryErrorCodeSearchQueryNil)
+                                                  }];
 
-                                   [testInstance fetchPlacesForSearchQuery:nil
-                                                                completion:^(NSArray *places, NSError *error) {
-                                                                    errorToRecieve = error;
-                                                                }];
+                                       [testInstance fetchPlacesForSearchQuery:nil
+                                                                    completion:^(NSArray *places, NSError *error) {
+                                                                        errorToRecieve = error;
+                                                                    }];
 
-                                   [[errorToRecieve should] equal:expectedError];
-                               });
+                                       [[errorToRecieve should] equal:expectedError];
+                                   });
 
-                        });
+                            });
                 });
 
             context(
@@ -229,9 +231,11 @@ describe(@"HNKGooglePlacesAutocompleteQuery", ^{
                                                           code:HNKQueryResponseStatusRequestDenied
                                                       userInfo:@{
                                                           @"NSLocalizedDescriptionKey" :
-                                                              HNKGooglePlacesAutocompleteQueryStatusDescriptionRequestDenied,
+                                                              HNKGooglePlacesAutocompleteQueryDescriptionForErrorCode(
+                                                                  HNKGooglePlacesAutocompleteQueryErrorCodeRequestDenied),
                                                           @"NSLocalizedFailureReasonErrorKey" :
-                                                              HNKGooglePlacesAutocompleteQueryStatusDescriptionRequestDenied
+                                                              HNKGooglePlacesAutocompleteQueryDescriptionForErrorCode(
+                                                                  HNKGooglePlacesAutocompleteQueryErrorCodeRequestDenied)
                                                       }];
 
                                            [testInstance fetchPlacesForSearchQuery:@"Vict"
@@ -280,9 +284,11 @@ describe(@"HNKGooglePlacesAutocompleteQuery", ^{
                                               userInfo:@{
                                                   @"NSUnderlyingErrorKey" : testError,
                                                   @"NSLocalizedDescriptionKey" :
-                                                      HNKGooglePlacesAutocompleteQueryStatusDescriptionServerRequestFailed,
+                                                      HNKGooglePlacesAutocompleteQueryDescriptionForErrorCode(
+                                                          HNKGooglePlacesAutcompleteQueryErrorCodeServerRequestFailed),
                                                   @"NSLocalizedFailureReasonErrorKey" :
-                                                      HNKGooglePlacesAutocompleteQueryStatusDescriptionServerRequestFailed
+                                                      HNKGooglePlacesAutocompleteQueryDescriptionForErrorCode(
+                                                          HNKGooglePlacesAutcompleteQueryErrorCodeServerRequestFailed)
                                               }];
 
                                    [testInstance fetchPlacesForSearchQuery:@"Vict"
