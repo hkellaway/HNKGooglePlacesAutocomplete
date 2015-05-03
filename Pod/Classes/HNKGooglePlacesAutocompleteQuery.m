@@ -128,6 +128,13 @@ static HNKGooglePlacesAutocompleteQuery *sharedQuery = nil;
     return;
   }
 
+  if ([searchQuery isEqualToString:@""]) {
+    NSError *error = [self errorForStatus:HNKQueryResponseStatusInvalidRequest];
+
+    completion(nil, error);
+    return;
+  }
+
   [HNKGooglePlacesAutocompleteServer
              GET:kHNKGooglePlacesAutocompleteServerRequestPath
       parameters:@{
