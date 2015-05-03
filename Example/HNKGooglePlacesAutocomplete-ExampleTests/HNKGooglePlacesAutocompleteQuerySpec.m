@@ -45,11 +45,9 @@ describe(@"HNKGooglePlacesAutocompleteQuery", ^{
                    [[HNKGooglePlacesAutocompleteServer should]
                              receive:@selector(GET:parameters:completion:)
                        withArguments:@"place/autocomplete/json",
-                                     @{
-                                         @"input" : @"Vict",
-                                         @"key" : @"AIzaSyAkR80JQgRgfnqBl6Db2RsnmkCG1LhuVn8",
-                                         @"radius" : @500
-                                     },
+                                     @{ @"input" : @"Vict",
+                                        @"key" : testInstance.apiKey,
+                                        @"radius" : @500 },
                                      any()];
 
                    [[HNKGooglePlacesAutocompleteQuery sharedQuery] fetchPlacesForSearchQuery:@"Vict" completion:nil];
