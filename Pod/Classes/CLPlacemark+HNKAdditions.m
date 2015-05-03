@@ -28,12 +28,17 @@
 
 #import "CLPlacemark+HNKAdditions.h"
 
+static NSString *const kHNKGooglePlacesDetailsServerRequestPath =
+    @"place/details/json";
+
 @implementation CLPlacemark (HNKAdditions)
 
 + (void)hnk_placemarkFromGooglePlace:(HNKQueryResponsePrediction *)place
+                              apiKey:(NSString *)apiKey
                           completion:(void (^)(CLPlacemark *, NSString *,
                                                NSError *))completion {
   [self addressForPlace:place
+                 apiKey:apiKey
              completion:^(NSString *addressString, NSError *error) {
 
                if (error) {
@@ -60,6 +65,7 @@
 #pragma mark - Helpers
 
 + (void)addressForPlace:(HNKQueryResponsePrediction *)place
+                 apiKey:(NSString *)apiKey
              completion:
                  (void (^)(NSString *addressString, NSError *error))completion {
   if ([self isGeocodeResult:place]) {
@@ -68,10 +74,10 @@
   }
 
   [HNKGooglePlacesAutocompleteServer
-             GET:@"place/details/json"
+             GET:kHNKGooglePlacesDetailsServerRequestPath
       parameters:@{
         @"placeid" : place.placeId,
-        @"key" : @"AIzaSyAkR80JQgRgfnqBl6Db2RsnmkCG1LhuVn8"
+        @"key" : apiKey
       }
       completion:^(NSDictionary *JSON, NSError *error) {
 

@@ -37,6 +37,7 @@
  *  @return CLPlacemark resolved from Google Place
  */
 + (void)hnk_placemarkFromGooglePlace:(HNKQueryResponsePrediction *)place
+                              apiKey:(NSString *)apiKey
                           completion:(void (^)(CLPlacemark *placemark,
                                                NSString *addressString,
                                                NSError *error))completion;
