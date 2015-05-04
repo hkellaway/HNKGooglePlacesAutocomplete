@@ -15,9 +15,14 @@ A modern Objective-C wrapper for the Google Places autocomplete API
 pod "HNKGooglePlacesAutocomplete", "~> 0.3"
 ```
 
+## Transitioning from SPGooglePlacesAutocomplete
+
+* Link to Demo V1
+* CoreLocation now optional - only if resolution to CLPlacemark is desired
+
 ## Credits
 
-HNKGooglePlacesAutocomplete was created by [Harlan Kellaway](http://harlankellaway.com) with inspiration from https://github.com/spoletto/SPGooglePlacesAutocomplete
+HNKGooglePlacesAutocomplete was created by [Harlan Kellaway](http://harlankellaway.com) with inspiration from (SPGooglePlacesAutocomplete)[https://github.com/spoletto/SPGooglePlacesAutocomplete]
 
 ## License
 
