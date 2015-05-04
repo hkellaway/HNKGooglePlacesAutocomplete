@@ -19,6 +19,8 @@
 		DCA78B061AED6AA800F5F3B9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DCA78B041AED6AA800F5F3B9 /* Main.storyboard */; };
 		DCA78B081AED6AA800F5F3B9 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DCA78B071AED6AA800F5F3B9 /* Images.xcassets */; };
 		DCA78B0B1AED6AA800F5F3B9 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = DCA78B091AED6AA800F5F3B9 /* LaunchScreen.xib */; };
+		DCD575001AF5B74500CE5A23 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCD574FF1AF5B74500CE5A23 /* CoreLocation.framework */; };
+		DCD575071AF6A67000CE5A23 /* CLPlacemark+HNKAdditionsSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = DCD575061AF6A67000CE5A23 /* CLPlacemark+HNKAdditionsSpec.m */; };
 		DCFAD4BE1AF32BEC0042BB22 /* HNKGooglePlacesAutocompleteQuerySpec.m in Sources */ = {isa = PBXBuildFile; fileRef = DCFAD4BD1AF32BEC0042BB22 /* HNKGooglePlacesAutocompleteQuerySpec.m */; };
 		F506C4906E4964AE559012AE /* libPods-HNKGooglePlacesAutocomplete-Example.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D0EAF8F6FC72B250C169F3BB /* libPods-HNKGooglePlacesAutocomplete-Example.a */; };
 		FF43537F0B40492CE6E305C4 /* libPods-HNKGooglePlacesAutocomplete-ExampleTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 20B87C8F6F397F86222199FF /* libPods-HNKGooglePlacesAutocomplete-ExampleTests.a */; };
@@ -59,6 +61,8 @@
 		DCA78B0A1AED6AA800F5F3B9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		DCA78B101AED6AA800F5F3B9 /* HNKGooglePlacesAutocomplete-ExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "HNKGooglePlacesAutocomplete-ExampleTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCA78B151AED6AA800F5F3B9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DCD574FF1AF5B74500CE5A23 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		DCD575061AF6A67000CE5A23 /* CLPlacemark+HNKAdditionsSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CLPlacemark+HNKAdditionsSpec.m"; sourceTree = "<group>"; };
 		DCFAD4BD1AF32BEC0042BB22 /* HNKGooglePlacesAutocompleteQuerySpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HNKGooglePlacesAutocompleteQuerySpec.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -67,6 +71,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DCD575001AF5B74500CE5A23 /* CoreLocation.framework in Frameworks */,
 				F506C4906E4964AE559012AE /* libPods-HNKGooglePlacesAutocomplete-Example.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -85,6 +90,7 @@
 		96CE1BBE25C46A86D71B6BBC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				DCD574FF1AF5B74500CE5A23 /* CoreLocation.framework */,
 				D0EAF8F6FC72B250C169F3BB /* libPods-HNKGooglePlacesAutocomplete-Example.a */,
 				20B87C8F6F397F86222199FF /* libPods-HNKGooglePlacesAutocomplete-ExampleTests.a */,
 			);
@@ -105,6 +111,7 @@
 		DC0A83EA1AED81F9001EB35D /* Pod Tests */ = {
 			isa = PBXGroup;
 			children = (
+				DCD575061AF6A67000CE5A23 /* CLPlacemark+HNKAdditionsSpec.m */,
 				DC0A83EE1AED8362001EB35D /* Models */,
 			);
 			name = "Pod Tests";
@@ -384,6 +391,7 @@
 				DC0A83F61AED8F1D001EB35D /* HNKQueryReqsponsePredctionMatchedSubstringSpec.m in Sources */,
 				DCFAD4BE1AF32BEC0042BB22 /* HNKGooglePlacesAutocompleteQuerySpec.m in Sources */,
 				DC345C3B1AF09FC7009D3645 /* HNKGooglePlacesAutocompleteServerSpec.m in Sources */,
+				DCD575071AF6A67000CE5A23 /* CLPlacemark+HNKAdditionsSpec.m in Sources */,
 				DC345C2F1AEDC5C8009D3645 /* HNKQueryResponseSpec.m in Sources */,
 				DC0A83ED1AED8229001EB35D /* HNKQueryResponsePredictionTermSpec.m in Sources */,
 			);
