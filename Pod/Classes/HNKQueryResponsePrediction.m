@@ -58,7 +58,6 @@
 
 + (NSValueTransformer *)typesJSONTransformer {
   NSDictionary *typesDictionary = @{
-    @"address" : @(HNKGooglePlacesAutocompletePlaceTypeAddress),
     @"administrative_area_level_1" :
         @(HNKGooglePlacesAutocompletePlaceTypeAdministrativeAreaLevel1),
     @"administrative_area_level_2" :
@@ -69,7 +68,6 @@
         @(HNKGooglePlacesAutocompletePlaceTypeAdministrativeAreaLevel4),
     @"administrative_area_level_5" :
         @(HNKGooglePlacesAutocompletePlaceTypeAdministrativeAreaLevel5),
-    @"(cities)" : @(HNKGooglePlacesAutocompletePlaceTypeCities),
     @"colloquial_area" : @(HNKGooglePlacesAutocompletePlaceTypeColloquialArea),
     @"country" : @(HNKGooglePlacesAutocompletePlaceTypeCountry),
     @"establishment" : @(HNKGooglePlacesAutocompletePlaceTypeEstablishment),
@@ -91,8 +89,9 @@
     @"postal_town" : @(HNKGooglePlacesAutocompletePlaceTypePostalTown),
     @"premise" : @(HNKGooglePlacesAutocompletePlaceTypePremise),
     @"room" : @(HNKGooglePlacesAutocompletePlaceTypeRoom),
-    @"(regions)" : @(HNKGooglePlacesAutocompletePlaceTypeRegions),
     @"route" : @(HNKGooglePlacesAutocompletePlaceTypeRoute),
+    @"street_address" : @(HNKGooglePlacesAutocompletePlaceTypeStreetAddress),
+    @"street_number" : @(HNKGooglePlacesAutocompletePlaceTypeStreetNumber),
     @"sublocality" : @(HNKGooglePlacesAutocompletePlaceTypeSublocality),
     @"sublocality_level_1" :
         @(HNKGooglePlacesAutocompletePlaceTypeSublocalityLevel1),

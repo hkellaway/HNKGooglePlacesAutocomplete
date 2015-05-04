@@ -29,150 +29,40 @@
  *  Place types
  */
 typedef NS_ENUM(NSInteger, HNKGooglePlacesAutocompletePlaceType) {
-  /**
-   *  Places of type unknown
-   */
   HNKGooglePlacesAutocompletePlaceTypeUnknown = 0,
-  /**
-   *  Places with a precise address
-   */
-  HNKGooglePlacesAutocompletePlaceTypeAddress,
-  /**
-   *  Places of type Administrative Area Level 1
-   */
   HNKGooglePlacesAutocompletePlaceTypeAdministrativeAreaLevel1,
-  /**
-   *  Places of type Administrative Area Level 2
-   */
   HNKGooglePlacesAutocompletePlaceTypeAdministrativeAreaLevel2,
-  /**
-   *  Places of type Administrative Area Level 3
-   */
   HNKGooglePlacesAutocompletePlaceTypeAdministrativeAreaLevel3,
-  /**
-   *  Places of type Administrative Area Level 4
-   */
   HNKGooglePlacesAutocompletePlaceTypeAdministrativeAreaLevel4,
-  /**
-   *  Places of type Administrative Area Level 5
-   */
   HNKGooglePlacesAutocompletePlaceTypeAdministrativeAreaLevel5,
-  /**
-   *  Places of type locality or Administrative Area 3
-   */
-  HNKGooglePlacesAutocompletePlaceTypeCities,
-  /**
-   *  Places of type colloquial area
-   */
   HNKGooglePlacesAutocompletePlaceTypeColloquialArea,
-  /**
-   *  Places of type country
-   */
   HNKGooglePlacesAutocompletePlaceTypeCountry,
-  /**
-   *  Places from only business results
-   */
   HNKGooglePlacesAutocompletePlaceTypeEstablishment,
-  /**
-   *  Places of type floor
-   */
   HNKGooglePlacesAutocompletePlaceTypeFloor,
-  /**
-   *  Places from only geocoding results, not business results
-   */
   HNKGooglePlacesAutocompletePlaceTypeGeocode,
-  /**
-   *  Places of type intersection
-   */
   HNKGooglePlacesAutocompletePlaceTypeIntersection,
-  /**
-   *  Places of type locality
-   */
   HNKGooglePlacesAutocompletePlaceTypeLocality,
-  /**
-   *  Places of type natural feature
-   */
   HNKGooglePlacesAutocompletePlaceTypeNaturalFeature,
-  /**
-   *  Places of type neighborhood
-   */
   HNKGooglePlacesAutocompletePlaceTypeNeighborhood,
-  /**
-   *  Places of type political
-   */
   HNKGooglePlacesAutocompletePlaceTypePolitical,
-  /**
-   *  Places of type point of interest
-   */
   HNKGooglePlacesAutocompletePlaceTypePointOfInterest,
-  /**
-   *  Places of type post box
-   */
   HNKGooglePlacesAutocompletePlaceTypePostBox,
-  /**
-   *  Places of type postal code
-   */
   HNKGooglePlacesAutocompletePlaceTypePostalCode,
-  /**
-   *  Places of type postal code prefix
-   */
   HNKGooglePlacesAutocompletePlaceTypePostalCodePrefix,
-  /**
-   *  Places of type postal code suffix
-   */
   HNKGooglePlacesAutocompletePlaceTypePostalCodeSuffix,
-  /**
-   *  Places of type postal town
-   */
   HNKGooglePlacesAutocompletePlaceTypePostalTown,
-  /**
-   *  Places of type premise
-   */
   HNKGooglePlacesAutocompletePlaceTypePremise,
-  /**
-   *  Places of type room
-   */
   HNKGooglePlacesAutocompletePlaceTypeRoom,
-  /**
-   *  Places of type locality, sub-locality, postal code, country,
-   *  Administrative Area Level 1 or Administrative Area Level 2
-   */
-  HNKGooglePlacesAutocompletePlaceTypeRegions,
-  /**
-   *  Places of type route
-   */
   HNKGooglePlacesAutocompletePlaceTypeRoute,
-  /**
-   *  Places of type sub-locality
-   */
+  HNKGooglePlacesAutocompletePlaceTypeStreetAddress,
+  HNKGooglePlacesAutocompletePlaceTypeStreetNumber,
   HNKGooglePlacesAutocompletePlaceTypeSublocality,
-  /**
-   *  Places of type sub-locality level 1
-   */
   HNKGooglePlacesAutocompletePlaceTypeSublocalityLevel1,
-  /**
-   *  Places of type sub-locality level 2
-   */
   HNKGooglePlacesAutocompletePlaceTypeSublocalityLevel2,
-  /**
-   *  Places of type sub-locality level 3
-   */
   HNKGooglePlacesAutocompletePlaceTypeSublocalityLevel3,
-  /**
-   *  Places of type sub-locality level 4
-   */
   HNKGooglePlacesAutocompletePlaceTypeSublocalityLevel4,
-  /**
-   *  Places of type sub-locality level 5
-   */
   HNKGooglePlacesAutocompletePlaceTypeSublocalityLevel5,
-  /**
-   *  Places of type subpremise
-   */
   HNKGooglePlacesAutocompletePlaceTypeSubpremise,
-  /**
-   *  Places of type transit station
-   */
   HNKGooglePlacesAutocompletePlaceTypeTransitStation
 };
 
