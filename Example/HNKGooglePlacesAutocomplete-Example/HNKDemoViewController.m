@@ -14,9 +14,10 @@
 
 #import "CLPlacemark+HNKAdditions.h"
 
+static NSString *const kHNKDemoMapAnnotationIdentifier = @"HNKDemoMapAnnotationIdentifier";
 static NSString *const kHNKDemoSearchResultsCellIdentifier = @"HNKDemoSearchResultsCellIdentifier";
 
-@interface HNKDemoViewController () <UITableViewDataSource, UITableViewDelegate>
+@interface HNKDemoViewController () <MKMapViewDelegate, UITableViewDataSource, UITableViewDelegate>
 
 @property (nonatomic, strong) MKPointAnnotation *currentlySelectedPlaceAnnotation;
 @property (nonatomic, strong) NSArray *searchResults;
@@ -53,6 +54,45 @@ static NSString *const kHNKDemoSearchResultsCellIdentifier = @"HNKDemoSearchResu
 }
 
 #pragma mark - Protocol Conformance
+
+#pragma mark MKMapView Delegate
+
+- (MKAnnotationView *)mapView:(MKMapView *)mapViewIn viewForAnnotation:(id<MKAnnotation>)annotation
+{
+    if (mapViewIn != self.mapView || [annotation isKindOfClass:[MKUserLocation class]]) {
+        return nil;
+    }
+
+    MKPinAnnotationView *annotationView = (MKPinAnnotationView *)
+        [self.mapView dequeueReusableAnnotationViewWithIdentifier:kHNKDemoMapAnnotationIdentifier];
+
+    if (!annotationView) {
+        annotationView =
+            [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:kHNKDemoMapAnnotationIdentifier];
+    }
+
+    annotationView.animatesDrop = YES;
+    annotationView.canShowCallout = YES;
+
+    UIButton *detailButton = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+    [detailButton addTarget:self
+                     action:@selector(annotationDetailButtonPressed:)
+           forControlEvents:UIControlEventTouchUpInside];
+    annotationView.rightCalloutAccessoryView = detailButton;
+
+    return annotationView;
+}
+
+- (void)mapView:(MKMapView *)mapView didAddAnnotationViews:(NSArray *)views
+{
+    // Whenever we've dropped a pin on the map, immediately select it to present its callout bubble.
+    [self.mapView selectAnnotation:self.currentlySelectedPlaceAnnotation animated:YES];
+}
+
+- (void)annotationDetailButtonPressed:(id)sender
+{
+    NSLog(@"Pin tapped");
+}
 
 #pragma mark UITableViewDataSource
 
