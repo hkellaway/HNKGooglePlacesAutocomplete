@@ -83,6 +83,10 @@ typedef NS_ENUM(NSInteger, HNKGooglePlacesAutocompletePlaceType) {
    */
   HNKGooglePlacesAutocompletePlaceTypeRegions,
   /**
+   *  Places of type route
+   */
+  HNKGooglePlacesAutocompletePlaceTypeRoute,
+  /**
    *  Places of type sub-locality
    */
   HNKGooglePlacesAutocompletePlaceTypeSublocality
