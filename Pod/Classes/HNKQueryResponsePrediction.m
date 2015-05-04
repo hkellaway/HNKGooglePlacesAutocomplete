@@ -65,16 +65,47 @@
         @(HNKGooglePlacesAutocompletePlaceTypeAdministrativeAreaLevel2),
     @"administrative_area_level_3" :
         @(HNKGooglePlacesAutocompletePlaceTypeAdministrativeAreaLevel3),
+    @"administrative_area_level_4" :
+        @(HNKGooglePlacesAutocompletePlaceTypeAdministrativeAreaLevel4),
+    @"administrative_area_level_5" :
+        @(HNKGooglePlacesAutocompletePlaceTypeAdministrativeAreaLevel5),
     @"(cities)" : @(HNKGooglePlacesAutocompletePlaceTypeCities),
+    @"colloquial_area" : @(HNKGooglePlacesAutocompletePlaceTypeColloquialArea),
     @"country" : @(HNKGooglePlacesAutocompletePlaceTypeCountry),
     @"establishment" : @(HNKGooglePlacesAutocompletePlaceTypeEstablishment),
+    @"floor" : @(HNKGooglePlacesAutocompletePlaceTypeFloor),
     @"geocode" : @(HNKGooglePlacesAutocompletePlaceTypeGeocode),
+    @"intersection" : @(HNKGooglePlacesAutocompletePlaceTypeIntersection),
     @"locality" : @(HNKGooglePlacesAutocompletePlaceTypeLocality),
+    @"natural_feature" : @(HNKGooglePlacesAutocompletePlaceTypeNaturalFeature),
+    @"neighborhood" : @(HNKGooglePlacesAutocompletePlaceTypeNeighborhood),
     @"political" : @(HNKGooglePlacesAutocompletePlaceTypePolitical),
+    @"point_of_interest" :
+        @(HNKGooglePlacesAutocompletePlaceTypePointOfInterest),
+    @"post_box" : @(HNKGooglePlacesAutocompletePlaceTypePostBox),
     @"postal_code" : @(HNKGooglePlacesAutocompletePlaceTypePostalCode),
+    @"postal_code_prefix" :
+        @(HNKGooglePlacesAutocompletePlaceTypePostalCodePrefix),
+    @"postal_code_suffix" :
+        @(HNKGooglePlacesAutocompletePlaceTypePostalCodeSuffix),
+    @"postal_town" : @(HNKGooglePlacesAutocompletePlaceTypePostalTown),
+    @"premise" : @(HNKGooglePlacesAutocompletePlaceTypePremise),
+    @"room" : @(HNKGooglePlacesAutocompletePlaceTypeRoom),
     @"(regions)" : @(HNKGooglePlacesAutocompletePlaceTypeRegions),
     @"route" : @(HNKGooglePlacesAutocompletePlaceTypeRoute),
-    @"sublocality" : @(HNKGooglePlacesAutocompletePlaceTypeSublocality)
+    @"sublocality" : @(HNKGooglePlacesAutocompletePlaceTypeSublocality),
+    @"sublocality_level_1" :
+        @(HNKGooglePlacesAutocompletePlaceTypeSublocalityLevel1),
+    @"sublocality_level_2" :
+        @(HNKGooglePlacesAutocompletePlaceTypeSublocalityLevel2),
+    @"sublocality_level_3" :
+        @(HNKGooglePlacesAutocompletePlaceTypeSublocalityLevel3),
+    @"sublocality_level_4" :
+        @(HNKGooglePlacesAutocompletePlaceTypeSublocalityLevel4),
+    @"sublocality_level_5" :
+        @(HNKGooglePlacesAutocompletePlaceTypeSublocalityLevel5),
+    @"subpremise" : @(HNKGooglePlacesAutocompletePlaceTypeSubpremise),
+    @"transit_station" : @(HNKGooglePlacesAutocompletePlaceTypeTransitStation)
   };
 
   return [MTLValueTransformer transformerWithBlock:^(NSArray *types) {
