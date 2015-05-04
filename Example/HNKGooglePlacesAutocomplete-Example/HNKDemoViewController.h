@@ -1,5 +1,5 @@
 //
-//  GPAViewController.h
+//  HNKDemoViewController.h
 //  HNKGooglePlacesAutocomplete-Example
 //
 //  Created by Harlan Kellaway on 4/26/15.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface GPAViewController : UIViewController
+@interface HNKDemoViewController : UIViewController
 
 @end

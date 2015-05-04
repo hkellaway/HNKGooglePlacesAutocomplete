@@ -7,10 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "GPAAppDelegate.h"
+#import "HNKDemoAppDelegate.h"
 
-int main(int argc, char * argv[]) {
-    @autoreleasepool {
-        return UIApplicationMain(argc, argv, nil, NSStringFromClass([GPAAppDelegate class]));
+int main(int argc, char *argv[])
+{
+    @autoreleasepool
+    {
+        return UIApplicationMain(argc, argv, nil, NSStringFromClass([HNKDemoAppDelegate class]));
     }
 }
