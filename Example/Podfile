@@ -3,7 +3,7 @@ platform :ios, '8.0'
 
 target 'HNKGooglePlacesAutocomplete-Example' do
 
-pod 'HNKGooglePlacesAutocomplete', :git => 'https://github.com/hkellaway/HNKGooglePlacesAutocomplete.git', :branch => 'feature/demo_v1'
+pod 'HNKGooglePlacesAutocomplete', :git => 'https://github.com/hkellaway/HNKGooglePlacesAutocomplete.git', :branch => 'fix/place_handling_unknown_types'
 
 end
 
