@@ -5,7 +5,7 @@
 [![CocoaPods](https://img.shields.io/cocoapods/p/HNKGooglePlacesAutocomplete.svg)](http://cocoapods.org/pods/HNKGooglePlacesAutocomplete)
 [![Build Status](https://travis-ci.org/hkellaway/HNKGooglePlacesAutocomplete.svg?branch=master)](https://travis-ci.org/hkellaway/HNKGooglePlacesAutocomplete)
 
-A modern Objective-C wrapper for the Google Places autocomplete API
+An Objective-C wrapper for the Google Places autocomplete API
 
 **Note: This is currently under development and shouldn't be used until version 1.0 is released**
 
@@ -22,7 +22,7 @@ pod "HNKGooglePlacesAutocomplete", "~> 0.3"
 
 ## Credits
 
-HNKGooglePlacesAutocomplete was created by [Harlan Kellaway](http://harlankellaway.com) with inspiration from (SPGooglePlacesAutocomplete)[https://github.com/spoletto/SPGooglePlacesAutocomplete]
+HNKGooglePlacesAutocomplete was created by [Harlan Kellaway](http://harlankellaway.com) with inspiration from [SPGooglePlacesAutocomplete](https://github.com/spoletto/SPGooglePlacesAutocomplete)
 
 ## License
 
