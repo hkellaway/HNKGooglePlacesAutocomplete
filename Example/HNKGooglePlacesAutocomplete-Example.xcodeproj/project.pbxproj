@@ -13,6 +13,7 @@
 		DC345C2A1AEDA518009D3645 /* HNKQueryResponsePredictionSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = DC345C291AEDA518009D3645 /* HNKQueryResponsePredictionSpec.m */; };
 		DC345C2F1AEDC5C8009D3645 /* HNKQueryResponseSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = DC345C2E1AEDC5C8009D3645 /* HNKQueryResponseSpec.m */; };
 		DC345C3B1AF09FC7009D3645 /* HNKGooglePlacesAutocompleteServerSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = DC345C3A1AF09FC7009D3645 /* HNKGooglePlacesAutocompleteServerSpec.m */; };
+		DC6F02831AF6F26D000CE728 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC6F02821AF6F26D000CE728 /* MapKit.framework */; };
 		DCA78AFD1AED6AA800F5F3B9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DCA78AFC1AED6AA800F5F3B9 /* main.m */; };
 		DCA78B001AED6AA800F5F3B9 /* HNKDemoAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DCA78AFF1AED6AA800F5F3B9 /* HNKDemoAppDelegate.m */; };
 		DCA78B031AED6AA800F5F3B9 /* HNKDemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DCA78B021AED6AA800F5F3B9 /* HNKDemoViewController.m */; };
@@ -49,6 +50,7 @@
 		DC345C291AEDA518009D3645 /* HNKQueryResponsePredictionSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HNKQueryResponsePredictionSpec.m; sourceTree = "<group>"; };
 		DC345C2E1AEDC5C8009D3645 /* HNKQueryResponseSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HNKQueryResponseSpec.m; sourceTree = "<group>"; };
 		DC345C3A1AF09FC7009D3645 /* HNKGooglePlacesAutocompleteServerSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HNKGooglePlacesAutocompleteServerSpec.m; sourceTree = "<group>"; };
+		DC6F02821AF6F26D000CE728 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		DCA78AF71AED6AA800F5F3B9 /* HNKGooglePlacesAutocomplete-Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "HNKGooglePlacesAutocomplete-Example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCA78AFB1AED6AA800F5F3B9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DCA78AFC1AED6AA800F5F3B9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -71,6 +73,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DC6F02831AF6F26D000CE728 /* MapKit.framework in Frameworks */,
 				DCD575001AF5B74500CE5A23 /* CoreLocation.framework in Frameworks */,
 				F506C4906E4964AE559012AE /* libPods-HNKGooglePlacesAutocomplete-Example.a in Frameworks */,
 			);
@@ -90,6 +93,7 @@
 		96CE1BBE25C46A86D71B6BBC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				DC6F02821AF6F26D000CE728 /* MapKit.framework */,
 				DCD574FF1AF5B74500CE5A23 /* CoreLocation.framework */,
 				D0EAF8F6FC72B250C169F3BB /* libPods-HNKGooglePlacesAutocomplete-Example.a */,
 				20B87C8F6F397F86222199FF /* libPods-HNKGooglePlacesAutocomplete-ExampleTests.a */,
