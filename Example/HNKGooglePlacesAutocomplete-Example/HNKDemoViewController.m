@@ -19,7 +19,7 @@ static NSString *const kHNKDemoSearchResultsCellIdentifier = @"HNKDemoSearchResu
 
 @interface HNKDemoViewController () <MKMapViewDelegate, UITableViewDataSource, UITableViewDelegate>
 
-@property (nonatomic, strong) MKPointAnnotation *currentlySelectedPlaceAnnotation;
+@property (nonatomic, strong) MKPointAnnotation *selectedPlaceAnnotation;
 @property (nonatomic, strong) NSArray *searchResults;
 @property (nonatomic, strong) HNKGooglePlacesAutocompleteQuery *searchQuery;
 @property (nonatomic, assign) BOOL shouldBeginEditing;
@@ -35,6 +35,10 @@ static NSString *const kHNKDemoSearchResultsCellIdentifier = @"HNKDemoSearchResu
 
     self.searchQuery = [HNKGooglePlacesAutocompleteQuery sharedQuery];
     self.shouldBeginEditing = YES;
+
+    // TODO: Center to users's location on launch
+
+    // TODO: Provide button to recenter to user's location
 }
 
 #pragma mark - Protocol Conformance
@@ -69,8 +73,9 @@ static NSString *const kHNKDemoSearchResultsCellIdentifier = @"HNKDemoSearchResu
 
 - (void)mapView:(MKMapView *)mapView didAddAnnotationViews:(NSArray *)views
 {
-    // Whenever we've dropped a pin on the map, immediately select it to present its callout bubble.
-    [self.mapView selectAnnotation:self.currentlySelectedPlaceAnnotation animated:YES];
+    // Whenever we've dropped a pin on the map, immediately select it to present
+    // its callout bubble.
+    [self.mapView selectAnnotation:self.selectedPlaceAnnotation animated:YES];
 }
 
 - (void)annotationDetailButtonPressed:(id)sender
@@ -123,7 +128,7 @@ static NSString *const kHNKDemoSearchResultsCellIdentifier = @"HNKDemoSearchResu
         // User tapped the 'clear' button.
         self.shouldBeginEditing = NO;
         [self.searchDisplayController setActive:NO];
-        [self.mapView removeAnnotation:self.currentlySelectedPlaceAnnotation];
+        [self.mapView removeAnnotation:self.selectedPlaceAnnotation];
     }
 }
 
@@ -190,7 +195,8 @@ static NSString *const kHNKDemoSearchResultsCellIdentifier = @"HNKDemoSearchResu
                                          } else if (placemark) {
                                              [self addPlacemarkAnnotationToMap:placemark addressString:addressString];
                                              [self recenterMapToPlacemark:placemark];
-                                             // ref: https://github.com/chenyuan/SPGooglePlacesAutocomplete/issues/10
+                                             // ref:
+                                             // https://github.com/chenyuan/SPGooglePlacesAutocomplete/issues/10
                                              [self.searchDisplayController setActive:NO];
                                              [self.searchDisplayController.searchResultsTableView
                                                  deselectRowAtIndexPath:indexPath
@@ -210,13 +216,13 @@ static NSString *const kHNKDemoSearchResultsCellIdentifier = @"HNKDemoSearchResu
 
 - (void)addPlacemarkAnnotationToMap:(CLPlacemark *)placemark addressString:(NSString *)address
 {
-    [self.mapView removeAnnotation:self.currentlySelectedPlaceAnnotation];
+    [self.mapView removeAnnotation:self.selectedPlaceAnnotation];
 
-    self.currentlySelectedPlaceAnnotation = [[MKPointAnnotation alloc] init];
-    self.currentlySelectedPlaceAnnotation.coordinate = placemark.location.coordinate;
-    self.currentlySelectedPlaceAnnotation.title = address;
+    self.selectedPlaceAnnotation = [[MKPointAnnotation alloc] init];
+    self.selectedPlaceAnnotation.coordinate = placemark.location.coordinate;
+    self.selectedPlaceAnnotation.title = address;
 
-    [self.mapView addAnnotation:self.currentlySelectedPlaceAnnotation];
+    [self.mapView addAnnotation:self.selectedPlaceAnnotation];
 }
 
 - (void)recenterMapToPlacemark:(CLPlacemark *)placemark
