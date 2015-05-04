@@ -14,9 +14,13 @@
 
 #import "CLPlacemark+HNKAdditions.h"
 
-@interface HNKDemoViewController ()
+static NSString *const kHNKDemoSearchResultsCellIdentifier = @"HNKDemoSearchResultsCellIdentifier";
 
+@interface HNKDemoViewController () <UITableViewDataSource>
+
+@property (nonatomic, strong) NSArray *searchResults;
 @property (nonatomic, strong) HNKGooglePlacesAutocompleteQuery *searchQuery;
+@property (nonatomic, assign) BOOL shouldBeginEditing;
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
 
 @end
@@ -28,48 +32,61 @@
     [super viewDidLoad];
 
     self.searchQuery = [HNKGooglePlacesAutocompleteQuery sharedQuery];
+    self.shouldBeginEditing = YES;
 
-    void (^GPAViewControllerQueryCompletion)(NSArray *, NSError *) = ^(NSArray *places, NSError *error) {
+    void (^HNKDemoQueryCompletion)(NSArray *, NSError *) = ^(NSArray *places, NSError *error) {
+
         if (error) {
-            NSLog(@"ERROR = %@", error);
+
+            [self handleSearchError:error];
             return;
         }
 
-        NSLog(@"PLACES = %@", places);
+        self.searchResults = places;
+
+        [self.searchDisplayController.searchResultsTableView reloadData];
+
     };
 
-    // Error-causing requests
-    [self.searchQuery fetchPlacesForSearchQuery:@"" completion:GPAViewControllerQueryCompletion];
-    [self.searchQuery fetchPlacesForSearchQuery:nil completion:GPAViewControllerQueryCompletion];
+    [self.searchQuery fetchPlacesForSearchQuery:@"Vict" completion:HNKDemoQueryCompletion];
+}
 
-    // Successful request
-    [self.searchQuery fetchPlacesForSearchQuery:@"Vict" completion:GPAViewControllerQueryCompletion];
+#pragma mark - Protocol Conformance
 
-    // Placemark
-    [self.searchQuery fetchPlacesForSearchQuery:
-                          @"Vict" completion:^(NSArray *places, NSError *error) {
+#pragma mark UITableViewDataSource
 
-        if (error) {
-            NSLog(@"ERROR = %@", error);
-            return;
-        }
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return [self.searchResults count];
+}
 
-        for (HNKQueryResponsePrediction *place in places) {
-            [CLPlacemark hnk_placemarkFromGooglePlace:place
-                                               apiKey:self.searchQuery.apiKey
-                                           completion:^(CLPlacemark *placemark, NSString *address, NSError *error) {
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kHNKDemoSearchResultsCellIdentifier];
 
-                                               if (error) {
-                                                   NSLog(@"ERROR DURING PLACEMARK CREATION = %@", error);
-                                                   return;
-                                               }
+    if (!cell) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
+                                      reuseIdentifier:kHNKDemoSearchResultsCellIdentifier];
+    }
 
-                                               NSLog(@"PLACEMARK ADDRESS = %@", address);
+    cell.textLabel.font = [UIFont fontWithName:@"GillSans" size:16.0];
+    cell.textLabel.text = [self placeAtIndexPath:indexPath].predictionDescription;
 
-                                           }];
-        }
+    return cell;
+}
 
-    }];
+#pragma mark - Helpers
+
+#pragma mark Search Helpers
+
+- (HNKQueryResponsePrediction *)placeAtIndexPath:(NSIndexPath *)indexPath
+{
+    return self.searchResults[indexPath.row];
+}
+
+- (void)handleSearchError:(NSError *)error
+{
+    NSLog(@"ERROR = %@", error);
 }
 
 @end
