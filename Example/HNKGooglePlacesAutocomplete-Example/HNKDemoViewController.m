@@ -163,7 +163,7 @@ static NSString *const kHNKDemoSearchResultsCellIdentifier = @"HNKDemoSearchResu
     }
 
     cell.textLabel.font = [UIFont fontWithName:@"GillSans" size:16.0];
-    cell.textLabel.text = [self placeAtIndexPath:indexPath].predictionDescription;
+    cell.textLabel.text = [self placeAtIndexPath:indexPath].name;
 
     return cell;
 }

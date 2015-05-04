@@ -37,7 +37,7 @@
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
   return @{
-    @"predictionDescription" : @"description",
+    @"name" : @"description",
     @"matchedSubstrings" : @"matched_substrings",
     @"placeId" : @"place_id",
     @"terms" : @"terms",
