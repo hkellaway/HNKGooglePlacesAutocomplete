@@ -49,7 +49,7 @@ describe(@"HNKQueryResponsePredictionTerm", ^{
 
                  it(@"Should assign properties correctly",
                     ^{
-                        [[testInstance.predictionDescription should] equal:@"Victoria, BC, Canadá"];
+                        [[testInstance.name should] equal:@"Victoria, BC, Canadá"];
 
                         HNKQueryResponsePredictionMatchedSubstring *matchedSubstring =
                             testInstance.matchedSubstrings[0];

@@ -29,63 +29,41 @@
  *  Place types
  */
 typedef NS_ENUM(NSInteger, HNKGooglePlacesAutocompletePlaceType) {
-  /**
-   *  Places of type unknown
-   */
   HNKGooglePlacesAutocompletePlaceTypeUnknown = 0,
-  /**
-   *  Places with a precise address
-   */
-  HNKGooglePlacesAutocompletePlaceTypeAddress,
-  /**
-   *  Places of type Administrative Area Level 1
-   */
   HNKGooglePlacesAutocompletePlaceTypeAdministrativeAreaLevel1,
-  /**
-   *  Places of type Administrative Area Level 2
-   */
   HNKGooglePlacesAutocompletePlaceTypeAdministrativeAreaLevel2,
-  /**
-   *  Places of type Administrative Area Level 3
-   */
   HNKGooglePlacesAutocompletePlaceTypeAdministrativeAreaLevel3,
-  /**
-   *  Places of type locality or Administrative Area 3
-   */
-  HNKGooglePlacesAutocompletePlaceTypeCities,
-  /**
-   *  Places of type country
-   */
+  HNKGooglePlacesAutocompletePlaceTypeAdministrativeAreaLevel4,
+  HNKGooglePlacesAutocompletePlaceTypeAdministrativeAreaLevel5,
+  HNKGooglePlacesAutocompletePlaceTypeColloquialArea,
   HNKGooglePlacesAutocompletePlaceTypeCountry,
-  /**
-   *  Places from only business results
-   */
   HNKGooglePlacesAutocompletePlaceTypeEstablishment,
-  /**
-   *  Places from only geocoding results, not business results
-   */
+  HNKGooglePlacesAutocompletePlaceTypeFloor,
   HNKGooglePlacesAutocompletePlaceTypeGeocode,
-  /**
-   *  Places of type locality
-   */
+  HNKGooglePlacesAutocompletePlaceTypeIntersection,
   HNKGooglePlacesAutocompletePlaceTypeLocality,
-  /**
-   *  Places of type political
-   */
+  HNKGooglePlacesAutocompletePlaceTypeNaturalFeature,
+  HNKGooglePlacesAutocompletePlaceTypeNeighborhood,
   HNKGooglePlacesAutocompletePlaceTypePolitical,
-  /**
-   *  Places of type postal code
-   */
+  HNKGooglePlacesAutocompletePlaceTypePointOfInterest,
+  HNKGooglePlacesAutocompletePlaceTypePostBox,
   HNKGooglePlacesAutocompletePlaceTypePostalCode,
-  /**
-   *  Places of type locality, sub-locality, postal code, country,
-   *  Administrative Area Level 1 or Administrative Area Level 2
-   */
-  HNKGooglePlacesAutocompletePlaceTypeRegions,
-  /**
-   *  Places of type sub-locality
-   */
-  HNKGooglePlacesAutocompletePlaceTypeSublocality
+  HNKGooglePlacesAutocompletePlaceTypePostalCodePrefix,
+  HNKGooglePlacesAutocompletePlaceTypePostalCodeSuffix,
+  HNKGooglePlacesAutocompletePlaceTypePostalTown,
+  HNKGooglePlacesAutocompletePlaceTypePremise,
+  HNKGooglePlacesAutocompletePlaceTypeRoom,
+  HNKGooglePlacesAutocompletePlaceTypeRoute,
+  HNKGooglePlacesAutocompletePlaceTypeStreetAddress,
+  HNKGooglePlacesAutocompletePlaceTypeStreetNumber,
+  HNKGooglePlacesAutocompletePlaceTypeSublocality,
+  HNKGooglePlacesAutocompletePlaceTypeSublocalityLevel1,
+  HNKGooglePlacesAutocompletePlaceTypeSublocalityLevel2,
+  HNKGooglePlacesAutocompletePlaceTypeSublocalityLevel3,
+  HNKGooglePlacesAutocompletePlaceTypeSublocalityLevel4,
+  HNKGooglePlacesAutocompletePlaceTypeSublocalityLevel5,
+  HNKGooglePlacesAutocompletePlaceTypeSubpremise,
+  HNKGooglePlacesAutocompletePlaceTypeTransitStation
 };
 
 /**
@@ -98,7 +76,7 @@ typedef NS_ENUM(NSInteger, HNKGooglePlacesAutocompletePlaceType) {
  *
  *  Note: For establishment type results, this is usually the business name
  */
-@property(nonatomic, strong, readonly) NSString *predictionDescription;
+@property(nonatomic, strong, readonly) NSString *name;
 
 /**
  *  Collection of Substrings describe the location of the entered term in the

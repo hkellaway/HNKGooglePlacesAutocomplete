@@ -25,7 +25,7 @@
 
 #import "HNKQueryResponse.h"
 
-typedef void (^HNKGooglePlacesAutocompleteQueryCallback)(id JSON,
+typedef void (^HNKGooglePlacesAutocompleteQueryCallback)(NSArray *places,
                                                          NSError *error);
 
 /**

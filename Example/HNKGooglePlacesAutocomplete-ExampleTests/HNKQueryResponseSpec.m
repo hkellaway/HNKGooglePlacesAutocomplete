@@ -57,7 +57,7 @@ describe(@"HNKQueryResponse", ^{
                         [[theValue(testInstance.status) should] equal:theValue(HNKQueryResponseStatusOK)];
 
                         HNKQueryResponsePrediction *prediction = testInstance.predictions[0];
-                        [[prediction.predictionDescription should] equal:@"Victoria, BC, Canadá"];
+                        [[prediction.name should] equal:@"Victoria, BC, Canadá"];
 
                         HNKQueryResponsePredictionMatchedSubstring *matchedSubstring = prediction.matchedSubstrings[0];
                         [[theValue(matchedSubstring.length) should] equal:theValue(4)];
