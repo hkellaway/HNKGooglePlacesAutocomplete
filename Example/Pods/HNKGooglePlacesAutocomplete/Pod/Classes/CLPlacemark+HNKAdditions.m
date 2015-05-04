@@ -69,7 +69,7 @@ static NSString *const kHNKGooglePlacesDetailsServerRequestPath =
              completion:
                  (void (^)(NSString *addressString, NSError *error))completion {
   if ([self isGeocodeResult:place]) {
-    completion(place.predictionDescription, nil);
+    completion(place.name, nil);
     return;
   }
 

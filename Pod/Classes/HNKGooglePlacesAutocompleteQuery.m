@@ -192,7 +192,7 @@ static HNKGooglePlacesAutocompleteQuery *sharedQuery = nil;
               description:
                   HNKGooglePlacesAutocompleteQueryStatusDescriptionServerRequestFailed
               andUserInfo:@{
-                @"NSUnderlyingErrorKey" : error
+                @"NSUnderlyingError" : error
               }];
 
   completion(nil, errorToReturn);
@@ -260,8 +260,8 @@ static HNKGooglePlacesAutocompleteQuery *sharedQuery = nil;
                      description:(NSString *)errorDescription
                      andUserInfo:(NSDictionary *)userInfo {
   NSDictionary *userInfoToReturn = @{
-    @"NSLocalizedDescriptionKey" : errorDescription,
-    @"NSLocalizedFailureReasonErrorKey" : errorDescription
+    @"NSLocalizedDescription" : errorDescription,
+    @"NSLocalizedFailureReasonError" : errorDescription
   };
 
   if (userInfo != nil) {
