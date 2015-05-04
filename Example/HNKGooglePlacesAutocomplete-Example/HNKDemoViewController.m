@@ -16,6 +16,7 @@
 
 @interface HNKDemoViewController ()
 
+@property (nonatomic, strong) HNKGooglePlacesAutocompleteQuery *searchQuery;
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
 
 @end
@@ -26,9 +27,7 @@
 {
     [super viewDidLoad];
 
-    NSString *apiKey = @"AIzaSyAkR80JQgRgfnqBl6Db2RsnmkCG1LhuVn8";
-
-    [HNKGooglePlacesAutocompleteQuery setupSharedQueryWithAPIKey:apiKey];
+    self.searchQuery = [HNKGooglePlacesAutocompleteQuery sharedQuery];
 
     void (^GPAViewControllerQueryCompletion)(NSArray *, NSError *) = ^(NSArray *places, NSError *error) {
         if (error) {
@@ -40,18 +39,15 @@
     };
 
     // Error-causing requests
-    [[HNKGooglePlacesAutocompleteQuery sharedQuery] fetchPlacesForSearchQuery:@""
-                                                                   completion:GPAViewControllerQueryCompletion];
-    [[HNKGooglePlacesAutocompleteQuery sharedQuery] fetchPlacesForSearchQuery:nil
-                                                                   completion:GPAViewControllerQueryCompletion];
+    [self.searchQuery fetchPlacesForSearchQuery:@"" completion:GPAViewControllerQueryCompletion];
+    [self.searchQuery fetchPlacesForSearchQuery:nil completion:GPAViewControllerQueryCompletion];
 
     // Successful request
-    [[HNKGooglePlacesAutocompleteQuery sharedQuery] fetchPlacesForSearchQuery:@"Vict"
-                                                                   completion:GPAViewControllerQueryCompletion];
+    [self.searchQuery fetchPlacesForSearchQuery:@"Vict" completion:GPAViewControllerQueryCompletion];
 
     // Placemark
-    [[HNKGooglePlacesAutocompleteQuery sharedQuery] fetchPlacesForSearchQuery:
-                                                        @"Vict" completion:^(NSArray *places, NSError *error) {
+    [self.searchQuery fetchPlacesForSearchQuery:
+                          @"Vict" completion:^(NSArray *places, NSError *error) {
 
         if (error) {
             NSLog(@"ERROR = %@", error);
@@ -60,7 +56,7 @@
 
         for (HNKQueryResponsePrediction *place in places) {
             [CLPlacemark hnk_placemarkFromGooglePlace:place
-                                               apiKey:apiKey
+                                               apiKey:self.searchQuery.apiKey
                                            completion:^(CLPlacemark *placemark, NSString *address, NSError *error) {
 
                                                if (error) {
