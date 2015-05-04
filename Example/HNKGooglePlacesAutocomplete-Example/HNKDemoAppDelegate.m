@@ -8,6 +8,10 @@
 
 #import "HNKDemoAppDelegate.h"
 
+#import <HNKGooglePlacesAutocomplete/HNKGooglePlacesAutocompleteQuery.h>
+
+static NSString *const kHNKDemoGooglePlacesAutocompleteApiKey = @"AIzaSyAkR80JQgRgfnqBl6Db2RsnmkCG1LhuVn8";
+
 @interface HNKDemoAppDelegate ()
 
 @end
@@ -16,7 +20,8 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
+    [HNKGooglePlacesAutocompleteQuery setupSharedQueryWithAPIKey:kHNKDemoGooglePlacesAutocompleteApiKey];
+
     return YES;
 }
 
