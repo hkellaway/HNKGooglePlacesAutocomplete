@@ -14,8 +14,8 @@
 		DC345C2F1AEDC5C8009D3645 /* HNKQueryResponseSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = DC345C2E1AEDC5C8009D3645 /* HNKQueryResponseSpec.m */; };
 		DC345C3B1AF09FC7009D3645 /* HNKGooglePlacesAutocompleteServerSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = DC345C3A1AF09FC7009D3645 /* HNKGooglePlacesAutocompleteServerSpec.m */; };
 		DCA78AFD1AED6AA800F5F3B9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DCA78AFC1AED6AA800F5F3B9 /* main.m */; };
-		DCA78B001AED6AA800F5F3B9 /* GPAAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DCA78AFF1AED6AA800F5F3B9 /* GPAAppDelegate.m */; };
-		DCA78B031AED6AA800F5F3B9 /* GPAViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DCA78B021AED6AA800F5F3B9 /* GPAViewController.m */; };
+		DCA78B001AED6AA800F5F3B9 /* HNKDemoAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DCA78AFF1AED6AA800F5F3B9 /* HNKDemoAppDelegate.m */; };
+		DCA78B031AED6AA800F5F3B9 /* HNKDemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DCA78B021AED6AA800F5F3B9 /* HNKDemoViewController.m */; };
 		DCA78B061AED6AA800F5F3B9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DCA78B041AED6AA800F5F3B9 /* Main.storyboard */; };
 		DCA78B081AED6AA800F5F3B9 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DCA78B071AED6AA800F5F3B9 /* Images.xcassets */; };
 		DCA78B0B1AED6AA800F5F3B9 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = DCA78B091AED6AA800F5F3B9 /* LaunchScreen.xib */; };
@@ -52,10 +52,10 @@
 		DCA78AF71AED6AA800F5F3B9 /* HNKGooglePlacesAutocomplete-Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "HNKGooglePlacesAutocomplete-Example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCA78AFB1AED6AA800F5F3B9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DCA78AFC1AED6AA800F5F3B9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		DCA78AFE1AED6AA800F5F3B9 /* GPAAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GPAAppDelegate.h; sourceTree = "<group>"; };
-		DCA78AFF1AED6AA800F5F3B9 /* GPAAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GPAAppDelegate.m; sourceTree = "<group>"; };
-		DCA78B011AED6AA800F5F3B9 /* GPAViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GPAViewController.h; sourceTree = "<group>"; };
-		DCA78B021AED6AA800F5F3B9 /* GPAViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GPAViewController.m; sourceTree = "<group>"; };
+		DCA78AFE1AED6AA800F5F3B9 /* HNKDemoAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HNKDemoAppDelegate.h; sourceTree = "<group>"; };
+		DCA78AFF1AED6AA800F5F3B9 /* HNKDemoAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HNKDemoAppDelegate.m; sourceTree = "<group>"; };
+		DCA78B011AED6AA800F5F3B9 /* HNKDemoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HNKDemoViewController.h; sourceTree = "<group>"; };
+		DCA78B021AED6AA800F5F3B9 /* HNKDemoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HNKDemoViewController.m; sourceTree = "<group>"; };
 		DCA78B051AED6AA800F5F3B9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DCA78B071AED6AA800F5F3B9 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		DCA78B0A1AED6AA800F5F3B9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -168,10 +168,10 @@
 		DCA78AF91AED6AA800F5F3B9 /* HNKGooglePlacesAutocomplete-Example */ = {
 			isa = PBXGroup;
 			children = (
-				DCA78AFE1AED6AA800F5F3B9 /* GPAAppDelegate.h */,
-				DCA78AFF1AED6AA800F5F3B9 /* GPAAppDelegate.m */,
-				DCA78B011AED6AA800F5F3B9 /* GPAViewController.h */,
-				DCA78B021AED6AA800F5F3B9 /* GPAViewController.m */,
+				DCA78AFE1AED6AA800F5F3B9 /* HNKDemoAppDelegate.h */,
+				DCA78AFF1AED6AA800F5F3B9 /* HNKDemoAppDelegate.m */,
+				DCA78B011AED6AA800F5F3B9 /* HNKDemoViewController.h */,
+				DCA78B021AED6AA800F5F3B9 /* HNKDemoViewController.m */,
 				DCA78B041AED6AA800F5F3B9 /* Main.storyboard */,
 				DCA78B071AED6AA800F5F3B9 /* Images.xcassets */,
 				DCA78B091AED6AA800F5F3B9 /* LaunchScreen.xib */,
@@ -256,7 +256,7 @@
 		DCA78AEF1AED6AA800F5F3B9 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				CLASSPREFIX = GPA;
+				CLASSPREFIX = HNKDemo;
 				LastUpgradeCheck = 0630;
 				ORGANIZATIONNAME = "Harlan Kellaway";
 				TargetAttributes = {
@@ -377,8 +377,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DCA78B031AED6AA800F5F3B9 /* GPAViewController.m in Sources */,
-				DCA78B001AED6AA800F5F3B9 /* GPAAppDelegate.m in Sources */,
+				DCA78B031AED6AA800F5F3B9 /* HNKDemoViewController.m in Sources */,
+				DCA78B001AED6AA800F5F3B9 /* HNKDemoAppDelegate.m in Sources */,
 				DCA78AFD1AED6AA800F5F3B9 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
