@@ -35,22 +35,6 @@ static NSString *const kHNKDemoSearchResultsCellIdentifier = @"HNKDemoSearchResu
 
     self.searchQuery = [HNKGooglePlacesAutocompleteQuery sharedQuery];
     self.shouldBeginEditing = YES;
-
-    void (^HNKDemoQueryCompletion)(NSArray *, NSError *) = ^(NSArray *places, NSError *error) {
-
-        if (error) {
-
-            [self handleSearchError:error];
-            return;
-        }
-
-        self.searchResults = places;
-
-        [self.searchDisplayController.searchResultsTableView reloadData];
-
-    };
-
-    [self.searchQuery fetchPlacesForSearchQuery:@"Vict" completion:HNKDemoQueryCompletion];
 }
 
 #pragma mark - Protocol Conformance
@@ -92,6 +76,74 @@ static NSString *const kHNKDemoSearchResultsCellIdentifier = @"HNKDemoSearchResu
 - (void)annotationDetailButtonPressed:(id)sender
 {
     NSLog(@"Pin tapped");
+}
+
+#pragma mark UISearchDisplayDelegate
+
+- (void)handleSearchForSearchString:(NSString *)searchString
+{
+    if (![searchString isEqualToString:@""]) {
+
+        // TODO: Add user location to search query
+        // self.searchQuery.location = self.mapView.userLocation.coordinate;
+
+        [self.searchQuery fetchPlacesForSearchQuery:searchString
+                                         completion:^(NSArray *places, NSError *error) {
+                                             if (error) {
+                                                 UIAlertView *alert =
+                                                     [[UIAlertView alloc] initWithTitle:@"Could not fetch Places"
+                                                                                message:error.localizedDescription
+                                                                               delegate:nil
+                                                                      cancelButtonTitle:@"OK"
+                                                                      otherButtonTitles:nil, nil];
+                                                 [alert show];
+                                             } else {
+                                                 self.searchResults = places;
+                                                 [self.searchDisplayController.searchResultsTableView reloadData];
+                                             }
+                                         }];
+    }
+}
+
+- (BOOL)searchDisplayController:(UISearchDisplayController *)controller
+    shouldReloadTableForSearchString:(NSString *)searchString
+{
+    [self handleSearchForSearchString:searchString];
+
+    // Return YES to cause the search result table view to be reloaded.
+    return YES;
+}
+
+#pragma mark -
+#pragma mark UISearchBar Delegate
+
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
+{
+    if (![searchBar isFirstResponder]) {
+        // User tapped the 'clear' button.
+        self.shouldBeginEditing = NO;
+        [self.searchDisplayController setActive:NO];
+        [self.mapView removeAnnotation:self.currentlySelectedPlaceAnnotation];
+    }
+}
+
+- (BOOL)searchBarShouldBeginEditing:(UISearchBar *)searchBar
+{
+    if (self.shouldBeginEditing) {
+
+        // Animate in the table view.
+        NSTimeInterval animationDuration = 0.3;
+        [UIView beginAnimations:nil context:NULL];
+        [UIView setAnimationDuration:animationDuration];
+        self.searchDisplayController.searchResultsTableView.alpha = 0.75;
+        [UIView commitAnimations];
+
+        [self.searchDisplayController.searchBar setShowsCancelButton:YES animated:YES];
+    }
+
+    BOOL boolToReturn = self.shouldBeginEditing;
+    self.shouldBeginEditing = YES;
+    return boolToReturn;
 }
 
 #pragma mark UITableViewDataSource
