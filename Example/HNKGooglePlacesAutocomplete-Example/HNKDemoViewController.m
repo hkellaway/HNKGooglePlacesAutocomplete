@@ -10,10 +10,13 @@
 
 #import <CoreLocation/CLPlacemark.h>
 #import <HNKGooglePlacesAutocomplete/HNKGooglePlacesAutocomplete.h>
+#import <MapKit/MapKit.h>
 
 #import "CLPlacemark+HNKAdditions.h"
 
 @interface HNKDemoViewController ()
+
+@property (weak, nonatomic) IBOutlet MKMapView *mapView;
 
 @end
 

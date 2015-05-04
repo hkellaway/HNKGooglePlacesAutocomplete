@@ -40,6 +40,7 @@
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
+                        <outlet property="mapView" destination="x8V-qS-Xsu" id="hdA-1m-61Q"/>
                         <outlet property="searchDisplayController" destination="TEU-tN-1g0" id="nR2-x0-Fb0"/>
                     </connections>
                 </viewController>
