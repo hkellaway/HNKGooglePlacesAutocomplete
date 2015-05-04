@@ -113,7 +113,7 @@ describe(@"CLPlacemark+HNKAdditions", ^{
 
                 testPlaceId = @"ChIJcWGw3Ytzj1QR7Ui7HnTz6Dg";
                 mockPlace = [HNKQueryResponse nullMock];
-                [mockPlace stub:@selector(predictionDescription) andReturn:@"123 XYZ St, New York, NY, USA"];
+                [mockPlace stub:@selector(name) andReturn:@"123 XYZ St, New York, NY, USA"];
                 [mockPlace stub:@selector(placeId) andReturn:testPlaceId];
 
                 mockGeocoder = [CLGeocoder nullMock];
@@ -182,7 +182,7 @@ describe(@"CLPlacemark+HNKAdditions", ^{
                         it(@"Should call Geocoder with Places description",
                            ^{
                                [[mockGeocoder should] receive:@selector(geocodeAddressString:completionHandler:)
-                                                withArguments:mockPlace.predictionDescription, any()];
+                                                withArguments:mockPlace.name, any()];
 
                                [CLPlacemark hnk_placemarkFromGooglePlace:mockPlace apiKey:testApiKey completion:nil];
                            });

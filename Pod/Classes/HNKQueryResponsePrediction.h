@@ -76,7 +76,7 @@ typedef NS_ENUM(NSInteger, HNKGooglePlacesAutocompletePlaceType) {
  *
  *  Note: For establishment type results, this is usually the business name
  */
-@property(nonatomic, strong, readonly) NSString *predictionDescription;
+@property(nonatomic, strong, readonly) NSString *name;
 
 /**
  *  Collection of Substrings describe the location of the entered term in the
