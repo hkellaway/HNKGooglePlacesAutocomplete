@@ -104,14 +104,19 @@
     @"sublocality_level_5" :
         @(HNKGooglePlacesAutocompletePlaceTypeSublocalityLevel5),
     @"subpremise" : @(HNKGooglePlacesAutocompletePlaceTypeSubpremise),
-    @"transit_station" : @(HNKGooglePlacesAutocompletePlaceTypeTransitStation)
+    @"transit_station" : @(HNKGooglePlacesAutocompletePlaceTypeTransitStation),
+    @"unknown" : @(HNKGooglePlacesAutocompletePlaceTypeUnknown)
   };
 
   return [MTLValueTransformer transformerWithBlock:^(NSArray *types) {
     NSMutableArray *typesToReturn =
         [NSMutableArray arrayWithCapacity:[types count]];
     for (NSString *type in types) {
-      [typesToReturn addObject:typesDictionary[type]];
+      if ([typesDictionary objectForKey:type]) {
+        [typesToReturn addObject:typesDictionary[type]];
+      } else {
+        [typesToReturn addObject:typesDictionary[@"unknown"]];
+      }
     }
     return [typesToReturn copy];
   }];
