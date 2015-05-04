@@ -68,10 +68,10 @@ describe(@"HNKGooglePlacesAutocompleteQuery", ^{
                                            errorWithDomain:HNKGooglePlacesAutocompleteQueryErrorDomain
                                                       code:HNKQueryResponseStatusInvalidRequest
                                                   userInfo:@{
-                                                      @"NSLocalizedDescriptionKey" :
+                                                      @"NSLocalizedDescription" :
                                                           HNKGooglePlacesAutocompleteQueryDescriptionForErrorCode(
                                                               HNKGooglePlacesAutocompleteQueryErrorCodeInvalidRequest),
-                                                      @"NSLocalizedFailureReasonErrorKey" :
+                                                      @"NSLocalizedFailureReasonError" :
                                                           HNKGooglePlacesAutocompleteQueryDescriptionForErrorCode(
                                                               HNKGooglePlacesAutocompleteQueryErrorCodeInvalidRequest)
                                                   }];
@@ -96,10 +96,10 @@ describe(@"HNKGooglePlacesAutocompleteQuery", ^{
                                            errorWithDomain:HNKGooglePlacesAutocompleteQueryErrorDomain
                                                       code:HNKGooglePlacesAutocompleteQueryErrorCodeSearchQueryNil
                                                   userInfo:@{
-                                                      @"NSLocalizedDescriptionKey" :
+                                                      @"NSLocalizedDescription" :
                                                           HNKGooglePlacesAutocompleteQueryDescriptionForErrorCode(
                                                               HNKGooglePlacesAutocompleteQueryErrorCodeSearchQueryNil),
-                                                      @"NSLocalizedFailureReasonErrorKey" :
+                                                      @"NSLocalizedFailureReasonError" :
                                                           HNKGooglePlacesAutocompleteQueryDescriptionForErrorCode(
                                                               HNKGooglePlacesAutocompleteQueryErrorCodeSearchQueryNil)
                                                   }];
@@ -230,10 +230,10 @@ describe(@"HNKGooglePlacesAutocompleteQuery", ^{
                                                errorWithDomain:HNKGooglePlacesAutocompleteQueryErrorDomain
                                                           code:HNKQueryResponseStatusRequestDenied
                                                       userInfo:@{
-                                                          @"NSLocalizedDescriptionKey" :
+                                                          @"NSLocalizedDescription" :
                                                               HNKGooglePlacesAutocompleteQueryDescriptionForErrorCode(
                                                                   HNKGooglePlacesAutocompleteQueryErrorCodeRequestDenied),
-                                                          @"NSLocalizedFailureReasonErrorKey" :
+                                                          @"NSLocalizedFailureReasonError" :
                                                               HNKGooglePlacesAutocompleteQueryDescriptionForErrorCode(
                                                                   HNKGooglePlacesAutocompleteQueryErrorCodeRequestDenied)
                                                       }];
@@ -282,11 +282,11 @@ describe(@"HNKGooglePlacesAutocompleteQuery", ^{
                                        errorWithDomain:HNKGooglePlacesAutocompleteQueryErrorDomain
                                                   code:HNKGooglePlacesAutcompleteQueryErrorCodeServerRequestFailed
                                               userInfo:@{
-                                                  @"NSUnderlyingErrorKey" : testError,
-                                                  @"NSLocalizedDescriptionKey" :
+                                                  @"NSUnderlyingError" : testError,
+                                                  @"NSLocalizedDescription" :
                                                       HNKGooglePlacesAutocompleteQueryDescriptionForErrorCode(
                                                           HNKGooglePlacesAutcompleteQueryErrorCodeServerRequestFailed),
-                                                  @"NSLocalizedFailureReasonErrorKey" :
+                                                  @"NSLocalizedFailureReasonError" :
                                                       HNKGooglePlacesAutocompleteQueryDescriptionForErrorCode(
                                                           HNKGooglePlacesAutcompleteQueryErrorCodeServerRequestFailed)
                                               }];
