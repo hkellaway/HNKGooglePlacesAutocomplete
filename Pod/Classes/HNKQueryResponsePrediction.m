@@ -73,6 +73,7 @@
     @"political" : @(HNKGooglePlacesAutocompletePlaceTypePolitical),
     @"postal_code" : @(HNKGooglePlacesAutocompletePlaceTypePostalCode),
     @"(regions)" : @(HNKGooglePlacesAutocompletePlaceTypeRegions),
+    @"route" : @(HNKGooglePlacesAutocompletePlaceTypeRoute),
     @"sublocality" : @(HNKGooglePlacesAutocompletePlaceTypeSublocality)
   };
 
