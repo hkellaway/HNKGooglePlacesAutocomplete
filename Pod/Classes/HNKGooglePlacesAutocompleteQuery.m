@@ -24,7 +24,7 @@
 //
 
 #import "HNKGooglePlacesAutocompleteQuery.h"
-#import "HNKGooglePlacesAutocompleteServer.h"
+#import "HNKGooglePlacesServer.h"
 #import "HNKQueryResponse.h"
 
 #pragma mark Error Domain
@@ -34,8 +34,8 @@ NSString *const HNKGooglePlacesAutocompleteQueryErrorDomain =
 
 #pragma mark Request Constants
 
-static NSString *const kHNKGooglePlacesAutocompleteServerRequestPath =
-    @"place/autocomplete/json";
+static NSString *const kHNKGooglePlacesServerRequestPathAutocomplete =
+    @"autocomplete/json";
 static NSInteger const kHNKGooglePlacesAutocompleteDefaultSearchRadius = 500;
 
 #pragma mark Status Constants
@@ -142,8 +142,8 @@ static HNKGooglePlacesAutocompleteQuery *sharedQuery = nil;
 - (void)serverRequestWithSearchQuery:(NSString *)searchQuery
                           completion:(HNKGooglePlacesAutocompleteQueryCallback)
                                          completion {
-  [HNKGooglePlacesAutocompleteServer
-             GET:kHNKGooglePlacesAutocompleteServerRequestPath
+  [HNKGooglePlacesServer
+             GET:kHNKGooglePlacesServerRequestPathAutocomplete
       parameters:@{
         @"input" : searchQuery,
         @"key" : self.apiKey,
