@@ -1,5 +1,5 @@
 //
-//  HNKGooglePlacesAutocompleteServerSpec.m
+//  HNKGooglePlacesServerSpec.m
 //  HNKGooglePlacesAutocomplete-Example
 //
 //  Created by Harlan Kellaway on 4/28/15.
@@ -8,12 +8,12 @@
 
 #import "Kiwi.h"
 
-#import <HNKGooglePlacesAutocomplete/HNKGooglePlacesAutocompleteServer.h>
+#import <HNKGooglePlacesAutocomplete/HNKGooglePlacesServer.h>
 #import <HNKServerFacade/HNKServer.h>
 
-SPEC_BEGIN(HNKGooglePlacesAutocompleteServerSpec)
+SPEC_BEGIN(HNKGooglePlacesServerSpec)
 
-describe(@"HNKGooglePlacesAutocompleteServer", ^{
+describe(@"HNKGooglePlacesServer", ^{
 
     describe(@"Method: initialize",
              ^{
@@ -23,7 +23,7 @@ describe(@"HNKGooglePlacesAutocompleteServer", ^{
                         [[HNKServer should] receive:@selector(setupWithBaseUrl:)
                                       withArguments:@"https://maps.googleapis.com/maps/api/"];
 
-                        [HNKGooglePlacesAutocompleteServer initialize];
+                        [HNKGooglePlacesServer initialize];
                     });
              });
 
@@ -37,12 +37,12 @@ describe(@"HNKGooglePlacesAutocompleteServer", ^{
                                                        @"key" : @"apikey" },
                                                     any()];
 
-                        [HNKGooglePlacesAutocompleteServer GET:@"place/autocomplete/json"
-                                                    parameters:@{
-                                                        @"input" : @"Vict",
-                                                        @"key" : @"apikey"
-                                                    }
-                                                    completion:nil];
+                        [HNKGooglePlacesServer GET:@"place/autocomplete/json"
+                                        parameters:@{
+                                            @"input" : @"Vict",
+                                            @"key" : @"apikey"
+                                        }
+                                        completion:nil];
 
                     });
              });

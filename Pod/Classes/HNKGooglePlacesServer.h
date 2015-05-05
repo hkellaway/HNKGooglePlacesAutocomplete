@@ -1,5 +1,5 @@
 //
-//  HNKGooglePlacesAutocompleteServer.m
+//  HNKGooglePlacesServer.h
 //  HNKGooglePlacesAutocomplete
 //
 // Copyright (c) 2015 Harlan Kellaway
@@ -23,43 +23,24 @@
 // THE SOFTWARE.
 //
 
-#import "HNKGooglePlacesAutocompleteServer.h"
-#import "HNKServer.h"
+#import <Foundation/Foundation.h>
 
-static NSString *const kHNKGooglePlacesAutocompleteServerBaseURL =
-    @"https://maps.googleapis.com/maps/api/";
-
-@implementation HNKGooglePlacesAutocompleteServer
-
-#pragma mark - Overrides
-
-+ (void)initialize {
-  if (self == [HNKGooglePlacesAutocompleteServer class]) {
-
-    [HNKServer setupWithBaseUrl:kHNKGooglePlacesAutocompleteServerBaseURL];
-  }
-}
+/**
+ *  Server setup with base URL for Google Places Autocomplete API
+ */
+@interface HNKGooglePlacesServer : NSObject
 
 #pragma mark - Requests
 
+/**
+ *  Performs a GET request to the Server
+ *
+ *  @param path       Path to GET from
+ *  @param parameters Request parameters
+ *  @param completion Block to be executed when the request finishes
+ */
 + (void)GET:(NSString *)path
     parameters:(NSDictionary *)parameters
-    completion:(void (^)(id, NSError *))completion {
-  [HNKServer GET:path
-      parameters:parameters
-      completion:^(id responseObject, NSError *error) {
-
-        if (completion) {
-
-          if (error) {
-            completion(nil, error);
-            return;
-          }
-
-          completion(responseObject, nil);
-        }
-
-      }];
-}
+    completion:(void (^)(id JSON, NSError *error))completion;
 
 @end
