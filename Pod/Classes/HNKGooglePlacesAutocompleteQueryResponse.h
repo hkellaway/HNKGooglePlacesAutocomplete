@@ -1,5 +1,5 @@
 //
-//  HNKQueryResponse.h
+//  HNKGooglePlacesAutocompleteQueryResponse.h
 //  HNKGooglePlacesAutocomplete
 //
 // Copyright (c) 2015 Harlan Kellaway
@@ -55,7 +55,8 @@ typedef NS_ENUM(NSInteger, HNKQueryResponseStatus) {
 /**
  *  Response returned from an API query
  */
-@interface HNKQueryResponse : HNKGooglePlacesAutocompleteModel
+@interface HNKGooglePlacesAutocompleteQueryResponse
+    : HNKGooglePlacesAutocompleteModel
 
 /**
  *  Collection of QueryResponsePredictions returned from the query

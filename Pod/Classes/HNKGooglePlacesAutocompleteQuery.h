@@ -23,7 +23,7 @@
 // THE SOFTWARE.
 //
 
-#import "HNKQueryResponse.h"
+#import "HNKGooglePlacesAutocompleteQueryResponse.h"
 
 typedef void (^HNKGooglePlacesAutocompleteQueryCallback)(NSArray *places,
                                                          NSError *error);

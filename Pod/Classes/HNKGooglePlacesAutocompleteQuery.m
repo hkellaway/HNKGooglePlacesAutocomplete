@@ -25,7 +25,7 @@
 
 #import "HNKGooglePlacesAutocompleteQuery.h"
 #import "HNKGooglePlacesServer.h"
-#import "HNKQueryResponse.h"
+#import "HNKGooglePlacesAutocompleteQueryResponse.h"
 
 #pragma mark Error Domain
 
@@ -169,8 +169,8 @@ static HNKGooglePlacesAutocompleteQuery *sharedQuery = nil;
 - (void)completeWithServerResponse:(NSDictionary *)JSON
                         completion:(HNKGooglePlacesAutocompleteQueryCallback)
                                        completion {
-  HNKQueryResponse *queryResponse =
-      [HNKQueryResponse modelFromJSONDictionary:JSON];
+  HNKGooglePlacesAutocompleteQueryResponse *queryResponse =
+      [HNKGooglePlacesAutocompleteQueryResponse modelFromJSONDictionary:JSON];
   NSError *statusError = [self customErrorForStatus:queryResponse.status];
 
   if (statusError) {
