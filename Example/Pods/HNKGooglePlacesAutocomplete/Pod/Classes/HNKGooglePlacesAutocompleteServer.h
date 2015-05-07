@@ -26,7 +26,7 @@
 #import <Foundation/Foundation.h>
 
 /**
- *  Server setup with base URL for Google Places Autocomplete API
+ *  Server for making requests to the Google Maps API
  */
 @interface HNKGooglePlacesAutocompleteServer : NSObject
 
