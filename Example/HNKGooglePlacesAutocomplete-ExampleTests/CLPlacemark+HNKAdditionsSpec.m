@@ -14,87 +14,9 @@
 
 #import "CLPlacemark+HNKAdditions.h"
 
-@interface CLPlacemark (KiwiExtensions)
-
-+ (BOOL)isGeocodeResult:(HNKQueryResponsePrediction *)place;
-
-@end
-
 SPEC_BEGIN(CLPlacemark_HNKAdditionsSpec)
 
 describe(@"CLPlacemark+HNKAdditions", ^{
-
-    describe(@"Method: isGeocodeResult",
-             ^{
-
-                 __block HNKQueryResponsePrediction *geocodeResultPlace;
-                 __block HNKQueryResponsePrediction *nonGeocodeResultPlace;
-
-                 beforeEach(^{
-
-                     NSDictionary *geocodeResultJSON = @{
-                         @"description" : @"Victoria, BC, Canadá",
-                         @"id" : @"d5892cffd777f0252b94ab2651fea7123d2aa34a",
-                         @"matched_substrings" : @[ @{@"length" : @4, @"offset" : @0} ],
-                         @"place_id" : @"ChIJcWGw3Ytzj1QR7Ui7HnTz6Dg",
-                         @"reference" : @"CjQtAAAA903zyJZAu2FLA6KkdC7UAddRHAfHQDpArCk61FI_"
-                         @"u1Ig7WaJqBiXYsQvORYMcgILEhAFvGtwa5VQpswubIIzwI5wGhTt8vgj6CSQp8QWYb4U1rXmlkg9bg",
-                         @"terms" : @[
-                             @{@"offset" : @0, @"value" : @"Victoria"},
-                             @{@"offset" : @10, @"value" : @"BC"},
-                             @{@"offset" : @14, @"value" : @"Canadá"}
-                         ],
-                         @"types" : @[ @"locality", @"political", @"geocode" ]
-                     };
-
-                     NSDictionary *nonGeocodeResultJSON = @{
-                         @"description" : @"Victoria, BC, Canadá",
-                         @"id" : @"d5892cffd777f0252b94ab2651fea7123d2aa34a",
-                         @"matched_substrings" : @[ @{@"length" : @4, @"offset" : @0} ],
-                         @"place_id" : @"ChIJcWGw3Ytzj1QR7Ui7HnTz6Dg",
-                         @"reference" : @"CjQtAAAA903zyJZAu2FLA6KkdC7UAddRHAfHQDpArCk61FI_"
-                         @"u1Ig7WaJqBiXYsQvORYMcgILEhAFvGtwa5VQpswubIIzwI5wGhTt8vgj6CSQp8QWYb4U1rXmlkg9bg",
-                         @"terms" : @[
-                             @{@"offset" : @0, @"value" : @"Victoria"},
-                             @{@"offset" : @10, @"value" : @"BC"},
-                             @{@"offset" : @14, @"value" : @"Canadá"}
-                         ],
-                         @"types" : @[ @"establishment" ]
-                     };
-                     ;
-
-                     geocodeResultPlace = [HNKQueryResponsePrediction modelFromJSONDictionary:geocodeResultJSON];
-                     nonGeocodeResultPlace = [HNKQueryResponsePrediction modelFromJSONDictionary:nonGeocodeResultJSON];
-
-                 });
-
-                 context(@"Place is a geocode result",
-                         ^{
-
-                             it(@"Should return YES",
-                                ^{
-                                    BOOL isGeocode = [CLPlacemark isGeocodeResult:geocodeResultPlace];
-
-                                    [[theValue(isGeocode) should] equal:theValue(YES)];
-
-                                });
-
-                         });
-
-                 context(@"Place is not a geocode result",
-                         ^{
-
-                             it(@"Should return NO",
-                                ^{
-                                    BOOL isGeocode = [CLPlacemark isGeocodeResult:nonGeocodeResultPlace];
-
-                                    [[theValue(isGeocode) should] equal:theValue(NO)];
-
-                                });
-
-                         });
-
-             });
 
     describe(
         @"Method: placemarkFromGooglePlace:completion:",
@@ -165,7 +87,9 @@ describe(@"CLPlacemark+HNKAdditions", ^{
 
                         beforeEach(^{
 
-                            [CLPlacemark stub:@selector(isGeocodeResult:) andReturn:theValue(YES)];
+                            [mockPlace stub:@selector(isPlaceType:)
+                                    andReturn:theValue(YES)
+                                withArguments:theValue(HNKGooglePlacesAutocompletePlaceTypeGeocode)];
 
                         });
 
@@ -195,7 +119,9 @@ describe(@"CLPlacemark+HNKAdditions", ^{
 
                     beforeEach(^{
 
-                        [CLPlacemark stub:@selector(isGeocodeResult:) andReturn:theValue(NO)];
+                        [mockPlace stub:@selector(isPlaceType:)
+                                andReturn:theValue(NO)
+                            withArguments:theValue(HNKGooglePlacesAutocompletePlaceTypeGeocode)];
 
                     });
 
