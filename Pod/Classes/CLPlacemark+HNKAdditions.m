@@ -51,8 +51,26 @@ static NSString *const kHNKGooglePlacesDetailsServerRequestPath =
                [geocoder
                    geocodeAddressString:addressString
                       completionHandler:^(NSArray *placemarks, NSError *error) {
+
                         if (error) {
-                          completion(nil, nil, error);
+
+                          [geocoder geocodeAddressString:place.name
+                                       completionHandler:^(NSArray *placemarks,
+                                                           NSError *error) {
+
+                                         if (error) {
+                                           completion(nil, nil, error);
+                                         } else {
+                                           CLPlacemark *placemark =
+                                               [placemarks count] >= 1
+                                                   ? placemarks[0]
+                                                   : nil;
+                                           completion(placemark, place.name,
+                                                      nil);
+                                         }
+
+                                       }];
+
                         } else {
                           CLPlacemark *placemark =
                               [placemarks count] >= 1 ? placemarks[0] : nil;
