@@ -31,6 +31,19 @@
 
 @implementation HNKQueryResponsePrediction
 
+- (BOOL)isPlaceType:(HNKGooglePlacesAutocompletePlaceType)placeType {
+  NSArray *allTypes = self.types;
+
+  for (int i = 0; i < [allTypes count]; i++) {
+    NSNumber *number = allTypes[i];
+    if (number.integerValue == placeType) {
+      return YES;
+    }
+  }
+
+  return NO;
+}
+
 #pragma mark - Protocol conformance
 
 #pragma mark <MTLJSONSerializing>

@@ -33,8 +33,6 @@
  *  Creates a CLPlacemark from an object representing a Google Place
  *
  *  @param place Google Place to resolve
- *
- *  @return CLPlacemark resolved from Google Place
  */
 + (void)hnk_placemarkFromGooglePlace:(HNKQueryResponsePrediction *)place
                               apiKey:(NSString *)apiKey

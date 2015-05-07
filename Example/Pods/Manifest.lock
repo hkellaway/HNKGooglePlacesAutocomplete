@@ -40,17 +40,17 @@ PODS:
 
 DEPENDENCIES:
   - HNKGooglePlacesAutocomplete (from `https://github.com/hkellaway/HNKGooglePlacesAutocomplete.git`,
-    branch `fix/place_handling_unknown_types`)
+    branch `fix/issue-24`)
   - Kiwi (~> 2.3)
 
 EXTERNAL SOURCES:
   HNKGooglePlacesAutocomplete:
-    :branch: fix/place_handling_unknown_types
+    :branch: fix/issue-24
     :git: https://github.com/hkellaway/HNKGooglePlacesAutocomplete.git
 
 CHECKOUT OPTIONS:
   HNKGooglePlacesAutocomplete:
-    :commit: 51939128341f469cf873160bf4f9080ac4b2197d
+    :commit: c93703d9336f090300ad03d9ae95014a71a15532
     :git: https://github.com/hkellaway/HNKGooglePlacesAutocomplete.git
 
 SPEC CHECKSUMS:
