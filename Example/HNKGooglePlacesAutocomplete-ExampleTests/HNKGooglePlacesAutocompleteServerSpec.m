@@ -21,7 +21,7 @@ describe(@"HNKGooglePlacesServer", ^{
                  it(@"Should setup HNKServer",
                     ^{
                         [[HNKServer should] receive:@selector(setupWithBaseUrl:)
-                                      withArguments:@"https://maps.googleapis.com/maps/api/"];
+                                      withArguments:@"https://maps.googleapis.com/maps/api/place/"];
 
                         [HNKGooglePlacesServer initialize];
                     });
@@ -32,12 +32,12 @@ describe(@"HNKGooglePlacesServer", ^{
                  it(@"Should call HNKServer GET",
                     ^{
                         [[HNKServer should] receive:@selector(GET:parameters:completion:)
-                                      withArguments:@"place/autocomplete/json",
+                                      withArguments:@"autocomplete/json",
                                                     @{ @"input" : @"Vict",
                                                        @"key" : @"apikey" },
                                                     any()];
 
-                        [HNKGooglePlacesServer GET:@"place/autocomplete/json"
+                        [HNKGooglePlacesServer GET:@"autocomplete/json"
                                         parameters:@{
                                             @"input" : @"Vict",
                                             @"key" : @"apikey"

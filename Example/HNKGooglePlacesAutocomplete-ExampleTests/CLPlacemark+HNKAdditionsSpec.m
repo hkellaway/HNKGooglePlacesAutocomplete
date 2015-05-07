@@ -128,7 +128,7 @@ describe(@"CLPlacemark+HNKAdditions", ^{
                        ^{
 
                            [[HNKGooglePlacesServer should] receive:@selector(GET:parameters:completion:)
-                                                     withArguments:@"place/details/json",
+                                                     withArguments:@"details/json",
                                                                    @{ @"placeid" : testPlaceId,
                                                                       @"key" : testApiKey },
                                                                    any()];
