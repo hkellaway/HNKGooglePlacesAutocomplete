@@ -100,4 +100,9 @@ typedef NS_ENUM(NSInteger, HNKGooglePlacesAutocompletePlaceType) {
  */
 @property(nonatomic, strong, readonly) NSArray *types;
 
+/**
+ *  Returns whether the provided placeType is included in this Place's types
+ */
+- (BOOL)isPlaceType:(HNKGooglePlacesAutocompletePlaceType)placeType;
+
 @end

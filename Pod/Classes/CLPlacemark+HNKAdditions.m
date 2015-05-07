@@ -42,23 +42,15 @@ static NSString *const kHNKGooglePlacesDetailsServerRequestPath =
              completion:^(NSString *addressString, NSError *error) {
 
                if (error) {
+
                  completion(nil, nil, error);
-                 return;
+
+               } else {
+
+                 [self completeForPlace:(HNKQueryResponsePrediction *)place
+                            withAddress:addressString
+                             completion:completion];
                }
-
-               CLGeocoder *geocoder = [[CLGeocoder alloc] init];
-
-               [geocoder
-                   geocodeAddressString:addressString
-                      completionHandler:^(NSArray *placemarks, NSError *error) {
-                        if (error) {
-                          completion(nil, nil, error);
-                        } else {
-                          CLPlacemark *placemark =
-                              [placemarks count] >= 1 ? placemarks[0] : nil;
-                          completion(placemark, addressString, nil);
-                        }
-                      }];
              }];
 }
 
@@ -68,7 +60,7 @@ static NSString *const kHNKGooglePlacesDetailsServerRequestPath =
                  apiKey:(NSString *)apiKey
              completion:
                  (void (^)(NSString *addressString, NSError *error))completion {
-  if ([self isGeocodeResult:place]) {
+  if ([place isPlaceType:HNKGooglePlacesAutocompletePlaceTypeGeocode]) {
     completion(place.name, nil);
     return;
   }
@@ -83,25 +75,92 @@ static NSString *const kHNKGooglePlacesDetailsServerRequestPath =
 
         if (error) {
           completion(nil, error);
-          return;
-        }
+        } else {
 
-        completion(JSON[@"result"][@"formatted_address"], nil);
+          NSDictionary *resultJSON = JSON[@"result"];
+
+          if (resultJSON != nil) {
+            NSString *address = resultJSON[@"formatted_address"];
+
+            if (address != nil) {
+              completion(address, nil);
+            } else {
+              completion(nil, nil);
+            }
+          }
+        }
 
       }];
 }
 
-+ (BOOL)isGeocodeResult:(HNKQueryResponsePrediction *)place {
-  NSArray *allTypes = place.types;
++ (void)completeForPlace:(HNKQueryResponsePrediction *)place
+             withAddress:(NSString *)addressString
+              completion:(void (^)(CLPlacemark *placemark,
+                                   NSString *addressString,
+                                   NSError *error))completion {
 
-  for (int i = 0; i < [allTypes count]; i++) {
-    NSNumber *number = allTypes[i];
-    if (number.integerValue == HNKGooglePlacesAutocompletePlaceTypeGeocode) {
-      return YES;
-    }
+  CLGeocoder *geocoder = [[CLGeocoder alloc] init];
+
+  if (addressString != nil) {
+    [self geocodeAddress:addressString
+                forPlace:place
+            withGeocoder:geocoder
+              completion:completion];
+  } else {
+    [self geocodePlaceName:place.name
+              withGeocoder:geocoder
+                completion:completion];
   }
+}
 
-  return NO;
++ (void)geocodeAddress:(NSString *)address
+              forPlace:(HNKQueryResponsePrediction *)place
+          withGeocoder:(CLGeocoder *)geocoder
+            completion:(void (^)(CLPlacemark *placemark,
+                                 NSString *addressString,
+                                 NSError *error))completion {
+  [geocoder geocodeAddressString:address
+               completionHandler:^(NSArray *placemarks, NSError *error) {
+
+                 if (error) {
+                   [self geocodePlaceName:place.name
+                             withGeocoder:geocoder
+                               completion:completion];
+                 } else {
+                   [self completeWithPlacemarks:placemarks
+                                        address:address
+                                     completion:completion];
+                 }
+
+               }];
+}
+
++ (void)geocodePlaceName:(NSString *)placeName
+            withGeocoder:(CLGeocoder *)geocoder
+              completion:(void (^)(CLPlacemark *placemark,
+                                   NSString *addressString,
+                                   NSError *error))completion {
+  [geocoder geocodeAddressString:placeName
+               completionHandler:^(NSArray *placemarks, NSError *error) {
+
+                 if (error) {
+                   completion(nil, nil, error);
+                 } else {
+                   [self completeWithPlacemarks:placemarks
+                                        address:placeName
+                                     completion:completion];
+                 }
+
+               }];
+}
+
++ (void)completeWithPlacemarks:(NSArray *)placemarks
+                       address:(NSString *)address
+                    completion:(void (^)(CLPlacemark *placemark,
+                                         NSString *addressString,
+                                         NSError *error))completion {
+  CLPlacemark *singlePlacemark = [placemarks count] >= 1 ? placemarks[0] : nil;
+  completion(singlePlacemark, address, nil);
 }
 
 @end
