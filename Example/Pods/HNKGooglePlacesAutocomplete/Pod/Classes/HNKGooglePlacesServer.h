@@ -28,7 +28,7 @@
 /**
  *  Server setup with base URL for Google Places Autocomplete API
  */
-@interface HNKGooglePlacesAutocompleteServer : NSObject
+@interface HNKGooglePlacesServer : NSObject
 
 #pragma mark - Requests
 
