@@ -9,7 +9,7 @@
 #import "Kiwi.h"
 
 #import <HNKGooglePlacesAutocomplete/HNKGooglePlacesAutocomplete.h>
-#import <HNKGooglePlacesAutocomplete/HNKGooglePlacesAutocompleteServer.h>
+#import <HNKGooglePlacesAutocomplete/HNKGooglePlacesServer.h>
 
 @interface HNKGooglePlacesAutocompleteQuery (KiwiExposedMethods)
 
@@ -38,13 +38,13 @@ describe(@"HNKGooglePlacesAutocompleteQuery", ^{
     describe(
         @"Method: fetchPlacesForSearchQuery:completion:",
         ^{
-            typedef void (^HNKGooglePlacesAutocompleteServerCallback)(id JSON, NSError *error);
+            typedef void (^HNKGooglePlacesServerCallback)(id JSON, NSError *error);
 
             it(@"Should make a GET request to the Server",
                ^{
-                   [[HNKGooglePlacesAutocompleteServer should]
+                   [[HNKGooglePlacesServer should]
                              receive:@selector(GET:parameters:completion:)
-                       withArguments:@"place/autocomplete/json",
+                       withArguments:@"autocomplete/json",
                                      @{ @"input" : @"Vict",
                                         @"key" : testInstance.apiKey,
                                         @"radius" : @500 },
@@ -149,16 +149,15 @@ describe(@"HNKGooglePlacesAutocompleteQuery", ^{
                                             @"status" : @"OK"
                                         };
 
-                                        [HNKGooglePlacesAutocompleteServer
-                                                 stub:@selector(GET:parameters:completion:)
-                                            withBlock:^id(NSArray *params) {
+                                        [HNKGooglePlacesServer stub:@selector(GET:parameters:completion:)
+                                                          withBlock:^id(NSArray *params) {
 
-                                                HNKGooglePlacesAutocompleteServerCallback completion = params[2];
-                                                completion(testJSON, nil);
+                                                              HNKGooglePlacesServerCallback completion = params[2];
+                                                              completion(testJSON, nil);
 
-                                                return nil;
+                                                              return nil;
 
-                                            }];
+                                                          }];
 
                                     });
 
@@ -210,16 +209,15 @@ describe(@"HNKGooglePlacesAutocompleteQuery", ^{
                                             @{ @"predictions" : @[],
                                                @"status" : @"REQUEST_DENIED" };
 
-                                        [HNKGooglePlacesAutocompleteServer
-                                                 stub:@selector(GET:parameters:completion:)
-                                            withBlock:^id(NSArray *params) {
+                                        [HNKGooglePlacesServer stub:@selector(GET:parameters:completion:)
+                                                          withBlock:^id(NSArray *params) {
 
-                                                HNKGooglePlacesAutocompleteServerCallback completion = params[2];
-                                                completion(statusErrorJSON, nil);
+                                                              HNKGooglePlacesServerCallback completion = params[2];
+                                                              completion(statusErrorJSON, nil);
 
-                                                return nil;
+                                                              return nil;
 
-                                            }];
+                                                          }];
 
                                     });
 
@@ -262,16 +260,15 @@ describe(@"HNKGooglePlacesAutocompleteQuery", ^{
                                         @"user" : @"info"
                                     }];
 
-                                [HNKGooglePlacesAutocompleteServer stub:@selector(GET:parameters:completion:)
-                                                              withBlock:^id(NSArray *params) {
+                                [HNKGooglePlacesServer stub:@selector(GET:parameters:completion:)
+                                                  withBlock:^id(NSArray *params) {
 
-                                                                  HNKGooglePlacesAutocompleteServerCallback completion =
-                                                                      params[2];
-                                                                  completion(nil, testError);
+                                                      HNKGooglePlacesServerCallback completion = params[2];
+                                                      completion(nil, testError);
 
-                                                                  return nil;
+                                                      return nil;
 
-                                                              }];
+                                                  }];
 
                             });
 

@@ -24,12 +24,12 @@
 //
 
 #import "HNKQueryResponsePrediction.h"
-#import "HNKGooglePlacesAutocompleteServer.h"
+#import "HNKGooglePlacesServer.h"
 
 #import "CLPlacemark+HNKAdditions.h"
 
-static NSString *const kHNKGooglePlacesDetailsServerRequestPath =
-    @"place/details/json";
+static NSString *const kHNKGooglePlacesServerRequestPathDetails =
+    @"details/json";
 
 @implementation CLPlacemark (HNKAdditions)
 
@@ -65,13 +65,12 @@ static NSString *const kHNKGooglePlacesDetailsServerRequestPath =
     return;
   }
 
-  [HNKGooglePlacesAutocompleteServer
-             GET:kHNKGooglePlacesDetailsServerRequestPath
-      parameters:@{
-        @"placeid" : place.placeId,
-        @"key" : apiKey
-      }
-      completion:^(NSDictionary *JSON, NSError *error) {
+  [HNKGooglePlacesServer GET:kHNKGooglePlacesServerRequestPathDetails
+                  parameters:@{
+                    @"placeid" : place.placeId,
+                    @"key" : apiKey
+                  }
+                  completion:^(NSDictionary *JSON, NSError *error) {
 
         if (error) {
           completion(nil, error);
@@ -89,8 +88,7 @@ static NSString *const kHNKGooglePlacesDetailsServerRequestPath =
             }
           }
         }
-
-      }];
+                  }];
 }
 
 + (void)completeForPlace:(HNKQueryResponsePrediction *)place
