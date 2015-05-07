@@ -1,5 +1,5 @@
 //
-//  HNKQueryResponse.m
+//  HNKGooglePlacesAutocompleteQueryResponse.m
 //  HNKGooglePlacesAutocomplete
 //
 // Copyright (c) 2015 Harlan Kellaway
@@ -23,10 +23,10 @@
 // THE SOFTWARE.
 //
 
-#import "HNKQueryResponse.h"
+#import "HNKGooglePlacesAutocompleteQueryResponse.h"
 #import "HNKQueryResponsePrediction.h"
 
-@implementation HNKQueryResponse
+@implementation HNKGooglePlacesAutocompleteQueryResponse
 
 #pragma mark - Protocol conformance
 
