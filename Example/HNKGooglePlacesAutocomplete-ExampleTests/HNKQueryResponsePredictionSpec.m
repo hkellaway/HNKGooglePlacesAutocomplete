@@ -112,6 +112,47 @@ describe(@"HNKQueryResponsePredictionTerm", ^{
                            });
                     });
         });
+
+    describe(@"Method: isPlaceType:",
+             ^{
+
+                 context(@"It is",
+                         ^{
+
+                             it(@"Should return YES",
+                                ^{
+
+                                    BOOL isLocality =
+                                        [testInstance isPlaceType:HNKGooglePlacesAutocompletePlaceTypeLocality];
+                                    BOOL isPolitical =
+                                        [testInstance isPlaceType:HNKGooglePlacesAutocompletePlaceTypePolitical];
+                                    BOOL isGeocode =
+                                        [testInstance isPlaceType:HNKGooglePlacesAutocompletePlaceTypeGeocode];
+
+                                    [[theValue(isLocality) should] equal:theValue(YES)];
+                                    [[theValue(isPolitical) should] equal:theValue(YES)];
+                                    [[theValue(isGeocode) should] equal:theValue(YES)];
+
+                                });
+
+                         });
+
+                 context(@"It is not",
+                         ^{
+
+                             it(@"Should return NO",
+                                ^{
+
+                                    BOOL isEstablishment =
+                                        [testInstance isPlaceType:HNKGooglePlacesAutocompletePlaceTypeEstablishment];
+
+                                    [[theValue(isEstablishment) should] equal:theValue(NO)];
+
+                                });
+
+                         });
+
+             });
 });
 
 SPEC_END
