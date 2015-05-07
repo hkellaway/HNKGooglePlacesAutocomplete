@@ -60,7 +60,7 @@ static NSString *const kHNKGooglePlacesDetailsServerRequestPath =
                  apiKey:(NSString *)apiKey
              completion:
                  (void (^)(NSString *addressString, NSError *error))completion {
-  if ([self isGeocodeResult:place]) {
+  if ([place isPlaceType:HNKGooglePlacesAutocompletePlaceTypeGeocode]) {
     completion(place.name, nil);
     return;
   }
@@ -91,19 +91,6 @@ static NSString *const kHNKGooglePlacesDetailsServerRequestPath =
         }
 
       }];
-}
-
-+ (BOOL)isGeocodeResult:(HNKQueryResponsePrediction *)place {
-  NSArray *allTypes = place.types;
-
-  for (int i = 0; i < [allTypes count]; i++) {
-    NSNumber *number = allTypes[i];
-    if (number.integerValue == HNKGooglePlacesAutocompletePlaceTypeGeocode) {
-      return YES;
-    }
-  }
-
-  return NO;
 }
 
 + (void)completeForPlace:(HNKQueryResponsePrediction *)place
