@@ -66,7 +66,7 @@ describe(@"HNKGooglePlacesAutocompleteQuery", ^{
                                        __block NSError *errorToRecieve;
                                        NSError *expectedError = [NSError
                                            errorWithDomain:HNKGooglePlacesAutocompleteQueryErrorDomain
-                                                      code:HNKQueryResponseStatusInvalidRequest
+                                                      code:HNKGooglePlacesAutocompleteQueryResponseStatusInvalidRequest
                                                   userInfo:@{
                                                       @"NSLocalizedDescription" :
                                                           HNKGooglePlacesAutocompleteQueryDescriptionForErrorCode(
@@ -226,7 +226,8 @@ describe(@"HNKGooglePlacesAutocompleteQuery", ^{
                                            __block NSError *errorToRecieve;
                                            NSError *expectedError = [NSError
                                                errorWithDomain:HNKGooglePlacesAutocompleteQueryErrorDomain
-                                                          code:HNKQueryResponseStatusRequestDenied
+                                                          code:
+                                                              HNKGooglePlacesAutocompleteQueryResponseStatusRequestDenied
                                                       userInfo:@{
                                                           @"NSLocalizedDescription" :
                                                               HNKGooglePlacesAutocompleteQueryDescriptionForErrorCode(
