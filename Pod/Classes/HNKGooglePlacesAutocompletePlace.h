@@ -28,42 +28,42 @@
 /**
  *  Place types
  */
-typedef NS_ENUM(NSInteger, HNKGooglePlacesAutocompletePlaceType) {
-  HNKGooglePlacesAutocompletePlaceTypeUnknown = 0,
-  HNKGooglePlacesAutocompletePlaceTypeAdministrativeAreaLevel1,
-  HNKGooglePlacesAutocompletePlaceTypeAdministrativeAreaLevel2,
-  HNKGooglePlacesAutocompletePlaceTypeAdministrativeAreaLevel3,
-  HNKGooglePlacesAutocompletePlaceTypeAdministrativeAreaLevel4,
-  HNKGooglePlacesAutocompletePlaceTypeAdministrativeAreaLevel5,
-  HNKGooglePlacesAutocompletePlaceTypeColloquialArea,
-  HNKGooglePlacesAutocompletePlaceTypeCountry,
-  HNKGooglePlacesAutocompletePlaceTypeEstablishment,
-  HNKGooglePlacesAutocompletePlaceTypeFloor,
-  HNKGooglePlacesAutocompletePlaceTypeGeocode,
-  HNKGooglePlacesAutocompletePlaceTypeIntersection,
-  HNKGooglePlacesAutocompletePlaceTypeLocality,
-  HNKGooglePlacesAutocompletePlaceTypeNaturalFeature,
-  HNKGooglePlacesAutocompletePlaceTypeNeighborhood,
-  HNKGooglePlacesAutocompletePlaceTypePolitical,
-  HNKGooglePlacesAutocompletePlaceTypePointOfInterest,
-  HNKGooglePlacesAutocompletePlaceTypePostBox,
-  HNKGooglePlacesAutocompletePlaceTypePostalCode,
-  HNKGooglePlacesAutocompletePlaceTypePostalCodePrefix,
-  HNKGooglePlacesAutocompletePlaceTypePostalCodeSuffix,
-  HNKGooglePlacesAutocompletePlaceTypePostalTown,
-  HNKGooglePlacesAutocompletePlaceTypePremise,
-  HNKGooglePlacesAutocompletePlaceTypeRoom,
-  HNKGooglePlacesAutocompletePlaceTypeRoute,
-  HNKGooglePlacesAutocompletePlaceTypeStreetAddress,
-  HNKGooglePlacesAutocompletePlaceTypeStreetNumber,
-  HNKGooglePlacesAutocompletePlaceTypeSublocality,
-  HNKGooglePlacesAutocompletePlaceTypeSublocalityLevel1,
-  HNKGooglePlacesAutocompletePlaceTypeSublocalityLevel2,
-  HNKGooglePlacesAutocompletePlaceTypeSublocalityLevel3,
-  HNKGooglePlacesAutocompletePlaceTypeSublocalityLevel4,
-  HNKGooglePlacesAutocompletePlaceTypeSublocalityLevel5,
-  HNKGooglePlacesAutocompletePlaceTypeSubpremise,
-  HNKGooglePlacesAutocompletePlaceTypeTransitStation
+typedef NS_ENUM(NSInteger, HNKGooglePlaceType) {
+  HNKGooglePlaceTypeUnknown = 0,
+  HNKGooglePlaceTypeAdministrativeAreaLevel1,
+  HNKGooglePlaceTypeAdministrativeAreaLevel2,
+  HNKGooglePlaceTypeAdministrativeAreaLevel3,
+  HNKGooglePlaceTypeAdministrativeAreaLevel4,
+  HNKGooglePlaceTypeAdministrativeAreaLevel5,
+  HNKGooglePlaceTypeColloquialArea,
+  HNKGooglePlaceTypeCountry,
+  HNKGooglePlaceTypeEstablishment,
+  HNKGooglePlaceTypeFloor,
+  HNKGooglePlaceTypeGeocode,
+  HNKGooglePlaceTypeIntersection,
+  HNKGooglePlaceTypeLocality,
+  HNKGooglePlaceTypeNaturalFeature,
+  HNKGooglePlaceTypeNeighborhood,
+  HNKGooglePlaceTypePolitical,
+  HNKGooglePlaceTypePointOfInterest,
+  HNKGooglePlaceTypePostBox,
+  HNKGooglePlaceTypePostalCode,
+  HNKGooglePlaceTypePostalCodePrefix,
+  HNKGooglePlaceTypePostalCodeSuffix,
+  HNKGooglePlaceTypePostalTown,
+  HNKGooglePlaceTypePremise,
+  HNKGooglePlaceTypeRoom,
+  HNKGooglePlaceTypeRoute,
+  HNKGooglePlaceTypeStreetAddress,
+  HNKGooglePlaceTypeStreetNumber,
+  HNKGooglePlaceTypeSublocality,
+  HNKGooglePlaceTypeSublocalityLevel1,
+  HNKGooglePlaceTypeSublocalityLevel2,
+  HNKGooglePlaceTypeSublocalityLevel3,
+  HNKGooglePlaceTypeSublocalityLevel4,
+  HNKGooglePlaceTypeSublocalityLevel5,
+  HNKGooglePlaceTypeSubpremise,
+  HNKGooglePlaceTypeTransitStation
 };
 
 /**
@@ -96,13 +96,13 @@ typedef NS_ENUM(NSInteger, HNKGooglePlacesAutocompletePlaceType) {
 
 /**
  *  A collection of NSNumbers whose integerValues corresponse to
- *  HNKGooglePlacesAutocompletePlaceTypes
+ *  HNKGooglePlaceTypes
  */
 @property(nonatomic, strong, readonly) NSArray *types;
 
 /**
  *  Returns whether the provided placeType is included in this Place's types
  */
-- (BOOL)isPlaceType:(HNKGooglePlacesAutocompletePlaceType)placeType;
+- (BOOL)isPlaceType:(HNKGooglePlaceType)placeType;
 
 @end

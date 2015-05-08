@@ -89,7 +89,7 @@ describe(@"CLPlacemark+HNKAdditions", ^{
 
                             [mockPlace stub:@selector(isPlaceType:)
                                     andReturn:theValue(YES)
-                                withArguments:theValue(HNKGooglePlacesAutocompletePlaceTypeGeocode)];
+                                withArguments:theValue(HNKGooglePlaceTypeGeocode)];
 
                         });
 
@@ -120,7 +120,7 @@ describe(@"CLPlacemark+HNKAdditions", ^{
 
                         [mockPlace stub:@selector(isPlaceType:)
                                 andReturn:theValue(NO)
-                            withArguments:theValue(HNKGooglePlacesAutocompletePlaceTypeGeocode)];
+                            withArguments:theValue(HNKGooglePlaceTypeGeocode)];
 
                     });
 

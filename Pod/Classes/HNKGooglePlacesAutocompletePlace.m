@@ -31,7 +31,7 @@
 
 @implementation HNKGooglePlacesAutocompletePlace
 
-- (BOOL)isPlaceType:(HNKGooglePlacesAutocompletePlaceType)placeType {
+- (BOOL)isPlaceType:(HNKGooglePlaceType)placeType {
   NSArray *allTypes = self.types;
 
   for (int i = 0; i < [allTypes count]; i++) {
@@ -72,53 +72,45 @@
 + (NSValueTransformer *)typesJSONTransformer {
   NSDictionary *typesDictionary = @{
     @"administrative_area_level_1" :
-        @(HNKGooglePlacesAutocompletePlaceTypeAdministrativeAreaLevel1),
+        @(HNKGooglePlaceTypeAdministrativeAreaLevel1),
     @"administrative_area_level_2" :
-        @(HNKGooglePlacesAutocompletePlaceTypeAdministrativeAreaLevel2),
+        @(HNKGooglePlaceTypeAdministrativeAreaLevel2),
     @"administrative_area_level_3" :
-        @(HNKGooglePlacesAutocompletePlaceTypeAdministrativeAreaLevel3),
+        @(HNKGooglePlaceTypeAdministrativeAreaLevel3),
     @"administrative_area_level_4" :
-        @(HNKGooglePlacesAutocompletePlaceTypeAdministrativeAreaLevel4),
+        @(HNKGooglePlaceTypeAdministrativeAreaLevel4),
     @"administrative_area_level_5" :
-        @(HNKGooglePlacesAutocompletePlaceTypeAdministrativeAreaLevel5),
-    @"colloquial_area" : @(HNKGooglePlacesAutocompletePlaceTypeColloquialArea),
-    @"country" : @(HNKGooglePlacesAutocompletePlaceTypeCountry),
-    @"establishment" : @(HNKGooglePlacesAutocompletePlaceTypeEstablishment),
-    @"floor" : @(HNKGooglePlacesAutocompletePlaceTypeFloor),
-    @"geocode" : @(HNKGooglePlacesAutocompletePlaceTypeGeocode),
-    @"intersection" : @(HNKGooglePlacesAutocompletePlaceTypeIntersection),
-    @"locality" : @(HNKGooglePlacesAutocompletePlaceTypeLocality),
-    @"natural_feature" : @(HNKGooglePlacesAutocompletePlaceTypeNaturalFeature),
-    @"neighborhood" : @(HNKGooglePlacesAutocompletePlaceTypeNeighborhood),
-    @"political" : @(HNKGooglePlacesAutocompletePlaceTypePolitical),
-    @"point_of_interest" :
-        @(HNKGooglePlacesAutocompletePlaceTypePointOfInterest),
-    @"post_box" : @(HNKGooglePlacesAutocompletePlaceTypePostBox),
-    @"postal_code" : @(HNKGooglePlacesAutocompletePlaceTypePostalCode),
-    @"postal_code_prefix" :
-        @(HNKGooglePlacesAutocompletePlaceTypePostalCodePrefix),
-    @"postal_code_suffix" :
-        @(HNKGooglePlacesAutocompletePlaceTypePostalCodeSuffix),
-    @"postal_town" : @(HNKGooglePlacesAutocompletePlaceTypePostalTown),
-    @"premise" : @(HNKGooglePlacesAutocompletePlaceTypePremise),
-    @"room" : @(HNKGooglePlacesAutocompletePlaceTypeRoom),
-    @"route" : @(HNKGooglePlacesAutocompletePlaceTypeRoute),
-    @"street_address" : @(HNKGooglePlacesAutocompletePlaceTypeStreetAddress),
-    @"street_number" : @(HNKGooglePlacesAutocompletePlaceTypeStreetNumber),
-    @"sublocality" : @(HNKGooglePlacesAutocompletePlaceTypeSublocality),
-    @"sublocality_level_1" :
-        @(HNKGooglePlacesAutocompletePlaceTypeSublocalityLevel1),
-    @"sublocality_level_2" :
-        @(HNKGooglePlacesAutocompletePlaceTypeSublocalityLevel2),
-    @"sublocality_level_3" :
-        @(HNKGooglePlacesAutocompletePlaceTypeSublocalityLevel3),
-    @"sublocality_level_4" :
-        @(HNKGooglePlacesAutocompletePlaceTypeSublocalityLevel4),
-    @"sublocality_level_5" :
-        @(HNKGooglePlacesAutocompletePlaceTypeSublocalityLevel5),
-    @"subpremise" : @(HNKGooglePlacesAutocompletePlaceTypeSubpremise),
-    @"transit_station" : @(HNKGooglePlacesAutocompletePlaceTypeTransitStation),
-    @"unknown" : @(HNKGooglePlacesAutocompletePlaceTypeUnknown)
+        @(HNKGooglePlaceTypeAdministrativeAreaLevel5),
+    @"colloquial_area" : @(HNKGooglePlaceTypeColloquialArea),
+    @"country" : @(HNKGooglePlaceTypeCountry),
+    @"establishment" : @(HNKGooglePlaceTypeEstablishment),
+    @"floor" : @(HNKGooglePlaceTypeFloor),
+    @"geocode" : @(HNKGooglePlaceTypeGeocode),
+    @"intersection" : @(HNKGooglePlaceTypeIntersection),
+    @"locality" : @(HNKGooglePlaceTypeLocality),
+    @"natural_feature" : @(HNKGooglePlaceTypeNaturalFeature),
+    @"neighborhood" : @(HNKGooglePlaceTypeNeighborhood),
+    @"political" : @(HNKGooglePlaceTypePolitical),
+    @"point_of_interest" : @(HNKGooglePlaceTypePointOfInterest),
+    @"post_box" : @(HNKGooglePlaceTypePostBox),
+    @"postal_code" : @(HNKGooglePlaceTypePostalCode),
+    @"postal_code_prefix" : @(HNKGooglePlaceTypePostalCodePrefix),
+    @"postal_code_suffix" : @(HNKGooglePlaceTypePostalCodeSuffix),
+    @"postal_town" : @(HNKGooglePlaceTypePostalTown),
+    @"premise" : @(HNKGooglePlaceTypePremise),
+    @"room" : @(HNKGooglePlaceTypeRoom),
+    @"route" : @(HNKGooglePlaceTypeRoute),
+    @"street_address" : @(HNKGooglePlaceTypeStreetAddress),
+    @"street_number" : @(HNKGooglePlaceTypeStreetNumber),
+    @"sublocality" : @(HNKGooglePlaceTypeSublocality),
+    @"sublocality_level_1" : @(HNKGooglePlaceTypeSublocalityLevel1),
+    @"sublocality_level_2" : @(HNKGooglePlaceTypeSublocalityLevel2),
+    @"sublocality_level_3" : @(HNKGooglePlaceTypeSublocalityLevel3),
+    @"sublocality_level_4" : @(HNKGooglePlaceTypeSublocalityLevel4),
+    @"sublocality_level_5" : @(HNKGooglePlaceTypeSublocalityLevel5),
+    @"subpremise" : @(HNKGooglePlaceTypeSubpremise),
+    @"transit_station" : @(HNKGooglePlaceTypeTransitStation),
+    @"unknown" : @(HNKGooglePlaceTypeUnknown)
   };
 
   return [MTLValueTransformer transformerWithBlock:^(NSArray *types) {
