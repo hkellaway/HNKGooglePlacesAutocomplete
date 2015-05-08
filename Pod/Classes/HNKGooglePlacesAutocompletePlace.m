@@ -24,7 +24,7 @@
 //
 
 #import "HNKGooglePlacesAutocompletePlace.h"
-#import "HNKQueryResponsePredictionMatchedSubstring.h"
+#import "HNKGooglePlacesAutocompletePlaceSubstring.h"
 #import "HNKQueryResponsePredictionTerm.h"
 
 #import "NSValueTransformer+MTLPredefinedTransformerAdditions.h"
