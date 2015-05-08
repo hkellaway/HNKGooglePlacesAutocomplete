@@ -1,5 +1,5 @@
 //
-//  HNKQueryResponseSpec.m
+//  HNKGooglePlacesAutocompleteQueryResponseSpec.m
 //  HNKGooglePlacesAutocomplete-Example
 //
 //  Created by Harlan Kellaway on 4/26/15.
@@ -10,9 +10,9 @@
 
 #import <HNKGooglePlacesAutocomplete/HNKGooglePlacesAutocomplete.h>
 
-SPEC_BEGIN(HNKQueryResponseSpec)
+SPEC_BEGIN(HNKGooglePlacesAutocompleteQueryResponseSpec)
 
-__block HNKQueryResponse *testInstance;
+__block HNKGooglePlacesAutocompleteQueryResponse *testInstance;
 __block NSDictionary *json;
 
 beforeAll(^{
@@ -37,11 +37,11 @@ beforeAll(^{
         @"status" : @"OK"
     };
 
-    testInstance = [HNKQueryResponse modelFromJSONDictionary:json];
+    testInstance = [HNKGooglePlacesAutocompleteQueryResponse modelFromJSONDictionary:json];
 
 });
 
-describe(@"HNKQueryResponse", ^{
+describe(@"HNKGooglePlacesAutocompleteQueryResponse", ^{
 
     specify(^{
 
@@ -54,7 +54,8 @@ describe(@"HNKQueryResponse", ^{
 
                  it(@"Should assign properties correctly",
                     ^{
-                        [[theValue(testInstance.status) should] equal:theValue(HNKQueryResponseStatusOK)];
+                        [[theValue(testInstance.status) should]
+                            equal:theValue(HNKGooglePlacesAutocompleteQueryResponseStatusOK)];
 
                         HNKQueryResponsePrediction *prediction = testInstance.predictions[0];
                         [[prediction.name should] equal:@"Victoria, BC, Canadá"];

@@ -1,5 +1,5 @@
 //
-//  HNKQueryResponse.h
+//  HNKGooglePlacesAutocompleteQueryResponse.h
 //  HNKGooglePlacesAutocomplete
 //
 // Copyright (c) 2015 Harlan Kellaway
@@ -25,37 +25,38 @@
 
 #import "HNKGooglePlacesAutocompleteModel.h"
 
-typedef NS_ENUM(NSInteger, HNKQueryResponseStatus) {
+typedef NS_ENUM(NSInteger, HNKGooglePlacesAutocompleteQueryResponseStatus) {
   /**
    *  Unknown status
    */
-  HNKQueryResponseStatusUnknown = 0,
+  HNKGooglePlacesAutocompleteQueryResponseStatusUnknown = 0,
   /**
    *  Invalid request; the input parameter may be missing
    */
-  HNKQueryResponseStatusInvalidRequest = 1,
+  HNKGooglePlacesAutocompleteQueryResponseStatusInvalidRequest = 1,
   /**
    *   No errors occurred and at least one result was returned
    */
-  HNKQueryResponseStatusOK = 2,
+  HNKGooglePlacesAutocompleteQueryResponseStatusOK = 2,
   /**
    *  Query quota has been exceeded for provided API key
    */
-  HNKQueryResponseStatusOverQueryLimit = 3,
+  HNKGooglePlacesAutocompleteQueryResponseStatusOverQueryLimit = 3,
   /**
    *  Request denied; the key parameter may be invalid
    */
-  HNKQueryResponseStatusRequestDenied = 4,
+  HNKGooglePlacesAutocompleteQueryResponseStatusRequestDenied = 4,
   /**
    *  No errors occurred but no results were returned
    */
-  HNKQueryResponseStatusZeroResults = 5
+  HNKGooglePlacesAutocompleteQueryResponseStatusZeroResults = 5
 };
 
 /**
  *  Response returned from an API query
  */
-@interface HNKQueryResponse : HNKGooglePlacesAutocompleteModel
+@interface HNKGooglePlacesAutocompleteQueryResponse
+    : HNKGooglePlacesAutocompleteModel
 
 /**
  *  Collection of QueryResponsePredictions returned from the query
@@ -66,6 +67,7 @@ typedef NS_ENUM(NSInteger, HNKQueryResponseStatus) {
  *  Status of the QueryResponse which may contain debugging information to help
  *  you track down why the query request failed
  */
-@property(nonatomic, assign, readonly) HNKQueryResponseStatus status;
+@property(nonatomic, assign, readonly)
+    HNKGooglePlacesAutocompleteQueryResponseStatus status;
 
 @end
