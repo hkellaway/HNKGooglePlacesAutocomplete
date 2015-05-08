@@ -1,5 +1,5 @@
 //
-//  CLPlacemark+HNKAdditions.h
+//  HNKGooglePlacesAutocompletePlaceTerm.m
 //  HNKGooglePlacesAutocomplete
 //
 // Copyright (c) 2015 Harlan Kellaway
@@ -23,21 +23,16 @@
 // THE SOFTWARE.
 //
 
-#import <CoreLocation/CoreLocation.h>
+#import "HNKGooglePlacesAutocompletePlaceTerm.h"
 
-@class HNKGooglePlacesAutocompletePlace;
+@implementation HNKGooglePlacesAutocompletePlaceTerm
 
-@interface CLPlacemark (HNKAdditions)
+#pragma mark - Protocol conformance
 
-/**
- *  Creates a CLPlacemark from an object representing a Google Place
- *
- *  @param place Google Place to resolve
- */
-+ (void)hnk_placemarkFromGooglePlace:(HNKGooglePlacesAutocompletePlace *)place
-                              apiKey:(NSString *)apiKey
-                          completion:(void (^)(CLPlacemark *placemark,
-                                               NSString *addressString,
-                                               NSError *error))completion;
+#pragma mark <MTLJSONSerializing>
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+  return @{ @"offset" : @"offset", @"value" : @"value" };
+}
 
 @end

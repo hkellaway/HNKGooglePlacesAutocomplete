@@ -1,5 +1,5 @@
 //
-//  CLPlacemark+HNKAdditions.h
+//  HNKGooglePlacesServer.m
 //  HNKGooglePlacesAutocomplete
 //
 // Copyright (c) 2015 Harlan Kellaway
@@ -23,21 +23,43 @@
 // THE SOFTWARE.
 //
 
-#import <CoreLocation/CoreLocation.h>
+#import "HNKGooglePlacesServer.h"
+#import "HNKServer.h"
 
-@class HNKGooglePlacesAutocompletePlace;
+static NSString *const kHNKGooglePlacesServerBaseURL =
+    @"https://maps.googleapis.com/maps/api/place/";
 
-@interface CLPlacemark (HNKAdditions)
+@implementation HNKGooglePlacesServer
 
-/**
- *  Creates a CLPlacemark from an object representing a Google Place
- *
- *  @param place Google Place to resolve
- */
-+ (void)hnk_placemarkFromGooglePlace:(HNKGooglePlacesAutocompletePlace *)place
-                              apiKey:(NSString *)apiKey
-                          completion:(void (^)(CLPlacemark *placemark,
-                                               NSString *addressString,
-                                               NSError *error))completion;
+#pragma mark - Overrides
+
++ (void)initialize {
+  if (self == [HNKGooglePlacesServer class]) {
+
+    [HNKServer setupWithBaseUrl:kHNKGooglePlacesServerBaseURL];
+  }
+}
+
+#pragma mark - Requests
+
++ (void)GET:(NSString *)path
+    parameters:(NSDictionary *)parameters
+    completion:(void (^)(id, NSError *))completion {
+  [HNKServer GET:path
+      parameters:parameters
+      completion:^(id responseObject, NSError *error) {
+
+        if (completion) {
+
+          if (error) {
+            completion(nil, error);
+            return;
+          }
+
+          completion(responseObject, nil);
+        }
+
+      }];
+}
 
 @end

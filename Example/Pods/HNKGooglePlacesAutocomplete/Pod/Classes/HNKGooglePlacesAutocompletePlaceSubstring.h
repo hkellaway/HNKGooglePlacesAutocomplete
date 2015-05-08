@@ -1,5 +1,5 @@
 //
-//  CLPlacemark+HNKAdditions.h
+//  HNKQueryResponsePredictionMatchedSubstring.h
 //  HNKGooglePlacesAutocomplete
 //
 // Copyright (c) 2015 Harlan Kellaway
@@ -23,21 +23,23 @@
 // THE SOFTWARE.
 //
 
-#import <CoreLocation/CoreLocation.h>
-
-@class HNKGooglePlacesAutocompletePlace;
-
-@interface CLPlacemark (HNKAdditions)
+#import "HNKGooglePlacesAutocompleteModel.h"
 
 /**
- *  Creates a CLPlacemark from an object representing a Google Place
- *
- *  @param place Google Place to resolve
+ *  Location of the entered term in the prediction result text, so that the
+ *  term can be highlighted if desired
  */
-+ (void)hnk_placemarkFromGooglePlace:(HNKGooglePlacesAutocompletePlace *)place
-                              apiKey:(NSString *)apiKey
-                          completion:(void (^)(CLPlacemark *placemark,
-                                               NSString *addressString,
-                                               NSError *error))completion;
+@interface HNKGooglePlacesAutocompletePlaceSubstring
+    : HNKGooglePlacesAutocompleteModel
+
+/**
+ *  Length of the entered term in the prediction result text
+ */
+@property(nonatomic, assign, readonly) NSInteger length;
+
+/**
+ *  Offset of the entered term in the prediction result text
+ */
+@property(nonatomic, assign, readonly) NSInteger offset;
 
 @end
