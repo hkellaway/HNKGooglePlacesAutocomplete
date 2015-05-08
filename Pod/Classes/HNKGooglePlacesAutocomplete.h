@@ -29,4 +29,4 @@
 #import "HNKGooglePlacesAutocompleteQueryResponse.h"
 #import "HNKGooglePlacesAutocompletePlace.h"
 #import "HNKGooglePlacesAutocompletePlaceSubstring.h"
-#import "HNKQueryResponsePredictionTerm.h"
+#import "HNKGooglePlacesAutocompletePlaceTerm.h"
