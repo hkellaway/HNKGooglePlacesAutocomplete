@@ -60,7 +60,7 @@ static NSString *const kHNKGooglePlacesServerRequestPathDetails =
                  apiKey:(NSString *)apiKey
              completion:
                  (void (^)(NSString *addressString, NSError *error))completion {
-  if ([place isPlaceType:HNKGooglePlacesAutocompletePlaceTypeGeocode]) {
+  if ([place isPlaceType:HNKGooglePlaceTypeGeocode]) {
     completion(place.name, nil);
     return;
   }
