@@ -54,7 +54,8 @@ describe(@"HNKGooglePlacesAutocompleteQueryResponse", ^{
 
                  it(@"Should assign properties correctly",
                     ^{
-                        [[theValue(testInstance.status) should] equal:theValue(HNKQueryResponseStatusOK)];
+                        [[theValue(testInstance.status) should]
+                            equal:theValue(HNKGooglePlacesAutocompleteQueryResponseStatusOK)];
 
                         HNKQueryResponsePrediction *prediction = testInstance.predictions[0];
                         [[prediction.name should] equal:@"Victoria, BC, Canadá"];
