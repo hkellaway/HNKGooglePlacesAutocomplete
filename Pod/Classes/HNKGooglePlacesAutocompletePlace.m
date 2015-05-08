@@ -25,7 +25,7 @@
 
 #import "HNKGooglePlacesAutocompletePlace.h"
 #import "HNKGooglePlacesAutocompletePlaceSubstring.h"
-#import "HNKQueryResponsePredictionTerm.h"
+#import "HNKGooglePlacesAutocompletePlaceTerm.h"
 
 #import "NSValueTransformer+MTLPredefinedTransformerAdditions.h"
 
@@ -66,7 +66,7 @@
 
 + (NSValueTransformer *)termsJSONTransformer {
   return [NSValueTransformer mtl_JSONArrayTransformerWithModelClass:
-                                 [HNKQueryResponsePredictionTerm class]];
+                                 [HNKGooglePlacesAutocompletePlaceTerm class]];
 }
 
 + (NSValueTransformer *)typesJSONTransformer {

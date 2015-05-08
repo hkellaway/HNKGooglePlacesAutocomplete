@@ -1,5 +1,5 @@
 //
-//  HNKQueryResponsePredictionTermSpec.m
+//  HNKGooglePlacesAutocompletePlaceTermSpec.m
 //  HNKGooglePlacesAutocomplete-Example
 //
 //  Created by Harlan Kellaway on 4/26/15.
@@ -10,20 +10,20 @@
 
 #import <HNKGooglePlacesAutocomplete/HNKGooglePlacesAutocomplete.h>
 
-SPEC_BEGIN(HNKQueryResponsePredictionTermSpec)
+SPEC_BEGIN(HNKGooglePlacesAutocompletePlaceTermSpec)
 
-__block HNKQueryResponsePredictionTerm *testInstance;
+__block HNKGooglePlacesAutocompletePlaceTerm *testInstance;
 __block NSDictionary *json;
 
 beforeAll(^{
 
     json = @{ @"offset" : @10, @"value" : @"BC" };
 
-    testInstance = [HNKQueryResponsePredictionTerm modelFromJSONDictionary:json];
+    testInstance = [HNKGooglePlacesAutocompletePlaceTerm modelFromJSONDictionary:json];
 
 });
 
-describe(@"HNKQueryResponsePredictionTerm", ^{
+describe(@"HNKGooglePlacesAutocompletePlaceTerm", ^{
 
     specify(^{
 

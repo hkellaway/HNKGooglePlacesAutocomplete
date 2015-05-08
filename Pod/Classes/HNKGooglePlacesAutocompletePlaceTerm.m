@@ -1,5 +1,5 @@
 //
-//  HNKQueryResponsePreditionTerm.h
+//  HNKGooglePlacesAutocompletePlaceTerm.m
 //  HNKGooglePlacesAutocomplete
 //
 // Copyright (c) 2015 Harlan Kellaway
@@ -23,22 +23,16 @@
 // THE SOFTWARE.
 //
 
-#import "HNKGooglePlacesAutocompleteModel.h"
+#import "HNKGooglePlacesAutocompletePlaceTerm.h"
 
-/**
- *  Term identifying a section of the returned description
- */
-@interface HNKQueryResponsePredictionTerm : HNKGooglePlacesAutocompleteModel
+@implementation HNKGooglePlacesAutocompletePlaceTerm
 
-/**
- *  Start position of this term in the description, measured in Unicode
- *  characters
- */
-@property(nonatomic, assign, readonly) NSInteger offset;
+#pragma mark - Protocol conformance
 
-/**
- *  Text of the term
- */
-@property(nonatomic, strong, readonly) NSString *value;
+#pragma mark <MTLJSONSerializing>
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+  return @{ @"offset" : @"offset", @"value" : @"value" };
+}
 
 @end
