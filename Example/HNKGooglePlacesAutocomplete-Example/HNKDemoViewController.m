@@ -177,37 +177,34 @@ static NSString *const kHNKDemoSearchResultsCellIdentifier = @"HNKDemoSearchResu
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    HNKQueryResponsePrediction *place = [self placeAtIndexPath:indexPath];
-    [CLPlacemark
-        hnk_placemarkFromGooglePlace:place
-                              apiKey:self.searchQuery.apiKey
-                          completion:^(CLPlacemark *placemark, NSString *addressString, NSError *error)
-
-                                     {
-                                         if (error) {
-                                             UIAlertView *alert =
-                                                 [[UIAlertView alloc] initWithTitle:@"Could not map selected Place"
-                                                                            message:error.localizedDescription
-                                                                           delegate:nil
-                                                                  cancelButtonTitle:@"OK"
-                                                                  otherButtonTitles:nil, nil];
-                                             [alert show];
-                                         } else if (placemark) {
-                                             [self addPlacemarkAnnotationToMap:placemark addressString:addressString];
-                                             [self recenterMapToPlacemark:placemark];
-                                             // ref:
-                                             // https://github.com/chenyuan/SPGooglePlacesAutocomplete/issues/10
-                                             [self.searchDisplayController setActive:NO];
-                                             [self.searchDisplayController.searchResultsTableView
-                                                 deselectRowAtIndexPath:indexPath
-                                                               animated:NO];
-                                         }
-                                     }];
+    HNKGooglePlacesAutocompletePlace *place = [self placeAtIndexPath:indexPath];
+    [CLPlacemark hnk_placemarkFromGooglePlace:place
+                                       apiKey:self.searchQuery.apiKey
+                                   completion:^(CLPlacemark *placemark, NSString *addressString, NSError *error) {
+                                       if (error) {
+                                           UIAlertView *alert =
+                                               [[UIAlertView alloc] initWithTitle:@"Could not map selected Place"
+                                                                          message:error.localizedDescription
+                                                                         delegate:nil
+                                                                cancelButtonTitle:@"OK"
+                                                                otherButtonTitles:nil, nil];
+                                           [alert show];
+                                       } else if (placemark) {
+                                           [self addPlacemarkAnnotationToMap:placemark addressString:addressString];
+                                           [self recenterMapToPlacemark:placemark];
+                                           // ref:
+                                           // https://github.com/chenyuan/SPGooglePlacesAutocomplete/issues/10
+                                           [self.searchDisplayController setActive:NO];
+                                           [self.searchDisplayController.searchResultsTableView
+                                               deselectRowAtIndexPath:indexPath
+                                                             animated:NO];
+                                       }
+                                   }];
 }
 
 #pragma mark - Helpers
 
-- (HNKQueryResponsePrediction *)placeAtIndexPath:(NSIndexPath *)indexPath
+- (HNKGooglePlacesAutocompletePlace *)placeAtIndexPath:(NSIndexPath *)indexPath
 {
     return self.searchResults[indexPath.row];
 }
