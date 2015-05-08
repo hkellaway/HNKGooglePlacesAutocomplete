@@ -59,9 +59,9 @@ typedef NS_ENUM(NSInteger, HNKGooglePlacesAutocompleteQueryResponseStatus) {
     : HNKGooglePlacesAutocompleteModel
 
 /**
- *  Collection of QueryResponsePredictions returned from the query
+ *  Collection of Places returned from the query
  */
-@property(nonatomic, strong, readonly) NSArray *predictions;
+@property(nonatomic, strong, readonly) NSArray *places;
 
 /**
  *  Status of the QueryResponse which may contain debugging information to help

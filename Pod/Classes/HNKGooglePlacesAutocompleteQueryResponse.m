@@ -33,10 +33,10 @@
 #pragma mark <MTLJSONSerializing>
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
-  return @{ @"predictions" : @"predictions", @"status" : @"status" };
+  return @{ @"places" : @"predictions", @"status" : @"status" };
 }
 
-+ (NSValueTransformer *)predictionsJSONTransformer {
++ (NSValueTransformer *)placesJSONTransformer {
   return [NSValueTransformer mtl_JSONArrayTransformerWithModelClass:
                                  [HNKQueryResponsePrediction class]];
 }
