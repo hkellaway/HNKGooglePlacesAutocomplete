@@ -29,7 +29,7 @@
 
 #import "NSValueTransformer+MTLPredefinedTransformerAdditions.h"
 
-@implementation HNKQueryResponsePrediction
+@implementation HNKGooglePlacesAutocompletePlace
 
 - (BOOL)isPlaceType:(HNKGooglePlacesAutocompletePlaceType)placeType {
   NSArray *allTypes = self.types;
