@@ -25,7 +25,7 @@
 
 #import <CoreLocation/CoreLocation.h>
 
-@class HNKQueryResponsePrediction;
+@class HNKGooglePlacesAutocompletePlace;
 
 @interface CLPlacemark (HNKAdditions)
 
@@ -34,7 +34,7 @@
  *
  *  @param place Google Place to resolve
  */
-+ (void)hnk_placemarkFromGooglePlace:(HNKQueryResponsePrediction *)place
++ (void)hnk_placemarkFromGooglePlace:(HNKGooglePlacesAutocompletePlace *)place
                               apiKey:(NSString *)apiKey
                           completion:(void (^)(CLPlacemark *placemark,
                                                NSString *addressString,

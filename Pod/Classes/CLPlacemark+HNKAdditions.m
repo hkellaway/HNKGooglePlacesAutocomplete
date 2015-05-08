@@ -33,7 +33,7 @@ static NSString *const kHNKGooglePlacesServerRequestPathDetails =
 
 @implementation CLPlacemark (HNKAdditions)
 
-+ (void)hnk_placemarkFromGooglePlace:(HNKQueryResponsePrediction *)place
++ (void)hnk_placemarkFromGooglePlace:(HNKGooglePlacesAutocompletePlace *)place
                               apiKey:(NSString *)apiKey
                           completion:(void (^)(CLPlacemark *, NSString *,
                                                NSError *))completion {
@@ -47,7 +47,7 @@ static NSString *const kHNKGooglePlacesServerRequestPathDetails =
 
                } else {
 
-                 [self completeForPlace:(HNKQueryResponsePrediction *)place
+                 [self completeForPlace:place
                             withAddress:addressString
                              completion:completion];
                }
@@ -56,7 +56,7 @@ static NSString *const kHNKGooglePlacesServerRequestPathDetails =
 
 #pragma mark - Helpers
 
-+ (void)addressForPlace:(HNKQueryResponsePrediction *)place
++ (void)addressForPlace:(HNKGooglePlacesAutocompletePlace *)place
                  apiKey:(NSString *)apiKey
              completion:
                  (void (^)(NSString *addressString, NSError *error))completion {
@@ -105,7 +105,7 @@ static NSString *const kHNKGooglePlacesServerRequestPathDetails =
   return nil;
 }
 
-+ (void)completeForPlace:(HNKQueryResponsePrediction *)place
++ (void)completeForPlace:(HNKGooglePlacesAutocompletePlace *)place
              withAddress:(NSString *)addressString
               completion:(void (^)(CLPlacemark *placemark,
                                    NSString *addressString,
@@ -126,7 +126,7 @@ static NSString *const kHNKGooglePlacesServerRequestPathDetails =
 }
 
 + (void)geocodeAddress:(NSString *)address
-              forPlace:(HNKQueryResponsePrediction *)place
+              forPlace:(HNKGooglePlacesAutocompletePlace *)place
           withGeocoder:(CLGeocoder *)geocoder
             completion:(void (^)(CLPlacemark *placemark,
                                  NSString *addressString,

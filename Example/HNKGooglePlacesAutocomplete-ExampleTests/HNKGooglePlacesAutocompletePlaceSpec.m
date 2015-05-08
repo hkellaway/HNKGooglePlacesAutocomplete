@@ -103,8 +103,8 @@ describe(@"HNKGooglePlacesAutocompletePlace", ^{
                                    @"types" : @[ @"abc" ]
                                };
 
-                               HNKQueryResponsePrediction *testInstanceWithUnknownType =
-                                   [HNKQueryResponsePrediction modelFromJSONDictionary:jsonWithUnknownType];
+                               HNKGooglePlacesAutocompletePlace *testInstanceWithUnknownType =
+                                   [HNKGooglePlacesAutocompletePlace modelFromJSONDictionary:jsonWithUnknownType];
 
                                [[testInstanceWithUnknownType.types[0] should]
                                    equal:theValue(HNKGooglePlacesAutocompletePlaceTypeUnknown)];
