@@ -69,7 +69,7 @@ typedef NS_ENUM(NSInteger, HNKGooglePlacesAutocompletePlaceType) {
 /**
  *  Place prediction returned from search query
  */
-@interface HNKQueryResponsePrediction : HNKGooglePlacesAutocompleteModel
+@interface HNKGooglePlacesAutocompletePlace : HNKGooglePlacesAutocompleteModel
 
 /**
  *  Human-readable name for the returned result
