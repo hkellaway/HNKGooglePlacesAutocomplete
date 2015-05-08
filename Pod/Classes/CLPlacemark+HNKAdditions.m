@@ -23,7 +23,7 @@
 // THE SOFTWARE.
 //
 
-#import "HNKQueryResponsePrediction.h"
+#import "HNKGooglePlacesAutocompletePlace.h"
 #import "HNKGooglePlacesServer.h"
 
 #import "CLPlacemark+HNKAdditions.h"
@@ -60,7 +60,7 @@ static NSString *const kHNKGooglePlacesServerRequestPathDetails =
                  apiKey:(NSString *)apiKey
              completion:
                  (void (^)(NSString *addressString, NSError *error))completion {
-  if ([place isPlaceType:HNKGooglePlaceTypeGeocode]) {
+  if ([place isPlaceType:HNKGooglePlacesAutocompletePlaceTypeGeocode]) {
     completion(place.name, nil);
     return;
   }

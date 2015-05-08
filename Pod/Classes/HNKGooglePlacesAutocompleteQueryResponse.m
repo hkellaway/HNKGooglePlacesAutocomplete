@@ -24,7 +24,7 @@
 //
 
 #import "HNKGooglePlacesAutocompleteQueryResponse.h"
-#import "HNKQueryResponsePrediction.h"
+#import "HNKGooglePlacesAutocompletePlace.h"
 
 @implementation HNKGooglePlacesAutocompleteQueryResponse
 

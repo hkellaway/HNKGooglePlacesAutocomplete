@@ -1,5 +1,5 @@
 //
-//  HNKQueryResponsePrediction.h
+//  HNKGooglePlacesAutocompletePlace.h
 //  HNKGooglePlacesAutocomplete
 //
 // Copyright (c) 2015 Harlan Kellaway
