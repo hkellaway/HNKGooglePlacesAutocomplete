@@ -1,5 +1,5 @@
 //
-//  HNKQueryResponsePredictionSpec.m
+//  HNKGooglePlacesAutocompletePlaceSpec.m
 //  HNKGooglePlacesAutocomplete-Example
 //
 //  Created by Harlan Kellaway on 4/26/15.
@@ -10,9 +10,9 @@
 
 #import <HNKGooglePlacesAutocomplete/HNKGooglePlacesAutocomplete.h>
 
-SPEC_BEGIN(HNKQueryResponsePredictionSpec)
+SPEC_BEGIN(HNKGooglePlacesAutocompletePlaceSpec)
 
-__block HNKQueryResponsePrediction *testInstance;
+__block HNKGooglePlacesAutocompletePlace *testInstance;
 __block NSDictionary *json;
 
 beforeAll(^{
@@ -32,11 +32,11 @@ beforeAll(^{
         @"types" : @[ @"locality", @"political", @"geocode" ]
     };
 
-    testInstance = [HNKQueryResponsePrediction modelFromJSONDictionary:json];
+    testInstance = [HNKGooglePlacesAutocompletePlace modelFromJSONDictionary:json];
 
 });
 
-describe(@"HNKQueryResponsePredictionTerm", ^{
+describe(@"HNKGooglePlacesAutocompletePlace", ^{
 
     specify(^{
 
