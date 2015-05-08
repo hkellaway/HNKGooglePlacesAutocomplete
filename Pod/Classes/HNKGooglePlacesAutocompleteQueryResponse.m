@@ -38,7 +38,7 @@
 
 + (NSValueTransformer *)placesJSONTransformer {
   return [NSValueTransformer mtl_JSONArrayTransformerWithModelClass:
-                                 [HNKQueryResponsePrediction class]];
+                                 [HNKGooglePlacesAutocompletePlace class]];
 }
 
 + (NSValueTransformer *)statusJSONTransformer {
