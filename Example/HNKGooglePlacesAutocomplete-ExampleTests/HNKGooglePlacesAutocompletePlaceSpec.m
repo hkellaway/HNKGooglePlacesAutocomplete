@@ -61,9 +61,9 @@ describe(@"HNKGooglePlacesAutocompletePlace", ^{
 
                                [[testInstance.placeId should] equal:@"ChIJcWGw3Ytzj1QR7Ui7HnTz6Dg"];
 
-                               HNKQueryResponsePredictionTerm *term1 = testInstance.terms[0];
-                               HNKQueryResponsePredictionTerm *term2 = testInstance.terms[1];
-                               HNKQueryResponsePredictionTerm *term3 = testInstance.terms[2];
+                               HNKGooglePlacesAutocompletePlaceTerm *term1 = testInstance.terms[0];
+                               HNKGooglePlacesAutocompletePlaceTerm *term2 = testInstance.terms[1];
+                               HNKGooglePlacesAutocompletePlaceTerm *term3 = testInstance.terms[2];
                                [[theValue(term1.offset) should] equal:theValue(0)];
                                [[term1.value should] equal:@"Victoria"];
                                [[theValue(term2.offset) should] equal:theValue(10)];

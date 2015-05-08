@@ -40,7 +40,7 @@
         "Pod/Classes/HNKGooglePlacesAutocompleteQueryResponse.{h,m}",
         "Pod/Classes/HNKGooglePlacesAutocompletePlace.{h,m}",
         "Pod/Classes/HNKGooglePlacesAutocompletePlaceSubstring.{h,m}",
-        "Pod/Classes/HNKQueryResponsePredictionTerm.{h,m}"
+        "Pod/Classes/HNKGooglePlacesAutocompletePlaceTerm.{h,m}"
       ],
       "subspecs": [
         {
