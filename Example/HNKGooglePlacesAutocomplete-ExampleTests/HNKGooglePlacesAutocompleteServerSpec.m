@@ -1,5 +1,5 @@
 //
-//  HNKGooglePlacesAutocompleteServerSpec.m
+//  HNKGooglePlacesServerSpec.m
 //  HNKGooglePlacesAutocomplete-Example
 //
 //  Created by Harlan Kellaway on 4/28/15.
@@ -8,12 +8,12 @@
 
 #import "Kiwi.h"
 
-#import <HNKGooglePlacesAutocomplete/HNKGooglePlacesAutocompleteServer.h>
+#import <HNKGooglePlacesAutocomplete/HNKGooglePlacesServer.h>
 #import <HNKServerFacade/HNKServer.h>
 
-SPEC_BEGIN(HNKGooglePlacesAutocompleteServerSpec)
+SPEC_BEGIN(HNKGooglePlacesServerSpec)
 
-describe(@"HNKGooglePlacesAutocompleteServer", ^{
+describe(@"HNKGooglePlacesServer", ^{
 
     describe(@"Method: initialize",
              ^{
@@ -21,9 +21,9 @@ describe(@"HNKGooglePlacesAutocompleteServer", ^{
                  it(@"Should setup HNKServer",
                     ^{
                         [[HNKServer should] receive:@selector(setupWithBaseUrl:)
-                                      withArguments:@"https://maps.googleapis.com/maps/api/"];
+                                      withArguments:@"https://maps.googleapis.com/maps/api/place/"];
 
-                        [HNKGooglePlacesAutocompleteServer initialize];
+                        [HNKGooglePlacesServer initialize];
                     });
              });
 
@@ -32,17 +32,17 @@ describe(@"HNKGooglePlacesAutocompleteServer", ^{
                  it(@"Should call HNKServer GET",
                     ^{
                         [[HNKServer should] receive:@selector(GET:parameters:completion:)
-                                      withArguments:@"place/autocomplete/json",
+                                      withArguments:@"autocomplete/json",
                                                     @{ @"input" : @"Vict",
                                                        @"key" : @"apikey" },
                                                     any()];
 
-                        [HNKGooglePlacesAutocompleteServer GET:@"place/autocomplete/json"
-                                                    parameters:@{
-                                                        @"input" : @"Vict",
-                                                        @"key" : @"apikey"
-                                                    }
-                                                    completion:nil];
+                        [HNKGooglePlacesServer GET:@"autocomplete/json"
+                                        parameters:@{
+                                            @"input" : @"Vict",
+                                            @"key" : @"apikey"
+                                        }
+                                        completion:nil];
 
                     });
              });
