@@ -179,7 +179,7 @@ static HNKGooglePlacesAutocompleteQuery *sharedQuery = nil;
 
   } else {
 
-    completion(queryResponse.predictions, nil);
+    completion(queryResponse.places, nil);
   }
 }
 
