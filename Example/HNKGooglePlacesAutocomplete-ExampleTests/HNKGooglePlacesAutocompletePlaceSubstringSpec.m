@@ -1,5 +1,5 @@
 //
-//  HNKQueryReqsponsePredctionMatchedSubstringSpec.m
+//  HNKGooglePlacesAutocompletePlaceSubstringSpec.m
 //  HNKGooglePlacesAutocomplete-Example
 //
 //  Created by Harlan Kellaway on 4/26/15.
@@ -10,16 +10,16 @@
 
 #import <HNKGooglePlacesAutocomplete/HNKGooglePlacesAutocomplete.h>
 
-SPEC_BEGIN(HNKQueryResponsePredictionMatchedSubstringSpec)
+SPEC_BEGIN(HNKGooglePlacesAutocompletePlaceSubstringSpec)
 
-__block HNKQueryResponsePredictionMatchedSubstring *testInstance;
+__block HNKGooglePlacesAutocompletePlaceSubstring *testInstance;
 __block NSDictionary *json;
 
 beforeAll(^{
 
     json = @{ @"length" : @4, @"offset" : @0 };
 
-    testInstance = [HNKQueryResponsePredictionMatchedSubstring modelFromJSONDictionary:json];
+    testInstance = [HNKGooglePlacesAutocompletePlaceSubstring modelFromJSONDictionary:json];
 
 });
 

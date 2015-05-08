@@ -60,9 +60,9 @@ describe(@"HNKGooglePlacesAutocompleteQueryResponse", ^{
                         HNKGooglePlacesAutocompletePlace *place = testInstance.places[0];
                         [[place.name should] equal:@"Victoria, BC, Canadá"];
 
-                        HNKQueryResponsePredictionMatchedSubstring *matchedSubstring = place.matchedSubstrings[0];
-                        [[theValue(matchedSubstring.length) should] equal:theValue(4)];
-                        [[theValue(matchedSubstring.offset) should] equal:theValue(0)];
+                        HNKGooglePlacesAutocompletePlaceSubstring *substring = place.substrings[0];
+                        [[theValue(substring.length) should] equal:theValue(4)];
+                        [[theValue(substring.offset) should] equal:theValue(0)];
 
                         [[place.placeId should] equal:@"ChIJcWGw3Ytzj1QR7Ui7HnTz6Dg"];
 

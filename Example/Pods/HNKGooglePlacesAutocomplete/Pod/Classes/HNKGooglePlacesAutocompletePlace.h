@@ -82,7 +82,7 @@ typedef NS_ENUM(NSInteger, HNKGooglePlaceType) {
  *  Collection of Substrings describe the location of the entered term in the
  *  prediction result text, so that the term can be highlighted if desired
  */
-@property(nonatomic, strong, readonly) NSArray *matchedSubstrings;
+@property(nonatomic, strong, readonly) NSArray *substrings;
 
 /**
  *  A textual identifier that uniquely identifies a place
