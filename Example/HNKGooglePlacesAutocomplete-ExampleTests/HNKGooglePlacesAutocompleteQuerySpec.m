@@ -173,10 +173,10 @@ describe(@"HNKGooglePlacesAutocompleteQuery", ^{
 
                                            [[testPlace.name should] equal:@"Victoria, BC, Canadá"];
 
-                                           HNKQueryResponsePredictionMatchedSubstring *matchedSubstring =
-                                               testPlace.matchedSubstrings[0];
-                                           [[theValue(matchedSubstring.length) should] equal:theValue(4)];
-                                           [[theValue(matchedSubstring.offset) should] equal:theValue(0)];
+                                           HNKGooglePlacesAutocompletePlaceSubstring *substring =
+                                               testPlace.substrings[0];
+                                           [[theValue(substring.length) should] equal:theValue(4)];
+                                           [[theValue(substring.offset) should] equal:theValue(0)];
 
                                            [[testPlace.placeId should] equal:@"ChIJcWGw3Ytzj1QR7Ui7HnTz6Dg"];
 
