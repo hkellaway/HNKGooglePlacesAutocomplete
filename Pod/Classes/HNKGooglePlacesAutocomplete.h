@@ -27,6 +27,6 @@
 
 #import "HNKGooglePlacesAutocompleteQuery.h"
 #import "HNKGooglePlacesAutocompleteQueryResponse.h"
-#import "HNKQueryResponsePrediction.h"
+#import "HNKGooglePlacesAutocompletePlace.h"
 #import "HNKQueryResponsePredictionMatchedSubstring.h"
 #import "HNKQueryResponsePredictionTerm.h"
