@@ -1,5 +1,5 @@
 //
-//  HNKQueryResponsePredictionMatchedSubstring.m
+//  HNKQueryResponsePredictionMatchedSubstring.h
 //  HNKGooglePlacesAutocomplete
 //
 // Copyright (c) 2015 Harlan Kellaway
@@ -23,16 +23,23 @@
 // THE SOFTWARE.
 //
 
-#import "HNKQueryResponsePredictionMatchedSubstring.h"
+#import "HNKGooglePlacesAutocompleteModel.h"
 
-@implementation HNKQueryResponsePredictionMatchedSubstring
+/**
+ *  Location of the entered term in the prediction result text, so that the
+ *  term can be highlighted if desired
+ */
+@interface HNKGooglePlacesAutocompletePlaceSubstring
+    : HNKGooglePlacesAutocompleteModel
 
-#pragma mark - Protocol conformance
+/**
+ *  Length of the entered term in the prediction result text
+ */
+@property(nonatomic, assign, readonly) NSInteger length;
 
-#pragma mark <MTLJSONSerializing>
-
-+ (NSDictionary *)JSONKeyPathsByPropertyKey {
-  return @{ @"length" : @"length", @"offset" : @"offset" };
-}
+/**
+ *  Offset of the entered term in the prediction result text
+ */
+@property(nonatomic, assign, readonly) NSInteger offset;
 
 @end
