@@ -24,7 +24,7 @@
 //
 
 #import "HNKGooglePlacesAutocompleteQueryResponse.h"
-#import "HNKQueryResponsePrediction.h"
+#import "HNKGooglePlacesAutocompletePlace.h"
 
 @implementation HNKGooglePlacesAutocompleteQueryResponse
 
@@ -33,12 +33,12 @@
 #pragma mark <MTLJSONSerializing>
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
-  return @{ @"predictions" : @"predictions", @"status" : @"status" };
+  return @{ @"places" : @"predictions", @"status" : @"status" };
 }
 
-+ (NSValueTransformer *)predictionsJSONTransformer {
++ (NSValueTransformer *)placesJSONTransformer {
   return [NSValueTransformer mtl_JSONArrayTransformerWithModelClass:
-                                 [HNKQueryResponsePrediction class]];
+                                 [HNKGooglePlacesAutocompletePlace class]];
 }
 
 + (NSValueTransformer *)statusJSONTransformer {

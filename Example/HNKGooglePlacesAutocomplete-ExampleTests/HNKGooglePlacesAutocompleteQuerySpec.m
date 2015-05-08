@@ -164,7 +164,7 @@ describe(@"HNKGooglePlacesAutocompleteQuery", ^{
                                     it(@"Should return Places",
                                        ^{
 
-                                           __block HNKQueryResponsePrediction *testPlace;
+                                           __block HNKGooglePlacesAutocompletePlace *testPlace;
 
                                            [testInstance fetchPlacesForSearchQuery:@"Vict"
                                                                         completion:^(NSArray *places, NSError *error) {
@@ -190,12 +190,9 @@ describe(@"HNKGooglePlacesAutocompleteQuery", ^{
                                            [[theValue(term3.offset) should] equal:theValue(14)];
                                            [[term3.value should] equal:@"Canadá"];
 
-                                           [[testPlace.types[0] should]
-                                               equal:theValue(HNKGooglePlacesAutocompletePlaceTypeLocality)];
-                                           [[testPlace.types[1] should]
-                                               equal:theValue(HNKGooglePlacesAutocompletePlaceTypePolitical)];
-                                           [[testPlace.types[2] should]
-                                               equal:theValue(HNKGooglePlacesAutocompletePlaceTypeGeocode)];
+                                           [[testPlace.types[0] should] equal:theValue(HNKGooglePlaceTypeLocality)];
+                                           [[testPlace.types[1] should] equal:theValue(HNKGooglePlaceTypePolitical)];
+                                           [[testPlace.types[2] should] equal:theValue(HNKGooglePlaceTypeGeocode)];
 
                                        });
                                 });

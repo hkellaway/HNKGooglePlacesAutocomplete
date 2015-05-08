@@ -57,7 +57,7 @@ describe(@"HNKGooglePlacesAutocompleteQueryResponse", ^{
                         [[theValue(testInstance.status) should]
                             equal:theValue(HNKGooglePlacesAutocompleteQueryResponseStatusOK)];
 
-                        HNKQueryResponsePrediction *place = testInstance.places[0];
+                        HNKGooglePlacesAutocompletePlace *place = testInstance.places[0];
                         [[place.name should] equal:@"Victoria, BC, Canadá"];
 
                         HNKQueryResponsePredictionMatchedSubstring *matchedSubstring = place.matchedSubstrings[0];
@@ -76,9 +76,9 @@ describe(@"HNKGooglePlacesAutocompleteQueryResponse", ^{
                         [[theValue(term3.offset) should] equal:theValue(14)];
                         [[term3.value should] equal:@"Canadá"];
 
-                        [[place.types[0] should] equal:theValue(HNKGooglePlacesAutocompletePlaceTypeLocality)];
-                        [[place.types[1] should] equal:theValue(HNKGooglePlacesAutocompletePlaceTypePolitical)];
-                        [[place.types[2] should] equal:theValue(HNKGooglePlacesAutocompletePlaceTypeGeocode)];
+                        [[place.types[0] should] equal:theValue(HNKGooglePlaceTypeLocality)];
+                        [[place.types[1] should] equal:theValue(HNKGooglePlaceTypePolitical)];
+                        [[place.types[2] should] equal:theValue(HNKGooglePlaceTypeGeocode)];
 
                     });
 
