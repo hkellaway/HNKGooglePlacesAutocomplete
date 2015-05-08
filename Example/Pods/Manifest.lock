@@ -40,22 +40,22 @@ PODS:
 
 DEPENDENCIES:
   - HNKGooglePlacesAutocomplete (from `https://github.com/hkellaway/HNKGooglePlacesAutocomplete.git`,
-    branch `refactor/models_rename_server`)
+    branch `refactor/models_rename_query_response`)
   - Kiwi (~> 2.3)
 
 EXTERNAL SOURCES:
   HNKGooglePlacesAutocomplete:
-    :branch: refactor/models_rename_server
+    :branch: refactor/models_rename_query_response
     :git: https://github.com/hkellaway/HNKGooglePlacesAutocomplete.git
 
 CHECKOUT OPTIONS:
   HNKGooglePlacesAutocomplete:
-    :commit: 753ab5c3611e6f2ca5e16064156c87d03f2ad554
+    :commit: 188d842ca17a6ee30f78fd357f2b135f32e6b2e2
     :git: https://github.com/hkellaway/HNKGooglePlacesAutocomplete.git
 
 SPEC CHECKSUMS:
   AFNetworking: e1d86c2a96bb5d2e7408da36149806706ee122fe
-  HNKGooglePlacesAutocomplete: dab7971b24615266471e9256b7ac57e75edba5ee
+  HNKGooglePlacesAutocomplete: afd624b4830f8c280b255312dfa58eb84a954f25
   HNKServerFacade: 54102383a22b3aa61171574ad0b50ff24fd504cd
   Kiwi: f038a6c61f7a9e4d7766bff5717aa3b3fdb75f55
   Mantle: 60acd0cd363e27d945bda0a6b8e90577112d28f3

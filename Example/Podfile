@@ -3,7 +3,7 @@ platform :ios, '8.0'
 
 target 'HNKGooglePlacesAutocomplete-Example' do
 
-pod 'HNKGooglePlacesAutocomplete', :git => 'https://github.com/hkellaway/HNKGooglePlacesAutocomplete.git', :branch => 'refactor/models_rename_server'
+pod 'HNKGooglePlacesAutocomplete', :git => 'https://github.com/hkellaway/HNKGooglePlacesAutocomplete.git', :branch => 'refactor/models_rename_query_response'
 
 end
 
