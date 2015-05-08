@@ -41,22 +41,22 @@ typedef NS_ENUM(NSInteger, HNKGooglePlacesAutocompleteQueryErrorCode) {
    *  Unknown status code returned
    */
   HNKGooglePlacesAutocompleteQueryErrorCodeUnknown =
-      HNKQueryResponseStatusUnknown,
+      HNKGooglePlacesAutocompleteQueryResponseStatusUnknown,
   /**
    *  Invalid request; the search query may have been missing
    */
   HNKGooglePlacesAutocompleteQueryErrorCodeInvalidRequest =
-      HNKQueryResponseStatusInvalidRequest,
+      HNKGooglePlacesAutocompleteQueryResponseStatusInvalidRequest,
   /**
    *  Query quota has been exceeded for provided API key
    */
   HNKGooglePlacesAutocompleteQueryErrorCodeOverQueryLimit =
-      HNKQueryResponseStatusOverQueryLimit,
+      HNKGooglePlacesAutocompleteQueryResponseStatusOverQueryLimit,
   /**
    *  Request denied; the API key may be invalid
    */
   HNKGooglePlacesAutocompleteQueryErrorCodeRequestDenied =
-      HNKQueryResponseStatusRequestDenied,
+      HNKGooglePlacesAutocompleteQueryResponseStatusRequestDenied,
   /**
    *  Non-API error occurred while making a request to the server
    */

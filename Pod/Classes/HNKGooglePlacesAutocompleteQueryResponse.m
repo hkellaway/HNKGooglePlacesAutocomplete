@@ -43,11 +43,15 @@
 
 + (NSValueTransformer *)statusJSONTransformer {
   NSDictionary *statusesDictionary = @{
-    @"INVALID_REQUEST" : @(HNKQueryResponseStatusInvalidRequest),
-    @"OK" : @(HNKQueryResponseStatusOK),
-    @"OVER_QUERY_LIMIT" : @(HNKQueryResponseStatusOverQueryLimit),
-    @"REQUEST_DENIED" : @(HNKQueryResponseStatusRequestDenied),
-    @"ZERO_RESULTS" : @(HNKQueryResponseStatusZeroResults)
+    @"INVALID_REQUEST" :
+        @(HNKGooglePlacesAutocompleteQueryResponseStatusInvalidRequest),
+    @"OK" : @(HNKGooglePlacesAutocompleteQueryResponseStatusOK),
+    @"OVER_QUERY_LIMIT" :
+        @(HNKGooglePlacesAutocompleteQueryResponseStatusOverQueryLimit),
+    @"REQUEST_DENIED" :
+        @(HNKGooglePlacesAutocompleteQueryResponseStatusRequestDenied),
+    @"ZERO_RESULTS" :
+        @(HNKGooglePlacesAutocompleteQueryResponseStatusZeroResults)
   };
 
   return [MTLValueTransformer transformerWithBlock:^(NSString *status) {
