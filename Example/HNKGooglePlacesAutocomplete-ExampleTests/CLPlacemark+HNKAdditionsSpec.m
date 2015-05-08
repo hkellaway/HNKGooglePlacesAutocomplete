@@ -10,7 +10,7 @@
 
 #import <CoreLocation/CLPlacemark.h>
 #import <HNKGooglePlacesAutocomplete/HNKGooglePlacesAutocomplete.h>
-#import <HNKGooglePlacesAutocomplete/HNKGooglePlacesAutocompleteServer.h>
+#import <HNKGooglePlacesAutocomplete/HNKGooglePlacesServer.h>
 
 #import "CLPlacemark+HNKAdditions.h"
 
@@ -21,12 +21,12 @@ describe(@"CLPlacemark+HNKAdditions", ^{
     describe(
         @"Method: placemarkFromGooglePlace:completion:",
         ^{
-            typedef void (^HNKGooglePlacesAutocompleteServerCallback)(id responseObject, NSError *error);
+            typedef void (^HNKGooglePlacesServerCallback)(id responseObject, NSError *error);
             typedef void (^CLGeocoderGeocodeAddressCallback)(NSArray *placemarks, NSError *error);
             typedef void (^CLPlacemarkResolveToGooglePlaceCallback)(CLPlacemark *, NSString *, NSError *);
 
             __block NSString *testPlaceId;
-            __block HNKQueryResponsePrediction *mockPlace;
+            __block HNKGooglePlacesAutocompletePlace *mockPlace;
             __block id mockGeocoder;
             __block NSString *testApiKey;
             __block NSDictionary *testDetailsJSON;
@@ -34,7 +34,7 @@ describe(@"CLPlacemark+HNKAdditions", ^{
             beforeEach(^{
 
                 testPlaceId = @"ChIJcWGw3Ytzj1QR7Ui7HnTz6Dg";
-                mockPlace = [HNKQueryResponsePrediction nullMock];
+                mockPlace = [HNKGooglePlacesAutocompletePlace nullMock];
                 [mockPlace stub:@selector(name) andReturn:@"123 XYZ St, New York, NY, USA"];
                 [mockPlace stub:@selector(placeId) andReturn:testPlaceId];
 
@@ -70,15 +70,15 @@ describe(@"CLPlacemark+HNKAdditions", ^{
                     @"status" : @"OK"
                 };
 
-                [HNKGooglePlacesAutocompleteServer stub:@selector(GET:parameters:completion:)
-                                              withBlock:^id(NSArray *params) {
+                [HNKGooglePlacesServer stub:@selector(GET:parameters:completion:)
+                                  withBlock:^id(NSArray *params) {
 
-                                                  HNKGooglePlacesAutocompleteServerCallback completion = params[2];
-                                                  completion(testDetailsJSON, nil);
+                                      HNKGooglePlacesServerCallback completion = params[2];
+                                      completion(testDetailsJSON, nil);
 
-                                                  return nil;
+                                      return nil;
 
-                                              }];
+                                  }];
 
             });
 
@@ -89,15 +89,14 @@ describe(@"CLPlacemark+HNKAdditions", ^{
 
                             [mockPlace stub:@selector(isPlaceType:)
                                     andReturn:theValue(YES)
-                                withArguments:theValue(HNKGooglePlacesAutocompletePlaceTypeGeocode)];
+                                withArguments:theValue(HNKGooglePlaceTypeGeocode)];
 
                         });
 
                         it(@"Should not make server request",
                            ^{
 
-                               [[HNKGooglePlacesAutocompleteServer shouldNot]
-                                   receive:@selector(GET:parameters:completion:)];
+                               [[HNKGooglePlacesServer shouldNot] receive:@selector(GET:parameters:completion:)];
 
                                [CLPlacemark hnk_placemarkFromGooglePlace:mockPlace apiKey:testApiKey completion:nil];
 
@@ -121,19 +120,18 @@ describe(@"CLPlacemark+HNKAdditions", ^{
 
                         [mockPlace stub:@selector(isPlaceType:)
                                 andReturn:theValue(NO)
-                            withArguments:theValue(HNKGooglePlacesAutocompletePlaceTypeGeocode)];
+                            withArguments:theValue(HNKGooglePlaceTypeGeocode)];
 
                     });
 
                     it(@"Should make server request",
                        ^{
 
-                           [[HNKGooglePlacesAutocompleteServer should]
-                                     receive:@selector(GET:parameters:completion:)
-                               withArguments:@"place/details/json",
-                                             @{ @"placeid" : testPlaceId,
-                                                @"key" : testApiKey },
-                                             any()];
+                           [[HNKGooglePlacesServer should] receive:@selector(GET:parameters:completion:)
+                                                     withArguments:@"details/json",
+                                                                   @{ @"placeid" : testPlaceId,
+                                                                      @"key" : testApiKey },
+                                                                   any()];
 
                            [CLPlacemark hnk_placemarkFromGooglePlace:mockPlace apiKey:testApiKey completion:nil];
 
@@ -145,16 +143,15 @@ describe(@"CLPlacemark+HNKAdditions", ^{
 
                             beforeEach(^{
 
-                                [HNKGooglePlacesAutocompleteServer stub:@selector(GET:parameters:completion:)
-                                                              withBlock:^id(NSArray *params) {
+                                [HNKGooglePlacesServer stub:@selector(GET:parameters:completion:)
+                                                  withBlock:^id(NSArray *params) {
 
-                                                                  HNKGooglePlacesAutocompleteServerCallback completion =
-                                                                      params[2];
-                                                                  completion(testDetailsJSON, nil);
+                                                      HNKGooglePlacesServerCallback completion = params[2];
+                                                      completion(testDetailsJSON, nil);
 
-                                                                  return nil;
+                                                      return nil;
 
-                                                              }];
+                                                  }];
 
                             });
 
@@ -354,16 +351,15 @@ describe(@"CLPlacemark+HNKAdditions", ^{
                                                                             @"user" : @"info"
                                                                         }];
 
-                                            [HNKGooglePlacesAutocompleteServer
-                                                     stub:@selector(GET:parameters:completion:)
-                                                withBlock:^id(NSArray *params) {
+                                            [HNKGooglePlacesServer stub:@selector(GET:parameters:completion:)
+                                                              withBlock:^id(NSArray *params) {
 
-                                                    HNKGooglePlacesAutocompleteServerCallback completion = params[2];
-                                                    completion(nil, testError);
+                                                                  HNKGooglePlacesServerCallback completion = params[2];
+                                                                  completion(nil, testError);
 
-                                                    return nil;
+                                                                  return nil;
 
-                                                }];
+                                                              }];
 
                                         });
 
