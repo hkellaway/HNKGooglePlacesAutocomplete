@@ -177,7 +177,7 @@ static NSString *const kHNKDemoSearchResultsCellIdentifier = @"HNKDemoSearchResu
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    HNKQueryResponsePrediction *place = [self placeAtIndexPath:indexPath];
+    HNKGooglePlacesAutocompletePlace *place = [self placeAtIndexPath:indexPath];
     [CLPlacemark
         hnk_placemarkFromGooglePlace:place
                               apiKey:self.searchQuery.apiKey
@@ -207,7 +207,7 @@ static NSString *const kHNKDemoSearchResultsCellIdentifier = @"HNKDemoSearchResu
 
 #pragma mark - Helpers
 
-- (HNKQueryResponsePrediction *)placeAtIndexPath:(NSIndexPath *)indexPath
+- (HNKGooglePlacesAutocompletePlace *)placeAtIndexPath:(NSIndexPath *)indexPath
 {
     return self.searchResults[indexPath.row];
 }
