@@ -51,17 +51,17 @@
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
   return @{
     @"name" : @"description",
-    @"matchedSubstrings" : @"matched_substrings",
+    @"substrings" : @"matched_substrings",
     @"placeId" : @"place_id",
     @"terms" : @"terms",
     @"types" : @"types"
   };
 }
 
-+ (NSValueTransformer *)matchedSubstringsJSONTransformer {
++ (NSValueTransformer *)substringsJSONTransformer {
   return [NSValueTransformer
       mtl_JSONArrayTransformerWithModelClass:
-          [HNKQueryResponsePredictionMatchedSubstring class]];
+          [HNKGooglePlacesAutocompletePlaceSubstring class]];
 }
 
 + (NSValueTransformer *)termsJSONTransformer {
