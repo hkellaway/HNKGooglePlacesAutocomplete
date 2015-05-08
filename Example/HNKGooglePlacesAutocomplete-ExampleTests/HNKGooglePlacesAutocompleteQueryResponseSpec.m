@@ -57,18 +57,18 @@ describe(@"HNKGooglePlacesAutocompleteQueryResponse", ^{
                         [[theValue(testInstance.status) should]
                             equal:theValue(HNKGooglePlacesAutocompleteQueryResponseStatusOK)];
 
-                        HNKQueryResponsePrediction *prediction = testInstance.predictions[0];
-                        [[prediction.name should] equal:@"Victoria, BC, Canadá"];
+                        HNKGooglePlacesAutocompletePlace *place = testInstance.places[0];
+                        [[place.name should] equal:@"Victoria, BC, Canadá"];
 
-                        HNKQueryResponsePredictionMatchedSubstring *matchedSubstring = prediction.matchedSubstrings[0];
+                        HNKQueryResponsePredictionMatchedSubstring *matchedSubstring = place.matchedSubstrings[0];
                         [[theValue(matchedSubstring.length) should] equal:theValue(4)];
                         [[theValue(matchedSubstring.offset) should] equal:theValue(0)];
 
-                        [[prediction.placeId should] equal:@"ChIJcWGw3Ytzj1QR7Ui7HnTz6Dg"];
+                        [[place.placeId should] equal:@"ChIJcWGw3Ytzj1QR7Ui7HnTz6Dg"];
 
-                        HNKQueryResponsePredictionTerm *term1 = prediction.terms[0];
-                        HNKQueryResponsePredictionTerm *term2 = prediction.terms[1];
-                        HNKQueryResponsePredictionTerm *term3 = prediction.terms[2];
+                        HNKQueryResponsePredictionTerm *term1 = place.terms[0];
+                        HNKQueryResponsePredictionTerm *term2 = place.terms[1];
+                        HNKQueryResponsePredictionTerm *term3 = place.terms[2];
                         [[theValue(term1.offset) should] equal:theValue(0)];
                         [[term1.value should] equal:@"Victoria"];
                         [[theValue(term2.offset) should] equal:theValue(10)];
@@ -76,9 +76,9 @@ describe(@"HNKGooglePlacesAutocompleteQueryResponse", ^{
                         [[theValue(term3.offset) should] equal:theValue(14)];
                         [[term3.value should] equal:@"Canadá"];
 
-                        [[prediction.types[0] should] equal:theValue(HNKGooglePlacesAutocompletePlaceTypeLocality)];
-                        [[prediction.types[1] should] equal:theValue(HNKGooglePlacesAutocompletePlaceTypePolitical)];
-                        [[prediction.types[2] should] equal:theValue(HNKGooglePlacesAutocompletePlaceTypeGeocode)];
+                        [[place.types[0] should] equal:theValue(HNKGooglePlaceTypeLocality)];
+                        [[place.types[1] should] equal:theValue(HNKGooglePlaceTypePolitical)];
+                        [[place.types[2] should] equal:theValue(HNKGooglePlaceTypeGeocode)];
 
                     });
 
