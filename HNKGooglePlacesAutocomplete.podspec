@@ -19,7 +19,7 @@ Pod::Spec.new do |s|
       sss.source_files = 'Pod/Classes/HNKGooglePlacesServer.{h,m}'
     end
 
-    ss.source_files = 'Pod/Classes/HNKGooglePlacesAutocompleteModel.{h,m}', 'Pod/Classes/HNKGooglePlacesAutocompleteQuery.{h,m}', 'Pod/Classes/HNKGooglePlacesAutocompleteQueryResponse.{h,m}', 'Pod/Classes/HNKGooglePlacesAutocompletePlace.{h,m}', 'Pod/Classes/HNKGooglePlacesAutocompletePlaceSubstring.{h,m}', 'Pod/Classes/HNKGooglePlacesAutocompletePlaceTerm.{h,m}'
+    ss.source_files = 'Pod/Classes/HNKGooglePlacesAutocompleteModel.{h,m}', 'Pod/Classes/HNKGooglePlacesAutocompleteQuery.{h,m}', 'Pod/Classes/HNKGooglePlacesAutocompleteQueryConfig.{h,m}', 'Pod/Classes/HNKGooglePlacesAutocompleteQueryResponse.{h,m}', 'Pod/Classes/HNKGooglePlacesAutocompletePlace.{h,m}', 'Pod/Classes/HNKGooglePlacesAutocompletePlaceSubstring.{h,m}', 'Pod/Classes/HNKGooglePlacesAutocompletePlaceTerm.{h,m}'
   end
 
   s.dependency "HNKServerFacade", "~> 0.2"
