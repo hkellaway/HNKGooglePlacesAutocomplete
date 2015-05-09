@@ -59,33 +59,35 @@ static NSString *const kHNKGooglePlacesServerRequestPathDetails =
 + (void)addressForPlace:(HNKGooglePlacesAutocompletePlace *)place
                  apiKey:(NSString *)apiKey
              completion:
-                 (void (^)(NSString *addressString, NSError *error))completion {
-  if ([place isPlaceType:HNKGooglePlaceTypeGeocode]) {
-    completion(place.name, nil);
-    return;
-  }
-
-  [HNKGooglePlacesServer GET:kHNKGooglePlacesServerRequestPathDetails
-                  parameters:@{
-                    @"placeid" : place.placeId,
-                    @"key" : apiKey
-                  }
-                  completion:^(NSDictionary *JSON, NSError *error) {
-
-                    if (error) {
-                      completion(nil, error);
-                    } else {
-
-                      NSString *address =
-                          [self addressFromPlaceDetailsDictionary:JSON];
-
-                      if (address != nil) {
-                        completion(address, nil);
-                      } else {
-                        completion(nil, nil);
-                      }
-                    }
-                  }];
+(void (^)(NSString *addressString, NSError *error))completion {
+    if(([place.types count] == 1) && [place isPlaceType:HNKGooglePlaceTypeGeocode]) {
+        
+        completion(place.name, nil);
+        
+    } else {
+        
+        [HNKGooglePlacesServer GET:kHNKGooglePlacesServerRequestPathDetails
+                        parameters:@{
+                                     @"placeid" : place.placeId,
+                                     @"key" : apiKey
+                                     }
+                        completion:^(NSDictionary *JSON, NSError *error) {
+                            
+                            if (error) {
+                                completion(nil, error);
+                            } else {
+                                
+                                NSString *address =
+                                [self addressFromPlaceDetailsDictionary:JSON];
+                                
+                                if (address != nil) {
+                                    completion(address, nil);
+                                } else {
+                                    completion(nil, nil);
+                                }
+                            }
+                        }];
+    }
 }
 
 + (NSString *)addressFromPlaceDetailsDictionary:
