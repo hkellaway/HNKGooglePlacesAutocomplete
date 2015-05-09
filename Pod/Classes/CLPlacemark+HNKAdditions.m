@@ -37,21 +37,19 @@ static NSString *const kHNKGooglePlacesServerRequestPathDetails =
                               apiKey:(NSString *)apiKey
                           completion:(void (^)(CLPlacemark *, NSString *,
                                                NSError *))completion {
-  [self addressForPlace:place
-                 apiKey:apiKey
-             completion:^(NSString *addressString, NSError *error) {
-
-               if (error) {
-
-                 completion(nil, nil, error);
-
-               } else {
-
-                 [self completeForPlace:place
-                            withAddress:addressString
-                             completion:completion];
-               }
-             }];
+    [self addressForPlace:place
+                   apiKey:apiKey
+               completion:^(NSString *addressString, NSError *error) {
+                   
+                   if (error) {
+                       completion(nil, nil, error);
+                   } else {
+                       
+                       [self completeForPlace:place
+                                  withAddress:addressString
+                                   completion:completion];
+                   }
+               }];
 }
 
 #pragma mark - Helpers
@@ -60,10 +58,9 @@ static NSString *const kHNKGooglePlacesServerRequestPathDetails =
                  apiKey:(NSString *)apiKey
              completion:
 (void (^)(NSString *addressString, NSError *error))completion {
-    if(([place.types count] == 1) && [place isPlaceType:HNKGooglePlaceTypeGeocode]) {
-        
+    
+    if([self isSolelyGeocodePlace:place]) {
         completion(place.name, nil);
-        
     } else {
         
         [HNKGooglePlacesServer GET:kHNKGooglePlacesServerRequestPathDetails
@@ -85,9 +82,15 @@ static NSString *const kHNKGooglePlacesServerRequestPathDetails =
                                 } else {
                                     completion(nil, nil);
                                 }
+                                
                             }
                         }];
     }
+}
+
++ (BOOL)isSolelyGeocodePlace:(HNKGooglePlacesAutocompletePlace *)place
+{
+    return (([place.types count] == 1) && [place isPlaceType:HNKGooglePlaceTypeGeocode]);
 }
 
 + (NSString *)addressFromPlaceDetailsDictionary:
