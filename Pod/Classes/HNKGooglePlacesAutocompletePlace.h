@@ -31,9 +31,9 @@
  */
 typedef NS_ENUM(NSInteger, HNKGooglePlaceTypeAutocompleteFilter) {
     /**
-     *  Unknown filter
+     *  All results
      */
-    HNKGooglePlaceTypeAutocompleteFilterUnknown = 0,
+    HNKGooglePlaceTypeAutocompleteFilterAll = 0,
     /**
      *  Only geocoding results with a precise address
      */

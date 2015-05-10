@@ -70,11 +70,42 @@
         [parameters addEntriesFromDictionary:@{ @"radius" : @(self.searchRadius) }];
     }
     
-    if(self.types) {
-        // TODO: add support for high-level types
+    if(self.filter) {
+        [parameters addEntriesFromDictionary:[self translateFilterToRequestParameter:self.filter]];
     }
     
     return parameters;
+}
+
+#pragma mark - Helpers
+
+- (NSDictionary *)translateFilterToRequestParameter:(HNKGooglePlaceTypeAutocompleteFilter)filter {
+    
+    NSString *parameterKey = @"types";
+    
+    switch (filter) {
+        case HNKGooglePlaceTypeAutocompleteFilterAll:
+            return @{ };
+            break;
+        case HNKGooglePlaceTypeAutocompleteFilterAddress:
+            return @{ parameterKey : @"address" };
+            break;
+        case HNKGooglePlaceTypeAutocompleteFilterCity:
+            return @{ parameterKey : @"(cities)" };
+            break;
+        case HNKGooglePlaceTypeAutocompleteFilterEstablishment:
+            return @{ parameterKey : @"establishment" };
+            break;
+        case HNKGooglePlaceTypeAutocompleteFilterGeocode:
+            return @{ parameterKey : @"geocode" };
+            break;
+        case HNKGooglePlaceTypeAutocompleteFilterRegion:
+            return @{ parameterKey : @"regions" };
+            break;
+        default:
+            return @{ };
+            break;
+    }
 }
 
 @end
