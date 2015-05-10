@@ -100,7 +100,7 @@
             return @{ parameterKey : @"geocode" };
             break;
         case HNKGooglePlaceTypeAutocompleteFilterRegion:
-            return @{ parameterKey : @"regions" };
+            return @{ parameterKey : @"(regions)" };
             break;
         default:
             return @{ };
