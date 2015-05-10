@@ -23,6 +23,7 @@
 // THE SOFTWARE.
 //
 
+#import "HNKGooglePlacesAutocompleteQueryConfig.h"
 #import "HNKGooglePlacesAutocompleteQueryResponse.h"
 
 typedef void (^HNKGooglePlacesAutocompleteQueryCallback)(NSArray *places,
@@ -108,6 +109,18 @@ extern NSString *HNKGooglePlacesAutocompleteQueryDescriptionForErrorCode(
  */
 - (void)fetchPlacesForSearchQuery:(NSString *)searchQuery
                        completion:
-                           (HNKGooglePlacesAutocompleteQueryCallback)completion;
+(HNKGooglePlacesAutocompleteQueryCallback)completion;
+
+/**
+ *  Fetches Places given a search query and query configuration
+ *
+ *  @param searchQuery   String to search for Places with
+ *  @param configuration Configuration for the request (e.g. search raidus)
+ *  @param completion    Block to be executed when the fetch finishes
+ */
+- (void)fetchPlacesForSearchQuery:(NSString *)searchQuery
+                    configuration:(HNKGooglePlacesAutocompleteQueryConfig *)configuration
+                       completion:
+(HNKGooglePlacesAutocompleteQueryCallback)completion;
 
 @end
