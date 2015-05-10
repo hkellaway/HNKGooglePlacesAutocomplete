@@ -29,7 +29,7 @@
 #import "CLPlacemark+HNKAdditions.h"
 
 static NSString *const kHNKGooglePlacesServerRequestPathDetails =
-    @"details/json";
+@"details/json";
 
 @implementation CLPlacemark (HNKAdditions)
 
@@ -92,19 +92,19 @@ static NSString *const kHNKGooglePlacesServerRequestPathDetails =
               completion:(void (^)(CLPlacemark *placemark,
                                    NSString *addressString,
                                    NSError *error))completion {
-
-  CLGeocoder *geocoder = [[CLGeocoder alloc] init];
-
-  if (addressString != nil) {
-    [self geocodeAddress:addressString
-                forPlace:place
-            withGeocoder:geocoder
-              completion:completion];
-  } else {
-    [self geocodePlaceName:place.name
-              withGeocoder:geocoder
-                completion:completion];
-  }
+    
+    CLGeocoder *geocoder = [[CLGeocoder alloc] init];
+    
+    if (addressString != nil) {
+        [self geocodeAddress:addressString
+                    forPlace:place
+                withGeocoder:geocoder
+                  completion:completion];
+    } else {
+        [self geocodePlaceName:place.name
+                  withGeocoder:geocoder
+                    completion:completion];
+    }
 }
 
 + (void)geocodeAddress:(NSString *)address
@@ -113,20 +113,20 @@ static NSString *const kHNKGooglePlacesServerRequestPathDetails =
             completion:(void (^)(CLPlacemark *placemark,
                                  NSString *addressString,
                                  NSError *error))completion {
-  [geocoder geocodeAddressString:address
-               completionHandler:^(NSArray *placemarks, NSError *error) {
-
-                 if (error) {
-                   [self geocodePlaceName:place.name
-                             withGeocoder:geocoder
-                               completion:completion];
-                 } else {
-                   [self completeWithPlacemarks:placemarks
-                                        address:address
+    [geocoder geocodeAddressString:address
+                 completionHandler:^(NSArray *placemarks, NSError *error) {
+                     
+                     if (error) {
+                         [self geocodePlaceName:place.name
+                                   withGeocoder:geocoder
                                      completion:completion];
-                 }
-
-               }];
+                     } else {
+                         [self completeWithPlacemarks:placemarks
+                                              address:address
+                                           completion:completion];
+                     }
+                     
+                 }];
 }
 
 + (void)geocodePlaceName:(NSString *)placeName
@@ -134,18 +134,18 @@ static NSString *const kHNKGooglePlacesServerRequestPathDetails =
               completion:(void (^)(CLPlacemark *placemark,
                                    NSString *addressString,
                                    NSError *error))completion {
-  [geocoder geocodeAddressString:placeName
-               completionHandler:^(NSArray *placemarks, NSError *error) {
-
-                 if (error) {
-                   completion(nil, nil, error);
-                 } else {
-                   [self completeWithPlacemarks:placemarks
-                                        address:placeName
-                                     completion:completion];
-                 }
-
-               }];
+    [geocoder geocodeAddressString:placeName
+                 completionHandler:^(NSArray *placemarks, NSError *error) {
+                     
+                     if (error) {
+                         completion(nil, nil, error);
+                     } else {
+                         [self completeWithPlacemarks:placemarks
+                                              address:placeName
+                                           completion:completion];
+                     }
+                     
+                 }];
 }
 
 + (void)completeWithPlacemarks:(NSArray *)placemarks
@@ -153,8 +153,8 @@ static NSString *const kHNKGooglePlacesServerRequestPathDetails =
                     completion:(void (^)(CLPlacemark *placemark,
                                          NSString *addressString,
                                          NSError *error))completion {
-  CLPlacemark *singlePlacemark = [placemarks count] >= 1 ? placemarks[0] : nil;
-  completion(singlePlacemark, address, nil);
+    CLPlacemark *singlePlacemark = [placemarks count] >= 1 ? placemarks[0] : nil;
+    completion(singlePlacemark, address, nil);
 }
 
 @end
