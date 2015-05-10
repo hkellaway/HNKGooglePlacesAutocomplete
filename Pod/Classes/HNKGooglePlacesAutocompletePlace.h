@@ -29,17 +29,41 @@
  *  Place type groups that can be used to filter autocomplete
  *  search results
  */
-typedef NS_ENUM(NSInteger, HNKGooglePlaceTypesForAutocompleteFilter) {
-    HNKGooglePlaceTypesForAutocompleteFilterUnknown = 0,
-    HNKGooglePlaceTypesForAutocompleteFilterAddress,
-    HNKGooglePlaceTypesForAutocompleteFilterCity,
-    HNKGooglePlaceTypesForAutocompleteFilterEstablishment,
-    HNKGooglePlaceTypesForAutocompleteFilterGeocode,
-    HNKGooglePlaceTypesForAutocompleteFilterRegion
+typedef NS_ENUM(NSInteger, HNKGooglePlaceTypeAutocompleteFilter) {
+    /**
+     *  Unknown filter
+     */
+    HNKGooglePlaceTypeAutocompleteFilterUnknown = 0,
+    /**
+     *  Only geocoding results with a precise address
+     */
+    HNKGooglePlaceTypeAutocompleteFilterAddress,
+    /**
+     *  Results that match Locality or Administrative
+     *  Area Level 1
+     */
+    HNKGooglePlaceTypeAutocompleteFilterCity,
+    /**
+     *  Only business results
+     */
+    HNKGooglePlaceTypeAutocompleteFilterEstablishment,
+    /**
+     *  Only geocoding results, rather than business results
+     *
+     *  Note: Generally, used to disambiguate results where
+     *  the location specified may be indeterminate
+     */
+    HNKGooglePlaceTypeAutocompleteFilterGeocode,
+    /**
+     *  Results matching the following types: Locality,
+     *  Sub-locality, Postal code, Country, Administrative
+     *  Area Level 1, Administrative Area Level 2
+     */
+    HNKGooglePlaceTypeAutocompleteFilterRegion
 };
 
 /**
- *  Place types
+ *  All Place types
  */
 typedef NS_ENUM(NSInteger, HNKGooglePlaceType) {
     HNKGooglePlaceTypeUnknown = 0,
