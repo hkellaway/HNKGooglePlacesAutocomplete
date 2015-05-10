@@ -118,6 +118,8 @@ extern NSString *HNKGooglePlacesAutocompleteQueryDescriptionForErrorCode(
 /**
  *  Fetches Places given a search query and query configuration
  *
+ *  Note: If configuration is nil, the default configuration will be used
+ *
  *  @param searchQuery   String to search for Places with
  *  @param configuration Configuration for the request (e.g. search raidus)
  *  @param completion    Block to be executed when the fetch finishes
