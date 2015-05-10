@@ -30,7 +30,7 @@ describe(@"HNKGooglePlacesAutocompleteQueryConfig", ^{
                 
                 NSDictionary *params = [testInstance translateToServerRequestParameters];
                 
-                [[params should] equal:nil];
+                [[params should] equal:@{ }];
                 
             });
             
@@ -52,14 +52,31 @@ describe(@"HNKGooglePlacesAutocompleteQueryConfig", ^{
                 location.latitude = 50.0;
                 location.longitude = 150.0;
                 
+                testInstance.location = location;
+                
+                NSDictionary *params = [testInstance translateToServerRequestParameters];
+                
+                [[params should] equal:@{
+                                         @"location" : @"50.000000,150.000000"
+                                         }];
+                
                 testInstance.country = @"abc";
                 testInstance.language = @"def";
-                testInstance.location = location;
                 testInstance.offset = 100;
+                
+                params = [testInstance translateToServerRequestParameters];
+                
+                [[params should] equal:@{
+                                         @"components=country" : @"abc",
+                                         @"language" : @"def",
+                                         @"location" : @"50.000000,150.000000",
+                                         @"offset" : @(100)
+                                         }];
+                
                 testInstance.searchRadius = 1000;
                 testInstance.types = @[ @(HNKGooglePlaceTypeColloquialArea) ];
                 
-                NSDictionary *params = [testInstance translateToServerRequestParameters];
+                params = [testInstance translateToServerRequestParameters];
                 
                 [[params should] equal:@{
                                          @"components=country" : @"abc",
