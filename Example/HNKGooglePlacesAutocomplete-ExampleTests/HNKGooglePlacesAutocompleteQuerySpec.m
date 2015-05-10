@@ -36,7 +36,7 @@ describe(@"HNKGooglePlacesAutocompleteQuery", ^{
     });
 
     describe(
-        @"Method: fetchPlacesForSearchQuery:completion:",
+        @"Method: fetchPlacesForSearchQuery:configuration:completion:",
         ^{
             typedef void (^HNKGooglePlacesServerCallback)(id JSON, NSError *error);
 
@@ -45,14 +45,20 @@ describe(@"HNKGooglePlacesAutocompleteQuery", ^{
                    [[HNKGooglePlacesServer should]
                              receive:@selector(GET:parameters:completion:)
                        withArguments:@"autocomplete/json",
-                                     @{ @"input" : @"Vict",
-                                        @"key" : testInstance.apiKey,
-                                        @"radius" : @500 },
+                                     any(),
                                      any()];
 
-                   [[HNKGooglePlacesAutocompleteQuery sharedQuery] fetchPlacesForSearchQuery:@"Vict" completion:nil];
+                   [testInstance fetchPlacesForSearchQuery:@"Vict" configuration:nil completion:nil];
 
                });
+            
+            context(@"No configuration provided", ^{
+                
+                it(@"Should use default configuation", ^{
+                    
+                });
+                
+            });
 
             context(
                 @"Invalid search query",
