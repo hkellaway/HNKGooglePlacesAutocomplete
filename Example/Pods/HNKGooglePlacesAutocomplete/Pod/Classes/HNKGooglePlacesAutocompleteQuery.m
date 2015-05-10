@@ -144,9 +144,11 @@ static HNKGooglePlacesAutocompleteQuery *sharedQuery = nil;
 - (void)fetchPlacesForSearchQuery:(NSString *)searchQuery
                     configuration:(HNKGooglePlacesAutocompleteQueryConfig *)configuration
                        completion:(HNKGooglePlacesAutocompleteQueryCallback)completion {
+    HNKGooglePlacesAutocompleteQueryConfig *configForRequest = (configuration == nil) ? [self defaultConfiguration] : configuration;
+    
     if ([self isValidSearchQuery:searchQuery]) {
         
-        [self serverRequestWithSearchQuery:searchQuery configuration:configuration completion:completion];
+        [self serverRequestWithSearchQuery:searchQuery configuration:configForRequest completion:completion];
         
     } else {
         

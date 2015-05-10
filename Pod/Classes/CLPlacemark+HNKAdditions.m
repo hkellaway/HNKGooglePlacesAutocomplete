@@ -77,12 +77,6 @@ static NSString *const kHNKGooglePlacesServerRequestPathDetails =
                                 NSString *address = JSON[@"result"][@"formatted_address"];
                                 completion(address, nil);
                                 
-                                if (address != nil) {
-                                    completion(address, nil);
-                                } else {
-                                    completion(nil, nil);
-                                }
-                                
                             }
                         }];
     }
@@ -91,23 +85,6 @@ static NSString *const kHNKGooglePlacesServerRequestPathDetails =
 + (BOOL)isSolelyGeocodePlace:(HNKGooglePlacesAutocompletePlace *)place
 {
     return (([place.types count] == 1) && [place isPlaceType:HNKGooglePlaceTypeGeocode]);
-}
-
-+ (NSString *)addressFromPlaceDetailsDictionary:
-        (NSDictionary *)placeDetailsDictionary {
-  NSDictionary *resultDictionary = placeDetailsDictionary[@"result"];
-
-  if (resultDictionary != nil) {
-    NSString *address = resultDictionary[@"formatted_address"];
-
-    if (address != nil) {
-      return address;
-    }
-
-    return nil;
-  }
-
-  return nil;
 }
 
 + (void)completeForPlace:(HNKGooglePlacesAutocompletePlace *)place
