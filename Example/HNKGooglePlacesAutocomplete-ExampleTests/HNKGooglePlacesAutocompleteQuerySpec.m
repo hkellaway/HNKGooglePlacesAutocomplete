@@ -81,6 +81,30 @@ describe(@"HNKGooglePlacesAutocompleteQuery", ^{
                 });
                 
             });
+            
+            context(@"Configuration provided", ^{
+                
+                it(@"Should use custom configuration", ^{
+                    
+                    [[HNKGooglePlacesServer should]
+                     receive:@selector(GET:parameters:completion:)
+                     withArguments:@"autocomplete/json",
+                     @{
+                       @"components=country" : @"fr",
+                       @"input" : @"Vict",
+                       @"key" : testInstance.apiKey,
+                       @"language" : @"pt_BR",
+                       @"location" : @"50.000000,150.000000",
+                       @"offset" : @(50),
+                       @"radius" : @(100)
+                       },
+                     any()];
+                    
+                    [testInstance fetchPlacesForSearchQuery:@"Vict" configuration:testConfig completion:nil];
+                    
+                });
+                
+            });
 
             context(
                 @"Invalid search query",
@@ -327,6 +351,14 @@ describe(@"HNKGooglePlacesAutocompleteQuery", ^{
                 });
             
             describe(@"Method: fetchPlacesForSearchQuery:completion:", ^{
+
+                it(@"Should call designated fetchPlaces", ^{
+                    
+                    [[testInstance should] receive:@selector(fetchPlacesForSearchQuery:configuration:completion:)];
+                    
+                    [testInstance fetchPlacesForSearchQuery:@"Vict" completion:nil];
+                    
+                });
                 
                 it(@"Should use default configuration", ^{
                     
