@@ -120,9 +120,13 @@ static HNKGooglePlacesAutocompleteQuery *sharedQuery = nil;
 - (HNKGooglePlacesAutocompleteQueryConfig *)defaultConfiguration {
     HNKGooglePlacesAutocompleteQueryConfig *configuration = [[HNKGooglePlacesAutocompleteQueryConfig alloc] init];
     
+    struct HNKGooglePlacesAutocompleteLocation location;
+    location.latitude = 0;
+    location.longitude = 0;
+    
     configuration.country = nil;
     configuration.language = nil;
-    configuration.location = nil;
+    configuration.location = location;
     configuration.offset = NSNotFound;
     configuration.searchRadius = kHNKGooglePlacesAutocompleteDefaultSearchRadius;
     configuration.types = @[];
