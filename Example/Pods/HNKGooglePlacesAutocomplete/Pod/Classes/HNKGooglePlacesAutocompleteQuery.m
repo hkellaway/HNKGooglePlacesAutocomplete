@@ -196,7 +196,7 @@ static HNKGooglePlacesAutocompleteQuery *sharedQuery = nil;
                                            @"key" : self.apiKey
                                            }];
     
-    return parameters;
+    return [parameters copy];
 }
 
 - (void)completeWithServerResponse:(NSDictionary *)JSON
