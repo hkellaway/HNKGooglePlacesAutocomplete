@@ -134,12 +134,12 @@
 			isa = PBXGroup;
 			children = (
 				DC345C391AF09F6C009D3645 /* Networking */,
-				DCFAD4BD1AF32BEC0042BB22 /* HNKGooglePlacesAutocompleteQuerySpec.m */,
-				DC1699511AFF03C9000D8E26 /* HNKGooglePlacesAutocompleteQueryConfigSpec.m */,
-				DC345C2E1AEDC5C8009D3645 /* HNKGooglePlacesAutocompleteQueryResponseSpec.m */,
 				DC345C291AEDA518009D3645 /* HNKGooglePlacesAutocompletePlaceSpec.m */,
 				DC0A83F51AED8F1D001EB35D /* HNKGooglePlacesAutocompletePlaceSubstringSpec.m */,
 				DC0A83EC1AED8229001EB35D /* HNKGooglePlacesAutocompletePlaceTermSpec.m */,
+				DCFAD4BD1AF32BEC0042BB22 /* HNKGooglePlacesAutocompleteQuerySpec.m */,
+				DC1699511AFF03C9000D8E26 /* HNKGooglePlacesAutocompleteQueryConfigSpec.m */,
+				DC345C2E1AEDC5C8009D3645 /* HNKGooglePlacesAutocompleteQueryResponseSpec.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";

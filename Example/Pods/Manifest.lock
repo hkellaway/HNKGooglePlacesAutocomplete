@@ -40,24 +40,24 @@ PODS:
 
 DEPENDENCIES:
   - HNKGooglePlacesAutocomplete (from `https://github.com/hkellaway/HNKGooglePlacesAutocomplete.git`,
-    branch `release/0.4.0`)
+    branch `feature/query_config_for_fetch`)
   - Kiwi (~> 2.3)
 
 EXTERNAL SOURCES:
   HNKGooglePlacesAutocomplete:
-    :branch: release/0.4.0
+    :branch: feature/query_config_for_fetch
     :git: https://github.com/hkellaway/HNKGooglePlacesAutocomplete.git
 
 CHECKOUT OPTIONS:
   HNKGooglePlacesAutocomplete:
-    :commit: 1be2c7e3fcfc0c78ab7b3e8f107c174ee2e2cb0a
+    :commit: 7bce664c521c91e5ba23e9b364f608942012f4b2
     :git: https://github.com/hkellaway/HNKGooglePlacesAutocomplete.git
 
 SPEC CHECKSUMS:
   AFNetworking: e1d86c2a96bb5d2e7408da36149806706ee122fe
-  HNKGooglePlacesAutocomplete: 843c6e5164e9b4f4794528a1bfd9a7664c8d9f18
+  HNKGooglePlacesAutocomplete: 768f7694cd34bf1704de7bb3a5d3ce1e92868653
   HNKServerFacade: 54102383a22b3aa61171574ad0b50ff24fd504cd
   Kiwi: f038a6c61f7a9e4d7766bff5717aa3b3fdb75f55
   Mantle: 60acd0cd363e27d945bda0a6b8e90577112d28f3
 
-COCOAPODS: 0.36.4
+COCOAPODS: 0.36.3
