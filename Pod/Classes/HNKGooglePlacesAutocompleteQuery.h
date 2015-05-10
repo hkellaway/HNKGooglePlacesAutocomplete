@@ -84,6 +84,11 @@ extern NSString *HNKGooglePlacesAutocompleteQueryDescriptionForErrorCode(
  */
 @property(nonatomic, copy, readonly) NSString *apiKey;
 
+/**
+ *  Default configuration for requests
+ */
+@property(nonatomic, strong, readonly) HNKGooglePlacesAutocompleteQueryConfig *defaultConfiguration;
+
 #pragma mark - Initialization
 
 /**
