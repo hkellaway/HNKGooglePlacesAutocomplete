@@ -67,6 +67,7 @@ static NSString *const
 @interface HNKGooglePlacesAutocompleteQuery ()
 
 @property(nonatomic, copy, readwrite) NSString *apiKey;
+@property(nonatomic, strong, readwrite) HNKGooglePlacesAutocompleteQueryConfig *defaultConfiguration;
 
 @end
 
@@ -118,20 +119,27 @@ static HNKGooglePlacesAutocompleteQuery *sharedQuery = nil;
 }
 
 - (HNKGooglePlacesAutocompleteQueryConfig *)defaultConfiguration {
-    HNKGooglePlacesAutocompleteQueryConfig *configuration = [[HNKGooglePlacesAutocompleteQueryConfig alloc] init];
     
-    struct HNKGooglePlacesAutocompleteLocation location;
-    location.latitude = 0;
-    location.longitude = 0;
-    
-    configuration.country = nil;
-    configuration.language = nil;
-    configuration.location = location;
-    configuration.offset = NSNotFound;
-    configuration.searchRadius = kHNKGooglePlacesAutocompleteDefaultSearchRadius;
-    configuration.filter = HNKGooglePlaceTypeAutocompleteFilterAll;
-    
-    return configuration;
+    if(_defaultConfiguration != nil) {
+        return _defaultConfiguration;
+    } else {
+        HNKGooglePlacesAutocompleteQueryConfig *configuration = [[HNKGooglePlacesAutocompleteQueryConfig alloc] init];
+        
+        struct HNKGooglePlacesAutocompleteLocation location;
+        location.latitude = 0;
+        location.longitude = 0;
+        
+        configuration.country = nil;
+        configuration.language = nil;
+        configuration.location = location;
+        configuration.offset = NSNotFound;
+        configuration.searchRadius = kHNKGooglePlacesAutocompleteDefaultSearchRadius;
+        configuration.filter = HNKGooglePlaceTypeAutocompleteFilterAll;
+        
+        _defaultConfiguration = configuration;
+        
+        return _defaultConfiguration;
+    }
 }
 
 #pragma mark - Requests
