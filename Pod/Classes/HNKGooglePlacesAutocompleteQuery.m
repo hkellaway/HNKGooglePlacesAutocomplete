@@ -119,18 +119,24 @@ static HNKGooglePlacesAutocompleteQuery *sharedQuery = nil;
 
 #pragma mark - Requests
 
+- (void)fetchPlacesForSearchQuery:(NSString *)searchQuery completion:(HNKGooglePlacesAutocompleteQueryCallback)completion
+{
+    [self fetchPlacesForSearchQuery:searchQuery configuration:nil completion:completion];
+}
+
 - (void)fetchPlacesForSearchQuery:(NSString *)searchQuery
+                    configuration:(HNKGooglePlacesAutocompleteQueryConfig *)configuration
                        completion:(HNKGooglePlacesAutocompleteQueryCallback)
-                                      completion {
-  if ([self isValidSearchQuery:searchQuery]) {
-
-    [self serverRequestWithSearchQuery:searchQuery completion:completion];
-
-  } else {
-
-    [self completeWithErrorForInvalidSearchQuery:searchQuery
-                                      completion:completion];
-  }
+completion {
+    if ([self isValidSearchQuery:searchQuery]) {
+        
+        [self serverRequestWithSearchQuery:searchQuery configuration:configuration completion:completion];
+        
+    } else {
+        
+        [self completeWithErrorForInvalidSearchQuery:searchQuery
+                                          completion:completion];
+    }
 }
 
 #pragma mark - Helpers
