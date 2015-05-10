@@ -80,4 +80,10 @@ typedef struct HNKGooglePlacesAutocompleteLocation
  */
 @property (nonatomic, strong) NSArray *types;
 
+/**
+ *  Translation of properties into parameter dictionary for
+ *  requests to Google Places API
+ */
+- (NSDictionary *)translateToServerRequestParameters;
+
 @end
