@@ -53,7 +53,7 @@ typedef struct HNKGooglePlacesAutocompleteLocation
  *
  *  @warning Both latitude and longitude should be set
  */
-@property (nonatomic, assign) HNKGooglePlacesAutocompleteLocation *location;
+@property (nonatomic, assign) HNKGooglePlacesAutocompleteLocation location;
 
 /**
  *  The position, in the input term, of the last character that the
@@ -79,5 +79,11 @@ typedef struct HNKGooglePlacesAutocompleteLocation
  *   The accepted HNKGooglePlaceTypes of Places returned
  */
 @property (nonatomic, strong) NSArray *types;
+
+/**
+ *  Translation of properties into parameter dictionary for
+ *  requests to Google Places API
+ */
+- (NSDictionary *)translateToServerRequestParameters;
 
 @end
