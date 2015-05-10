@@ -37,7 +37,7 @@ beforeAll(^{
     testConfig.location = testLocation;
     testConfig.offset = 50;
     testConfig.searchRadius = 100;
-    testConfig.types = @[ @(HNKGooglePlaceTypeColloquialArea) ];
+    testConfig.filter = HNKGooglePlaceTypeAutocompleteFilterCity;
     
     defaultConfig = testInstance.defaultConfiguration;
     
@@ -96,7 +96,8 @@ describe(@"HNKGooglePlacesAutocompleteQuery", ^{
                        @"language" : @"pt_BR",
                        @"location" : @"50.000000,150.000000",
                        @"offset" : @(50),
-                       @"radius" : @(100)
+                       @"radius" : @(100),
+                       @"types" : @"(cities)"
                        },
                      any()];
                     
