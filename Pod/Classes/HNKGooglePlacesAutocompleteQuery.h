@@ -108,8 +108,7 @@ extern NSString *HNKGooglePlacesAutocompleteQueryDescriptionForErrorCode(
  *  @param completion  Block to be executed when the fetch finishes
  */
 - (void)fetchPlacesForSearchQuery:(NSString *)searchQuery
-                       completion:
-(HNKGooglePlacesAutocompleteQueryCallback)completion;
+                       completion:(HNKGooglePlacesAutocompleteQueryCallback)completion;
 
 /**
  *  Fetches Places given a search query and query configuration
@@ -120,7 +119,6 @@ extern NSString *HNKGooglePlacesAutocompleteQueryDescriptionForErrorCode(
  */
 - (void)fetchPlacesForSearchQuery:(NSString *)searchQuery
                     configuration:(HNKGooglePlacesAutocompleteQueryConfig *)configuration
-                       completion:
-(HNKGooglePlacesAutocompleteQueryCallback)completion;
+                       completion:(HNKGooglePlacesAutocompleteQueryCallback)completion;
 
 @end
