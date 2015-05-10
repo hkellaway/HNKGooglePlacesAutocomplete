@@ -24,8 +24,60 @@
 
 #import <Foundation/Foundation.h>
 
+typedef struct HNKGooglePlacesAutocompleteLocation
+{
+    double latitude;
+    double longitude;
+} HNKGooglePlacesAutocompleteLocation;
+
 @interface HNKGooglePlacesAutocompleteQueryConfig : NSObject
 
+/**
+ *  Country to which you would like to restrict your results
+ *
+ *  Note: The country must be passed as a two character, ISO
+ *  3166-1 Alpha-2 compatible country code
+ */
+@property (nonatomic, copy) NSString *country;
+
+/**
+ *  The language in which to return results
+ *
+ *  Note: List of supported domain languages can be found here:
+ *  https://developers.google.com/maps/faq#languagesupportNote
+ */
+@property (nonatomic, copy) NSString *language;
+
+/**
+ *  The point around which you wish to retrieve place information
+ *
+ *  @warning Both latitude and longitude should be set
+ */
+@property (nonatomic, assign) HNKGooglePlacesAutocompleteLocation *location;
+
+/**
+ *  The position, in the input term, of the last character that the
+ *  service uses to match predictions
+ *
+ *  @discussion: For example, if the input is 'Google' and the offset
+ *  is 3, the service will match on 'Goo'. The string determined by the
+ *  offset is matched against the first word in the input term only.
+ *  For example, if the input term is 'Google abc' and the offset is 3,
+ *  the service will attempt to match against 'Goo abc'.
+ */
+@property (nonatomic, assign) NSInteger offset;
+
+/**
+ *  The distance (in meters) within which to return place results
+ *
+ *  Note: Results will be biased to the indicated area, but may not
+ *  be fully restricted to the specified area
+ */
 @property (nonatomic, assign) NSInteger searchRadius;
+
+/**
+ *   The accepted HNKGooglePlaceTypes of Places returned
+ */
+@property (nonatomic, strong) NSArray *types;
 
 @end
