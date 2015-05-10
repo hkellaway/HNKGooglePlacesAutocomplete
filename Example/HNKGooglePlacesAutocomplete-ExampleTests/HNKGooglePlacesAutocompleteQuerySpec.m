@@ -37,7 +37,7 @@ beforeAll(^{
     testConfig.location = testLocation;
     testConfig.offset = 50;
     testConfig.searchRadius = 100;
-    testConfig.types = @[ @(HNKGooglePlaceTypeColloquialArea) ];
+    testConfig.filter = HNKGooglePlaceTypeAutocompleteFilterAll;
     
     defaultConfig = testInstance.defaultConfiguration;
     

@@ -74,7 +74,7 @@ describe(@"HNKGooglePlacesAutocompleteQueryConfig", ^{
                                          }];
                 
                 testInstance.searchRadius = 1000;
-                testInstance.types = @[ @(HNKGooglePlaceTypeColloquialArea) ];
+                testInstance.filter = HNKGooglePlaceTypeAutocompleteFilterAll;
                 
                 params = [testInstance translateToServerRequestParameters];
                 
