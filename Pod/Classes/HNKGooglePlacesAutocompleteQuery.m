@@ -178,12 +178,37 @@ static HNKGooglePlacesAutocompleteQuery *sharedQuery = nil;
 }
 
 - (NSDictionary *)serverRequestParametersForSearchQuery:(NSString *)searchQuery configuration:(HNKGooglePlacesAutocompleteQueryConfig *)configuration {
+    NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
+    [parameters addEntriesFromDictionary:@{
+                                           @"input" : searchQuery,
+                                           @"key" : self.apiKey,
+                                           @"radius" : @(configuration.searchRadius)
+                                           }];
     
-    return @{
-             @"input" : searchQuery,
-             @"key" : self.apiKey,
-             @"radius" : @(configuration.searchRadius)
-             };
+    if(configuration.country) {
+        [parameters addEntriesFromDictionary:@{ @"components=country" : configuration.country }];
+    }
+    
+    if(configuration.language) {
+        [parameters addEntriesFromDictionary:@{ @"language" : configuration.language }];
+    }
+    
+    if(configuration.location) {
+        
+        NSString *locationParameter = [NSString stringWithFormat:@"%f,%f", configuration.location->latitude, configuration.location->longitude];
+        [parameters addEntriesFromDictionary:@{ @"location" : locationParameter }];
+        
+    }
+    
+    if(configuration.offset != NSNotFound) {
+        [parameters addEntriesFromDictionary:@{ @"offset" : @(configuration.offset) }];
+    }
+    
+    if(configuration.types) {
+        // TODO: add support for high-level types
+    }
+    
+    return parameters;
 }
 
 - (void)completeWithServerResponse:(NSDictionary *)JSON
