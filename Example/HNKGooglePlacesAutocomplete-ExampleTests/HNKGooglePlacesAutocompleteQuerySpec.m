@@ -20,26 +20,36 @@
 SPEC_BEGIN(HNKGooglePlacesAutocompleteQuerySpec)
 
 __block HNKGooglePlacesAutocompleteQuery *testInstance;
+__block HNKGooglePlacesAutocompleteQueryConfig *testConfig;
+__block HNKGooglePlacesAutocompleteQueryConfig *defaultConfig;
 
 beforeAll(^{
 
     testInstance = [HNKGooglePlacesAutocompleteQuery sharedQuery];
-
+    
+    struct HNKGooglePlacesAutocompleteLocation testLocation;
+    testLocation.latitude = 50;
+    testLocation.longitude = 150;
+    
+    testConfig = [[HNKGooglePlacesAutocompleteQueryConfig alloc] init];
+    testConfig.country = @"fr";
+    testConfig.language = @"pt_BR";
+    testConfig.location = testLocation;
+    testConfig.offset = 50;
+    testConfig.searchRadius = 100;
+    testConfig.types = @[ @(HNKGooglePlaceTypeColloquialArea) ];
+    
+    defaultConfig = testInstance.defaultConfiguration;
+    
 });
 
 describe(@"HNKGooglePlacesAutocompleteQuery", ^{
-
-    specify(^{
-
-        [[testInstance should] beNonNil];
-
-    });
 
     describe(
         @"Method: fetchPlacesForSearchQuery:configuration:completion:",
         ^{
             typedef void (^HNKGooglePlacesServerCallback)(id JSON, NSError *error);
-
+            
             it(@"Should make a GET request to the Server",
                ^{
                    [[HNKGooglePlacesServer should]
@@ -54,7 +64,19 @@ describe(@"HNKGooglePlacesAutocompleteQuery", ^{
             
             context(@"No configuration provided", ^{
                 
-                it(@"Should use default configuation", ^{
+                it(@"Should use default configuration", ^{
+                    
+                    [[HNKGooglePlacesServer should]
+                     receive:@selector(GET:parameters:completion:)
+                     withArguments:@"autocomplete/json",
+                        @{
+                          @"input" : @"Vict",
+                          @"key" : testInstance.apiKey,
+                          @"radius" : @(500)
+                          },
+                     any()];
+                    
+                    [testInstance fetchPlacesForSearchQuery:@"Vict" configuration:nil completion:nil];
                     
                 });
                 
@@ -303,6 +325,26 @@ describe(@"HNKGooglePlacesAutocompleteQuery", ^{
 
                         });
                 });
+            
+            describe(@"Method: fetchPlacesForSearchQuery:completion:", ^{
+                
+                it(@"Should use default configuration", ^{
+                    
+                    [[HNKGooglePlacesServer should]
+                     receive:@selector(GET:parameters:completion:)
+                     withArguments:@"autocomplete/json",
+                     @{
+                       @"input" : @"Vict",
+                       @"key" : testInstance.apiKey,
+                       @"radius" : @(500)
+                       },
+                     any()];
+                    
+                    [testInstance fetchPlacesForSearchQuery:@"Vict" completion:nil];
+                    
+                });
+                
+            });
 
         });
 
