@@ -114,33 +114,19 @@ static HNKGooglePlacesAutocompleteQuery *sharedQuery = nil;
 #pragma mark - Getters
 
 - (NSString *)apiKey {
-  return _apiKey;
+    return _apiKey;
 }
-
-#pragma mark - Requests
-
-- (void)fetchPlacesForSearchQuery:(NSString *)searchQuery
-                       completion:(HNKGooglePlacesAutocompleteQueryCallback)
-                                      completion {
-  if ([self isValidSearchQuery:searchQuery]) {
-
-    [self serverRequestWithSearchQuery:searchQuery completion:completion];
-
-  } else {
-
-    [self completeWithErrorForInvalidSearchQuery:searchQuery
-                                      completion:completion];
-  }
-}
-
-#pragma mark - Helpers
 
 - (HNKGooglePlacesAutocompleteQueryConfig *)defaultConfiguration {
     HNKGooglePlacesAutocompleteQueryConfig *configuration = [[HNKGooglePlacesAutocompleteQueryConfig alloc] init];
     
-    configuration.country = @"";
-    configuration.language = @"";
-    configuration.location = nil;
+    struct HNKGooglePlacesAutocompleteLocation location;
+    location.latitude = 0;
+    location.longitude = 0;
+    
+    configuration.country = nil;
+    configuration.language = nil;
+    configuration.location = location;
     configuration.offset = NSNotFound;
     configuration.searchRadius = kHNKGooglePlacesAutocompleteDefaultSearchRadius;
     configuration.types = @[];
@@ -148,35 +134,67 @@ static HNKGooglePlacesAutocompleteQuery *sharedQuery = nil;
     return configuration;
 }
 
+#pragma mark - Requests
+
+- (void)fetchPlacesForSearchQuery:(NSString *)searchQuery completion:(HNKGooglePlacesAutocompleteQueryCallback)completion
+{
+    [self fetchPlacesForSearchQuery:searchQuery configuration:[self defaultConfiguration] completion:completion];
+}
+
+- (void)fetchPlacesForSearchQuery:(NSString *)searchQuery
+                    configuration:(HNKGooglePlacesAutocompleteQueryConfig *)configuration
+                       completion:(HNKGooglePlacesAutocompleteQueryCallback)completion {
+    if ([self isValidSearchQuery:searchQuery]) {
+        
+        [self serverRequestWithSearchQuery:searchQuery configuration:configuration completion:completion];
+        
+    } else {
+        
+        [self completeWithErrorForInvalidSearchQuery:searchQuery
+                                          completion:completion];
+    }
+}
+
+#pragma mark - Helpers
+
 - (BOOL)isValidSearchQuery:(NSString *)searchQuery {
-  return ((searchQuery != nil) && ![searchQuery isEqualToString:@""]);
+    return ((searchQuery != nil) && ![searchQuery isEqualToString:@""]);
 }
 
 - (void)serverRequestWithSearchQuery:(NSString *)searchQuery
-                          completion:(HNKGooglePlacesAutocompleteQueryCallback)
-                                         completion {
-  [HNKGooglePlacesServer
-             GET:kHNKGooglePlacesServerRequestPathAutocomplete
-      parameters:@{
-        @"input" : searchQuery,
-        @"key" : self.apiKey,
-        @"radius" : @(kHNKGooglePlacesAutocompleteDefaultSearchRadius)
-      }
-      completion:^(NSDictionary *JSON, NSError *error) {
+                       configuration:(HNKGooglePlacesAutocompleteQueryConfig *)configuration
+                          completion:(HNKGooglePlacesAutocompleteQueryCallback)completion {
+    NSDictionary *parameters = [self serverRequestParametersForSearchQuery:searchQuery configuration:configuration];
+    
+    [HNKGooglePlacesServer
+     GET:kHNKGooglePlacesServerRequestPathAutocomplete
+     parameters:parameters
+     completion:^(NSDictionary *JSON, NSError *error) {
+         
+         if (completion) {
+             
+             if (error) {
+                 
+                 [self completeWithServerError:error completion:completion];
+                 
+             } else {
+                 
+                 [self completeWithServerResponse:JSON completion:completion];
+             }
+         }
+         
+     }];
+}
 
-        if (completion) {
-
-          if (error) {
-
-            [self completeWithServerError:error completion:completion];
-
-          } else {
-
-            [self completeWithServerResponse:JSON completion:completion];
-          }
-        }
-
-      }];
+- (NSDictionary *)serverRequestParametersForSearchQuery:(NSString *)searchQuery configuration:(HNKGooglePlacesAutocompleteQueryConfig *)configuration {
+    NSMutableDictionary *parameters = [[configuration translateToServerRequestParameters] mutableCopy];
+    
+    [parameters addEntriesFromDictionary:@{
+                                           @"input" : searchQuery,
+                                           @"key" : self.apiKey
+                                           }];
+    
+    return parameters;
 }
 
 - (void)completeWithServerResponse:(NSDictionary *)JSON
