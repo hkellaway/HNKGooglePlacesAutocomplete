@@ -26,44 +26,57 @@
 #import "HNKGooglePlacesAutocompleteModel.h"
 
 /**
+ *  Place type groups that can be used to filter autocomplete
+ *  search results
+ */
+typedef NS_ENUM(NSInteger, HNKGooglePlaceTypesForAutocompleteFilter) {
+    HNKGooglePlaceTypesForAutocompleteFilterUnknown = 0,
+    HNKGooglePlaceTypesForAutocompleteFilterAddress,
+    HNKGooglePlaceTypesForAutocompleteFilterCity,
+    HNKGooglePlaceTypesForAutocompleteFilterEstablishment,
+    HNKGooglePlaceTypesForAutocompleteFilterGeocode,
+    HNKGooglePlaceTypesForAutocompleteFilterRegion
+};
+
+/**
  *  Place types
  */
 typedef NS_ENUM(NSInteger, HNKGooglePlaceType) {
-  HNKGooglePlaceTypeUnknown = 0,
-  HNKGooglePlaceTypeAdministrativeAreaLevel1,
-  HNKGooglePlaceTypeAdministrativeAreaLevel2,
-  HNKGooglePlaceTypeAdministrativeAreaLevel3,
-  HNKGooglePlaceTypeAdministrativeAreaLevel4,
-  HNKGooglePlaceTypeAdministrativeAreaLevel5,
-  HNKGooglePlaceTypeColloquialArea,
-  HNKGooglePlaceTypeCountry,
-  HNKGooglePlaceTypeEstablishment,
-  HNKGooglePlaceTypeFloor,
-  HNKGooglePlaceTypeGeocode,
-  HNKGooglePlaceTypeIntersection,
-  HNKGooglePlaceTypeLocality,
-  HNKGooglePlaceTypeNaturalFeature,
-  HNKGooglePlaceTypeNeighborhood,
-  HNKGooglePlaceTypePolitical,
-  HNKGooglePlaceTypePointOfInterest,
-  HNKGooglePlaceTypePostBox,
-  HNKGooglePlaceTypePostalCode,
-  HNKGooglePlaceTypePostalCodePrefix,
-  HNKGooglePlaceTypePostalCodeSuffix,
-  HNKGooglePlaceTypePostalTown,
-  HNKGooglePlaceTypePremise,
-  HNKGooglePlaceTypeRoom,
-  HNKGooglePlaceTypeRoute,
-  HNKGooglePlaceTypeStreetAddress,
-  HNKGooglePlaceTypeStreetNumber,
-  HNKGooglePlaceTypeSublocality,
-  HNKGooglePlaceTypeSublocalityLevel1,
-  HNKGooglePlaceTypeSublocalityLevel2,
-  HNKGooglePlaceTypeSublocalityLevel3,
-  HNKGooglePlaceTypeSublocalityLevel4,
-  HNKGooglePlaceTypeSublocalityLevel5,
-  HNKGooglePlaceTypeSubpremise,
-  HNKGooglePlaceTypeTransitStation
+    HNKGooglePlaceTypeUnknown = 0,
+    HNKGooglePlaceTypeAdministrativeAreaLevel1,
+    HNKGooglePlaceTypeAdministrativeAreaLevel2,
+    HNKGooglePlaceTypeAdministrativeAreaLevel3,
+    HNKGooglePlaceTypeAdministrativeAreaLevel4,
+    HNKGooglePlaceTypeAdministrativeAreaLevel5,
+    HNKGooglePlaceTypeColloquialArea,
+    HNKGooglePlaceTypeCountry,
+    HNKGooglePlaceTypeEstablishment,
+    HNKGooglePlaceTypeFloor,
+    HNKGooglePlaceTypeGeocode,
+    HNKGooglePlaceTypeIntersection,
+    HNKGooglePlaceTypeLocality,
+    HNKGooglePlaceTypeNaturalFeature,
+    HNKGooglePlaceTypeNeighborhood,
+    HNKGooglePlaceTypePolitical,
+    HNKGooglePlaceTypePointOfInterest,
+    HNKGooglePlaceTypePostBox,
+    HNKGooglePlaceTypePostalCode,
+    HNKGooglePlaceTypePostalCodePrefix,
+    HNKGooglePlaceTypePostalCodeSuffix,
+    HNKGooglePlaceTypePostalTown,
+    HNKGooglePlaceTypePremise,
+    HNKGooglePlaceTypeRoom,
+    HNKGooglePlaceTypeRoute,
+    HNKGooglePlaceTypeStreetAddress,
+    HNKGooglePlaceTypeStreetNumber,
+    HNKGooglePlaceTypeSublocality,
+    HNKGooglePlaceTypeSublocalityLevel1,
+    HNKGooglePlaceTypeSublocalityLevel2,
+    HNKGooglePlaceTypeSublocalityLevel3,
+    HNKGooglePlaceTypeSublocalityLevel4,
+    HNKGooglePlaceTypeSublocalityLevel5,
+    HNKGooglePlaceTypeSubpremise,
+    HNKGooglePlaceTypeTransitStation
 };
 
 /**
