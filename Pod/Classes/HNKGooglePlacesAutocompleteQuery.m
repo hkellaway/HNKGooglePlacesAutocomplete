@@ -114,7 +114,20 @@ static HNKGooglePlacesAutocompleteQuery *sharedQuery = nil;
 #pragma mark - Getters
 
 - (NSString *)apiKey {
-  return _apiKey;
+    return _apiKey;
+}
+
+- (HNKGooglePlacesAutocompleteQueryConfig *)defaultConfiguration {
+    HNKGooglePlacesAutocompleteQueryConfig *configuration = [[HNKGooglePlacesAutocompleteQueryConfig alloc] init];
+    
+    configuration.country = nil;
+    configuration.language = nil;
+    configuration.location = nil;
+    configuration.offset = NSNotFound;
+    configuration.searchRadius = kHNKGooglePlacesAutocompleteDefaultSearchRadius;
+    configuration.types = @[];
+    
+    return configuration;
 }
 
 #pragma mark - Requests
@@ -139,14 +152,6 @@ static HNKGooglePlacesAutocompleteQuery *sharedQuery = nil;
 }
 
 #pragma mark - Helpers
-
-- (HNKGooglePlacesAutocompleteQueryConfig *)defaultConfiguration {
-    HNKGooglePlacesAutocompleteQueryConfig *configuration = [[HNKGooglePlacesAutocompleteQueryConfig alloc] init];
-    
-    configuration.searchRadius = kHNKGooglePlacesAutocompleteDefaultSearchRadius;
-    
-    return configuration;
-}
 
 - (BOOL)isValidSearchQuery:(NSString *)searchQuery {
     return ((searchQuery != nil) && ![searchQuery isEqualToString:@""]);
