@@ -26,4 +26,37 @@
 
 @implementation HNKGooglePlacesAutocompleteQueryConfig
 
+- (NSDictionary *)translateToServerRequestParameters {
+    NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
+    
+    if(self.country) {
+        [parameters addEntriesFromDictionary:@{ @"components=country" : self.country }];
+    }
+    
+    if(self.language) {
+        [parameters addEntriesFromDictionary:@{ @"language" : self.language }];
+    }
+    
+    if(self.location) {
+        
+        NSString *locationParameter = [NSString stringWithFormat:@"%f,%f", self.location->latitude, self.location->longitude];
+        [parameters addEntriesFromDictionary:@{ @"location" : locationParameter }];
+        
+    }
+    
+    if(self.offset != NSNotFound) {
+        [parameters addEntriesFromDictionary:@{ @"offset" : @(self.offset) }];
+    }
+    
+    if(self.searchRadius != NSNotFound) {
+        [parameters addEntriesFromDictionary:@{ @"radius" : @(self.searchRadius) }];
+    }
+    
+    if(self.types) {
+        // TODO: add support for high-level types
+    }
+    
+    return parameters;
+}
+
 @end
