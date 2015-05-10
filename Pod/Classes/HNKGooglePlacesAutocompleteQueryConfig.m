@@ -26,6 +26,24 @@
 
 @implementation HNKGooglePlacesAutocompleteQueryConfig
 
+#pragma mark - Initializers
+
+- (instancetype)init
+{
+    self = [super init];
+    
+    if(self) {
+        
+        self.offset = NSNotFound;
+        self.searchRadius = NSNotFound;
+        
+    }
+    
+    return self;
+}
+
+#pragma mark - Methods
+
 - (NSDictionary *)translateToServerRequestParameters {
     NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
     
