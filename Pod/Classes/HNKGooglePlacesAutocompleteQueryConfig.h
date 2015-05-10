@@ -53,7 +53,7 @@ typedef struct HNKGooglePlacesAutocompleteLocation
  *
  *  @warning Both latitude and longitude should be set
  */
-@property (nonatomic, assign) HNKGooglePlacesAutocompleteLocation *location;
+@property (nonatomic, assign) HNKGooglePlacesAutocompleteLocation location;
 
 /**
  *  The position, in the input term, of the last character that the
