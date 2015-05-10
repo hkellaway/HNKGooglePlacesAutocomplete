@@ -24,6 +24,8 @@
 
 #import <Foundation/Foundation.h>
 
+#import "HNKGooglePlacesAutocompletePlace.h"
+
 typedef struct HNKGooglePlacesAutocompleteLocation
 {
     double latitude;
@@ -76,9 +78,9 @@ typedef struct HNKGooglePlacesAutocompleteLocation
 @property (nonatomic, assign) NSInteger searchRadius;
 
 /**
- *   The accepted HNKGooglePlaceTypes of Places returned
+ *   Place type filter to restrict results by
  */
-@property (nonatomic, strong) NSArray *types;
+@property (nonatomic, assign) HNKGooglePlaceTypeAutocompleteFilter filter;
 
 /**
  *  Translation of properties into parameter dictionary for

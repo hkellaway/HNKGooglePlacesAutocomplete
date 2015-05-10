@@ -62,19 +62,17 @@ describe(@"HNKGooglePlacesAutocompleteQueryConfig", ^{
                 
                 testInstance.country = @"abc";
                 testInstance.language = @"def";
-                testInstance.offset = 100;
                 
                 params = [testInstance translateToServerRequestParameters];
                 
                 [[params should] equal:@{
                                          @"components=country" : @"abc",
                                          @"language" : @"def",
-                                         @"location" : @"50.000000,150.000000",
-                                         @"offset" : @(100)
+                                         @"location" : @"50.000000,150.000000"
                                          }];
                 
+                testInstance.offset = 100;
                 testInstance.searchRadius = 1000;
-                testInstance.types = @[ @(HNKGooglePlaceTypeColloquialArea) ];
                 
                 params = [testInstance translateToServerRequestParameters];
                 
@@ -84,6 +82,19 @@ describe(@"HNKGooglePlacesAutocompleteQueryConfig", ^{
                                          @"location" : @"50.000000,150.000000",
                                          @"offset" : @(100),
                                          @"radius" : @(1000)
+                                         }];
+                
+                testInstance.filter = HNKGooglePlaceTypeAutocompleteFilterRegion;
+                
+                params = [testInstance translateToServerRequestParameters];
+                
+                [[params should] equal:@{
+                                         @"components=country" : @"abc",
+                                         @"language" : @"def",
+                                         @"location" : @"50.000000,150.000000",
+                                         @"offset" : @(100),
+                                         @"radius" : @(1000),
+                                         @"types" : @"(regions)"
                                          }];
                 
             });
