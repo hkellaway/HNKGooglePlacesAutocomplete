@@ -12,56 +12,48 @@
 
 SPEC_BEGIN(HNKGooglePlacesAutocompleteQueryConfigSpec)
 
+__block struct HNKGooglePlacesAutocompleteLocation testLocation;
+
+beforeAll(^{
+    
+    testLocation.latitude = 50.0;
+    testLocation.longitude = 150.0;
+    
+});
+
 describe(@"HNKGooglePlacesAutocompleteQueryConfig", ^{
     
-    describe(@"translateToServerRequestParameters", ^{
+    describe(@"Method: initWithCountry:filter:language:location:offset:searchRadius:", ^{
         
-        context(@"No properties set", ^{
+        it(@"Should set properties correctly", ^{
             
-            __block HNKGooglePlacesAutocompleteQueryConfig *testInstance;
+            HNKGooglePlacesAutocompleteQueryConfig *testInstance = [[HNKGooglePlacesAutocompleteQueryConfig alloc] initWithCountry:@"abc" filter:HNKGooglePlaceTypeAutocompleteFilterRegion language:@"def" location:testLocation offset:100 searchRadius:1000];
             
-            beforeEach(^{
-            
-                testInstance = [[HNKGooglePlacesAutocompleteQueryConfig alloc] init];
-                
-            });
-            
-            it(@"Should return nil", ^{
-                
-                NSDictionary *params = [testInstance translateToServerRequestParameters];
-                
-                [[params should] equal:@{ }];
-                
-            });
+            [[testInstance.country should] equal:@"abc"];
+            [[theValue(testInstance.filter) should] equal:theValue(HNKGooglePlaceTypeAutocompleteFilterRegion)];
+            [[testInstance.language should] equal:@"def"];
+            [[theValue(testInstance.location.latitude) should] equal:theValue(50.0)];
+            [[theValue(testInstance.location.longitude) should] equal:theValue(150.0)];
+            [[theValue(testInstance.offset) should] equal:theValue(100)];
+            [[theValue(testInstance.searchRadius) should] equal:theValue(1000)];
             
         });
         
-        context(@"Properties set", ^{
-            
-            __block HNKGooglePlacesAutocompleteQueryConfig *testInstance;
-            
-            beforeEach(^{
-                
-                testInstance = [[HNKGooglePlacesAutocompleteQueryConfig alloc] init];
-                
-            });
-            
+    });
+    
+    describe(@"translateToServerRequestParameters", ^{
+        
             it(@"Should return correct dictionary", ^{
                 
-                struct HNKGooglePlacesAutocompleteLocation location;
-                location.latitude = 50.0;
-                location.longitude = 150.0;
-                
-                testInstance.location = location;
-                
+                HNKGooglePlacesAutocompleteQueryConfig *testInstance = [[HNKGooglePlacesAutocompleteQueryConfig alloc] initWithCountry:nil filter:HNKGooglePlaceTypeAutocompleteFilterAll language:nil location:testLocation offset:NSNotFound searchRadius:NSNotFound];
+
                 NSDictionary *params = [testInstance translateToServerRequestParameters];
                 
                 [[params should] equal:@{
                                          @"location" : @"50.000000,150.000000"
                                          }];
                 
-                testInstance.country = @"abc";
-                testInstance.language = @"def";
+                testInstance = [[HNKGooglePlacesAutocompleteQueryConfig alloc] initWithCountry:@"abc" filter:HNKGooglePlaceTypeAutocompleteFilterAll language:@"def" location:testLocation offset:NSNotFound searchRadius:NSNotFound];
                 
                 params = [testInstance translateToServerRequestParameters];
                 
@@ -71,8 +63,7 @@ describe(@"HNKGooglePlacesAutocompleteQueryConfig", ^{
                                          @"location" : @"50.000000,150.000000"
                                          }];
                 
-                testInstance.offset = 100;
-                testInstance.searchRadius = 1000;
+                testInstance = [[HNKGooglePlacesAutocompleteQueryConfig alloc] initWithCountry:@"abc" filter:HNKGooglePlaceTypeAutocompleteFilterAll language:@"def" location:testLocation offset:100 searchRadius:1000];
                 
                 params = [testInstance translateToServerRequestParameters];
                 
@@ -84,7 +75,7 @@ describe(@"HNKGooglePlacesAutocompleteQueryConfig", ^{
                                          @"radius" : @(1000)
                                          }];
                 
-                testInstance.filter = HNKGooglePlaceTypeAutocompleteFilterRegion;
+                testInstance = [[HNKGooglePlacesAutocompleteQueryConfig alloc] initWithCountry:@"abc" filter:HNKGooglePlaceTypeAutocompleteFilterRegion language:@"def" location:testLocation offset:100 searchRadius:1000];
                 
                 params = [testInstance translateToServerRequestParameters];
                 
@@ -98,8 +89,6 @@ describe(@"HNKGooglePlacesAutocompleteQueryConfig", ^{
                                          }];
                 
             });
-            
-        });
         
     });
     

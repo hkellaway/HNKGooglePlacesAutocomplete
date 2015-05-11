@@ -13,7 +13,7 @@
 
 @interface HNKGooglePlacesAutocompleteQuery (KiwiExposedMethods)
 
-@property (nonatomic, strong) NSString *apiKey;
+- (instancetype)initWithAPIKey:(NSString *)apiKey configuration:(HNKGooglePlacesAutocompleteQueryConfig *)configuration;
 
 @end
 
@@ -25,19 +25,13 @@ __block HNKGooglePlacesAutocompleteQueryConfig *defaultConfig;
 
 beforeAll(^{
 
-    testInstance = [HNKGooglePlacesAutocompleteQuery sharedQuery];
+    testInstance = [[HNKGooglePlacesAutocompleteQuery alloc] initWithAPIKey:@"abc" configuration:nil];
     
     struct HNKGooglePlacesAutocompleteLocation testLocation;
     testLocation.latitude = 50;
     testLocation.longitude = 150;
     
-    testConfig = [[HNKGooglePlacesAutocompleteQueryConfig alloc] init];
-    testConfig.country = @"fr";
-    testConfig.language = @"pt_BR";
-    testConfig.location = testLocation;
-    testConfig.offset = 50;
-    testConfig.searchRadius = 100;
-    testConfig.filter = HNKGooglePlaceTypeAutocompleteFilterCity;
+    testConfig = [[HNKGooglePlacesAutocompleteQueryConfig alloc] initWithCountry:@"fr" filter:HNKGooglePlaceTypeAutocompleteFilterCity language:@"pt_BR" location:testLocation offset:50 searchRadius:100];
     
     defaultConfig = testInstance.defaultConfiguration;
     
@@ -45,6 +39,52 @@ beforeAll(^{
 
 describe(@"HNKGooglePlacesAutocompleteQuery", ^{
 
+    describe(@"Method: defaultConfiguration", ^{
+        
+        context(@"No default configuration provided", ^{
+            
+            __block HNKGooglePlacesAutocompleteQuery *testInstanceNoConfig;
+           
+            beforeEach(^{
+               
+                testInstanceNoConfig = [[HNKGooglePlacesAutocompleteQuery alloc] initWithAPIKey:@"abc" configuration:nil];
+                
+            });
+            
+            it(@"Should return default configuration", ^{
+                
+                HNKGooglePlacesAutocompleteQueryConfig *config = [testInstanceNoConfig defaultConfiguration];
+                
+                [[theValue(config.searchRadius) should] equal:theValue(500)];
+                [[theValue(config.filter) should] equal:theValue(HNKGooglePlaceTypeAutocompleteFilterAll)];
+                
+            });
+            
+        });
+        
+        context(@"Default configuration provided", ^{
+            
+            __block HNKGooglePlacesAutocompleteQuery *testInstanceWithConfig;
+            
+            beforeEach(^{
+               
+                testInstanceWithConfig = [[HNKGooglePlacesAutocompleteQuery alloc] initWithAPIKey:@"abc" configuration:testConfig];
+                
+            });
+            
+            it(@"Should return custom configuration", ^{
+                
+                HNKGooglePlacesAutocompleteQueryConfig *config = [testInstanceWithConfig defaultConfiguration];
+                
+                [[theValue(config.searchRadius) should] equal:theValue(100)];
+                [[theValue(config.filter) should] equal:theValue(HNKGooglePlaceTypeAutocompleteFilterCity)];
+                
+            });
+            
+        });
+        
+    });
+    
     describe(
         @"Method: fetchPlacesForSearchQuery:configuration:completion:",
         ^{
