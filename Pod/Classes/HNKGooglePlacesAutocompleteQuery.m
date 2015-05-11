@@ -78,38 +78,45 @@ static NSString *const
 static HNKGooglePlacesAutocompleteQuery *sharedQuery = nil;
 
 + (instancetype)setupSharedQueryWithAPIKey:(NSString *)apiKey {
-  static dispatch_once_t onceToken;
+    return [self setupSharedQueryWithAPIKey:apiKey configuration:nil];
+}
 
-  dispatch_once(&onceToken, ^{
-    sharedQuery = [[self alloc] initWithAPIKey:apiKey];
-  });
-
-  return sharedQuery;
++(instancetype)setupSharedQueryWithAPIKey:(NSString *)apiKey configuration:(HNKGooglePlacesAutocompleteQueryConfig *)configuration
+{
+    static dispatch_once_t onceToken;
+    
+    dispatch_once(&onceToken, ^{
+        sharedQuery = [[self alloc] initWithAPIKey:apiKey configuration:configuration];
+    });
+    
+    return sharedQuery;
 }
 
 + (instancetype)sharedQuery {
-  NSAssert(
-      sharedQuery != nil,
-      @"sharedQuery should not be called before setupSharedQueryWithAPIKey");
-
-  return sharedQuery;
+    NSAssert(
+             sharedQuery != nil,
+             @"sharedQuery should not be called before setupSharedQueryWithAPIKey");
+    
+    return sharedQuery;
 }
 
-- (instancetype)initWithAPIKey:(NSString *)apiKey {
-  self = [super init];
-
-  if (self) {
-
-    self.apiKey = apiKey;
-  }
-
-  return self;
+- (instancetype)initWithAPIKey:(NSString *)apiKey configuration:(HNKGooglePlacesAutocompleteQueryConfig *)configuration {
+    self = [super init];
+    
+    if (self) {
+        
+        self.apiKey = apiKey;
+        self.defaultConfiguration = configuration;
+        
+    }
+    
+    return self;
 }
 
 - (instancetype)init {
-  NSAssert(FALSE, @"init should not be called");
-
-  return [self initWithAPIKey:@""];
+    NSAssert(FALSE, @"init should not be called");
+    
+    return [self initWithAPIKey:@"" configuration:nil];
 }
 
 #pragma mark - Getters
