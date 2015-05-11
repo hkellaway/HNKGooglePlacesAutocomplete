@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "HNKGooglePlacesAutocomplete"
-  s.version      = "0.4.0"
+  s.version      = "0.5.0"
   s.summary      = "An Objective-C wrapper for the Google Places Autocomplete API"
   s.description  = "An Objective-C wrapper for the GooglePlaces Autocomplete API, inspired by the popular pod SPGooglePlacesAutocomplete created in 2012. HNKGooglePlaces Autocomplete encapsulates the same core functionality - autocomplete suggestions and Google Place-to-CLPlacemark translation - with a more modern and pod-first approach."
   s.homepage     = "https://github.com/hkellaway/HNKGooglePlacesAutocomplete"
