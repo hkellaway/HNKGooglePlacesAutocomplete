@@ -24,22 +24,41 @@
 
 #import "HNKGooglePlacesAutocompleteQueryConfig.h"
 
+@interface HNKGooglePlacesAutocompleteQueryConfig ()
+
+@property (nonatomic, copy, readwrite) NSString *country;
+@property (nonatomic, assign, readwrite) HNKGooglePlaceTypeAutocompleteFilter filter;
+@property (nonatomic, copy, readwrite) NSString *language;
+@property (nonatomic, assign, readwrite) HNKGooglePlacesAutocompleteLocation location;
+@property (nonatomic, assign, readwrite) NSInteger offset;
+@property (nonatomic, assign, readwrite) NSInteger searchRadius;
+
+@end
+
 @implementation HNKGooglePlacesAutocompleteQueryConfig
 
 #pragma mark - Initializers
 
-- (instancetype)init
+- (instancetype)initWithCountry:(NSString *)country filter:(HNKGooglePlaceTypeAutocompleteFilter)filter language:(NSString *)language location:(HNKGooglePlacesAutocompleteLocation)location offset:(NSInteger)offset searchRadius:(NSInteger)searchRadius
 {
     self = [super init];
     
     if(self) {
-        
-        self.offset = NSNotFound;
-        self.searchRadius = NSNotFound;
-        
+        self.country = country;
+        self.filter = filter;
+        self.language = language;
+        self.location = location;
+        self.offset = offset;
+        self.searchRadius = searchRadius;
     }
     
     return self;
+}
+
+- (instancetype)init {
+    NSAssert(FALSE, @"init should not be called");
+    
+    return nil;
 }
 
 #pragma mark - Methods
@@ -55,7 +74,7 @@
         [parameters addEntriesFromDictionary:@{ @"language" : self.language }];
     }
     
-    if(self.location.latitude && self.location.longitude) {
+    if(self.location.latitude != NSNotFound && self.location.longitude != NSNotFound) {
         
         NSString *locationParameter = [NSString stringWithFormat:@"%f,%f", self.location.latitude, self.location.longitude];
         [parameters addEntriesFromDictionary:@{ @"location" : locationParameter }];

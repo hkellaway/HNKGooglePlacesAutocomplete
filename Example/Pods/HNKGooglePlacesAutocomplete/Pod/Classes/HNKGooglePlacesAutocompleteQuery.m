@@ -67,6 +67,7 @@ static NSString *const
 @interface HNKGooglePlacesAutocompleteQuery ()
 
 @property(nonatomic, copy, readwrite) NSString *apiKey;
+@property(nonatomic, strong, readwrite) HNKGooglePlacesAutocompleteQueryConfig *defaultConfiguration;
 
 @end
 
@@ -77,38 +78,48 @@ static NSString *const
 static HNKGooglePlacesAutocompleteQuery *sharedQuery = nil;
 
 + (instancetype)setupSharedQueryWithAPIKey:(NSString *)apiKey {
-  static dispatch_once_t onceToken;
+    return [self setupSharedQueryWithAPIKey:apiKey configuration:nil];
+}
 
-  dispatch_once(&onceToken, ^{
-    sharedQuery = [[self alloc] initWithAPIKey:apiKey];
-  });
-
-  return sharedQuery;
++(instancetype)setupSharedQueryWithAPIKey:(NSString *)apiKey configuration:(HNKGooglePlacesAutocompleteQueryConfig *)configuration
+{
+    NSParameterAssert(apiKey);
+    NSParameterAssert(configuration);
+    
+    static dispatch_once_t onceToken;
+    
+    dispatch_once(&onceToken, ^{
+        sharedQuery = [[self alloc] initWithAPIKey:apiKey configuration:configuration];
+    });
+    
+    return sharedQuery;
 }
 
 + (instancetype)sharedQuery {
-  NSAssert(
-      sharedQuery != nil,
-      @"sharedQuery should not be called before setupSharedQueryWithAPIKey");
-
-  return sharedQuery;
+    NSAssert(
+             sharedQuery != nil,
+             @"sharedQuery should not be called before setupSharedQueryWithAPIKey");
+    
+    return sharedQuery;
 }
 
-- (instancetype)initWithAPIKey:(NSString *)apiKey {
-  self = [super init];
-
-  if (self) {
-
-    self.apiKey = apiKey;
-  }
-
-  return self;
+- (instancetype)initWithAPIKey:(NSString *)apiKey configuration:(HNKGooglePlacesAutocompleteQueryConfig *)configuration {
+    self = [super init];
+    
+    if (self) {
+        
+        self.apiKey = apiKey;
+        self.defaultConfiguration = configuration;
+        
+    }
+    
+    return self;
 }
 
 - (instancetype)init {
-  NSAssert(FALSE, @"init should not be called");
-
-  return [self initWithAPIKey:@""];
+    NSAssert(FALSE, @"init should not be called");
+    
+    return nil;
 }
 
 #pragma mark - Getters
@@ -118,20 +129,18 @@ static HNKGooglePlacesAutocompleteQuery *sharedQuery = nil;
 }
 
 - (HNKGooglePlacesAutocompleteQueryConfig *)defaultConfiguration {
-    HNKGooglePlacesAutocompleteQueryConfig *configuration = [[HNKGooglePlacesAutocompleteQueryConfig alloc] init];
     
-    struct HNKGooglePlacesAutocompleteLocation location;
-    location.latitude = 0;
-    location.longitude = 0;
-    
-    configuration.country = nil;
-    configuration.language = nil;
-    configuration.location = location;
-    configuration.offset = NSNotFound;
-    configuration.searchRadius = kHNKGooglePlacesAutocompleteDefaultSearchRadius;
-    configuration.filter = HNKGooglePlaceTypeAutocompleteFilterAll;
-    
-    return configuration;
+    if(_defaultConfiguration != nil) {
+        return _defaultConfiguration;
+    } else {
+        struct HNKGooglePlacesAutocompleteLocation location;
+        location.latitude = NSNotFound;
+        location.longitude = NSNotFound;
+        
+        _defaultConfiguration = [[HNKGooglePlacesAutocompleteQueryConfig alloc] initWithCountry:nil filter:HNKGooglePlaceTypeAutocompleteFilterAll language:nil location:location offset:NSNotFound searchRadius:kHNKGooglePlacesAutocompleteDefaultSearchRadius];
+        
+        return _defaultConfiguration;
+    }
 }
 
 #pragma mark - Requests
