@@ -114,22 +114,6 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		DC0A83EA1AED81F9001EB35D /* Pod Tests */ = {
-			isa = PBXGroup;
-			children = (
-				DCD575061AF6A67000CE5A23 /* CLPlacemark+HNKAdditionsSpec.m */,
-				DC0A83EE1AED8362001EB35D /* Models */,
-			);
-			name = "Pod Tests";
-			sourceTree = "<group>";
-		};
-		DC0A83EB1AED820E001EB35D /* Example Project Tests */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = "Example Project Tests";
-			sourceTree = "<group>";
-		};
 		DC0A83EE1AED8362001EB35D /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -156,7 +140,7 @@
 			isa = PBXGroup;
 			children = (
 				DCA78AF91AED6AA800F5F3B9 /* HNKGooglePlacesAutocomplete-Example */,
-				DCA78B131AED6AA800F5F3B9 /* HNKGooglePlacesAutocomplete-ExampleTests */,
+				DCA78B131AED6AA800F5F3B9 /* Tests */,
 				DCA78AF81AED6AA800F5F3B9 /* Products */,
 				D3E3F1FA7798A3158B585540 /* Pods */,
 				96CE1BBE25C46A86D71B6BBC /* Frameworks */,
@@ -197,13 +181,14 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		DCA78B131AED6AA800F5F3B9 /* HNKGooglePlacesAutocomplete-ExampleTests */ = {
+		DCA78B131AED6AA800F5F3B9 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				DC0A83EB1AED820E001EB35D /* Example Project Tests */,
-				DC0A83EA1AED81F9001EB35D /* Pod Tests */,
+				DCD575061AF6A67000CE5A23 /* CLPlacemark+HNKAdditionsSpec.m */,
+				DC0A83EE1AED8362001EB35D /* Models */,
 				DCA78B141AED6AA800F5F3B9 /* Supporting Files */,
 			);
+			name = Tests;
 			path = "HNKGooglePlacesAutocomplete-ExampleTests";
 			sourceTree = "<group>";
 		};
