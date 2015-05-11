@@ -74,7 +74,7 @@
         [parameters addEntriesFromDictionary:@{ @"language" : self.language }];
     }
     
-    if(self.location.latitude && self.location.longitude) {
+    if(self.location.latitude != NSNotFound && self.location.longitude != NSNotFound) {
         
         NSString *locationParameter = [NSString stringWithFormat:@"%f,%f", self.location.latitude, self.location.longitude];
         [parameters addEntriesFromDictionary:@{ @"location" : locationParameter }];

@@ -25,7 +25,7 @@ __block HNKGooglePlacesAutocompleteQueryConfig *defaultConfig;
 
 beforeAll(^{
 
-    testInstance = [HNKGooglePlacesAutocompleteQuery sharedQuery];
+    testInstance = [[HNKGooglePlacesAutocompleteQuery alloc] initWithAPIKey:@"abc" configuration:nil];
     
     struct HNKGooglePlacesAutocompleteLocation testLocation;
     testLocation.latitude = 50;

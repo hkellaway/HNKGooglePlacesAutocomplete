@@ -131,8 +131,8 @@ static HNKGooglePlacesAutocompleteQuery *sharedQuery = nil;
         return _defaultConfiguration;
     } else {
         struct HNKGooglePlacesAutocompleteLocation location;
-        location.latitude = 0;
-        location.longitude = 0;
+        location.latitude = NSNotFound;
+        location.longitude = NSNotFound;
         
         _defaultConfiguration = [[HNKGooglePlacesAutocompleteQueryConfig alloc] initWithCountry:nil filter:HNKGooglePlaceTypeAutocompleteFilterAll language:nil location:location offset:NSNotFound searchRadius:kHNKGooglePlacesAutocompleteDefaultSearchRadius];
         
