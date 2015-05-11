@@ -93,9 +93,25 @@ extern NSString *HNKGooglePlacesAutocompleteQueryDescriptionForErrorCode(
 
 /**
  *  Sets up shared HNKGooglePlacesAutocompleteQuery instance with provided
- *  API key
+ *  API key and configuration for all requests
+ *
+ *  @param apiKey        API key used for all requests
+ *
+ *  @warning The provided API key cannot be nil
  */
 + (instancetype)setupSharedQueryWithAPIKey:(NSString *)apiKey;
+
+/**
+ *  Sets up shared HNKGooglePlacesAutocompleteQuery instance with provided
+ *  API key and configuration for all requests
+ *
+ *  @param apiKey        API key used for all requests
+ *  @param configuration Default configuration used for requests
+ *
+ *  @warning The provided API key cannot be nil
+ *  @warning The provided configration cannot be nil
+ */
++ (instancetype)setupSharedQueryWithAPIKey:(NSString *)apiKey configuration:(HNKGooglePlacesAutocompleteQueryConfig *)configuration;
 
 /**
  * Returns shared HNKGooglePlacesAutocompleteQuery instance
