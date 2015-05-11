@@ -13,7 +13,7 @@
 
 @interface HNKGooglePlacesAutocompleteQuery (KiwiExposedMethods)
 
-@property (nonatomic, strong) NSString *apiKey;
+- (instancetype)initWithAPIKey:(NSString *)apiKey configuration:(HNKGooglePlacesAutocompleteQueryConfig *)configuration;
 
 @end
 
@@ -45,6 +45,52 @@ beforeAll(^{
 
 describe(@"HNKGooglePlacesAutocompleteQuery", ^{
 
+    describe(@"Method: defaultConfiguration", ^{
+        
+        context(@"No default configuration provided", ^{
+            
+            __block HNKGooglePlacesAutocompleteQuery *testInstanceNoConfig;
+           
+            beforeEach(^{
+               
+                testInstanceNoConfig = [[HNKGooglePlacesAutocompleteQuery alloc] initWithAPIKey:@"abc" configuration:nil];
+                
+            });
+            
+            it(@"Should return default configuration", ^{
+                
+                HNKGooglePlacesAutocompleteQueryConfig *config = [testInstanceNoConfig defaultConfiguration];
+                
+                [[theValue(config.searchRadius) should] equal:theValue(500)];
+                [[theValue(config.filter) should] equal:theValue(HNKGooglePlaceTypeAutocompleteFilterAll)];
+                
+            });
+            
+        });
+        
+        context(@"Default configuration provided", ^{
+            
+            __block HNKGooglePlacesAutocompleteQuery *testInstanceWithConfig;
+            
+            beforeEach(^{
+               
+                testInstanceWithConfig = [[HNKGooglePlacesAutocompleteQuery alloc] initWithAPIKey:@"abc" configuration:testConfig];
+                
+            });
+            
+            it(@"Should return custom configuration", ^{
+                
+                HNKGooglePlacesAutocompleteQueryConfig *config = [testInstanceWithConfig defaultConfiguration];
+                
+                [[theValue(config.searchRadius) should] equal:theValue(100)];
+                [[theValue(config.filter) should] equal:theValue(HNKGooglePlaceTypeAutocompleteFilterCity)];
+                
+            });
+            
+        });
+        
+    });
+    
     describe(
         @"Method: fetchPlacesForSearchQuery:configuration:completion:",
         ^{
