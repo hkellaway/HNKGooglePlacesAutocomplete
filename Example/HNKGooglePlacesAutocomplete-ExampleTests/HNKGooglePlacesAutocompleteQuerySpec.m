@@ -31,13 +31,7 @@ beforeAll(^{
     testLocation.latitude = 50;
     testLocation.longitude = 150;
     
-    testConfig = [[HNKGooglePlacesAutocompleteQueryConfig alloc] init];
-    testConfig.country = @"fr";
-    testConfig.language = @"pt_BR";
-    testConfig.location = testLocation;
-    testConfig.offset = 50;
-    testConfig.searchRadius = 100;
-    testConfig.filter = HNKGooglePlaceTypeAutocompleteFilterCity;
+    testConfig = [[HNKGooglePlacesAutocompleteQueryConfig alloc] initWithCountry:@"fr" filter:HNKGooglePlaceTypeAutocompleteFilterCity language:@"pt_BR" location:testLocation offset:50 searchRadius:100];
     
     defaultConfig = testInstance.defaultConfiguration;
     

@@ -35,20 +35,20 @@ typedef struct HNKGooglePlacesAutocompleteLocation
 @interface HNKGooglePlacesAutocompleteQueryConfig : NSObject
 
 /**
- *  Country to which you would like to restrict your results
+ *  Country to which search results are restricted
  *
- *  Note: The country must be passed as a two character, ISO
+ *  Note: The country must be a two character, ISO
  *  3166-1 Alpha-2 compatible country code
  */
 @property (nonatomic, copy, readonly) NSString *country;
 
 /**
- *   Place type filter to restrict results by
+ *   Place type filter which search results are restricted by
  */
 @property (nonatomic, assign, readonly) HNKGooglePlaceTypeAutocompleteFilter filter;
 
 /**
- *  The language in which to return results
+ *  The language in which search results are returned
  *
  *  Note: List of supported domain languages can be found here:
  *  https://developers.google.com/maps/faq#languagesupportNote
@@ -56,7 +56,7 @@ typedef struct HNKGooglePlacesAutocompleteLocation
 @property (nonatomic, copy, readonly) NSString *language;
 
 /**
- *  The point around which you wish to retrieve place information
+ *  The point around which place information is returned
  *
  *  @warning Both latitude and longitude should be set
  */
@@ -75,7 +75,7 @@ typedef struct HNKGooglePlacesAutocompleteLocation
 @property (nonatomic, assign, readonly) NSInteger offset;
 
 /**
- *  The distance (in meters) within which to return place results
+ *  The distance (in meters) within which place results are returned
  *
  *  Note: Results will be biased to the indicated area, but may not
  *  be fully restricted to the specified area
@@ -87,6 +87,9 @@ typedef struct HNKGooglePlacesAutocompleteLocation
 /**
  *  Returns HNKGooglePlacesAutocompleteQueryConfig instance with provided
  *  configuration properties
+ *
+ *  To not specify a specific offset or searchRadius, set these values to
+ *  NSNotFound respectively
  *
  *  Note: This is the designated initializer
  */

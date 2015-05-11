@@ -134,7 +134,7 @@ static HNKGooglePlacesAutocompleteQuery *sharedQuery = nil;
         location.latitude = 0;
         location.longitude = 0;
         
-        _defaultConfiguration = [[HNKGooglePlacesAutocompleteQueryConfig alloc] initWithCountry:nil filter:HNKGooglePlaceTypeAutocompleteFilterAll language:nil location:location offset:NSNotFound searchRadius:NSNotFound];
+        _defaultConfiguration = [[HNKGooglePlacesAutocompleteQueryConfig alloc] initWithCountry:nil filter:HNKGooglePlaceTypeAutocompleteFilterAll language:nil location:location offset:NSNotFound searchRadius:kHNKGooglePlacesAutocompleteDefaultSearchRadius];
         
         return _defaultConfiguration;
     }
