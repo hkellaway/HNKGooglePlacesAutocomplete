@@ -23,6 +23,7 @@
 // THE SOFTWARE.
 //
 
+#import "HNKGooglePlacesAutocompleteQueryConfig.h"
 #import "HNKGooglePlacesAutocompleteQueryResponse.h"
 
 typedef void (^HNKGooglePlacesAutocompleteQueryCallback)(NSArray *places,
@@ -83,13 +84,34 @@ extern NSString *HNKGooglePlacesAutocompleteQueryDescriptionForErrorCode(
  */
 @property(nonatomic, copy, readonly) NSString *apiKey;
 
+/**
+ *  Default configuration for requests
+ */
+@property(nonatomic, strong, readonly) HNKGooglePlacesAutocompleteQueryConfig *defaultConfiguration;
+
 #pragma mark - Initialization
 
 /**
  *  Sets up shared HNKGooglePlacesAutocompleteQuery instance with provided
- *  API key
+ *  API key and configuration for all requests
+ *
+ *  @param apiKey        API key used for all requests
+ *
+ *  @warning The provided API key cannot be nil
  */
 + (instancetype)setupSharedQueryWithAPIKey:(NSString *)apiKey;
+
+/**
+ *  Sets up shared HNKGooglePlacesAutocompleteQuery instance with provided
+ *  API key and configuration for all requests
+ *
+ *  @param apiKey        API key used for all requests
+ *  @param configuration Default configuration used for requests
+ *
+ *  @warning The provided API key cannot be nil
+ *  @warning The provided configration cannot be nil
+ */
++ (instancetype)setupSharedQueryWithAPIKey:(NSString *)apiKey configuration:(HNKGooglePlacesAutocompleteQueryConfig *)configuration;
 
 /**
  * Returns shared HNKGooglePlacesAutocompleteQuery instance
@@ -107,7 +129,19 @@ extern NSString *HNKGooglePlacesAutocompleteQueryDescriptionForErrorCode(
  *  @param completion  Block to be executed when the fetch finishes
  */
 - (void)fetchPlacesForSearchQuery:(NSString *)searchQuery
-                       completion:
-                           (HNKGooglePlacesAutocompleteQueryCallback)completion;
+                       completion:(HNKGooglePlacesAutocompleteQueryCallback)completion;
+
+/**
+ *  Fetches Places given a search query and query configuration
+ *
+ *  Note: If configuration is nil, the default configuration will be used
+ *
+ *  @param searchQuery   String to search for Places with
+ *  @param configuration Configuration for the request (e.g. search raidus)
+ *  @param completion    Block to be executed when the fetch finishes
+ */
+- (void)fetchPlacesForSearchQuery:(NSString *)searchQuery
+                    configuration:(HNKGooglePlacesAutocompleteQueryConfig *)configuration
+                       completion:(HNKGooglePlacesAutocompleteQueryCallback)completion;
 
 @end
