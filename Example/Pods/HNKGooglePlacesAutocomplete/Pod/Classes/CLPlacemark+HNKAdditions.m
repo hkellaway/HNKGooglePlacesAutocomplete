@@ -29,7 +29,7 @@
 #import "CLPlacemark+HNKAdditions.h"
 
 static NSString *const kHNKGooglePlacesServerRequestPathDetails =
-    @"details/json";
+@"details/json";
 
 @implementation CLPlacemark (HNKAdditions)
 
@@ -37,21 +37,19 @@ static NSString *const kHNKGooglePlacesServerRequestPathDetails =
                               apiKey:(NSString *)apiKey
                           completion:(void (^)(CLPlacemark *, NSString *,
                                                NSError *))completion {
-  [self addressForPlace:place
-                 apiKey:apiKey
-             completion:^(NSString *addressString, NSError *error) {
-
-               if (error) {
-
-                 completion(nil, nil, error);
-
-               } else {
-
-                 [self completeForPlace:place
-                            withAddress:addressString
-                             completion:completion];
-               }
-             }];
+    [self addressForPlace:place
+                   apiKey:apiKey
+               completion:^(NSString *addressString, NSError *error) {
+                   
+                   if (error) {
+                       completion(nil, nil, error);
+                   } else {
+                       
+                       [self completeForPlace:place
+                                  withAddress:addressString
+                                   completion:completion];
+                   }
+               }];
 }
 
 #pragma mark - Helpers
@@ -59,50 +57,34 @@ static NSString *const kHNKGooglePlacesServerRequestPathDetails =
 + (void)addressForPlace:(HNKGooglePlacesAutocompletePlace *)place
                  apiKey:(NSString *)apiKey
              completion:
-                 (void (^)(NSString *addressString, NSError *error))completion {
-  if ([place isPlaceType:HNKGooglePlaceTypeGeocode]) {
-    completion(place.name, nil);
-    return;
-  }
-
-  [HNKGooglePlacesServer GET:kHNKGooglePlacesServerRequestPathDetails
-                  parameters:@{
-                    @"placeid" : place.placeId,
-                    @"key" : apiKey
-                  }
-                  completion:^(NSDictionary *JSON, NSError *error) {
-
-                    if (error) {
-                      completion(nil, error);
-                    } else {
-
-                      NSString *address =
-                          [self addressFromPlaceDetailsDictionary:JSON];
-
-                      if (address != nil) {
-                        completion(address, nil);
-                      } else {
-                        completion(nil, nil);
-                      }
-                    }
-                  }];
+(void (^)(NSString *addressString, NSError *error))completion {
+    
+    if([self isSolelyGeocodePlace:place]) {
+        completion(place.name, nil);
+    } else {
+        
+        [HNKGooglePlacesServer GET:kHNKGooglePlacesServerRequestPathDetails
+                        parameters:@{
+                                     @"placeid" : place.placeId,
+                                     @"key" : apiKey
+                                     }
+                        completion:^(NSDictionary *JSON, NSError *error) {
+                            
+                            if (error) {
+                                completion(nil, error);
+                            } else {
+                                
+                                NSString *address = JSON[@"result"][@"formatted_address"];
+                                completion(address, nil);
+                                
+                            }
+                        }];
+    }
 }
 
-+ (NSString *)addressFromPlaceDetailsDictionary:
-        (NSDictionary *)placeDetailsDictionary {
-  NSDictionary *resultDictionary = placeDetailsDictionary[@"result"];
-
-  if (resultDictionary != nil) {
-    NSString *address = resultDictionary[@"formatted_address"];
-
-    if (address != nil) {
-      return address;
-    }
-
-    return nil;
-  }
-
-  return nil;
++ (BOOL)isSolelyGeocodePlace:(HNKGooglePlacesAutocompletePlace *)place
+{
+    return (([place.types count] == 1) && [place isPlaceType:HNKGooglePlaceTypeGeocode]);
 }
 
 + (void)completeForPlace:(HNKGooglePlacesAutocompletePlace *)place
@@ -110,19 +92,19 @@ static NSString *const kHNKGooglePlacesServerRequestPathDetails =
               completion:(void (^)(CLPlacemark *placemark,
                                    NSString *addressString,
                                    NSError *error))completion {
-
-  CLGeocoder *geocoder = [[CLGeocoder alloc] init];
-
-  if (addressString != nil) {
-    [self geocodeAddress:addressString
-                forPlace:place
-            withGeocoder:geocoder
-              completion:completion];
-  } else {
-    [self geocodePlaceName:place.name
-              withGeocoder:geocoder
-                completion:completion];
-  }
+    
+    CLGeocoder *geocoder = [[CLGeocoder alloc] init];
+    
+    if (addressString != nil) {
+        [self geocodeAddress:addressString
+                    forPlace:place
+                withGeocoder:geocoder
+                  completion:completion];
+    } else {
+        [self geocodePlaceName:place.name
+                  withGeocoder:geocoder
+                    completion:completion];
+    }
 }
 
 + (void)geocodeAddress:(NSString *)address
@@ -131,20 +113,20 @@ static NSString *const kHNKGooglePlacesServerRequestPathDetails =
             completion:(void (^)(CLPlacemark *placemark,
                                  NSString *addressString,
                                  NSError *error))completion {
-  [geocoder geocodeAddressString:address
-               completionHandler:^(NSArray *placemarks, NSError *error) {
-
-                 if (error) {
-                   [self geocodePlaceName:place.name
-                             withGeocoder:geocoder
-                               completion:completion];
-                 } else {
-                   [self completeWithPlacemarks:placemarks
-                                        address:address
+    [geocoder geocodeAddressString:address
+                 completionHandler:^(NSArray *placemarks, NSError *error) {
+                     
+                     if (error) {
+                         [self geocodePlaceName:place.name
+                                   withGeocoder:geocoder
                                      completion:completion];
-                 }
-
-               }];
+                     } else {
+                         [self completeWithPlacemarks:placemarks
+                                              address:address
+                                           completion:completion];
+                     }
+                     
+                 }];
 }
 
 + (void)geocodePlaceName:(NSString *)placeName
@@ -152,18 +134,18 @@ static NSString *const kHNKGooglePlacesServerRequestPathDetails =
               completion:(void (^)(CLPlacemark *placemark,
                                    NSString *addressString,
                                    NSError *error))completion {
-  [geocoder geocodeAddressString:placeName
-               completionHandler:^(NSArray *placemarks, NSError *error) {
-
-                 if (error) {
-                   completion(nil, nil, error);
-                 } else {
-                   [self completeWithPlacemarks:placemarks
-                                        address:placeName
-                                     completion:completion];
-                 }
-
-               }];
+    [geocoder geocodeAddressString:placeName
+                 completionHandler:^(NSArray *placemarks, NSError *error) {
+                     
+                     if (error) {
+                         completion(nil, nil, error);
+                     } else {
+                         [self completeWithPlacemarks:placemarks
+                                              address:placeName
+                                           completion:completion];
+                     }
+                     
+                 }];
 }
 
 + (void)completeWithPlacemarks:(NSArray *)placemarks
@@ -171,8 +153,8 @@ static NSString *const kHNKGooglePlacesServerRequestPathDetails =
                     completion:(void (^)(CLPlacemark *placemark,
                                          NSString *addressString,
                                          NSError *error))completion {
-  CLPlacemark *singlePlacemark = [placemarks count] >= 1 ? placemarks[0] : nil;
-  completion(singlePlacemark, address, nil);
+    CLPlacemark *singlePlacemark = [placemarks count] >= 1 ? placemarks[0] : nil;
+    completion(singlePlacemark, address, nil);
 }
 
 @end

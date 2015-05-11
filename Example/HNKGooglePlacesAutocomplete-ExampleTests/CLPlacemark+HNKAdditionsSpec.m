@@ -82,38 +82,38 @@ describe(@"CLPlacemark+HNKAdditions", ^{
 
             });
 
-            context(@"Place is a geocode result",
+            context(@"Place is solely a geocode result",
                     ^{
-
+                        
                         beforeEach(^{
-
-                            [mockPlace stub:@selector(isPlaceType:)
-                                    andReturn:theValue(YES)
-                                withArguments:theValue(HNKGooglePlaceTypeGeocode)];
-
+                            
+                            [mockPlace stub:@selector(types)
+                                  andReturn:@[ @(HNKGooglePlaceTypeGeocode) ]];
+                            [mockPlace stub:@selector(isPlaceType:) andReturn:theValue(YES) withArguments:theValue(HNKGooglePlaceTypeGeocode)];
+                            
                         });
-
+                        
                         it(@"Should not make server request",
                            ^{
-
+                               
                                [[HNKGooglePlacesServer shouldNot] receive:@selector(GET:parameters:completion:)];
-
+                               
                                [CLPlacemark hnk_placemarkFromGooglePlace:mockPlace apiKey:testApiKey completion:nil];
-
+                               
                            });
-
+                        
                         it(@"Should call Geocoder with Place's name",
                            ^{
                                [[mockGeocoder should] receive:@selector(geocodeAddressString:completionHandler:)
                                                 withArguments:mockPlace.name, any()];
-
+                               
                                [CLPlacemark hnk_placemarkFromGooglePlace:mockPlace apiKey:testApiKey completion:nil];
                            });
 
                     });
 
             context(
-                @"Place is not a geocode result",
+                @"Place is not solely a geocode result",
                 ^{
 
                     beforeEach(^{
