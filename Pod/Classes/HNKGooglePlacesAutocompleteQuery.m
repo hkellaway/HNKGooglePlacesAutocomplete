@@ -116,7 +116,7 @@ static HNKGooglePlacesAutocompleteQuery *sharedQuery = nil;
 - (instancetype)init {
     NSAssert(FALSE, @"init should not be called");
     
-    return [self initWithAPIKey:@"" configuration:nil];
+    return nil;
 }
 
 #pragma mark - Getters
@@ -130,20 +130,11 @@ static HNKGooglePlacesAutocompleteQuery *sharedQuery = nil;
     if(_defaultConfiguration != nil) {
         return _defaultConfiguration;
     } else {
-        HNKGooglePlacesAutocompleteQueryConfig *configuration = [[HNKGooglePlacesAutocompleteQueryConfig alloc] init];
-        
         struct HNKGooglePlacesAutocompleteLocation location;
         location.latitude = 0;
         location.longitude = 0;
         
-        configuration.country = nil;
-        configuration.language = nil;
-        configuration.location = location;
-        configuration.offset = NSNotFound;
-        configuration.searchRadius = kHNKGooglePlacesAutocompleteDefaultSearchRadius;
-        configuration.filter = HNKGooglePlaceTypeAutocompleteFilterAll;
-        
-        _defaultConfiguration = configuration;
+        _defaultConfiguration = [[HNKGooglePlacesAutocompleteQueryConfig alloc] initWithCountry:nil filter:HNKGooglePlaceTypeAutocompleteFilterAll language:nil location:location offset:NSNotFound searchRadius:NSNotFound];
         
         return _defaultConfiguration;
     }

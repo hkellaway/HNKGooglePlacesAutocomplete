@@ -40,7 +40,12 @@ typedef struct HNKGooglePlacesAutocompleteLocation
  *  Note: The country must be passed as a two character, ISO
  *  3166-1 Alpha-2 compatible country code
  */
-@property (nonatomic, copy) NSString *country;
+@property (nonatomic, copy, readonly) NSString *country;
+
+/**
+ *   Place type filter to restrict results by
+ */
+@property (nonatomic, assign, readonly) HNKGooglePlaceTypeAutocompleteFilter filter;
 
 /**
  *  The language in which to return results
@@ -48,14 +53,14 @@ typedef struct HNKGooglePlacesAutocompleteLocation
  *  Note: List of supported domain languages can be found here:
  *  https://developers.google.com/maps/faq#languagesupportNote
  */
-@property (nonatomic, copy) NSString *language;
+@property (nonatomic, copy, readonly) NSString *language;
 
 /**
  *  The point around which you wish to retrieve place information
  *
  *  @warning Both latitude and longitude should be set
  */
-@property (nonatomic, assign) HNKGooglePlacesAutocompleteLocation location;
+@property (nonatomic, assign, readonly) HNKGooglePlacesAutocompleteLocation location;
 
 /**
  *  The position, in the input term, of the last character that the
@@ -67,7 +72,7 @@ typedef struct HNKGooglePlacesAutocompleteLocation
  *  For example, if the input term is 'Google abc' and the offset is 3,
  *  the service will attempt to match against 'Goo abc'.
  */
-@property (nonatomic, assign) NSInteger offset;
+@property (nonatomic, assign, readonly) NSInteger offset;
 
 /**
  *  The distance (in meters) within which to return place results
@@ -75,12 +80,19 @@ typedef struct HNKGooglePlacesAutocompleteLocation
  *  Note: Results will be biased to the indicated area, but may not
  *  be fully restricted to the specified area
  */
-@property (nonatomic, assign) NSInteger searchRadius;
+@property (nonatomic, assign, readonly) NSInteger searchRadius;
+
+#pragma mark - Initialization
 
 /**
- *   Place type filter to restrict results by
+ *  Returns HNKGooglePlacesAutocompleteQueryConfig instance with provided
+ *  configuration properties
+ *
+ *  Note: This is the designated initializer
  */
-@property (nonatomic, assign) HNKGooglePlaceTypeAutocompleteFilter filter;
+- (instancetype)initWithCountry:(NSString *)country filter:(HNKGooglePlaceTypeAutocompleteFilter)filter language:(NSString *)language location:(HNKGooglePlacesAutocompleteLocation)location  offset:(NSInteger)offset searchRadius:(NSInteger)searchRadius;
+
+#pragma mark - Instance methods
 
 /**
  *  Translation of properties into parameter dictionary for
