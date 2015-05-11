@@ -83,6 +83,9 @@ static HNKGooglePlacesAutocompleteQuery *sharedQuery = nil;
 
 +(instancetype)setupSharedQueryWithAPIKey:(NSString *)apiKey configuration:(HNKGooglePlacesAutocompleteQueryConfig *)configuration
 {
+    NSParameterAssert(apiKey);
+    NSParameterAssert(configuration);
+    
     static dispatch_once_t onceToken;
     
     dispatch_once(&onceToken, ^{
