@@ -46,81 +46,137 @@ describe(@"HNKGooglePlacesAutocompleteQueryConfig", ^{
     describe(@"translateToServerRequestParameters",
              ^{
 
-                 it(@"Should return correct dictionary",
-                    ^{
+                 context(@"Latitude or longitude set to NSNotFound",
+                         ^{
+                             __block HNKGooglePlacesAutocompleteQueryConfig *testInstanceNoLat;
+                             __block HNKGooglePlacesAutocompleteQueryConfig *testInstanceNoLon;
 
-                        HNKGooglePlacesAutocompleteQueryConfig *testInstance =
-                            [[HNKGooglePlacesAutocompleteQueryConfig alloc]
-                                initWithCountry:nil
-                                         filter:HNKGooglePlaceTypeAutocompleteFilterAll
-                                       language:nil
-                                       latitude:50.5
-                                      longitude:150.5
-                                         offset:NSNotFound
-                                   searchRadius:NSNotFound];
+                             beforeEach(^{
 
-                        NSDictionary *params = [testInstance translateToServerRequestParameters];
+                                 testInstanceNoLat = [[HNKGooglePlacesAutocompleteQueryConfig alloc]
+                                     initWithCountry:@"abc"
+                                              filter:HNKGooglePlaceTypeAutocompleteFilterRegion
+                                            language:@"def"
+                                            latitude:NSNotFound
+                                           longitude:150.5
+                                              offset:100
+                                        searchRadius:1000];
 
-                        [[params should] equal:@{ @"location" : @"50.500000,150.500000" }];
+                                 testInstanceNoLon = [[HNKGooglePlacesAutocompleteQueryConfig alloc]
+                                     initWithCountry:@"abc"
+                                              filter:HNKGooglePlaceTypeAutocompleteFilterRegion
+                                            language:@"def"
+                                            latitude:50.5
+                                           longitude:NSNotFound
+                                              offset:100
+                                        searchRadius:1000];
 
-                        testInstance = [[HNKGooglePlacesAutocompleteQueryConfig alloc]
-                            initWithCountry:@"abc"
-                                     filter:HNKGooglePlaceTypeAutocompleteFilterAll
-                                   language:@"def"
-                                   latitude:50.5
-                                  longitude:150.5
-                                     offset:NSNotFound
-                               searchRadius:NSNotFound];
+                             });
 
-                        params = [testInstance translateToServerRequestParameters];
+                             it(@"Should not include location in parameters",
+                                ^{
+                                    NSDictionary *params = [testInstanceNoLat translateToServerRequestParameters];
 
-                        [[params should] equal:@{
-                            @"components=country" : @"abc",
-                            @"language" : @"def",
-                            @"location" : @"50.500000,150.500000"
-                        }];
+                                    [[params should] equal:@{
+                                        @"components=country" : @"abc",
+                                        @"language" : @"def",
+                                        @"offset" : @(100),
+                                        @"radius" : @(1000),
+                                        @"types" : @"(regions)"
+                                    }];
 
-                        testInstance = [[HNKGooglePlacesAutocompleteQueryConfig alloc]
-                            initWithCountry:@"abc"
-                                     filter:HNKGooglePlaceTypeAutocompleteFilterAll
-                                   language:@"def"
-                                   latitude:50.5
-                                  longitude:150.5
-                                     offset:100
-                               searchRadius:1000];
+                                    params = [testInstanceNoLon translateToServerRequestParameters];
 
-                        params = [testInstance translateToServerRequestParameters];
+                                    [[params should] equal:@{
+                                        @"components=country" : @"abc",
+                                        @"language" : @"def",
+                                        @"offset" : @(100),
+                                        @"radius" : @(1000),
+                                        @"types" : @"(regions)"
+                                    }];
 
-                        [[params should] equal:@{
-                            @"components=country" : @"abc",
-                            @"language" : @"def",
-                            @"location" : @"50.500000,150.500000",
-                            @"offset" : @(100),
-                            @"radius" : @(1000)
-                        }];
+                                });
 
-                        testInstance = [[HNKGooglePlacesAutocompleteQueryConfig alloc]
-                            initWithCountry:@"abc"
-                                     filter:HNKGooglePlaceTypeAutocompleteFilterRegion
-                                   language:@"def"
-                                   latitude:50.5
-                                  longitude:150.5
-                                     offset:100
-                               searchRadius:1000];
+                         });
 
-                        params = [testInstance translateToServerRequestParameters];
+                 context(@"Latitude and Longitude set",
+                         ^{
 
-                        [[params should] equal:@{
-                            @"components=country" : @"abc",
-                            @"language" : @"def",
-                            @"location" : @"50.500000,150.500000",
-                            @"offset" : @(100),
-                            @"radius" : @(1000),
-                            @"types" : @"(regions)"
-                        }];
+                             it(@"Should return correct dictionary",
+                                ^{
+                                    HNKGooglePlacesAutocompleteQueryConfig *testInstance =
+                                        [[HNKGooglePlacesAutocompleteQueryConfig alloc]
+                                            initWithCountry:nil
+                                                     filter:HNKGooglePlaceTypeAutocompleteFilterAll
+                                                   language:nil
+                                                   latitude:50.5
+                                                  longitude:150.5
+                                                     offset:NSNotFound
+                                               searchRadius:NSNotFound];
 
-                    });
+                                    NSDictionary *params = [testInstance translateToServerRequestParameters];
 
+                                    [[params should] equal:@{ @"location" : @"50.500000,150.500000" }];
+
+                                    testInstance = [[HNKGooglePlacesAutocompleteQueryConfig alloc]
+                                        initWithCountry:@"abc"
+                                                 filter:HNKGooglePlaceTypeAutocompleteFilterAll
+                                               language:@"def"
+                                               latitude:50.5
+                                              longitude:150.5
+                                                 offset:NSNotFound
+                                           searchRadius:NSNotFound];
+
+                                    params = [testInstance translateToServerRequestParameters];
+
+                                    [[params should] equal:@{
+                                        @"components=country" : @"abc",
+                                        @"language" : @"def",
+                                        @"location" : @"50.500000,150.500000"
+                                    }];
+
+                                    testInstance = [[HNKGooglePlacesAutocompleteQueryConfig alloc]
+                                        initWithCountry:@"abc"
+                                                 filter:HNKGooglePlaceTypeAutocompleteFilterAll
+                                               language:@"def"
+                                               latitude:50.5
+                                              longitude:150.5
+                                                 offset:100
+                                           searchRadius:1000];
+
+                                    params = [testInstance translateToServerRequestParameters];
+
+                                    [[params should] equal:@{
+                                        @"components=country" : @"abc",
+                                        @"language" : @"def",
+                                        @"location" : @"50.500000,150.500000",
+                                        @"offset" : @(100),
+                                        @"radius" : @(1000)
+                                    }];
+
+                                    testInstance = [[HNKGooglePlacesAutocompleteQueryConfig alloc]
+                                        initWithCountry:@"abc"
+                                                 filter:HNKGooglePlaceTypeAutocompleteFilterRegion
+                                               language:@"def"
+                                               latitude:50.5
+                                              longitude:150.5
+                                                 offset:100
+                                           searchRadius:1000];
+
+                                    params = [testInstance translateToServerRequestParameters];
+
+                                    [[params should] equal:@{
+                                        @"components=country" : @"abc",
+                                        @"language" : @"def",
+                                        @"location" : @"50.500000,150.500000",
+                                        @"offset" : @(100),
+                                        @"radius" : @(1000),
+                                        @"types" : @"(regions)"
+                                    }];
+
+                                });
+
+                         });
              });
 
 });
