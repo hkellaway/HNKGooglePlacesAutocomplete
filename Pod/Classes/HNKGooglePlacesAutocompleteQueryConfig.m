@@ -26,12 +26,14 @@
 
 @interface HNKGooglePlacesAutocompleteQueryConfig ()
 
-@property (nonatomic, copy, readwrite) NSString *country;
-@property (nonatomic, assign, readwrite) HNKGooglePlaceTypeAutocompleteFilter filter;
-@property (nonatomic, copy, readwrite) NSString *language;
-@property (nonatomic, assign, readwrite) HNKGooglePlacesAutocompleteLocation location;
-@property (nonatomic, assign, readwrite) NSInteger offset;
-@property (nonatomic, assign, readwrite) NSInteger searchRadius;
+@property(nonatomic, copy, readwrite) NSString *country;
+@property(nonatomic, assign, readwrite)
+    HNKGooglePlaceTypeAutocompleteFilter filter;
+@property(nonatomic, copy, readwrite) NSString *language;
+@property(nonatomic, assign, readwrite) double latitude;
+@property(nonatomic, assign, readwrite) double longitude;
+@property(nonatomic, assign, readwrite) NSInteger offset;
+@property(nonatomic, assign, readwrite) NSInteger searchRadius;
 
 @end
 
@@ -39,92 +41,102 @@
 
 #pragma mark - Initializers
 
-- (instancetype)initWithCountry:(NSString *)country filter:(HNKGooglePlaceTypeAutocompleteFilter)filter language:(NSString *)language location:(HNKGooglePlacesAutocompleteLocation)location offset:(NSInteger)offset searchRadius:(NSInteger)searchRadius
-{
-    self = [super init];
-    
-    if(self) {
-        self.country = country;
-        self.filter = filter;
-        self.language = language;
-        self.location = location;
-        self.offset = offset;
-        self.searchRadius = searchRadius;
-    }
-    
-    return self;
+- (instancetype)initWithCountry:(NSString *)country
+                         filter:(HNKGooglePlaceTypeAutocompleteFilter)filter
+                       language:(NSString *)language
+                       latitude:(double)latitude
+                      longitude:(double)longitude
+                         offset:(NSInteger)offset
+                   searchRadius:(NSInteger)searchRadius {
+  self = [super init];
+
+  if (self) {
+    self.country = country;
+    self.filter = filter;
+    self.language = language;
+    self.latitude = latitude;
+    self.longitude = longitude;
+    self.offset = offset;
+    self.searchRadius = searchRadius;
+  }
+
+  return self;
 }
 
 - (instancetype)init {
-    NSAssert(FALSE, @"init should not be called");
-    
-    return nil;
+  NSAssert(FALSE, @"init should not be called");
+
+  return nil;
 }
 
 #pragma mark - Methods
 
 - (NSDictionary *)translateToServerRequestParameters {
-    NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
-    
-    if(self.country) {
-        [parameters addEntriesFromDictionary:@{ @"components=country" : self.country }];
-    }
-    
-    if(self.language) {
-        [parameters addEntriesFromDictionary:@{ @"language" : self.language }];
-    }
-    
-    if(self.location.latitude != NSNotFound && self.location.longitude != NSNotFound) {
-        
-        NSString *locationParameter = [NSString stringWithFormat:@"%f,%f", self.location.latitude, self.location.longitude];
-        [parameters addEntriesFromDictionary:@{ @"location" : locationParameter }];
-        
-    }
-    
-    if(self.offset != NSNotFound) {
-        [parameters addEntriesFromDictionary:@{ @"offset" : @(self.offset) }];
-    }
-    
-    if(self.searchRadius != NSNotFound) {
-        [parameters addEntriesFromDictionary:@{ @"radius" : @(self.searchRadius) }];
-    }
-    
-    if(self.filter) {
-        [parameters addEntriesFromDictionary:[self translateFilterToRequestParameter:self.filter]];
-    }
-    
-    return parameters;
+  NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
+
+  if (self.country) {
+    [parameters addEntriesFromDictionary:@{
+      @"components=country" : self.country
+    }];
+  }
+
+  if (self.language) {
+    [parameters addEntriesFromDictionary:@{ @"language" : self.language }];
+  }
+
+  if (self.latitude != NSNotFound && self.longitude != NSNotFound) {
+
+    NSString *locationParameter =
+        [NSString stringWithFormat:@"%f,%f", self.latitude, self.longitude];
+    [parameters addEntriesFromDictionary:@{ @"location" : locationParameter }];
+  }
+
+  if (self.offset != NSNotFound) {
+    [parameters addEntriesFromDictionary:@{ @"offset" : @(self.offset) }];
+  }
+
+  if (self.searchRadius != NSNotFound) {
+    [parameters addEntriesFromDictionary:@{ @"radius" : @(self.searchRadius) }];
+  }
+
+  if (self.filter) {
+    [parameters addEntriesFromDictionary:
+                    [self translateFilterToRequestParameter:self.filter]];
+  }
+
+  return parameters;
 }
 
 #pragma mark - Helpers
 
-- (NSDictionary *)translateFilterToRequestParameter:(HNKGooglePlaceTypeAutocompleteFilter)filter {
-    
-    NSString *parameterKey = @"types";
-    
-    switch (filter) {
-        case HNKGooglePlaceTypeAutocompleteFilterAll:
-            return @{ };
-            break;
-        case HNKGooglePlaceTypeAutocompleteFilterAddress:
-            return @{ parameterKey : @"address" };
-            break;
-        case HNKGooglePlaceTypeAutocompleteFilterCity:
-            return @{ parameterKey : @"(cities)" };
-            break;
-        case HNKGooglePlaceTypeAutocompleteFilterEstablishment:
-            return @{ parameterKey : @"establishment" };
-            break;
-        case HNKGooglePlaceTypeAutocompleteFilterGeocode:
-            return @{ parameterKey : @"geocode" };
-            break;
-        case HNKGooglePlaceTypeAutocompleteFilterRegion:
-            return @{ parameterKey : @"(regions)" };
-            break;
-        default:
-            return @{ };
-            break;
-    }
+- (NSDictionary *)translateFilterToRequestParameter:
+        (HNKGooglePlaceTypeAutocompleteFilter)filter {
+
+  NSString *parameterKey = @"types";
+
+  switch (filter) {
+  case HNKGooglePlaceTypeAutocompleteFilterAll:
+    return @{};
+    break;
+  case HNKGooglePlaceTypeAutocompleteFilterAddress:
+    return @{ parameterKey : @"address" };
+    break;
+  case HNKGooglePlaceTypeAutocompleteFilterCity:
+    return @{ parameterKey : @"(cities)" };
+    break;
+  case HNKGooglePlaceTypeAutocompleteFilterEstablishment:
+    return @{ parameterKey : @"establishment" };
+    break;
+  case HNKGooglePlaceTypeAutocompleteFilterGeocode:
+    return @{ parameterKey : @"geocode" };
+    break;
+  case HNKGooglePlaceTypeAutocompleteFilterRegion:
+    return @{ parameterKey : @"(regions)" };
+    break;
+  default:
+    return @{};
+    break;
+  }
 }
 
 @end
