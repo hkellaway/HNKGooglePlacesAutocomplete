@@ -31,6 +31,7 @@ static double const kHNKLocationLongitudeNewYorkCity = 74.0059;
                                                               longitude:kHNKLocationLongitudeNewYorkCity
                                                                  offset:NSNotFound
                                                            searchRadius:100];
+
     [HNKGooglePlacesAutocompleteQuery setupSharedQueryWithAPIKey:kHNKDemoGooglePlacesAutocompleteApiKey
                                                    configuration:searchConfig];
 
