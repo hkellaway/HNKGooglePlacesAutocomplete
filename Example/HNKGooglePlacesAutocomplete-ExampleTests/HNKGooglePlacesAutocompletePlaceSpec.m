@@ -29,7 +29,7 @@ beforeAll(^{
             @{@"offset" : @10, @"value" : @"BC"},
             @{@"offset" : @14, @"value" : @"Canadá"}
         ],
-        @"types" : @[ @"locality", @"political", @"geocode" ]
+        @"types" : @[ @"locality", @"political", @"bicycle_store" ]
     };
 
     testInstance = [HNKGooglePlacesAutocompletePlace modelFromJSONDictionary:json];
@@ -73,7 +73,7 @@ describe(@"HNKGooglePlacesAutocompletePlace", ^{
 
                                [[testInstance.types[0] should] equal:theValue(HNKGooglePlaceTypeLocality)];
                                [[testInstance.types[1] should] equal:theValue(HNKGooglePlaceTypePolitical)];
-                               [[testInstance.types[2] should] equal:theValue(HNKGooglePlaceTypeGeocode)];
+                               [[testInstance.types[2] should] equal:theValue(HNKGooglePlaceTypeBicycleStore)];
 
                            });
                     });
@@ -120,11 +120,11 @@ describe(@"HNKGooglePlacesAutocompletePlace", ^{
 
                                     BOOL isLocality = [testInstance isPlaceType:HNKGooglePlaceTypeLocality];
                                     BOOL isPolitical = [testInstance isPlaceType:HNKGooglePlaceTypePolitical];
-                                    BOOL isGeocode = [testInstance isPlaceType:HNKGooglePlaceTypeGeocode];
+                                    BOOL isBicycleStore = [testInstance isPlaceType:HNKGooglePlaceTypeBicycleStore];
 
                                     [[theValue(isLocality) should] equal:theValue(YES)];
                                     [[theValue(isPolitical) should] equal:theValue(YES)];
-                                    [[theValue(isGeocode) should] equal:theValue(YES)];
+                                    [[theValue(isBicycleStore) should] equal:theValue(YES)];
 
                                 });
 

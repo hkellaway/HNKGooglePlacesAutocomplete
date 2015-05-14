@@ -30,77 +30,172 @@
  *  search results
  */
 typedef NS_ENUM(NSInteger, HNKGooglePlaceTypeAutocompleteFilter) {
-    /**
-     *  All results
-     */
-    HNKGooglePlaceTypeAutocompleteFilterAll = 0,
-    /**
-     *  Only geocoding results with a precise address
-     */
-    HNKGooglePlaceTypeAutocompleteFilterAddress,
-    /**
-     *  Results that match Locality or Administrative
-     *  Area Level 1
-     */
-    HNKGooglePlaceTypeAutocompleteFilterCity,
-    /**
-     *  Only business results
-     */
-    HNKGooglePlaceTypeAutocompleteFilterEstablishment,
-    /**
-     *  Only geocoding results, rather than business results
-     *
-     *  Note: Generally, used to disambiguate results where
-     *  the location specified may be indeterminate
-     */
-    HNKGooglePlaceTypeAutocompleteFilterGeocode,
-    /**
-     *  Results matching the following types: Locality,
-     *  Sub-locality, Postal code, Country, Administrative
-     *  Area Level 1, Administrative Area Level 2
-     */
-    HNKGooglePlaceTypeAutocompleteFilterRegion
+  /**
+   *  All results
+   */
+  HNKGooglePlaceTypeAutocompleteFilterAll = 0,
+  /**
+   *  Only geocoding results with a precise address
+   */
+  HNKGooglePlaceTypeAutocompleteFilterAddress,
+  /**
+   *  Results that match Locality or Administrative
+   *  Area Level 1
+   */
+  HNKGooglePlaceTypeAutocompleteFilterCity,
+  /**
+   *  Only business results
+   */
+  HNKGooglePlaceTypeAutocompleteFilterEstablishment,
+  /**
+   *  Only geocoding results, rather than business results
+   *
+   *  Note: Generally, used to disambiguate results where
+   *  the location specified may be indeterminate
+   */
+  HNKGooglePlaceTypeAutocompleteFilterGeocode,
+  /**
+   *  Results matching the following types: Locality,
+   *  Sub-locality, Postal code, Country, Administrative
+   *  Area Level 1, Administrative Area Level 2
+   */
+  HNKGooglePlaceTypeAutocompleteFilterRegion
 };
 
 /**
  *  All Place types
  */
 typedef NS_ENUM(NSInteger, HNKGooglePlaceType) {
-    HNKGooglePlaceTypeUnknown = 0,
-    HNKGooglePlaceTypeAdministrativeAreaLevel1,
-    HNKGooglePlaceTypeAdministrativeAreaLevel2,
-    HNKGooglePlaceTypeAdministrativeAreaLevel3,
-    HNKGooglePlaceTypeAdministrativeAreaLevel4,
-    HNKGooglePlaceTypeAdministrativeAreaLevel5,
-    HNKGooglePlaceTypeColloquialArea,
-    HNKGooglePlaceTypeCountry,
-    HNKGooglePlaceTypeEstablishment,
-    HNKGooglePlaceTypeFloor,
-    HNKGooglePlaceTypeGeocode,
-    HNKGooglePlaceTypeIntersection,
-    HNKGooglePlaceTypeLocality,
-    HNKGooglePlaceTypeNaturalFeature,
-    HNKGooglePlaceTypeNeighborhood,
-    HNKGooglePlaceTypePolitical,
-    HNKGooglePlaceTypePointOfInterest,
-    HNKGooglePlaceTypePostBox,
-    HNKGooglePlaceTypePostalCode,
-    HNKGooglePlaceTypePostalCodePrefix,
-    HNKGooglePlaceTypePostalCodeSuffix,
-    HNKGooglePlaceTypePostalTown,
-    HNKGooglePlaceTypePremise,
-    HNKGooglePlaceTypeRoom,
-    HNKGooglePlaceTypeRoute,
-    HNKGooglePlaceTypeStreetAddress,
-    HNKGooglePlaceTypeStreetNumber,
-    HNKGooglePlaceTypeSublocality,
-    HNKGooglePlaceTypeSublocalityLevel1,
-    HNKGooglePlaceTypeSublocalityLevel2,
-    HNKGooglePlaceTypeSublocalityLevel3,
-    HNKGooglePlaceTypeSublocalityLevel4,
-    HNKGooglePlaceTypeSublocalityLevel5,
-    HNKGooglePlaceTypeSubpremise,
-    HNKGooglePlaceTypeTransitStation
+  HNKGooglePlaceTypeUnknown = 0,
+  HNKGooglePlaceTypeAccounting,
+  HNKGooglePlaceTypeAdministrativeAreaLevel1,
+  HNKGooglePlaceTypeAdministrativeAreaLevel2,
+  HNKGooglePlaceTypeAdministrativeAreaLevel3,
+  HNKGooglePlaceTypeAdministrativeAreaLevel4,
+  HNKGooglePlaceTypeAdministrativeAreaLevel5,
+  HNKGooglePlaceTypeAirport,
+  HNKGooglePlaceTypeAmusementPark,
+  HNKGooglePlaceTypeAquarium,
+  HNKGooglePlaceTypeArtGallery,
+  HNKGooglePlaceTypeATM,
+  HNKGooglePlaceTypeBakery,
+  HNKGooglePlaceTypeBank,
+  HNKGooglePlaceTypeBar,
+  HNKGooglePlaceTypeBeautySalon,
+  HNKGooglePlaceTypeBicycleStore,
+  HNKGooglePlaceTypeBookStore,
+  HNKGooglePlaceTypeBowlingAlley,
+  HNKGooglePlaceTypeBusStation,
+  HNKGooglePlaceTypeCafe,
+  HNKGooglePlaceTypeCampground,
+  HNKGooglePlaceTypeCarDealer,
+  HNKGooglePlaceTypeCarRental,
+  HNKGooglePlaceTypeCarRepair,
+  HNKGooglePlaceTypeCarWash,
+  HNKGooglePlaceTypeCasino,
+  HNKGooglePlaceTypeCemetery,
+  HNKGooglePlaceTypeChurch,
+  HNKGooglePlaceTypeCityHall,
+  HNKGooglePlaceTypeClothingStore,
+  HNKGooglePlaceTypeColloquialArea,
+  HNKGooglePlaceTypeConvenienceStore,
+  HNKGooglePlaceTypeCountry,
+  HNKGooglePlaceTypeCourthouse,
+  HNKGooglePlaceTypeDentist,
+  HNKGooglePlaceTypeDepartmentStore,
+  HNKGooglePlaceTypeDoctor,
+  HNKGooglePlaceTypeElectrician,
+  HNKGooglePlaceTypeElectronicsStore,
+  HNKGooglePlaceTypeEmbassy,
+  HNKGooglePlaceTypeEstablishment,
+  HNKGooglePlaceTypeFinance,
+  HNKGooglePlaceTypeFireStation,
+  HNKGooglePlaceTypeFloor,
+  HNKGooglePlaceTypeFlorist,
+  HNKGooglePlaceTypeFood,
+  HNKGooglePlaceTypeFuneralHome,
+  HNKGooglePlaceTypeFurnitureStore,
+  HNKGooglePlaceTypeGasStation,
+  HNKGooglePlaceTypeGeneralContractor,
+  HNKGooglePlaceTypeGeocode,
+  HNKGooglePlaceTypeGroceryOrSupermarket,
+  HNKGooglePlaceTypeGym,
+  HNKGooglePlaceTypeHairCare,
+  HNKGooglePlaceTypeHardwareStore,
+  HNKGooglePlaceTypeHealth,
+  HNKGooglePlaceTypeHinduTemple,
+  HNKGooglePlaceTypeHomeGoodsStore,
+  HNKGooglePlaceTypeHospital,
+  HNKGooglePlaceTypeInsuranceAgency,
+  HNKGooglePlaceTypeIntersection,
+  HNKGooglePlaceTypeJewelryStore,
+  HNKGooglePlaceTypeLaundry,
+  HNKGooglePlaceTypeLawyer,
+  HNKGooglePlaceTypeLibrary,
+  HNKGooglePlaceTypeLiquorStore,
+  HNKGooglePlaceTypeLocalGovernmentOffice,
+  HNKGooglePlaceTypeLocality,
+  HNKGooglePlaceTypeLocksmith,
+  HNKGooglePlaceTypeLodging,
+  HNKGooglePlaceTypeMealDelivery,
+  HNKGooglePlaceTypeMealTakeaway,
+  HNKGooglePlaceTypeMosque,
+  HNKGooglePlaceTypeMovieRental,
+  HNKGooglePlaceTypeMovieTheater,
+  HNKGooglePlaceTypeMovingCompany,
+  HNKGooglePlaceTypeMuseum,
+  HNKGooglePlaceTypeNaturalFeature,
+  HNKGooglePlaceTypeNeighborhood,
+  HNKGooglePlaceTypeNightClub,
+  HNKGooglePlaceTypePainter,
+  HNKGooglePlaceTypePark,
+  HNKGooglePlaceTypeParking,
+  HNKGooglePlaceTypePetStore,
+  HNKGooglePlaceTypePharmacy,
+  HNKGooglePlaceTypePhysiotherapist,
+  HNKGooglePlaceTypePlaceOfWorship,
+  HNKGooglePlaceTypePlumber,
+  HNKGooglePlaceTypePointOfInterest,
+  HNKGooglePlaceTypePolice,
+  HNKGooglePlaceTypePolitical,
+  HNKGooglePlaceTypePostalCode,
+  HNKGooglePlaceTypePostalCodePrefix,
+  HNKGooglePlaceTypePostalCodeSuffix,
+  HNKGooglePlaceTypePostalTown,
+  HNKGooglePlaceTypePostBox,
+  HNKGooglePlaceTypePostOffice,
+  HNKGooglePlaceTypePremise,
+  HNKGooglePlaceTypeRealEstateAgency,
+  HNKGooglePlaceTypeRestaurant,
+  HNKGooglePlaceTypeRoofingContractor,
+  HNKGooglePlaceTypeRoom,
+  HNKGooglePlaceTypeRoute,
+  HNKGooglePlaceTypeRVPark,
+  HNKGooglePlaceTypeSchool,
+  HNKGooglePlaceTypeShoeStore,
+  HNKGooglePlaceTypeShoppingMall,
+  HNKGooglePlaceTypeSpa,
+  HNKGooglePlaceTypeStadium,
+  HNKGooglePlaceTypeStorage,
+  HNKGooglePlaceTypeStore,
+  HNKGooglePlaceTypeStreetAddress,
+  HNKGooglePlaceTypeStreetNumber,
+  HNKGooglePlaceTypeSublocality,
+  HNKGooglePlaceTypeSublocalityLevel1,
+  HNKGooglePlaceTypeSublocalityLevel2,
+  HNKGooglePlaceTypeSublocalityLevel3,
+  HNKGooglePlaceTypeSublocalityLevel4,
+  HNKGooglePlaceTypeSublocalityLevel5,
+  HNKGooglePlaceTypeSubpremise,
+  HNKGooglePlaceTypeSubwayStation,
+  HNKGooglePlaceTypeSynagogue,
+  HNKGooglePlaceTypeTaxiStand,
+  HNKGooglePlaceTypeTrainStation,
+  HNKGooglePlaceTypeTransitStation,
+  HNKGooglePlaceTypeTravelAgency,
+  HNKGooglePlaceTypeUniversity,
+  HNKGooglePlaceTypeVeterinaryCare,
+  HNKGooglePlaceTypeZoo
 };
 
 /**
