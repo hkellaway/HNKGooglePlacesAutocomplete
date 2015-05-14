@@ -9,14 +9,14 @@ An Objective-C wrapper for the Google Places autocomplete API
 
 ## Background
 
-HNKGooglePlacesAutocomplete was inspired by [SPGooglePlacesAutocomplete] with the intention of modernizing the implementation. HNKGooglePlacesAutocomplete encapsulates the same core functionality - Google autocomplete suggestions and Google Place-to-CLPlacemark translation - with a more layered and pod-first approach.
+HNKGooglePlacesAutocomplete was inspired by [SPGooglePlacesAutocomplete](https://github.com/spoletto/SPGooglePlacesAutocomplete) with the intention of modernizing the implementation. HNKGooglePlacesAutocomplete encapsulates the same core functionality - Google autocomplete suggestions and Google Place-to-CLPlacemark translation - with a more layered and pod-first approach.
 
 Improvements include:
 - Use of modern, vetted pods (AFNetworking, Mantle)
 - Core functionality is useable without requiring the CoreLocation framework
 - Code is well-tested using Kiwi
+- Example project does not use the deprecated UISearchDisplayController
 - Designed with Cocoapods in mind
-
 
 ## Communication
 
@@ -43,6 +43,40 @@ pod "HNKGooglePlacesAutocomplete", "~> 1.0"
 
 * Link to Demo V1
 * CoreLocation now optional - only if resolution to CLPlacemark is desired
+
+### API Key
+
+HNKGooglePlacesAutocomplete uses the [Google Places Autocomplete API]. You will need an API key for this service in order to use HNKGooglePlacesAutocomplete.
+
+* Create a [Google Developer account]
+* Once activated, find your API key on your [Settings] page
+
+## Classes
+
+### Core Classes
+
+These classes form the core functionality of HNKGooglePlacesAutocompelte - querying the API for Place suggestions and the resulting Place objects
+
+- `HNKGooglePlacesAutocompletePlaceQuery`
+- `HNKGooglePlacesAutocompletePlace`
+
+### Supporting Classes
+
+These classes are part of or support the core functionality of HNKGooglePlacesAutocomplete
+
+- `HNKGooglePlacesAutocompleteQueryConfig`
+- `HNKGooglePlacesAutocompleteQueryResponse`
+- `HNKGooglePlacesAutocompletePlaceSubstring`
+- `HNKGooglePlacesAutocompletePlaceTerm`
+
+### Categories
+
+These categories add useful funtionality to the core of HNKGooglePlacesAutocomplete
+
+- `CLPlacemark+HNKAdditions.h`
+
+## Usage
+
 
 ## Credits
 
