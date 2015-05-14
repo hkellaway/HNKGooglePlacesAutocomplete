@@ -86,8 +86,16 @@ extern NSString *HNKGooglePlacesAutocompleteQueryDescriptionForErrorCode(
 
 /**
  *  Default configuration for requests
+ *
+ *  Note: If no configuration is provided, a default is
+ *  still set with the following values: country = nil,
+ *  filter = All, language = nil, latitude = NSNotFound,
+ *  longitude = NSNotFound, offset = NSNotFound,
+ *  searchRadius = 500
+ *
  */
-@property(nonatomic, strong, readonly) HNKGooglePlacesAutocompleteQueryConfig *defaultConfiguration;
+@property(nonatomic, strong, readonly)
+    HNKGooglePlacesAutocompleteQueryConfig *defaultConfiguration;
 
 #pragma mark - Initialization
 
@@ -111,7 +119,10 @@ extern NSString *HNKGooglePlacesAutocompleteQueryDescriptionForErrorCode(
  *  @warning The provided API key cannot be nil
  *  @warning The provided configration cannot be nil
  */
-+ (instancetype)setupSharedQueryWithAPIKey:(NSString *)apiKey configuration:(HNKGooglePlacesAutocompleteQueryConfig *)configuration;
++ (instancetype)setupSharedQueryWithAPIKey:(NSString *)apiKey
+                             configuration:
+                                 (HNKGooglePlacesAutocompleteQueryConfig *)
+                                     configuration;
 
 /**
  * Returns shared HNKGooglePlacesAutocompleteQuery instance
@@ -129,7 +140,8 @@ extern NSString *HNKGooglePlacesAutocompleteQueryDescriptionForErrorCode(
  *  @param completion  Block to be executed when the fetch finishes
  */
 - (void)fetchPlacesForSearchQuery:(NSString *)searchQuery
-                       completion:(HNKGooglePlacesAutocompleteQueryCallback)completion;
+                       completion:
+                           (HNKGooglePlacesAutocompleteQueryCallback)completion;
 
 /**
  *  Fetches Places given a search query and query configuration
@@ -141,7 +153,9 @@ extern NSString *HNKGooglePlacesAutocompleteQueryDescriptionForErrorCode(
  *  @param completion    Block to be executed when the fetch finishes
  */
 - (void)fetchPlacesForSearchQuery:(NSString *)searchQuery
-                    configuration:(HNKGooglePlacesAutocompleteQueryConfig *)configuration
-                       completion:(HNKGooglePlacesAutocompleteQueryCallback)completion;
+                    configuration:
+                        (HNKGooglePlacesAutocompleteQueryConfig *)configuration
+                       completion:
+                           (HNKGooglePlacesAutocompleteQueryCallback)completion;
 
 @end
