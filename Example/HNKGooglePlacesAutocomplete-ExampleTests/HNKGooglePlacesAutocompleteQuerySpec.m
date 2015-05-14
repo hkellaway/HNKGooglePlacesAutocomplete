@@ -26,139 +26,126 @@ __block HNKGooglePlacesAutocompleteQueryConfig *defaultConfig;
 beforeAll(^{
 
     testInstance = [[HNKGooglePlacesAutocompleteQuery alloc] initWithAPIKey:@"abc" configuration:nil];
-
-    testConfig =
-        [[HNKGooglePlacesAutocompleteQueryConfig alloc] initWithCountry:@"fr"
-                                                                 filter:HNKGooglePlaceTypeAutocompleteFilterCity
-                                                               language:@"pt_BR"
-                                                               latitude:50.0
-                                                              longitude:150.0
-                                                                 offset:50
-                                                           searchRadius:100];
-
+    
+    struct HNKGooglePlacesAutocompleteLocation testLocation;
+    testLocation.latitude = 50;
+    testLocation.longitude = 150;
+    
+    testConfig = [[HNKGooglePlacesAutocompleteQueryConfig alloc] initWithCountry:@"fr" filter:HNKGooglePlaceTypeAutocompleteFilterCity language:@"pt_BR" location:testLocation offset:50 searchRadius:100];
+    
     defaultConfig = testInstance.defaultConfiguration;
-
+    
 });
 
 describe(@"HNKGooglePlacesAutocompleteQuery", ^{
 
-    describe(
-        @"Method: defaultConfiguration",
-        ^{
-
-            context(
-                @"No default configuration provided",
-                ^{
-
-                    __block HNKGooglePlacesAutocompleteQuery *testInstanceNoConfig;
-
-                    beforeEach(^{
-
-                        testInstanceNoConfig =
-                            [[HNKGooglePlacesAutocompleteQuery alloc] initWithAPIKey:@"abc" configuration:nil];
-
-                    });
-
-                    it(@"Should return default configuration",
-                       ^{
-
-                           HNKGooglePlacesAutocompleteQueryConfig *config = [testInstanceNoConfig defaultConfiguration];
-
-                           [[theValue(config.searchRadius) should] equal:theValue(500)];
-                           [[theValue(config.filter) should] equal:theValue(HNKGooglePlaceTypeAutocompleteFilterAll)];
-
-                       });
-
-                });
-
-            context(
-                @"Default configuration provided",
-                ^{
-
-                    __block HNKGooglePlacesAutocompleteQuery *testInstanceWithConfig;
-
-                    beforeEach(^{
-
-                        testInstanceWithConfig =
-                            [[HNKGooglePlacesAutocompleteQuery alloc] initWithAPIKey:@"abc" configuration:testConfig];
-
-                    });
-
-                    it(@"Should return custom configuration",
-                       ^{
-
-                           HNKGooglePlacesAutocompleteQueryConfig *config =
-                               [testInstanceWithConfig defaultConfiguration];
-
-                           [[theValue(config.searchRadius) should] equal:theValue(100)];
-                           [[theValue(config.filter) should] equal:theValue(HNKGooglePlaceTypeAutocompleteFilterCity)];
-
-                       });
-
-                });
-
+    describe(@"Method: defaultConfiguration", ^{
+        
+        context(@"No default configuration provided", ^{
+            
+            __block HNKGooglePlacesAutocompleteQuery *testInstanceNoConfig;
+           
+            beforeEach(^{
+               
+                testInstanceNoConfig = [[HNKGooglePlacesAutocompleteQuery alloc] initWithAPIKey:@"abc" configuration:nil];
+                
+            });
+            
+            it(@"Should return default configuration", ^{
+                
+                HNKGooglePlacesAutocompleteQueryConfig *config = [testInstanceNoConfig defaultConfiguration];
+                
+                [[theValue(config.searchRadius) should] equal:theValue(500)];
+                [[theValue(config.filter) should] equal:theValue(HNKGooglePlaceTypeAutocompleteFilterAll)];
+                
+            });
+            
         });
-
+        
+        context(@"Default configuration provided", ^{
+            
+            __block HNKGooglePlacesAutocompleteQuery *testInstanceWithConfig;
+            
+            beforeEach(^{
+               
+                testInstanceWithConfig = [[HNKGooglePlacesAutocompleteQuery alloc] initWithAPIKey:@"abc" configuration:testConfig];
+                
+            });
+            
+            it(@"Should return custom configuration", ^{
+                
+                HNKGooglePlacesAutocompleteQueryConfig *config = [testInstanceWithConfig defaultConfiguration];
+                
+                [[theValue(config.searchRadius) should] equal:theValue(100)];
+                [[theValue(config.filter) should] equal:theValue(HNKGooglePlaceTypeAutocompleteFilterCity)];
+                
+            });
+            
+        });
+        
+    });
+    
     describe(
         @"Method: fetchPlacesForSearchQuery:configuration:completion:",
         ^{
             typedef void (^HNKGooglePlacesServerCallback)(id JSON, NSError *error);
-
+            
             it(@"Should make a GET request to the Server",
                ^{
-                   [[HNKGooglePlacesServer should] receive:@selector(GET:parameters:completion:)
-                                             withArguments:@"autocomplete/json", any(), any()];
+                   [[HNKGooglePlacesServer should]
+                             receive:@selector(GET:parameters:completion:)
+                       withArguments:@"autocomplete/json",
+                                     any(),
+                                     any()];
 
                    [testInstance fetchPlacesForSearchQuery:@"Vict" configuration:nil completion:nil];
 
                });
-
-            context(
-                @"No configuration provided",
-                ^{
-
-                    it(@"Should use default configuration",
-                       ^{
-
-                           [[HNKGooglePlacesServer should]
-                                     receive:@selector(GET:parameters:completion:)
-                               withArguments:@"autocomplete/json",
-                                             @{ @"input" : @"Vict",
-                                                @"key" : testInstance.apiKey,
-                                                @"radius" : @(500) },
-                                             any()];
-
-                           [testInstance fetchPlacesForSearchQuery:@"Vict" configuration:nil completion:nil];
-
-                       });
-
+            
+            context(@"No configuration provided", ^{
+                
+                it(@"Should use default configuration", ^{
+                    
+                    [[HNKGooglePlacesServer should]
+                     receive:@selector(GET:parameters:completion:)
+                     withArguments:@"autocomplete/json",
+                        @{
+                          @"input" : @"Vict",
+                          @"key" : testInstance.apiKey,
+                          @"radius" : @(500)
+                          },
+                     any()];
+                    
+                    [testInstance fetchPlacesForSearchQuery:@"Vict" configuration:nil completion:nil];
+                    
                 });
-
-            context(@"Configuration provided",
-                    ^{
-
-                        it(@"Should use custom configuration",
-                           ^{
-
-                               [[HNKGooglePlacesServer should] receive:@selector(GET:parameters:completion:)
-                                                         withArguments:@"autocomplete/json",
-                                                                       @{
-                                                                           @"components=country" : @"fr",
-                                                                           @"input" : @"Vict",
-                                                                           @"key" : testInstance.apiKey,
-                                                                           @"language" : @"pt_BR",
-                                                                           @"location" : @"50.000000,150.000000",
-                                                                           @"offset" : @(50),
-                                                                           @"radius" : @(100),
-                                                                           @"types" : @"(cities)"
-                                                                       },
-                                                                       any()];
-
-                               [testInstance fetchPlacesForSearchQuery:@"Vict" configuration:testConfig completion:nil];
-
-                           });
-
-                    });
+                
+            });
+            
+            context(@"Configuration provided", ^{
+                
+                it(@"Should use custom configuration", ^{
+                    
+                    [[HNKGooglePlacesServer should]
+                     receive:@selector(GET:parameters:completion:)
+                     withArguments:@"autocomplete/json",
+                     @{
+                       @"components=country" : @"fr",
+                       @"input" : @"Vict",
+                       @"key" : testInstance.apiKey,
+                       @"language" : @"pt_BR",
+                       @"location" : @"50.000000,150.000000",
+                       @"offset" : @(50),
+                       @"radius" : @(100),
+                       @"types" : @"(cities)"
+                       },
+                     any()];
+                    
+                    [testInstance fetchPlacesForSearchQuery:@"Vict" configuration:testConfig completion:nil];
+                    
+                });
+                
+            });
 
             context(
                 @"Invalid search query",
@@ -403,37 +390,34 @@ describe(@"HNKGooglePlacesAutocompleteQuery", ^{
 
                         });
                 });
+            
+            describe(@"Method: fetchPlacesForSearchQuery:completion:", ^{
 
-            describe(
-                @"Method: fetchPlacesForSearchQuery:completion:",
-                ^{
-
-                    it(@"Should call designated fetchPlaces",
-                       ^{
-
-                           [[testInstance should]
-                               receive:@selector(fetchPlacesForSearchQuery:configuration:completion:)];
-
-                           [testInstance fetchPlacesForSearchQuery:@"Vict" completion:nil];
-
-                       });
-
-                    it(@"Should use default configuration",
-                       ^{
-
-                           [[HNKGooglePlacesServer should]
-                                     receive:@selector(GET:parameters:completion:)
-                               withArguments:@"autocomplete/json",
-                                             @{ @"input" : @"Vict",
-                                                @"key" : testInstance.apiKey,
-                                                @"radius" : @(500) },
-                                             any()];
-
-                           [testInstance fetchPlacesForSearchQuery:@"Vict" completion:nil];
-
-                       });
-
+                it(@"Should call designated fetchPlaces", ^{
+                    
+                    [[testInstance should] receive:@selector(fetchPlacesForSearchQuery:configuration:completion:)];
+                    
+                    [testInstance fetchPlacesForSearchQuery:@"Vict" completion:nil];
+                    
                 });
+                
+                it(@"Should use default configuration", ^{
+                    
+                    [[HNKGooglePlacesServer should]
+                     receive:@selector(GET:parameters:completion:)
+                     withArguments:@"autocomplete/json",
+                     @{
+                       @"input" : @"Vict",
+                       @"key" : testInstance.apiKey,
+                       @"radius" : @(500)
+                       },
+                     any()];
+                    
+                    [testInstance fetchPlacesForSearchQuery:@"Vict" completion:nil];
+                    
+                });
+                
+            });
 
         });
 
