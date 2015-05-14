@@ -34,9 +34,8 @@
 - (BOOL)isPlaceType:(HNKGooglePlaceType)placeType {
   NSArray *allTypes = self.types;
 
-  for (int i = 0; i < [allTypes count]; i++) {
-    NSNumber *number = allTypes[i];
-    if (number.integerValue == placeType) {
+  for (NSNumber *type in allTypes) {
+    if (type.integerValue == placeType) {
       return YES;
     }
   }
