@@ -7,6 +7,16 @@
 
 An Objective-C wrapper for the Google Places autocomplete API
 
+## Background
+
+HNKGooglePlacesAutocomplete was inspired by [SPGooglePlacesAutocomplete] with the intention of modernizing the implementation. HNKGooglePlacesAutocomplete encapsulates the same core functionality - Google autocomplete suggestions and Google Place-to-CLPlacemark translation - with a more layered and pod-first approach.
+
+Improvements include:
+- Use of modern, vetted pods (AFNetworking, Mantle)
+- Core functionality is useable without requiring the CoreLocation framework
+- Code is well-tested using Kiwi
+- Designed with Cocoapods in mind
+
 
 ## Communication
 
