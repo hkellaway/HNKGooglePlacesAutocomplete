@@ -26,24 +26,20 @@
 
 #import "HNKGooglePlacesAutocompletePlace.h"
 
-typedef struct HNKGooglePlacesAutocompleteLocation
-{
-    double latitude;
-    double longitude;
-} HNKGooglePlacesAutocompleteLocation;
-
 /**
  *  Parameters that can be used to adjust autocomplete
  *  search results
  */
 @interface HNKGooglePlacesAutocompleteQueryConfig : NSObject
 
-@property (nonatomic, copy, readonly) NSString *country;
-@property (nonatomic, assign, readonly) HNKGooglePlaceTypeAutocompleteFilter filter;
-@property (nonatomic, copy, readonly) NSString *language;
-@property (nonatomic, assign, readonly) HNKGooglePlacesAutocompleteLocation location;
-@property (nonatomic, assign, readonly) NSInteger offset;
-@property (nonatomic, assign, readonly) NSInteger searchRadius;
+@property(nonatomic, copy, readonly) NSString *country;
+@property(nonatomic, assign, readonly)
+    HNKGooglePlaceTypeAutocompleteFilter filter;
+@property(nonatomic, copy, readonly) NSString *language;
+@property(nonatomic, assign, readonly) double latitude;
+@property(nonatomic, assign, readonly) double longitude;
+@property(nonatomic, assign, readonly) NSInteger offset;
+@property(nonatomic, assign, readonly) NSInteger searchRadius;
 
 #pragma mark - Initialization
 
@@ -60,12 +56,22 @@ typedef struct HNKGooglePlacesAutocompleteLocation
  *  @param language     The language in which search results are returned.
  *                      The list of supported languages can be found here:
  *                      https://developers.google.com/maps/faq#languagesupportNote
- *  @param location     The point around which place information is returned
+ *  @param latitude     The latitude around which place information is returned
+ *  @param longitude    The longitude around which place information is returned
  *  @param offset       The position, in the input term, of the last
  *                      character that the service uses to match predictions
  *  @param searchRadius Distance in meters within which place results are biased
+ *
+ *  Note: If latitude or longitude are set to NSNotFound
+ *  a default location will not be used
  */
-- (instancetype)initWithCountry:(NSString *)country filter:(HNKGooglePlaceTypeAutocompleteFilter)filter language:(NSString *)language location:(HNKGooglePlacesAutocompleteLocation)location  offset:(NSInteger)offset searchRadius:(NSInteger)searchRadius;
+- (instancetype)initWithCountry:(NSString *)country
+                         filter:(HNKGooglePlaceTypeAutocompleteFilter)filter
+                       language:(NSString *)language
+                       latitude:(double)latitude
+                      longitude:(double)longitude
+                         offset:(NSInteger)offset
+                   searchRadius:(NSInteger)searchRadius;
 
 #pragma mark - Instance methods
 
