@@ -3,7 +3,7 @@ platform :ios, '7.0'
 
 target 'HNKGooglePlacesAutocomplete-Example' do
 
-pod 'HNKGooglePlacesAutocomplete', :git => 'https://github.com/hkellaway/HNKGooglePlacesAutocomplete.git', :branch => 'release/0.6.0'
+pod 'HNKGooglePlacesAutocomplete', :git => 'https://github.com/hkellaway/HNKGooglePlacesAutocomplete.git', :branch => 'fix/query_config_block_syntax'
 
 end
 

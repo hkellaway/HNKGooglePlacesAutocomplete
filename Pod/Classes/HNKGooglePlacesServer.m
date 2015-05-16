@@ -52,6 +52,7 @@ static NSString *const kHNKGooglePlacesServerBaseURL =
         if (completion) {
 
           if (error) {
+
             completion(nil, error);
             return;
           }
