@@ -23,17 +23,19 @@ static double const kHNKLocationLongitudeNewYorkCity = 74.0059;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    HNKGooglePlacesAutocompleteQueryConfig *searchConfig =
-        [[HNKGooglePlacesAutocompleteQueryConfig alloc] initWithCountry:nil
-                                                                 filter:HNKGooglePlaceTypeAutocompleteFilterAll
-                                                               language:nil
-                                                               latitude:kHNKLocationLatitudeNewYorkCity
-                                                              longitude:kHNKLocationLongitudeNewYorkCity
-                                                                 offset:NSNotFound
-                                                           searchRadius:100];
 
     [HNKGooglePlacesAutocompleteQuery setupSharedQueryWithAPIKey:kHNKDemoGooglePlacesAutocompleteApiKey
-                                                   configuration:searchConfig];
+                                              configurationBlock:^(HNKGooglePlacesAutocompleteQueryConfig *config) {
+
+                                                  config.country = nil;
+                                                  config.filter = HNKGooglePlaceTypeAutocompleteFilterAll;
+                                                  config.language = nil;
+                                                  config.latitude = kHNKLocationLatitudeNewYorkCity;
+                                                  config.longitude = kHNKLocationLongitudeNewYorkCity;
+                                                  config.offset = NSNotFound;
+                                                  config.searchRadius = 100;
+
+                                              }];
 
     return YES;
 }

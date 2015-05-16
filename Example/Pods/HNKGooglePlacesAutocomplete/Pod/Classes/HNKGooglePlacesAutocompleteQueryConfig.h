@@ -32,48 +32,47 @@
  */
 @interface HNKGooglePlacesAutocompleteQueryConfig : NSObject
 
-@property(nonatomic, copy, readonly) NSString *country;
-@property(nonatomic, assign, readonly)
-    HNKGooglePlaceTypeAutocompleteFilter filter;
-@property(nonatomic, copy, readonly) NSString *language;
-@property(nonatomic, assign, readonly) double latitude;
-@property(nonatomic, assign, readonly) double longitude;
-@property(nonatomic, assign, readonly) NSInteger offset;
-@property(nonatomic, assign, readonly) NSInteger searchRadius;
-
-#pragma mark - Initialization
+/**
+ *  Country to which search results are restricted.
+ *
+ *  Note :Must be a two character, ISO 3166-1 Alpha-2
+ *  compatible country code
+ */
+@property(nonatomic, copy) NSString *country;
 
 /**
- *  Returns HNKGooglePlacesAutocompleteQueryConfig instance with provided
- *  configuration properties
- *
- *  Note: This is the designated initializer
- *
- *  @param country      Country to which search results are restricted.
- *                      Must be a two character, ISO 3166-1 Alpha-2
- *                      compatible country code
- *  @param filter       Place type filter by which results are restricted
- *  @param language     The language in which search results are returned.
- *                      The list of supported languages can be found here:
- *                      https://developers.google.com/maps/faq#languagesupportNote
- *  @param latitude     The latitude around which place information is returned
- *  @param longitude    The longitude around which place information is returned
- *  @param offset       The position, in the input term, of the last
- *                      character that the service uses to match predictions
- *  @param searchRadius Distance in meters within which place results are biased
- *
- *  Note: If latitude or longitude are set to NSNotFound
- *  a default location will not be used
+ *  Place type filter by which results are restricted
  */
-- (instancetype)initWithCountry:(NSString *)country
-                         filter:(HNKGooglePlaceTypeAutocompleteFilter)filter
-                       language:(NSString *)language
-                       latitude:(double)latitude
-                      longitude:(double)longitude
-                         offset:(NSInteger)offset
-                   searchRadius:(NSInteger)searchRadius;
+@property(nonatomic, assign) HNKGooglePlaceTypeAutocompleteFilter filter;
 
-#pragma mark - Instance methods
+/**
+ *  The language in which search results are returned
+ *
+ *  The list of supported languages can be found here:
+ *  https://developers.google.com/maps/faq#languagesupportNote
+ */
+@property(nonatomic, copy) NSString *language;
+
+/**
+ *  The latitude around which place information is returned
+ */
+@property(nonatomic, assign) double latitude;
+
+/**
+ *  The longitude around which place information is returned
+ */
+@property(nonatomic, assign) double longitude;
+
+/**
+ *  The position, in the input term, of the last
+ *  character that the service uses to match predictions
+ */
+@property(nonatomic, assign) NSInteger offset;
+
+/**
+ *  Distance in meters within which place results are biased
+ */
+@property(nonatomic, assign) NSInteger searchRadius;
 
 /**
  *  Translation of properties into parameter dictionary for
