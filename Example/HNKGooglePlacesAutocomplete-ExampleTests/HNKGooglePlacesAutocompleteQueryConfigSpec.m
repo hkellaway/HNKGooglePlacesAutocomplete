@@ -17,46 +17,26 @@ describe(@"HNKGooglePlacesAutocompleteQueryConfig", ^{
     describe(@"translateToServerRequestParameters",
              ^{
 
-                 context(@"Latitude or longitude set to NSNotFound",
+                 context(@"Latitude and longitude set to 0",
                          ^{
-                             __block HNKGooglePlacesAutocompleteQueryConfig *testInstanceNoLat;
-                             __block HNKGooglePlacesAutocompleteQueryConfig *testInstanceNoLon;
+                             __block HNKGooglePlacesAutocompleteQueryConfig *testInstanceNoLocation;
 
                              beforeEach(^{
 
-                                 testInstanceNoLat = [[HNKGooglePlacesAutocompleteQueryConfig alloc] init];
-                                 testInstanceNoLat.country = @"abc";
-                                 testInstanceNoLat.filter = HNKGooglePlaceTypeAutocompleteFilterRegion;
-                                 testInstanceNoLat.language = @"def";
-                                 testInstanceNoLat.latitude = NSNotFound;
-                                 testInstanceNoLat.longitude = 150.5;
-                                 testInstanceNoLat.offset = 100;
-                                 testInstanceNoLat.searchRadius = 1000;
-
-                                 testInstanceNoLon = [[HNKGooglePlacesAutocompleteQueryConfig alloc] init];
-                                 testInstanceNoLon.country = @"abc";
-                                 testInstanceNoLon.filter = HNKGooglePlaceTypeAutocompleteFilterRegion;
-                                 testInstanceNoLon.language = @"def";
-                                 testInstanceNoLon.latitude = 50.5;
-                                 testInstanceNoLon.longitude = NSNotFound;
-                                 testInstanceNoLon.offset = 100;
-                                 testInstanceNoLon.searchRadius = 1000;
+                                 testInstanceNoLocation = [[HNKGooglePlacesAutocompleteQueryConfig alloc] init];
+                                 testInstanceNoLocation.country = @"abc";
+                                 testInstanceNoLocation.filter = HNKGooglePlaceTypeAutocompleteFilterRegion;
+                                 testInstanceNoLocation.language = @"def";
+                                 testInstanceNoLocation.latitude = 0;
+                                 testInstanceNoLocation.longitude = 0;
+                                 testInstanceNoLocation.offset = 100;
+                                 testInstanceNoLocation.searchRadius = 1000;
 
                              });
 
                              it(@"Should not include location in parameters",
                                 ^{
-                                    NSDictionary *params = [testInstanceNoLat translateToServerRequestParameters];
-
-                                    [[params should] equal:@{
-                                        @"components=country" : @"abc",
-                                        @"language" : @"def",
-                                        @"offset" : @(100),
-                                        @"radius" : @(1000),
-                                        @"types" : @"(regions)"
-                                    }];
-
-                                    params = [testInstanceNoLon translateToServerRequestParameters];
+                                    NSDictionary *params = [testInstanceNoLocation translateToServerRequestParameters];
 
                                     [[params should] equal:@{
                                         @"components=country" : @"abc",
@@ -82,8 +62,8 @@ describe(@"HNKGooglePlacesAutocompleteQueryConfig", ^{
                                     testInstance.country = nil;
                                     testInstance.filter = HNKGooglePlaceTypeAutocompleteFilterAll;
                                     testInstance.language = nil;
-                                    testInstance.latitude = NSNotFound;
-                                    testInstance.longitude = NSNotFound;
+                                    testInstance.latitude = 0;
+                                    testInstance.longitude = 0;
                                     testInstance.offset = NSNotFound;
                                     testInstance.searchRadius = NSNotFound;
 
