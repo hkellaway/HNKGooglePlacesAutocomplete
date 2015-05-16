@@ -89,9 +89,9 @@ extern NSString *HNKGooglePlacesAutocompleteQueryDescriptionForErrorCode(
  *
  *  Note: If no configuration is provided, a default is
  *  set with the following values: country = nil,
- *  filter = All, language = nil, latitude = NSNotFound,
- *  longitude = NSNotFound, offset = NSNotFound,
- *  searchRadius = 500
+ *  filter = All, language = nil, latitude = 0,
+ *  longitude = 0, offset = NSNotFound,
+ *  searchRadius = 20000000 (entire world)
  *
  */
 @property(nonatomic, strong, readonly)
