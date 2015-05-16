@@ -40,17 +40,17 @@ PODS:
 
 DEPENDENCIES:
   - HNKGooglePlacesAutocomplete (from `https://github.com/hkellaway/HNKGooglePlacesAutocomplete.git`,
-    branch `fix/query_config_block_syntax`)
+    branch `fix/query_config_defaults_location_radius`)
   - Kiwi (~> 2.3)
 
 EXTERNAL SOURCES:
   HNKGooglePlacesAutocomplete:
-    :branch: fix/query_config_block_syntax
+    :branch: fix/query_config_defaults_location_radius
     :git: https://github.com/hkellaway/HNKGooglePlacesAutocomplete.git
 
 CHECKOUT OPTIONS:
   HNKGooglePlacesAutocomplete:
-    :commit: 3084ea38d36461f639c1bf42a46e91db8cd8f6b1
+    :commit: d576589cc8a9d18c3c94982f7fba8ed723a751e9
     :git: https://github.com/hkellaway/HNKGooglePlacesAutocomplete.git
 
 SPEC CHECKSUMS:

@@ -67,7 +67,7 @@ describe(@"HNKGooglePlacesAutocompleteQuery", ^{
 
                            HNKGooglePlacesAutocompleteQueryConfig *config = [testInstanceNoConfig configuration];
 
-                           [[theValue(config.searchRadius) should] equal:theValue(500)];
+                           [[theValue(config.searchRadius) should] equal:theValue(20000000)];
                            [[theValue(config.filter) should] equal:theValue(HNKGooglePlaceTypeAutocompleteFilterAll)];
 
                        });
@@ -117,7 +117,7 @@ describe(@"HNKGooglePlacesAutocompleteQuery", ^{
                                                                        @{
                                                                            @"input" : @"Vict",
                                                                            @"key" : testInstanceWithNoConfig.apiKey,
-                                                                           @"radius" : @(500)
+                                                                           @"radius" : @(20000000)
                                                                        },
                                                                        any()];
 
@@ -464,7 +464,7 @@ describe(@"HNKGooglePlacesAutocompleteQuery", ^{
                                                                            @{
                                                                                @"input" : @"Vict",
                                                                                @"key" : testInstanceWithNoConfig.apiKey,
-                                                                               @"radius" : @(500)
+                                                                               @"radius" : @(20000000)
                                                                            },
                                                                            any()];
 
