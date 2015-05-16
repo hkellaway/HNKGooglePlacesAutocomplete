@@ -5,18 +5,18 @@
 [![CocoaPods](https://img.shields.io/cocoapods/p/HNKGooglePlacesAutocomplete.svg)](http://cocoapods.org/pods/HNKGooglePlacesAutocomplete)
 [![Build Status](https://travis-ci.org/hkellaway/HNKGooglePlacesAutocomplete.svg?branch=master)](https://travis-ci.org/hkellaway/HNKGooglePlacesAutocomplete)
 
-An Objective-C wrapper for the Google Places autocomplete API
+An Objective-C wrapper for the Google Places Autocomplete API
 
 ## Background
 
-HNKGooglePlacesAutocomplete was inspired by [SPGooglePlacesAutocomplete](https://github.com/spoletto/SPGooglePlacesAutocomplete) with the intention of modernizing the implementation. HNKGooglePlacesAutocomplete encapsulates the same core functionality - Google autocomplete suggestions and Google Place-to-CLPlacemark translation - with a more layered and pod-first approach.
+HNKGooglePlacesAutocomplete is an Objective-C wrapper for the Google Places Autocomplete API. It was inspired by [SPGooglePlacesAutocomplete](https://github.com/spoletto/SPGooglePlacesAutocomplete) with the intention of modernizing the implementation. HNKGooglePlacesAutocomplete encapsulates the same core functionality - Google Place Autocomplete suggestions and Google Place-to-CLPlacemark translation - with a more layered and pod-first approach.
 
 Improvements include:
 - Use of modern, vetted pods (AFNetworking, Mantle)
 - Core functionality is useable without requiring the CoreLocation framework
 - Code is well-tested using Kiwi
 - Example project does not use the deprecated UISearchDisplayController
-- Designed with Cocoapods in mind
+- Modularly designed with Cocoapods in mind
 
 ## Communication
 
@@ -55,7 +55,7 @@ HNKGooglePlacesAutocomplete uses the [Google Places Autocomplete API]. You will 
 
 ### Core Classes
 
-These classes form the core functionality of HNKGooglePlacesAutocompelte - querying the API for Place suggestions and the resulting Place objects
+These classes form the core functionality of HNKGooglePlacesAutocomplete - the object used to query the API for Place suggestions and the resulting Place object
 
 - `HNKGooglePlacesAutocompletePlaceQuery`
 - `HNKGooglePlacesAutocompletePlace`
@@ -77,6 +77,41 @@ These categories add useful funtionality to the core of HNKGooglePlacesAutocompl
 
 ## Usage
 
+### Setup
+
+Requests cannot be made without first supplying `HNKGooglePlacesAutocomplete` with your Google Places Autocomplete API Key (see [API Key](#api-key)). Once your API key is obtained, you can setup `HNKGooglePlacesAutocomplete` for use by calling `setupSharedInstanceWithAPIKey` on `HNKGooglePlacesAutocompleteQuery` (typically within the `AppDelegate`):
+
+```objective-c
+[HNKGooglePlacesAutocompleteQuery sharedInstanceWithAPIKey:@"YOUR_API_KEY"];
+```
+
+You should replace `YOUR_API_KEY` with your Google Places Autocomplete API key.
+
+### Queries
+
+`HNKGooglePlacesAutocompleteQuery` is responsible for handling queries for Places. Once [Setup](#setup) is complete, queries can be made to `[HNKGooglePlacesAutocopmleteQuery sharedQuery]`.
+
+#### fetchPlacesForSearchQuery:completion:
+
+```objective-c
+[[HNKGooglePlacesAutocomplete sharedQuery] fetchPlacesForSearchQuery:@"Vict" completion:^(NSArray *places, NSError *error)  {
+    if (error) {
+        NSLog(@"ERROR: %@", error);
+    } else {
+        for (HNKGooglePlacesAutocompletePlace *place in places) {
+	        NSLog(@"%@", place);
+		}
+    }
+}];
+```
+
+The `completion` block provides an array of `HNKGooglePlaceAutcompletePlace` objects when successful. If not successful, error information can be found in the `error` object.
+
+### Other Topics
+
+#### Configuring Queries (optional)
+
+#### Query Errors
 
 ## Credits
 
