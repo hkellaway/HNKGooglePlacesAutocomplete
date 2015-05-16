@@ -85,17 +85,17 @@ extern NSString *HNKGooglePlacesAutocompleteQueryDescriptionForErrorCode(
 @property(nonatomic, copy, readonly) NSString *apiKey;
 
 /**
- *  Default configuration for requests
+ *  Configuration used for requests if none is provided
  *
  *  Note: If no configuration is provided, a default is
- *  still set with the following values: country = nil,
+ *  set with the following values: country = nil,
  *  filter = All, language = nil, latitude = NSNotFound,
  *  longitude = NSNotFound, offset = NSNotFound,
  *  searchRadius = 500
  *
  */
 @property(nonatomic, strong, readonly)
-    HNKGooglePlacesAutocompleteQueryConfig *defaultConfiguration;
+    HNKGooglePlacesAutocompleteQueryConfig *configuration;
 
 #pragma mark - Initialization
 
@@ -119,10 +119,11 @@ extern NSString *HNKGooglePlacesAutocompleteQueryDescriptionForErrorCode(
  *  @warning The provided API key cannot be nil
  *  @warning The provided configration cannot be nil
  */
-+ (instancetype)setupSharedQueryWithAPIKey:(NSString *)apiKey
-                             configuration:
-                                 (HNKGooglePlacesAutocompleteQueryConfig *)
-                                     configuration;
++ (instancetype)
+    setupSharedQueryWithAPIKey:(NSString *)apiKey
+            configurationBlock:
+                (void (^)(HNKGooglePlacesAutocompleteQueryConfig *config))
+                    configBlock;
 
 /**
  * Returns shared HNKGooglePlacesAutocompleteQuery instance
