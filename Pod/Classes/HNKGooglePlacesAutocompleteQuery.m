@@ -36,7 +36,7 @@ NSString *const HNKGooglePlacesAutocompleteQueryErrorDomain =
 
 static NSString *const kHNKGooglePlacesServerRequestPathAutocomplete =
     @"autocomplete/json";
-static NSInteger const kHNKGooglePlacesAutocompleteDefaultSearchRadius = 500;
+static NSInteger const kHNKGooglePlacesAutocompleteWorldSearchRadius = 20000000;
 
 #pragma mark Status Constants
 
@@ -139,11 +139,11 @@ static HNKGooglePlacesAutocompleteQuery *sharedQuery = nil;
   defaultConfiguration.country = nil;
   defaultConfiguration.filter = HNKGooglePlaceTypeAutocompleteFilterAll;
   defaultConfiguration.language = nil;
-  defaultConfiguration.latitude = NSNotFound;
-  defaultConfiguration.longitude = NSNotFound;
+  defaultConfiguration.latitude = 0;
+  defaultConfiguration.longitude = 0;
   defaultConfiguration.offset = NSNotFound;
   defaultConfiguration.searchRadius =
-      kHNKGooglePlacesAutocompleteDefaultSearchRadius;
+      kHNKGooglePlacesAutocompleteWorldSearchRadius;
 
   return defaultConfiguration;
 }
