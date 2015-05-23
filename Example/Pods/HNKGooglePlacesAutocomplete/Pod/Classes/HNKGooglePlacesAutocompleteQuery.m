@@ -163,7 +163,10 @@ static HNKGooglePlacesAutocompleteQuery *sharedQuery = nil;
                configurationBlock:^(HNKGooglePlacesAutocompleteQueryConfig *
                                         config) {
 
-                 config = self.configuration;
+                 if (self.configuration == nil) {
+
+                   config = self.configuration;
+                 }
 
                } completion:completion];
 }
@@ -174,7 +177,9 @@ static HNKGooglePlacesAutocompleteQuery *sharedQuery = nil;
                        configBlock
                        completion:(HNKGooglePlacesAutocompleteQueryCallback)
                                       completion {
-  HNKGooglePlacesAutocompleteQueryConfig *configForRequest = self.configuration;
+  HNKGooglePlacesAutocompleteQueryConfig *configForRequest =
+      [HNKGooglePlacesAutocompleteQueryConfig
+          configWithConfig:self.configuration];
 
   if (configBlock) {
     configBlock(configForRequest);

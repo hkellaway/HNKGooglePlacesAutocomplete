@@ -74,6 +74,15 @@
  */
 @property(nonatomic, assign) NSInteger searchRadius;
 
+#pragma mark - Initialization
+
+#pragma mark Convenience
+
++ (instancetype)configWithConfig:
+        (HNKGooglePlacesAutocompleteQueryConfig *)config;
+
+#pragma mark - Methods
+
 /**
  *  Translation of properties into parameter dictionary for
  *  requests to Google Places API

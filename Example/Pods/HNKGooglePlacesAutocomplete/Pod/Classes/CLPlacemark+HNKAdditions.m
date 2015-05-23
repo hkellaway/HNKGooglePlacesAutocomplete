@@ -36,9 +36,9 @@ NSString *const HNKGooglePlacesAutocompleteCLPlacemarkErrorDomain =
 static NSString *const HNKCLPlacemarkErrorCodeDescriptionUnknown =
     @"Unknown error occurred";
 static NSString *const HNKCLPlacemarkErrorCodeDescriptionGeocoderFailure =
-    @"Geocoder returned error";
+    @"Geocoder error";
 static NSString *const HNKCLPlacemarkErrorCodeDescriptionGoogleFailure =
-    @"Unknown error occurred";
+    @"API error";
 
 #pragma mark Request constants
 

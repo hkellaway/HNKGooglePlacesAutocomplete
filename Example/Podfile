@@ -3,7 +3,7 @@ platform :ios, '7.0'
 
 target 'HNKGooglePlacesAutocomplete-Example' do
 
-pod 'HNKGooglePlacesAutocomplete', :git => 'https://github.com/hkellaway/HNKGooglePlacesAutocomplete.git', :branch => 'feature/placemarkfromplace-custom-errors'
+pod 'HNKGooglePlacesAutocomplete', :git => 'https://github.com/hkellaway/HNKGooglePlacesAutocomplete.git', :branch => 'develop'
 
 end
 
