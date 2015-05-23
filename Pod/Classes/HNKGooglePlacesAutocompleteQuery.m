@@ -341,7 +341,7 @@ static HNKGooglePlacesAutocompleteQuery *sharedQuery = nil;
                      andUserInfo:(NSDictionary *)userInfo {
   NSDictionary *userInfoToReturn = @{
     @"NSLocalizedDescription" : errorDescription,
-    @"NSLocalizedFailureReasonError" : errorDescription
+    @"NSLocalizedFailureReason" : errorDescription
   };
 
   if (userInfo != nil) {
