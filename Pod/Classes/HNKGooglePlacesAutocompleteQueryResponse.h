@@ -25,6 +25,9 @@
 
 #import "HNKGooglePlacesAutocompleteModel.h"
 
+/**
+ *  Status codes for HNKGooglePlacesAutcompleteQueryResponse
+ */
 typedef NS_ENUM(NSInteger, HNKGooglePlacesAutocompleteQueryResponseStatus) {
   /**
    *  Unknown status

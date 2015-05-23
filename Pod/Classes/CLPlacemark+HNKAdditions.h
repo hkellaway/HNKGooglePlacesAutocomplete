@@ -30,6 +30,24 @@
  */
 extern NSString *const HNKGooglePlacesAutocompleteCLPlacemarkErrorDomain;
 
+/**
+ *  Error codes for CLPlacemark+HNKAdditions
+ */
+typedef NS_ENUM(NSInteger, HNKCLPlacemarkErrorCode) {
+  /**
+   *  Unknown error
+   */
+  HNKCLPlacemarkErrorCodeUnknown = 0,
+  /**
+   *  Error occurred during a Google Places Details request
+   */
+  HNKCLPlacemarkErrorCodeGoogleFailure,
+  /**
+   *  Error occurred during a CLGeocoder request
+   */
+  HNKCLPlacemarkErrorCodeCLGeocoderFailure
+};
+
 @class HNKGooglePlacesAutocompletePlace;
 
 @interface CLPlacemark (HNKAdditions)
