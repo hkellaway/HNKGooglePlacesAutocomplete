@@ -46,8 +46,9 @@ static NSString *const kHNKGooglePlacesServerRequestPathDetails =
 
                if (error) {
 
-                 NSError *customError =
-                     [self customErrorWithUnderlyingError:error];
+                 NSError *customError = [self
+                     customErrorWithCode:HNKCLPlacemarkErrorCodeGoogleFailure
+                         underlyingError:error];
                  completion(nil, nil, customError);
 
                } else {
@@ -141,22 +142,24 @@ static NSString *const kHNKGooglePlacesServerRequestPathDetails =
               completion:(void (^)(CLPlacemark *placemark,
                                    NSString *addressString,
                                    NSError *error))completion {
-  [geocoder geocodeAddressString:placeName
-               completionHandler:^(NSArray *placemarks, NSError *error) {
+  [geocoder
+      geocodeAddressString:placeName
+         completionHandler:^(NSArray *placemarks, NSError *error) {
 
-                 if (error) {
+           if (error) {
 
-                   NSError *customError =
-                       [self customErrorWithUnderlyingError:error];
-                   completion(nil, nil, customError);
+             NSError *customError = [self
+                 customErrorWithCode:HNKCLPlacemarkErrorCodeCLGeocoderFailure
+                     underlyingError:error];
+             completion(nil, nil, customError);
 
-                 } else {
-                   [self completeWithPlacemarks:placemarks
-                                        address:placeName
-                                     completion:completion];
-                 }
+           } else {
+             [self completeWithPlacemarks:placemarks
+                                  address:placeName
+                               completion:completion];
+           }
 
-               }];
+         }];
 }
 
 + (void)completeWithPlacemarks:(NSArray *)placemarks
@@ -168,14 +171,8 @@ static NSString *const kHNKGooglePlacesServerRequestPathDetails =
   completion(singlePlacemark, address, nil);
 }
 
-+ (NSError *)customErrorWithUnderlyingError:(NSError *)error {
-  NSInteger errorCode;
-  if ([error.domain isEqualToString:@"kCLErrorDomain"]) {
-    errorCode = 0;
-  } else {
-    errorCode = 1;
-  }
-
++ (NSError *)customErrorWithCode:(HNKCLPlacemarkErrorCode)errorCode
+                 underlyingError:(NSError *)error {
   NSString *errorLocalizedDescription =
       error.localizedDescription ? error.localizedDescription : @"";
   NSString *errorLocalizedFailureReason = error.localizedFailureReason
