@@ -88,6 +88,30 @@ describe(@"HNKGooglePlacesAutocompleteQuery", ^{
 
                        });
 
+                    it(@"Should use default config values for those not provided",
+                       ^{
+
+                           HNKGooglePlacesAutocompleteQuery *testInstanceWithSomeConfig =
+                               [[HNKGooglePlacesAutocompleteQuery alloc]
+                                       initWithAPIKey:@"ghi"
+                                   configurationBlock:^(HNKGooglePlacesAutocompleteQueryConfig *config) {
+
+                                       config.filter = HNKGooglePlaceTypeAutocompleteFilterCity;
+                                       config.offset = 50;
+
+                                   }];
+                           HNKGooglePlacesAutocompleteQueryConfig *config = [testInstanceWithSomeConfig configuration];
+
+                           [[config.country should] beNil];
+                           [[theValue(config.filter) should] equal:theValue(HNKGooglePlaceTypeAutocompleteFilterCity)];
+                           [[config.language should] beNil];
+                           [[theValue(config.latitude) should] equal:theValue(0)];
+                           [[theValue(config.longitude) should] equal:theValue(0)];
+                           [[theValue(config.offset) should] equal:theValue(50)];
+                           [[theValue(config.searchRadius) should] equal:theValue(20000000)];
+
+                       });
+
                 });
 
         });
