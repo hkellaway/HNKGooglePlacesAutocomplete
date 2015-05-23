@@ -48,6 +48,12 @@ typedef NS_ENUM(NSInteger, HNKCLPlacemarkErrorCode) {
   HNKCLPlacemarkErrorCodeCLGeocoderFailure
 };
 
+/**
+ *  Short description of error for provided error code
+ */
+extern NSString *
+HNKCLPlacemarkDescriptionForErrorCode(HNKCLPlacemarkErrorCode errorCode);
+
 @class HNKGooglePlacesAutocompletePlace;
 
 @interface CLPlacemark (HNKAdditions)

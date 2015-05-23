@@ -28,8 +28,19 @@
 
 #import "CLPlacemark+HNKAdditions.h"
 
+#pragma mark Error constants
+
 NSString *const HNKGooglePlacesAutocompleteCLPlacemarkErrorDomain =
     @"com.hnkgoogleplacesautocomplete.category.clplacemark.error";
+
+static NSString *const HNKCLPlacemarkErrorCodeDescriptionUnknown =
+    @"Unknown error occurred";
+static NSString *const HNKCLPlacemarkErrorCodeDescriptionGeocoderFailure =
+    @"Geocoder returned error";
+static NSString *const HNKCLPlacemarkErrorCodeDescriptionGoogleFailure =
+    @"Unknown error occurred";
+
+#pragma mark Request constants
 
 static NSString *const kHNKGooglePlacesServerRequestPathDetails =
     @"details/json";
@@ -174,7 +185,7 @@ static NSString *const kHNKGooglePlacesServerRequestPathDetails =
 + (NSError *)customErrorWithCode:(HNKCLPlacemarkErrorCode)errorCode
                  underlyingError:(NSError *)error {
   NSString *errorLocalizedDescription =
-      error.localizedDescription ? error.localizedDescription : @"";
+      HNKCLPlacemarkDescriptionForErrorCode(errorCode);
   NSString *errorLocalizedFailureReason = error.localizedFailureReason
                                               ? error.localizedFailureReason
                                               : errorLocalizedDescription;
@@ -188,6 +199,28 @@ static NSString *const kHNKGooglePlacesServerRequestPathDetails =
              }];
 
   return customError;
+}
+
+NSString *
+HNKCLPlacemarkDescriptionForErrorCode(HNKCLPlacemarkErrorCode errorCode) {
+  switch (errorCode) {
+  case HNKCLPlacemarkErrorCodeUnknown: {
+    return HNKCLPlacemarkErrorCodeDescriptionUnknown;
+    break;
+  }
+  case HNKCLPlacemarkErrorCodeCLGeocoderFailure: {
+    return HNKCLPlacemarkErrorCodeDescriptionGeocoderFailure;
+    break;
+  }
+  case HNKCLPlacemarkErrorCodeGoogleFailure: {
+    return HNKCLPlacemarkErrorCodeDescriptionGoogleFailure;
+    break;
+  }
+  default: {
+    return HNKCLPlacemarkErrorCodeDescriptionUnknown;
+    break;
+  }
+  }
 }
 
 @end
