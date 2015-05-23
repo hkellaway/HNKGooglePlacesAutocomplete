@@ -178,14 +178,8 @@ static HNKGooglePlacesAutocompleteQuery *sharedQuery = nil;
                        completion:(HNKGooglePlacesAutocompleteQueryCallback)
                                       completion {
   HNKGooglePlacesAutocompleteQueryConfig *configForRequest =
-      [[HNKGooglePlacesAutocompleteQueryConfig alloc] init];
-  configForRequest.country = self.configuration.country;
-  configForRequest.filter = self.configuration.filter;
-  configForRequest.language = self.configuration.language;
-  configForRequest.latitude = self.configuration.latitude;
-  configForRequest.longitude = self.configuration.longitude;
-  configForRequest.offset = self.configuration.offset;
-  configForRequest.searchRadius = self.configuration.searchRadius;
+      [HNKGooglePlacesAutocompleteQueryConfig
+          configWithConfig:self.configuration];
 
   if (configBlock) {
     configBlock(configForRequest);
