@@ -25,6 +25,11 @@
 
 #import <CoreLocation/CoreLocation.h>
 
+/**
+ *  Error domain for CLPlacemark+HNKAdditions
+ */
+extern NSString *const HNKGooglePlacesAutocompleteCLPlacemarkErrorDomain;
+
 @class HNKGooglePlacesAutocompletePlace;
 
 @interface CLPlacemark (HNKAdditions)
