@@ -184,7 +184,7 @@ describe(@"HNKGooglePlacesAutocompleteQuery", ^{
                                                       @"NSLocalizedDescription" :
                                                           HNKGooglePlacesAutocompleteQueryDescriptionForErrorCode(
                                                               HNKGooglePlacesAutocompleteQueryErrorCodeInvalidRequest),
-                                                      @"NSLocalizedFailureReasonError" :
+                                                      @"NSLocalizedFailureReason" :
                                                           HNKGooglePlacesAutocompleteQueryDescriptionForErrorCode(
                                                               HNKGooglePlacesAutocompleteQueryErrorCodeInvalidRequest)
                                                   }];
@@ -212,7 +212,7 @@ describe(@"HNKGooglePlacesAutocompleteQuery", ^{
                                                       @"NSLocalizedDescription" :
                                                           HNKGooglePlacesAutocompleteQueryDescriptionForErrorCode(
                                                               HNKGooglePlacesAutocompleteQueryErrorCodeSearchQueryNil),
-                                                      @"NSLocalizedFailureReasonError" :
+                                                      @"NSLocalizedFailureReason" :
                                                           HNKGooglePlacesAutocompleteQueryDescriptionForErrorCode(
                                                               HNKGooglePlacesAutocompleteQueryErrorCodeSearchQueryNil)
                                                   }];
@@ -342,7 +342,7 @@ describe(@"HNKGooglePlacesAutocompleteQuery", ^{
                                                           @"NSLocalizedDescription" :
                                                               HNKGooglePlacesAutocompleteQueryDescriptionForErrorCode(
                                                                   HNKGooglePlacesAutocompleteQueryErrorCodeRequestDenied),
-                                                          @"NSLocalizedFailureReasonError" :
+                                                          @"NSLocalizedFailureReason" :
                                                               HNKGooglePlacesAutocompleteQueryDescriptionForErrorCode(
                                                                   HNKGooglePlacesAutocompleteQueryErrorCodeRequestDenied)
                                                       }];
@@ -394,7 +394,7 @@ describe(@"HNKGooglePlacesAutocompleteQuery", ^{
                                                   @"NSLocalizedDescription" :
                                                       HNKGooglePlacesAutocompleteQueryDescriptionForErrorCode(
                                                           HNKGooglePlacesAutcompleteQueryErrorCodeServerRequestFailed),
-                                                  @"NSLocalizedFailureReasonError" :
+                                                  @"NSLocalizedFailureReason" :
                                                       HNKGooglePlacesAutocompleteQueryDescriptionForErrorCode(
                                                           HNKGooglePlacesAutcompleteQueryErrorCodeServerRequestFailed)
                                               }];
