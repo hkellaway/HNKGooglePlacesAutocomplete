@@ -84,29 +84,30 @@ describe(@"CLPlacemark+HNKAdditions", ^{
 
             context(@"Place is solely a geocode result",
                     ^{
-                        
+
                         beforeEach(^{
-                            
-                            [mockPlace stub:@selector(types)
-                                  andReturn:@[ @(HNKGooglePlaceTypeGeocode) ]];
-                            [mockPlace stub:@selector(isPlaceType:) andReturn:theValue(YES) withArguments:theValue(HNKGooglePlaceTypeGeocode)];
-                            
+
+                            [mockPlace stub:@selector(types) andReturn:@[ @(HNKGooglePlaceTypeGeocode) ]];
+                            [mockPlace stub:@selector(isPlaceType:)
+                                    andReturn:theValue(YES)
+                                withArguments:theValue(HNKGooglePlaceTypeGeocode)];
+
                         });
-                        
+
                         it(@"Should not make server request",
                            ^{
-                               
+
                                [[HNKGooglePlacesServer shouldNot] receive:@selector(GET:parameters:completion:)];
-                               
+
                                [CLPlacemark hnk_placemarkFromGooglePlace:mockPlace apiKey:testApiKey completion:nil];
-                               
+
                            });
-                        
+
                         it(@"Should call Geocoder with Place's name",
                            ^{
                                [[mockGeocoder should] receive:@selector(geocodeAddressString:completionHandler:)
                                                 withArguments:mockPlace.name, any()];
-                               
+
                                [CLPlacemark hnk_placemarkFromGooglePlace:mockPlace apiKey:testApiKey completion:nil];
                            });
 
@@ -334,53 +335,62 @@ describe(@"CLPlacemark+HNKAdditions", ^{
 
                         });
 
-                    context(@"Fetching Place Details not successful",
-                            ^{
+                    context(
+                        @"Fetching Place Details not successful",
+                        ^{
 
-                                context(
-                                    @"Server error",
-                                    ^{
+                            context(
+                                @"Server error",
+                                ^{
 
-                                        __block NSError *testError;
+                                    __block NSError *testError;
 
-                                        beforeEach(^{
+                                    beforeEach(^{
 
-                                            testError = [NSError errorWithDomain:@"Test Domain"
-                                                                            code:100
-                                                                        userInfo:@{
-                                                                            @"user" : @"info"
-                                                                        }];
+                                        testError = [NSError errorWithDomain:@"Test Domain"
+                                                                        code:100
+                                                                    userInfo:@{
+                                                                        @"NSLocalizedDescription" : @"abc",
+                                                                        @"NSLocalizedFailureReason" : @"xyz"
+                                                                    }];
 
-                                            [HNKGooglePlacesServer stub:@selector(GET:parameters:completion:)
-                                                              withBlock:^id(NSArray *params) {
+                                        [HNKGooglePlacesServer stub:@selector(GET:parameters:completion:)
+                                                          withBlock:^id(NSArray *params) {
 
-                                                                  HNKGooglePlacesServerCallback completion = params[2];
-                                                                  completion(nil, testError);
+                                                              HNKGooglePlacesServerCallback completion = params[2];
+                                                              completion(nil, testError);
 
-                                                                  return nil;
+                                                              return nil;
 
-                                                              }];
-
-                                        });
-
-                                        it(@"Should return error",
-                                           ^{
-                                               __block NSError *errorReturned;
-                                               [CLPlacemark hnk_placemarkFromGooglePlace:mockPlace
-                                                                                  apiKey:testApiKey
-                                                                              completion:^(CLPlacemark *placemark,
-                                                                                           NSString *addressString,
-                                                                                           NSError *error) {
-
-                                                                                  errorReturned = error;
-
-                                                                              }];
-
-                                               [[expectFutureValue(errorReturned) shouldEventually] equal:testError];
-                                           });
+                                                          }];
 
                                     });
-                            });
+
+                                    it(@"Should return error",
+                                       ^{
+                                           __block NSError *errorReturned;
+                                           NSError *expectedError = [NSError
+                                               errorWithDomain:HNKGooglePlacesAutocompleteCLPlacemarkErrorDomain
+                                                          code:1
+                                                      userInfo:@{
+                                                          @"NSLocalizedDescription" : testError.localizedDescription,
+                                                          @"NSLocalizedFailureReason" : testError.localizedFailureReason
+                                                      }];
+                                           [CLPlacemark hnk_placemarkFromGooglePlace:mockPlace
+                                                                              apiKey:testApiKey
+                                                                          completion:^(CLPlacemark *placemark,
+                                                                                       NSString *addressString,
+                                                                                       NSError *error) {
+
+                                                                              errorReturned = error;
+
+                                                                          }];
+
+                                           [[expectFutureValue(errorReturned) shouldEventually] equal:expectedError];
+                                       });
+
+                                });
+                        });
 
                 });
 
