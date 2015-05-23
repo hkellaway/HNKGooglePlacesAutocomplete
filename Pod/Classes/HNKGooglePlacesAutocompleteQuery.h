@@ -85,7 +85,7 @@ extern NSString *HNKGooglePlacesAutocompleteQueryDescriptionForErrorCode(
 @property(nonatomic, copy, readonly) NSString *apiKey;
 
 /**
- *  Configuration used for requests if none is provided
+ *  Configuration used for requests
  *
  *  Note: If no configuration is provided, a default is
  *  set with the following values: country = nil,
