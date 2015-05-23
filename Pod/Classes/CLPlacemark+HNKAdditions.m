@@ -29,7 +29,7 @@
 #import "CLPlacemark+HNKAdditions.h"
 
 NSString *const HNKGooglePlacesAutocompleteCLPlacemarkErrorDomain =
-    @"com.hnkgoogleplacesautocomplete.clplacemark.error";
+    @"com.hnkgoogleplacesautocomplete.category.clplacemark.error";
 
 static NSString *const kHNKGooglePlacesServerRequestPathDetails =
     @"details/json";
@@ -45,7 +45,11 @@ static NSString *const kHNKGooglePlacesServerRequestPathDetails =
              completion:^(NSString *addressString, NSError *error) {
 
                if (error) {
-                 completion(nil, nil, error);
+
+                 NSError *customError =
+                     [self customErrorWithUnderlyingError:error];
+                 completion(nil, nil, customError);
+
                } else {
 
                  [self completeForPlace:place
@@ -141,7 +145,11 @@ static NSString *const kHNKGooglePlacesServerRequestPathDetails =
                completionHandler:^(NSArray *placemarks, NSError *error) {
 
                  if (error) {
-                   completion(nil, nil, error);
+
+                   NSError *customError =
+                       [self customErrorWithUnderlyingError:error];
+                   completion(nil, nil, customError);
+
                  } else {
                    [self completeWithPlacemarks:placemarks
                                         address:placeName
@@ -158,6 +166,31 @@ static NSString *const kHNKGooglePlacesServerRequestPathDetails =
                                          NSError *error))completion {
   CLPlacemark *singlePlacemark = [placemarks count] >= 1 ? placemarks[0] : nil;
   completion(singlePlacemark, address, nil);
+}
+
++ (NSError *)customErrorWithUnderlyingError:(NSError *)error {
+  NSInteger errorCode;
+  if ([error.domain isEqualToString:@"kCLErrorDomain"]) {
+    errorCode = 0;
+  } else {
+    errorCode = 1;
+  }
+
+  NSString *errorLocalizedDescription =
+      error.localizedDescription ? error.localizedDescription : @"";
+  NSString *errorLocalizedFailureReason = error.localizedFailureReason
+                                              ? error.localizedFailureReason
+                                              : errorLocalizedDescription;
+
+  NSError *customError = [NSError
+      errorWithDomain:HNKGooglePlacesAutocompleteCLPlacemarkErrorDomain
+                 code:errorCode
+             userInfo:@{
+               @"NSLocalizedDescription" : errorLocalizedDescription,
+               @"NSLocalizedFailureReasonError" : errorLocalizedFailureReason
+             }];
+
+  return customError;
 }
 
 @end
