@@ -219,7 +219,8 @@ describe(@"CLPlacemark+HNKAdditions", ^{
                                                                   code:HNKCLPlacemarkErrorCodeCLGeocoderFailure
                                                               userInfo:@{
                                                                   @"NSLocalizedDescription" :
-                                                                      testError.localizedDescription,
+                                                                      HNKCLPlacemarkDescriptionForErrorCode(
+                                                                          HNKCLPlacemarkErrorCodeCLGeocoderFailure),
                                                                   @"NSLocalizedFailureReason" :
                                                                       testError.localizedFailureReason
                                                               }];
@@ -409,7 +410,9 @@ describe(@"CLPlacemark+HNKAdditions", ^{
                                                errorWithDomain:HNKGooglePlacesAutocompleteCLPlacemarkErrorDomain
                                                           code:HNKCLPlacemarkErrorCodeGoogleFailure
                                                       userInfo:@{
-                                                          @"NSLocalizedDescription" : testError.localizedDescription,
+                                                          @"NSLocalizedDescription" :
+                                                              HNKCLPlacemarkDescriptionForErrorCode(
+                                                                  HNKCLPlacemarkErrorCodeGoogleFailure),
                                                           @"NSLocalizedFailureReason" : testError.localizedFailureReason
                                                       }];
                                            [CLPlacemark hnk_placemarkFromGooglePlace:mockPlace
