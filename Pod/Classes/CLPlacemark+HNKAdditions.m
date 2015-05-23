@@ -195,7 +195,8 @@ static NSString *const kHNKGooglePlacesServerRequestPathDetails =
                  code:errorCode
              userInfo:@{
                @"NSLocalizedDescription" : errorLocalizedDescription,
-               @"NSLocalizedFailureReason" : errorLocalizedFailureReason
+               @"NSLocalizedFailureReason" : errorLocalizedFailureReason,
+               @"NSUnderlyingError" : error
              }];
 
   return customError;
