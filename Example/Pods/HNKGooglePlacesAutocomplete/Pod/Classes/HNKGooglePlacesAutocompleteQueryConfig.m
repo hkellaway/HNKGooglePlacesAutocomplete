@@ -26,6 +26,25 @@
 
 @implementation HNKGooglePlacesAutocompleteQueryConfig
 
+#pragma mark - Initialization
+
+#pragma mark Convenience
+
++ (instancetype)configWithConfig:
+        (HNKGooglePlacesAutocompleteQueryConfig *)config {
+  HNKGooglePlacesAutocompleteQueryConfig *newConfig =
+      [[HNKGooglePlacesAutocompleteQueryConfig alloc] init];
+  newConfig.country = config.country;
+  newConfig.filter = config.filter;
+  newConfig.language = config.language;
+  newConfig.latitude = config.latitude;
+  newConfig.longitude = config.longitude;
+  newConfig.offset = config.offset;
+  newConfig.searchRadius = config.searchRadius;
+
+  return newConfig;
+}
+
 #pragma mark - Methods
 
 - (NSDictionary *)translateToServerRequestParameters {
@@ -62,6 +81,31 @@
   }
 
   return parameters;
+}
+
+#pragma mark - Overrides
+
+- (NSString *)description {
+  static NSString *noValue = @"N/A";
+
+  NSString *country = self.country ? self.country : noValue;
+  NSString *language = self.language ? self.language : noValue;
+  NSString *location =
+      (self.latitude == 0 && self.longitude == 0)
+          ? noValue
+          : [NSString
+                stringWithFormat:@"(%f, %f)", self.latitude, self.longitude];
+  NSString *offset =
+      (self.offset == NSNotFound)
+          ? noValue
+          : [NSString stringWithFormat:@"%li", (long)self.offset];
+
+  return [NSString stringWithFormat:@"<%@: %p> Country: %@; Filter: %li; "
+                                    @"Language: %@; Location: %@; Offset: %@; "
+                                    @"Search Radius: %li",
+                                    NSStringFromClass([self class]), self,
+                                    country, (long)self.filter, language,
+                                    location, offset, (long)self.searchRadius];
 }
 
 #pragma mark - Helpers

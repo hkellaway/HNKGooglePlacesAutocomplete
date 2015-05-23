@@ -45,6 +45,7 @@ static NSString *const kHNKGooglePlacesServerBaseURL =
 + (void)GET:(NSString *)path
     parameters:(NSDictionary *)parameters
     completion:(void (^)(id, NSError *))completion {
+
   [HNKServer GET:path
       parameters:parameters
       completion:^(id responseObject, NSError *error) {
