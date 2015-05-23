@@ -216,7 +216,7 @@ describe(@"CLPlacemark+HNKAdditions", ^{
                                                    __block NSError *errorReturned;
                                                    NSError *expectedError = [NSError
                                                        errorWithDomain:HNKGooglePlacesAutocompleteCLPlacemarkErrorDomain
-                                                                  code:0
+                                                                  code:HNKCLPlacemarkErrorCodeCLGeocoderFailure
                                                               userInfo:@{
                                                                   @"NSLocalizedDescription" :
                                                                       testError.localizedDescription,
@@ -407,7 +407,7 @@ describe(@"CLPlacemark+HNKAdditions", ^{
                                            __block NSError *errorReturned;
                                            NSError *expectedError = [NSError
                                                errorWithDomain:HNKGooglePlacesAutocompleteCLPlacemarkErrorDomain
-                                                          code:1
+                                                          code:HNKCLPlacemarkErrorCodeGoogleFailure
                                                       userInfo:@{
                                                           @"NSLocalizedDescription" : testError.localizedDescription,
                                                           @"NSLocalizedFailureReason" : testError.localizedFailureReason
