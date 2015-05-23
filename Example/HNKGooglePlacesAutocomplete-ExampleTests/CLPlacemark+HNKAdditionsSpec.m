@@ -222,7 +222,8 @@ describe(@"CLPlacemark+HNKAdditions", ^{
                                                                       HNKCLPlacemarkDescriptionForErrorCode(
                                                                           HNKCLPlacemarkErrorCodeCLGeocoderFailure),
                                                                   @"NSLocalizedFailureReason" :
-                                                                      testError.localizedFailureReason
+                                                                      testError.localizedFailureReason,
+                                                                  @"NSUnderlyingError" : testError
                                                               }];
                                                    [CLPlacemark hnk_placemarkFromGooglePlace:mockPlace
                                                                                       apiKey:testApiKey
@@ -413,7 +414,9 @@ describe(@"CLPlacemark+HNKAdditions", ^{
                                                           @"NSLocalizedDescription" :
                                                               HNKCLPlacemarkDescriptionForErrorCode(
                                                                   HNKCLPlacemarkErrorCodeGoogleFailure),
-                                                          @"NSLocalizedFailureReason" : testError.localizedFailureReason
+                                                          @"NSLocalizedFailureReason" :
+                                                              testError.localizedFailureReason,
+                                                          @"NSUnderlyingError" : testError
                                                       }];
                                            [CLPlacemark hnk_placemarkFromGooglePlace:mockPlace
                                                                               apiKey:testApiKey
