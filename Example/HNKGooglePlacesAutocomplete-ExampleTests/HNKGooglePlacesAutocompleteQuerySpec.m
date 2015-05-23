@@ -32,8 +32,8 @@ beforeAll(^{
                                                   config.country = @"fr";
                                                   config.filter = HNKGooglePlaceTypeAutocompleteFilterCity;
                                                   config.language = @"pt_BR";
-                                                  config.latitude = 50.0;
-                                                  config.longitude = 150.0;
+                                                  config.latitude = 50.5;
+                                                  config.longitude = 150.5;
                                                   config.offset = 50;
                                                   config.searchRadius = 100;
 
@@ -46,29 +46,24 @@ beforeAll(^{
 describe(@"HNKGooglePlacesAutocompleteQuery", ^{
 
     describe(
-        @"Method: defaultConfiguration",
+        @"Method: configuration",
         ^{
 
             context(
                 @"No default configuration provided",
                 ^{
-
-                    __block HNKGooglePlacesAutocompleteQuery *testInstanceNoConfig;
-
-                    beforeEach(^{
-
-                        testInstanceNoConfig =
-                            [[HNKGooglePlacesAutocompleteQuery alloc] initWithAPIKey:@"abc" configurationBlock:nil];
-
-                    });
-
                     it(@"Should return default configuration",
                        ^{
 
-                           HNKGooglePlacesAutocompleteQueryConfig *config = [testInstanceNoConfig configuration];
+                           HNKGooglePlacesAutocompleteQueryConfig *config = [testInstanceWithNoConfig configuration];
 
-                           [[theValue(config.searchRadius) should] equal:theValue(20000000)];
+                           [[config.country should] beNil];
                            [[theValue(config.filter) should] equal:theValue(HNKGooglePlaceTypeAutocompleteFilterAll)];
+                           [[config.language should] beNil];
+                           [[theValue(config.latitude) should] equal:theValue(0)];
+                           [[theValue(config.longitude) should] equal:theValue(0)];
+                           [[theValue(config.offset) should] equal:theValue(NSNotFound)];
+                           [[theValue(config.searchRadius) should] equal:theValue(20000000)];
 
                        });
 
@@ -83,8 +78,13 @@ describe(@"HNKGooglePlacesAutocompleteQuery", ^{
 
                            HNKGooglePlacesAutocompleteQueryConfig *config = [testInstance configuration];
 
-                           [[theValue(config.searchRadius) should] equal:theValue(100)];
+                           [[config.country should] equal:@"fr"];
                            [[theValue(config.filter) should] equal:theValue(HNKGooglePlaceTypeAutocompleteFilterCity)];
+                           [[config.language should] equal:@"pt_BR"];
+                           [[theValue(config.latitude) should] equal:theValue(50.5)];
+                           [[theValue(config.longitude) should] equal:theValue(150.5)];
+                           [[theValue(config.offset) should] equal:theValue(50)];
+                           [[theValue(config.searchRadius) should] equal:theValue(100)];
 
                        });
 
@@ -134,6 +134,39 @@ describe(@"HNKGooglePlacesAutocompleteQuery", ^{
                 ^{
 
                     it(@"Should use custom configuration",
+                       ^{
+
+                           [[HNKGooglePlacesServer should] receive:@selector(GET:parameters:completion:)
+                                                     withArguments:@"autocomplete/json",
+                                                                   @{
+                                                                       @"components=country" : @"fr",
+                                                                       @"input" : @"Vict",
+                                                                       @"key" : testInstanceWithNoConfig.apiKey,
+                                                                       @"language" : @"pt_BR",
+                                                                       @"location" : @"50.000000,150.000000",
+                                                                       @"offset" : @(50),
+                                                                       @"radius" : @(100),
+                                                                       @"types" : @"(cities)"
+                                                                   },
+                                                                   any()];
+
+                           [testInstanceWithNoConfig
+                               fetchPlacesForSearchQuery:@"Vict"
+                                      configurationBlock:^(HNKGooglePlacesAutocompleteQueryConfig *config) {
+
+                                          config.country = @"fr";
+                                          config.filter = HNKGooglePlaceTypeAutocompleteFilterCity;
+                                          config.language = @"pt_BR";
+                                          config.latitude = 50;
+                                          config.longitude = 150;
+                                          config.offset = 50;
+                                          config.searchRadius = 100;
+
+                                      } completion:nil];
+
+                       });
+
+                    it(@"Should only apply configuration to one request",
                        ^{
 
                            [[HNKGooglePlacesServer should] receive:@selector(GET:parameters:completion:)
@@ -429,7 +462,7 @@ describe(@"HNKGooglePlacesAutocompleteQuery", ^{
                         @"Configuration provided in setup",
                         ^{
 
-                            it(@"Should use default configuration",
+                            it(@"Should use custom configuration",
                                ^{
 
                                    [[HNKGooglePlacesServer should] receive:@selector(GET:parameters:completion:)
@@ -439,7 +472,7 @@ describe(@"HNKGooglePlacesAutocompleteQuery", ^{
                                                                                @"input" : @"Vict",
                                                                                @"key" : testInstance.apiKey,
                                                                                @"language" : @"pt_BR",
-                                                                               @"location" : @"50.000000,150.000000",
+                                                                               @"location" : @"50.500000,150.500000",
                                                                                @"offset" : @(50),
                                                                                @"radius" : @(100),
                                                                                @"types" : @"(cities)"
