@@ -264,14 +264,17 @@ static HNKGooglePlacesAutocompleteQuery *sharedQuery = nil;
 - (void)completeWithServerError:(NSError *)error
                      completion:
                          (HNKGooglePlacesAutocompleteQueryCallback)completion {
-  NSError *errorToReturn = [self
-      customErrorWithCode:
-          HNKGooglePlacesAutcompleteQueryErrorCodeServerRequestFailed
-              description:
-                  HNKGooglePlacesAutocompleteQueryStatusDescriptionServerRequestFailed
-              andUserInfo:@{
-                @"NSUnderlyingError" : error
-              }];
+  HNKGooglePlacesAutocompleteQueryErrorCode errorCode =
+      HNKGooglePlacesAutcompleteQueryErrorCodeServerRequestFailed;
+
+  NSError *errorToReturn =
+      [self customErrorWithCode:errorCode
+                    description:
+                        HNKGooglePlacesAutocompleteQueryDescriptionForErrorCode(
+                            errorCode)
+                    andUserInfo:@{
+                      @"NSUnderlyingError" : error
+                    }];
 
   completion(nil, errorToReturn);
 }
@@ -294,11 +297,14 @@ static HNKGooglePlacesAutocompleteQuery *sharedQuery = nil;
 
 - (void)completeForSearchQueryNil:
         (HNKGooglePlacesAutocompleteQueryCallback)completion {
-  NSError *error = [self
-      customErrorWithCode:
-          HNKGooglePlacesAutocompleteQueryErrorCodeSearchQueryNil
-           andDescription:
-               HNKGooglePlacesAutocompleteQueryStatusDescriptionSearchQueryNil];
+  HNKGooglePlacesAutocompleteQueryErrorCode errorCode =
+      HNKGooglePlacesAutocompleteQueryErrorCodeSearchQueryNil;
+
+  NSError *error =
+      [self customErrorWithCode:errorCode
+                 andDescription:
+                     HNKGooglePlacesAutocompleteQueryDescriptionForErrorCode(
+                         errorCode)];
 
   completion(nil, error);
 }
@@ -341,7 +347,7 @@ static HNKGooglePlacesAutocompleteQuery *sharedQuery = nil;
                      andUserInfo:(NSDictionary *)userInfo {
   NSDictionary *userInfoToReturn = @{
     @"NSLocalizedDescription" : errorDescription,
-    @"NSLocalizedFailureReasonError" : errorDescription
+    @"NSLocalizedFailureReason" : errorDescription
   };
 
   if (userInfo != nil) {
