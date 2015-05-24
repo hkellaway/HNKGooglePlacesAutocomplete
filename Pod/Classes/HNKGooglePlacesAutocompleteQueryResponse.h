@@ -29,48 +29,46 @@
  *  Status codes for HNKGooglePlacesAutcompleteQueryResponse
  */
 typedef NS_ENUM(NSInteger, HNKGooglePlacesAutocompleteQueryResponseStatus) {
-  /**
-   *  Unknown status
-   */
-  HNKGooglePlacesAutocompleteQueryResponseStatusUnknown = 0,
-  /**
-   *  Invalid request; the input parameter may be missing
-   */
-  HNKGooglePlacesAutocompleteQueryResponseStatusInvalidRequest = 1,
-  /**
-   *   No errors occurred and at least one result was returned
-   */
-  HNKGooglePlacesAutocompleteQueryResponseStatusOK = 2,
-  /**
-   *  Query quota has been exceeded for provided API key
-   */
-  HNKGooglePlacesAutocompleteQueryResponseStatusOverQueryLimit = 3,
-  /**
-   *  Request denied; the key parameter may be invalid
-   */
-  HNKGooglePlacesAutocompleteQueryResponseStatusRequestDenied = 4,
-  /**
-   *  No errors occurred but no results were returned
-   */
-  HNKGooglePlacesAutocompleteQueryResponseStatusZeroResults = 5
+    /**
+     *  Unknown status
+     */
+    HNKGooglePlacesAutocompleteQueryResponseStatusUnknown = 0,
+    /**
+     *  Invalid request; the input parameter may be missing
+     */
+    HNKGooglePlacesAutocompleteQueryResponseStatusInvalidRequest = 1,
+    /**
+     *   No errors occurred and at least one result was returned
+     */
+    HNKGooglePlacesAutocompleteQueryResponseStatusOK = 2,
+    /**
+     *  Query quota has been exceeded for provided API key
+     */
+    HNKGooglePlacesAutocompleteQueryResponseStatusOverQueryLimit = 3,
+    /**
+     *  Request denied; the key parameter may be invalid
+     */
+    HNKGooglePlacesAutocompleteQueryResponseStatusRequestDenied = 4,
+    /**
+     *  No errors occurred but no results were returned
+     */
+    HNKGooglePlacesAutocompleteQueryResponseStatusZeroResults = 5
 };
 
 /**
  *  Response returned from an API query
  */
-@interface HNKGooglePlacesAutocompleteQueryResponse
-    : HNKGooglePlacesAutocompleteModel
+@interface HNKGooglePlacesAutocompleteQueryResponse : HNKGooglePlacesAutocompleteModel
 
 /**
  *  Collection of Places returned from the query
  */
-@property(nonatomic, strong, readonly) NSArray *places;
+@property (nonatomic, strong, readonly) NSArray *places;
 
 /**
  *  Status of the QueryResponse which may contain debugging information to help
  *  you track down why the query request failed
  */
-@property(nonatomic, assign, readonly)
-    HNKGooglePlacesAutocompleteQueryResponseStatus status;
+@property (nonatomic, assign, readonly) HNKGooglePlacesAutocompleteQueryResponseStatus status;
 
 @end

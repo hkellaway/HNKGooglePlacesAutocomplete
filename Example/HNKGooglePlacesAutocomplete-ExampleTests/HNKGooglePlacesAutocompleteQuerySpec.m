@@ -34,7 +34,7 @@ beforeAll(^{
                                                   config.language = @"pt_BR";
                                                   config.latitude = 50.5;
                                                   config.longitude = 150.5;
-                                                  config.offset = 50;
+                                                  config.offset = 2;
                                                   config.searchRadius = 100;
 
                                               }];
@@ -83,7 +83,7 @@ describe(@"HNKGooglePlacesAutocompleteQuery", ^{
                            [[config.language should] equal:@"pt_BR"];
                            [[theValue(config.latitude) should] equal:theValue(50.5)];
                            [[theValue(config.longitude) should] equal:theValue(150.5)];
-                           [[theValue(config.offset) should] equal:theValue(50)];
+                           [[theValue(config.offset) should] equal:theValue(2)];
                            [[theValue(config.searchRadius) should] equal:theValue(100)];
 
                        });
@@ -163,12 +163,12 @@ describe(@"HNKGooglePlacesAutocompleteQuery", ^{
                            [[HNKGooglePlacesServer should] receive:@selector(GET:parameters:completion:)
                                                      withArguments:@"autocomplete/json",
                                                                    @{
-                                                                       @"components=country" : @"fr",
+                                                                       @"components" : @"country:fr",
                                                                        @"input" : @"Vict",
                                                                        @"key" : testInstanceWithNoConfig.apiKey,
                                                                        @"language" : @"pt_BR",
                                                                        @"location" : @"50.000000,150.000000",
-                                                                       @"offset" : @(50),
+                                                                       @"offset" : @(3),
                                                                        @"radius" : @(100),
                                                                        @"types" : @"(cities)"
                                                                    },
@@ -183,7 +183,7 @@ describe(@"HNKGooglePlacesAutocompleteQuery", ^{
                                           config.language = @"pt_BR";
                                           config.latitude = 50;
                                           config.longitude = 150;
-                                          config.offset = 50;
+                                          config.offset = 3;
                                           config.searchRadius = 100;
 
                                       } completion:nil];
@@ -196,12 +196,12 @@ describe(@"HNKGooglePlacesAutocompleteQuery", ^{
                            [[HNKGooglePlacesServer should] receive:@selector(GET:parameters:completion:)
                                                      withArguments:@"autocomplete/json",
                                                                    @{
-                                                                       @"components=country" : @"fr",
+                                                                       @"components" : @"country:fr",
                                                                        @"input" : @"Vict",
                                                                        @"key" : testInstance.apiKey,
                                                                        @"language" : @"pt_BR",
                                                                        @"location" : @"50.000000,150.000000",
-                                                                       @"offset" : @(50),
+                                                                       @"offset" : @(3),
                                                                        @"radius" : @(100),
                                                                        @"types" : @"(cities)"
                                                                    },
@@ -215,7 +215,7 @@ describe(@"HNKGooglePlacesAutocompleteQuery", ^{
                                                     config.language = @"pt_BR";
                                                     config.latitude = 50;
                                                     config.longitude = 150;
-                                                    config.offset = 50;
+                                                    config.offset = 3;
                                                     config.searchRadius = 100;
 
                                                 } completion:nil];
@@ -288,6 +288,41 @@ describe(@"HNKGooglePlacesAutocompleteQuery", ^{
             context(
                 @"Valid search query",
                 ^{
+                    context(
+                        @"Search query length less than offset",
+                        ^{
+
+                            __block HNKGooglePlacesAutocompleteQuery *testInstanceWithOffset;
+                            __block NSString *testSearchQuery;
+
+                            beforeEach(^{
+
+                                __block NSInteger offset = 15;
+
+                                testInstanceWithOffset = [[HNKGooglePlacesAutocompleteQuery alloc]
+                                        initWithAPIKey:@"jkl"
+                                    configurationBlock:^(HNKGooglePlacesAutocompleteQueryConfig *config) {
+
+                                        config.offset = offset;
+
+                                    }];
+
+                                testSearchQuery =
+                                    [@"" stringByPaddingToLength:(offset - 1)withString:@"a" startingAtIndex:0];
+
+                            });
+
+                            it(@"Should not hit the server",
+                               ^{
+
+                                   [[HNKGooglePlacesServer shouldNot] receive:@selector(GET:parameters:completion:)];
+
+                                   [testInstanceWithOffset fetchPlacesForSearchQuery:testSearchQuery completion:nil];
+
+                               });
+
+                        });
+
                     context(
                         @"JSON fetched successfully",
                         ^{
@@ -492,12 +527,12 @@ describe(@"HNKGooglePlacesAutocompleteQuery", ^{
                                    [[HNKGooglePlacesServer should] receive:@selector(GET:parameters:completion:)
                                                              withArguments:@"autocomplete/json",
                                                                            @{
-                                                                               @"components=country" : @"fr",
+                                                                               @"components" : @"country:fr",
                                                                                @"input" : @"Vict",
                                                                                @"key" : testInstance.apiKey,
                                                                                @"language" : @"pt_BR",
                                                                                @"location" : @"50.500000,150.500000",
-                                                                               @"offset" : @(50),
+                                                                               @"offset" : @(2),
                                                                                @"radius" : @(100),
                                                                                @"types" : @"(cities)"
                                                                            },

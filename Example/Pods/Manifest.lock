@@ -40,17 +40,17 @@ PODS:
 
 DEPENDENCIES:
   - HNKGooglePlacesAutocomplete (from `https://github.com/hkellaway/HNKGooglePlacesAutocomplete.git`,
-    branch `release/0.7.0`)
+    branch `fix/query_config_offset`)
   - Kiwi (~> 2.3)
 
 EXTERNAL SOURCES:
   HNKGooglePlacesAutocomplete:
-    :branch: release/0.7.0
+    :branch: fix/query_config_offset
     :git: https://github.com/hkellaway/HNKGooglePlacesAutocomplete.git
 
 CHECKOUT OPTIONS:
   HNKGooglePlacesAutocomplete:
-    :commit: 2487a2803aa2fa11c591bda62dd5868621a93bc4
+    :commit: b8115be5ec3b52b49cbe09730189c5398e30f9f2
     :git: https://github.com/hkellaway/HNKGooglePlacesAutocomplete.git
 
 SPEC CHECKSUMS:
