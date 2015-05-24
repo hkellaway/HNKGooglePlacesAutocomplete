@@ -34,7 +34,7 @@ beforeAll(^{
                                                   config.language = @"pt_BR";
                                                   config.latitude = 50.5;
                                                   config.longitude = 150.5;
-                                                  config.offset = 50;
+                                                  config.offset = 2;
                                                   config.searchRadius = 100;
 
                                               }];
@@ -83,7 +83,7 @@ describe(@"HNKGooglePlacesAutocompleteQuery", ^{
                            [[config.language should] equal:@"pt_BR"];
                            [[theValue(config.latitude) should] equal:theValue(50.5)];
                            [[theValue(config.longitude) should] equal:theValue(150.5)];
-                           [[theValue(config.offset) should] equal:theValue(50)];
+                           [[theValue(config.offset) should] equal:theValue(2)];
                            [[theValue(config.searchRadius) should] equal:theValue(100)];
 
                        });
@@ -497,7 +497,7 @@ describe(@"HNKGooglePlacesAutocompleteQuery", ^{
                                                                                @"key" : testInstance.apiKey,
                                                                                @"language" : @"pt_BR",
                                                                                @"location" : @"50.500000,150.500000",
-                                                                               @"offset" : @(50),
+                                                                               @"offset" : @(2),
                                                                                @"radius" : @(100),
                                                                                @"types" : @"(cities)"
                                                                            },
