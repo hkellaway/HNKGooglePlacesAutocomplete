@@ -87,10 +87,11 @@ static NSString *const kHNKDemoSearchResultsCellIdentifier = @"HNKDemoSearchResu
 
 - (void)handleSearchForSearchString:(NSString *)searchString
 {
-    if (![searchString isEqualToString:@""]) {
+    if ([searchString isEqualToString:@""]) {
 
-        // TODO: Add user location to search query
-        // self.searchQuery.location = self.mapView.userLocation.coordinate;
+        [self clearSearchResults];
+
+    } else {
 
         [self.searchQuery fetchPlacesForSearchQuery:searchString
                                          completion:^(NSArray *places, NSError *error) {
@@ -237,6 +238,11 @@ static NSString *const kHNKDemoSearchResultsCellIdentifier = @"HNKDemoSearchResu
 }
 
 #pragma mark Search Helpers
+
+- (void)clearSearchResults
+{
+    self.searchResults = @[];
+}
 
 - (void)handleSearchError:(NSError *)error
 {
