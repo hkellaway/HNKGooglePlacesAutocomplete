@@ -126,15 +126,15 @@ You should replace YOUR_API_KEY with your Google Places API key; `hnk_placemarkF
 
 ## Advanced Topics
 
-The core functionality needed to use HNKGooglePlacesAutocomplete is described in [Setup](#setup), [Queries](#queries), and [Places](#places). The following sections describe additional topics that may be of use in particular situations.
+The core functionality needed to use HNKGooglePlacesAutocomplete is described in [Setup](#setup), [Queries](#queries), [Places](#places), and [CLPlacemark from Place](#clplacemark-from-place). The following sections describe additional topics that may be of use in particular situations.
 
 ### Errors
 
-Errors returned by HNKGooglePlacesAutocomplete have either the domain `com.hnkgoogleplacesautocomplete.query.fetch.error` or `com.hnkgoogleplacesautocomplete.category.clplacemark.error` depending on their source. 
+Errors returned by HNKGooglePlacesAutocomplete have a domain that starts with `com.hnkgoogleplacesautocomplete`.
 
 A short description of the error can be found in the `error` object's `localizedDescription` property. 
 
-If the `error` has an underlying error, such as an error returned by `CLGeocoder`, it can be found in the `error` objects `userInfo` dictionary, under the key `NSUnderlyingError`.
+If the `error` has an underlying error, such as an error returned by `CLGeocoder`, it can be found in the `error` objects `userInfo` dictionary, under the `NSUnderlyingError` key.
 
 ### Advanced Query Topics
 
@@ -144,7 +144,7 @@ Optional parameters can be used to restrict the results returned by the Google P
 
 * `HNKGooglePlacesAutocompleQueryConfig` - object used to supply optional parameter values for requests
 
-##### Query Configuration Properties
+Configuration properties include:
 
 * `country` - the country within which to restrict results; must be a a two character, ISO 3166-1 Alpha-2 compatible country code, such as "fr" for France
 * `filter` - an `HNKGooglePlacesTypeAutocompleteFilter` value that restricts results to specific [Place Types](https://developers.google.com/places/webservice/autocomplete#place_types)
@@ -164,15 +164,9 @@ In addition to [fetchPlacesForSearchQuery:completion:](#fetchplacesforsearchquer
         config.filter = HNKGooglePlaceTypeAutocompleteFilterCity;
         config.language = @"pt";
 	}
-	completion:^(NSArray *places, NSError *error)  {
-    	if (error) {
-        	NSLog(@"ERROR: %@", error);
-    	} else {
-        	for (HNKGooglePlacesAutocompletePlace *place in places) {
-	        	NSLog(@"%@", place);
-			}
-    	}
-    }
+	completion:^(NSArray *places, NSError *error)  { 
+		// Completion here 
+	}
 ];
 ```
 Any or all of the Query Configuration properties can be set in the `configurationBlock`. If not set, [default values](#default-query-configuration) will be used.
@@ -187,20 +181,18 @@ Every `HNKGooglePlacesAutocompleteQuery` has a `configuration` whether one is su
 
 #### setupSharedQueryWithAPIKey:configurationBlock:
 
-In addition to [setupSharedQueryWithAPIKey:](#setupsharedquerywithapikey), `HNKGooglePlacesAutocompleteQuery` provides `setupSharedQueryWithAPIKey:configurationBlock:` to specify [optional parameters](#query-configuration-properties) to be applied to _every_ Query.
+In addition to [setupSharedQueryWithAPIKey:](#setupsharedquerywithapikey), `HNKGooglePlacesAutocompleteQuery` provides `setupSharedQueryWithAPIKey:configurationBlock:` to specify [optional parameters](#querying-with-optional-parameters) to be applied to _every_ Query.
 
 ```objective-c
 [HNKGooglePlacesAutocompleteQuery setupSharedQueryWithAPIKey:@"YOUR_API_KEY"
 	configurationBlock:(HNKGooglePlacesAutocompleteQueryConfig *config) {
-		config.country = @"id";
+		config.country = @"jp";
         config.filter = HNKGooglePlaceTypeAutocompleteFilterEstablishment;
         config.language = @"ru";
 	}
 ];
 ```
-The example above specifies that the Places returned from every Query should be restricted to Indonesia, should be business establishments, and should be listed in Russian.
-
-If an individual query is made using [fetchPlacesForSearchQuery:configurationBlock:completion:](#fetchplacesforsearchqueryconfigurationblockcompletion), that query will run using that `configurationBlock` - subsequent queries will use the configuration supplied in setup.
+The example above specifies that the Places returned from every Query should be restricted to Japan, should be business establishments, and should be listed in Russian.
 
 ### Advanced Place Topics
 
@@ -222,6 +214,6 @@ HNKGooglePlacesAutocomplete was created by [Harlan Kellaway](http://harlankellaw
 
 ## License & Terms
 
-HNKGooglePlacesAutocomplete uses the Google Places API and is bound under [Google's Terms of Use]
+HNKGooglePlacesAutocomplete uses the Google Places API and is bound under [Google's Places API Policies](https://developers.google.com/places/webservice/policies)
 
 HNKGooglePlacesAutocomplete is available under the MIT license. See the [LICENSE](https://raw.githubusercontent.com/hkellaway/HNKGooglePlacesAutocomplete/master/LICENSE) file for more info.
