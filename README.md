@@ -60,14 +60,6 @@ These classes form the core functionality of HNKGooglePlacesAutocomplete
 - `HNKGooglePlacesAutocompletePlaceQuery` - used to query the API for Place suggestions
 - `HNKGooglePlacesAutocompletePlace` - Place object resulting from a Query
 
-### Supporting Classes
-
-These classes are part of or support the core functionality of HNKGooglePlacesAutocomplete
-
-- `HNKGooglePlacesAutocompleteQueryConfig` - used to configure _optional_ Query parameters (See: [Querying with Optional Parameters](#querying-with-optional-parameters))
-- `HNKGooglePlacesAutocompletePlaceSubstring` - See: [Place Substrings](#place-substrings)
-- `HNKGooglePlacesAutocompletePlaceTerm` - See: [Place Terms](#place-terms)
-
 ### Utilities
 
 - `CLPlacemark+HNKAdditions.h` - provides translation from a Place object to a `CLPlacemark`
@@ -110,7 +102,7 @@ The `completion` block provides an array of `HNKGooglePlaceAutcompletePlace` obj
 
 `HNKGooglePlacesAutocompletePlace` objects are returned from Queries and represent the suggested Places for that Query.
 
-### CLPlacemark from Google Place
+### CLPlacemark from Place
 
 HNKGooglePlacesAutocomplete comes with a category that facilitates translating Places to `CLPlacemarks` - this is often used when placing pins on a Map. To translate a Place to a `CLPlacemark`, first include the proper header: `#import "CLPlacemark+HNKAdditions.h"`. Then call as follows:
 
@@ -133,6 +125,10 @@ You should replace YOUR_API_KEY with your Google Places API key; `hnk_placemarkF
 ## Advanced Topics
 
 The core functionality needed to use HNKGooglePlacesAutocomplete is described in [Setup](#setup), [Queries](#queries), and [Places](#places). The following sections describe additional topics that may be of use in particular situations.
+
+### Errors
+
+Errors returned by HNKGooglePlacesAutocomplete have either the domain `com.hnkgoogleplacesautocomplete.query.fetch.error` or `com.hnkgoogleplacesautocomplete.category.clplacemark.error` depending on their source. A short description of the error can be found in the `error` object's `localizedDescription` property. If the `error` has an underlying error, such as an error returned by `CLGeocoder`, that error can be found in the `error` objects `userInfo` dictionary, under the key `NSUnderlyingError`.
 
 ### Advanced Setup Topics
 
@@ -161,7 +157,7 @@ Every `HNKGooglePlacesAutocompleteQuery` has a `configuration` whether one is su
 
 ##### fetchPlacesForSearchQuery:configurationBlock:completion:
 
-In addition to [fetchPlacesForSearchQuery:completion:](#fetchplacesforsearchquerycompletion), `HNKGooglePlacesAutocompleteQuery` provides `fetchPlacesForSearchQuery:configurationBlock:completion:` to _allow optional parameters to be applied to individual Queries_.
+In addition to [fetchPlacesForSearchQuery:completion:](#fetchplacesforsearchquerycompletion), `HNKGooglePlacesAutocompleteQuery` provides `fetchPlacesForSearchQuery:configurationBlock:completion:` to allow optional parameters to be applied to _individual_ Queries.
 
 ```objective-c
 [[HNKGooglePlacesAutocomplete sharedQuery] fetchPlacesForSearchQuery:@"Amoeba"
@@ -185,22 +181,19 @@ Any or all of the Query Configuration properties can be set. If not set, [defaul
 
 The example above specifies that the Places returned should be restricted to France, should be cities, and should be listed in Portuguese.
 
-#### Query Errors
-
 ### Advanced Place Topics
 
 #### Place Substrings
 
-Places contain an array of `substrings` that describe the location of the entered term in the prediction result text - this is useful if the application is to highlight the user's query text in the result Place suggestions. For example, if a user typed "Amoeba" and a resulting Place suggestion had a `name` of "Amoeba Music, Telegraph Avenue, Berkeley, CA, United States", the `substrings` array would contain one entry indicating that the phrase "Amoeba" was in that `name` from character 0 to 6.
+* `HNKGooglePlacesAutocompletePlaceSubstring`
 
-
-Place substrings are represented by `HNKGooglePlacesAutocompletePlaceSubstring` objects.
+`HNKGooglePlacesAutocompletePlace` objects have an array of `substrings` that describe the location of the entered term in the prediction result text - this is useful if the application is to highlight the user's query text in the result Place suggestions. For example, if a user typed "Amoeba" and a resulting Place suggestion had a `name` of "Amoeba Music, Telegraph Avenue, Berkeley, CA, United States", the `substrings` array would contain one entry indicating that the phrase "Amoeba" was in that `name` from character 0 to 6.
 
 #### Place Terms
 
-Places contain an array of `terms` that identify sections of the returned `name`. For example, if a user types "Amoeba" and a resulting Place suggestion had a `name` of "Amoeba Music, Telegraph Avenue, Berkeley, CA, United States", the `terms` array would contain entries indicating that the `name` was composed of the terms "Amoeba Music", "Telegraph Avenue", "Berkeley", "CA", and "United States".
+* `HNKGooglePlacesAutocompletePlaceTerm`
 
-Place terms are represented by `HNKGooglePlacesAutocompletePlaceTerm` objects.
+HNKGooglePlacesAutocompletePlace` objects have an array of `terms` that identify sections of the returned `name`. For example, if a user types "Amoeba" and a resulting Place suggestion had a `name` of "Amoeba Music, Telegraph Avenue, Berkeley, CA, United States", the `terms` array would contain entries indicating that the `name` was composed of the terms "Amoeba Music", "Telegraph Avenue", "Berkeley", "CA", and "United States".
 
 ## Credits
 
