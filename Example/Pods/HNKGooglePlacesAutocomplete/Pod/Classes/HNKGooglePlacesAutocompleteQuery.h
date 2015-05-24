@@ -85,17 +85,17 @@ extern NSString *HNKGooglePlacesAutocompleteQueryDescriptionForErrorCode(
 @property(nonatomic, copy, readonly) NSString *apiKey;
 
 /**
- *  Default configuration for requests
+ *  Configuration used for requests
  *
  *  Note: If no configuration is provided, a default is
- *  still set with the following values: country = nil,
- *  filter = All, language = nil, latitude = NSNotFound,
- *  longitude = NSNotFound, offset = NSNotFound,
- *  searchRadius = 500
+ *  set with the following values: country = nil,
+ *  filter = All, language = nil, latitude = 0,
+ *  longitude = 0, offset = NSNotFound,
+ *  searchRadius = 20000000 (entire world)
  *
  */
 @property(nonatomic, strong, readonly)
-    HNKGooglePlacesAutocompleteQueryConfig *defaultConfiguration;
+    HNKGooglePlacesAutocompleteQueryConfig *configuration;
 
 #pragma mark - Initialization
 
@@ -113,16 +113,17 @@ extern NSString *HNKGooglePlacesAutocompleteQueryDescriptionForErrorCode(
  *  Sets up shared HNKGooglePlacesAutocompleteQuery instance with provided
  *  API key and configuration for all requests
  *
- *  @param apiKey        API key used for all requests
- *  @param configuration Default configuration used for requests
+ *  @param apiKey       API key used for all requests
+ *  @param configBlock  Block used to setup configuration
+ *                      for all requests
  *
  *  @warning The provided API key cannot be nil
- *  @warning The provided configration cannot be nil
  */
-+ (instancetype)setupSharedQueryWithAPIKey:(NSString *)apiKey
-                             configuration:
-                                 (HNKGooglePlacesAutocompleteQueryConfig *)
-                                     configuration;
++ (instancetype)
+    setupSharedQueryWithAPIKey:(NSString *)apiKey
+            configurationBlock:
+                (void (^)(HNKGooglePlacesAutocompleteQueryConfig *config))
+                    configBlock;
 
 /**
  * Returns shared HNKGooglePlacesAutocompleteQuery instance
@@ -148,13 +149,14 @@ extern NSString *HNKGooglePlacesAutocompleteQueryDescriptionForErrorCode(
  *
  *  Note: If configuration is nil, the default configuration will be used
  *
- *  @param searchQuery   String to search for Places with
- *  @param configuration Configuration for the request (e.g. search raidus)
- *  @param completion    Block to be executed when the fetch finishes
+ *  @param searchQuery  String to search for Places with
+ *  @param configBlock  Block used to set up configuration for this request
+ *  @param completion   Block to be executed when the fetch finishes
  */
 - (void)fetchPlacesForSearchQuery:(NSString *)searchQuery
-                    configuration:
-                        (HNKGooglePlacesAutocompleteQueryConfig *)configuration
+               configurationBlock:
+                   (void (^)(HNKGooglePlacesAutocompleteQueryConfig *config))
+                       configBlock
                        completion:
                            (HNKGooglePlacesAutocompleteQueryCallback)completion;
 
