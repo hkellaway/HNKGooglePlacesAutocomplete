@@ -32,7 +32,7 @@ static double const kHNKLocationLongitudeNewYorkCity = 74.0059;
                                                   config.language = nil;
                                                   config.latitude = kHNKLocationLatitudeNewYorkCity;
                                                   config.longitude = kHNKLocationLongitudeNewYorkCity;
-                                                  config.offset = NSNotFound;
+                                                  config.offset = 3;
                                                   config.searchRadius = 100;
 
                                               }];

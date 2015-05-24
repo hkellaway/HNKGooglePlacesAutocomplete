@@ -169,21 +169,37 @@ static HNKGooglePlacesAutocompleteQuery *sharedQuery = nil;
         configBlock(configForRequest);
     }
 
-    if ([self isValidSearchQuery:searchQuery]) {
+    BOOL isInvalidSearchQuery = [self isInvalidSearchQuery:searchQuery];
+
+    if ([self shouldMakeServerRequestForSearchQuery:searchQuery] && !isInvalidSearchQuery) {
 
         [self serverRequestWithSearchQuery:searchQuery configuration:configForRequest completion:completion];
 
     } else {
 
-        [self completeWithErrorForInvalidSearchQuery:searchQuery completion:completion];
+        if (isInvalidSearchQuery) {
+
+            [self completeWithErrorForInvalidSearchQuery:searchQuery completion:completion];
+        }
     }
 }
 
 #pragma mark - Helpers
 
-- (BOOL)isValidSearchQuery:(NSString *)searchQuery
+- (BOOL)shouldMakeServerRequestForSearchQuery:(NSString *)searchQuery
 {
-    return ((searchQuery != nil) && ![searchQuery isEqualToString:@""]);
+    BOOL hasNoOffset = (self.configuration.offset == NSNotFound);
+    BOOL doesMeetOffset = (searchQuery.length >= self.configuration.offset);
+
+    return hasNoOffset || doesMeetOffset;
+}
+
+- (BOOL)isInvalidSearchQuery:(NSString *)searchQuery
+{
+    BOOL isNil = searchQuery == nil;
+    BOOL isEmpty = [searchQuery isEqualToString:@""];
+
+    return (isNil || isEmpty);
 }
 
 - (void)serverRequestWithSearchQuery:(NSString *)searchQuery
