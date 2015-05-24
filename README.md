@@ -48,6 +48,7 @@ HNKGooglePlacesAutocomplete uses the [Google Places Autocomplete API](https://de
 
 * Create a [Google Developer account](https://developers.google.com/)
 * Create a new Project
+* Turn on the Places API
 * Find your API key on your Project's API Credentials
 
 ## Classes
@@ -57,37 +58,39 @@ HNKGooglePlacesAutocomplete uses the [Google Places Autocomplete API](https://de
 These classes form the core functionality of HNKGooglePlacesAutocomplete
 
 - `HNKGooglePlacesAutocompletePlaceQuery` - used to query the API for Place suggestions
-- `HNKGooglePlacesAutocompletePlace` - the resulting Place object
+- `HNKGooglePlacesAutocompletePlace` - Place object resulting from a Query
 
 ### Supporting Classes
 
 These classes are part of or support the core functionality of HNKGooglePlacesAutocomplete
 
-- `HNKGooglePlacesAutocompleteQueryConfig` - used to configure optional query parameters (See: [Querying with Optional Parameters](#querying-with-optional-parameters))
+- `HNKGooglePlacesAutocompleteQueryConfig` - used to configure _optional_ Query parameters (See: [Querying with Optional Parameters](#querying-with-optional-parameters))
 - `HNKGooglePlacesAutocompletePlaceSubstring` - See: [Place Substrings](#place-substrings)
 - `HNKGooglePlacesAutocompletePlaceTerm` - See: [Place Terms](#place-terms)
 
-### CLPlacemark+HNKAdditions
+### Utilities
 
-- `CLPlacemark+HNKAdditions.h` - provides the ability to translate a Place object to a `CLPlacemark`
+- `CLPlacemark+HNKAdditions.h` - provides translation from a Place object to a `CLPlacemark`
 
 ## Usage
 
 ### Setup
 
-Requests cannot be made without first supplying `HNKGooglePlacesAutocomplete` with your Google Places Autocomplete API Key (see [API Key](#api-key)). Once your API key is obtained, you can setup `HNKGooglePlacesAutocomplete` for use by calling `setupSharedInstanceWithAPIKey` on `HNKGooglePlacesAutocompleteQuery` (typically within the `AppDelegate`):
+Requests cannot be made without first supplying `HNKGooglePlacesAutocomplete` with your Google Places API Key (see [API Key](#api-key)). Once your API key is obtained, you can setup `HNKGooglePlacesAutocomplete` for use by calling `setupSharedInstanceWithAPIKey` on `HNKGooglePlacesAutocompleteQuery` (typically within the `AppDelegate`):
 
 ```objective-c
 [HNKGooglePlacesAutocompleteQuery sharedInstanceWithAPIKey:@"YOUR_API_KEY"];
 ```
 
-You should replace `YOUR_API_KEY` with your Google Places Autocomplete API key.
+You should replace `YOUR_API_KEY` with your Google Places API key.
 
 ### Queries
 
 `HNKGooglePlacesAutocompleteQuery` is responsible for handling queries for Places. Once [Setup](#setup) is complete, queries can be made to `[HNKGooglePlacesAutocopmleteQuery sharedQuery]`.
 
-#### fetchPlacesForSearchQuery:completion:
+#### Querying for Places
+
+##### fetchPlacesForSearchQuery:completion:
 
 ```objective-c
 [[HNKGooglePlacesAutocomplete sharedQuery] fetchPlacesForSearchQuery:@"Amoeba" completion:^(NSArray *places, NSError *error)  {
@@ -114,15 +117,38 @@ Places contain an array of `substrings` that describe the location of the entere
 
 Place substrings are represented by `HNKGooglePlacesAutocompletePlaceSubstring` objects.
 
-#### Place Terms
+##### Place Terms
 
 Places contain an array of `terms` that identify sections of the returned `name`. For example, if a user types `Amoeba` and a resulting Place suggestion had a `name` of "Amoeba Music, Telegraph Avenue, Berkeley, CA, United States", the `terms` array would contain entries indicating that the `name` was composed of the terms "Amoeba Music", "Telegraph Avenue", "Berkeley", "CA", and "United States".
 
 Place terms are represented by `HNKGooglePlacesAutocompletePlaceTerm` objects.
 
-### Other Topics
+#### Resolving to CLPlacemark
 
-#### Configuring Queries (optional)
+HNKGooglePlacesAutocomplete comes with a category that facilitates translating Places to `CLPlacemarks` - this is often used when pins on a Map. To translate a Place to a `CLPlacemark`, first include the proper header: `#import "CLPlacemark+HNKAdditions.h"`. Then call as follows:
+
+##### hnk_placemarkFromGooglePlace:apiKey:completion:
+
+```objective-c
+[CLPlacemark hnk_placemarkFromGooglePlace:place
+                                       apiKey:YOUR_API_KEY
+                                   completion:^(CLPlacemark *placemark, NSString *addressString, NSError *error) {
+                                   		if(error) {
+                                   			NSLog(@"ERROR: %@", error);
+                                   		}
+
+                                   		if(placemark) {
+                                   			NSLog(@"PLACEMARK: %@", placemark);
+                                   		}
+ 
+                               		}
+ ];
+```
+You should replace YOUR_API_KEY with your Google Places API key; `hnk_placemarkFromGooglePlace` uses your API key to query the Google Place Details API if needed.
+
+### Advanced Topics
+
+#### Querying with Optional Parameters
 
 #### Query Errors
 
@@ -132,6 +158,6 @@ HNKGooglePlacesAutocomplete was created by [Harlan Kellaway](http://harlankellaw
 
 ## License & Terms
 
-HNKGooglePlacesAutocomplete uses the Google Places Autocomplete API and is bound under [Google's Terms of Use]
+HNKGooglePlacesAutocomplete uses the Google Places API and is bound under [Google's Terms of Use]
 
 HNKGooglePlacesAutocomplete is available under the MIT license. See the [LICENSE](https://raw.githubusercontent.com/hkellaway/HNKGooglePlacesAutocomplete/master/LICENSE) file for more info.
