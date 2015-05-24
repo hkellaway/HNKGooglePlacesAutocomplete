@@ -68,10 +68,12 @@ These classes form the core functionality of HNKGooglePlacesAutocomplete
 
 ### Setup
 
-Requests cannot be made without first supplying `HNKGooglePlacesAutocomplete` with your Google Places API Key (see [API Key](#api-key)). Once your API key is obtained, you can setup `HNKGooglePlacesAutocomplete` for use by calling `setupSharedInstanceWithAPIKey` on `HNKGooglePlacesAutocompleteQuery` (typically within the `AppDelegate`):
+Requests cannot be made without first supplying `HNKGooglePlacesAutocomplete` with your Google Places API Key (see [API Key](#api-key)). Once your API key is obtained, you can setup `HNKGooglePlacesAutocomplete` for use by calling `setupSharedQueryWithAPIKey` on `HNKGooglePlacesAutocompleteQuery` (typically within the `AppDelegate`):
+
+#### setupSharedQueryWithAPIKey:
 
 ```objective-c
-[HNKGooglePlacesAutocompleteQuery sharedInstanceWithAPIKey:@"YOUR_API_KEY"];
+[HNKGooglePlacesAutocompleteQuery setupSharedQueryWithAPIKey:@"YOUR_API_KEY"];
 ```
 
 You should replace `YOUR_API_KEY` with your Google Places API key.
@@ -128,21 +130,21 @@ The core functionality needed to use HNKGooglePlacesAutocomplete is described in
 
 ### Errors
 
-Errors returned by HNKGooglePlacesAutocomplete have either the domain `com.hnkgoogleplacesautocomplete.query.fetch.error` or `com.hnkgoogleplacesautocomplete.category.clplacemark.error` depending on their source. A short description of the error can be found in the `error` object's `localizedDescription` property. If the `error` has an underlying error, such as an error returned by `CLGeocoder`, that error can be found in the `error` objects `userInfo` dictionary, under the key `NSUnderlyingError`.
+Errors returned by HNKGooglePlacesAutocomplete have either the domain `com.hnkgoogleplacesautocomplete.query.fetch.error` or `com.hnkgoogleplacesautocomplete.category.clplacemark.error` depending on their source. 
 
-### Advanced Setup Topics
+A short description of the error can be found in the `error` object's `localizedDescription` property. 
 
-#### setupSharedQueryWithAPIKey:configurationBlock:
+If the `error` has an underlying error, such as an error returned by `CLGeocoder`, it can be found in the `error` objects `userInfo` dictionary, under the key `NSUnderlyingError`.
 
 ### Advanced Query Topics
 
 #### Querying with Optional Parameters
 
-Optional parameters can be used to restrict the results returned by the Google Places API in certain ways. The `HNKGooglePlacesAutocompleteQueryConfig` object represents the parameters that can be set to restrict results and can be [specified in Setup](#setupsharedquerywithapikeyconfigurationblock) to be applied to every request or [specified per individual request](#fetchplacesforsearchqueryconfigurationblockcompletion).
+Optional parameters can be used to restrict the results returned by the Google Places API in certain ways.
 
 * `HNKGooglePlacesAutocompleQueryConfig` - object used to supply optional parameter values for requests
 
-Query Configuration can include the following optional properties:
+##### Query Configuration Properties
 
 * `country` - the country within which to restrict results; must be a a two character, ISO 3166-1 Alpha-2 compatible country code, such as "fr" for France
 * `filter` - an `HNKGooglePlacesTypeAutocompleteFilter` value that restricts results to specific [Place Types](https://developers.google.com/places/webservice/autocomplete#place_types)
@@ -151,16 +153,12 @@ Query Configuration can include the following optional properties:
 * `offset` - how many characters the user should type before a request is made
 * `searchRadius` - the distance in meters within which to bias results
 
-##### Default Query Configuration
-
-Every `HNKGooglePlacesAutocompleteQuery` has a `configuration` whether one is supplied or not. The default configuration values are: `country` = `nil`, `filter` = `HNKGooglePlacesTypeAutocompleteFilterAll`, `language` = `nil`, `latitude` and `longitude` = `0` (Google's way of indicating no location bias), `offset` = `NSNotFound`, and `searchRadius` = `20000000` (Google's way of indicating no specific search radius) 
-
 ##### fetchPlacesForSearchQuery:configurationBlock:completion:
 
 In addition to [fetchPlacesForSearchQuery:completion:](#fetchplacesforsearchquerycompletion), `HNKGooglePlacesAutocompleteQuery` provides `fetchPlacesForSearchQuery:configurationBlock:completion:` to allow optional parameters to be applied to _individual_ Queries.
 
 ```objective-c
-[[HNKGooglePlacesAutocomplete sharedQuery] fetchPlacesForSearchQuery:@"Amoeba"
+[[HNKGooglePlacesAutocomplete sharedQuery] fetchPlacesForSearchQuery:@"Amo"
 	configurationBlock:(HNKGooglePlacesAutocompleteQueryConfig *config) {
 		config.country = @"fr";
         config.filter = HNKGooglePlaceTypeAutocompleteFilterCity;
@@ -177,9 +175,32 @@ In addition to [fetchPlacesForSearchQuery:completion:](#fetchplacesforsearchquer
     }
 ];
 ```
-Any or all of the Query Configuration properties can be set. If not set, [default values](#default-query-configuration) will be used.
+Any or all of the Query Configuration properties can be set in the `configurationBlock`. If not set, [default values](#default-query-configuration) will be used.
 
 The example above specifies that the Places returned should be restricted to France, should be cities, and should be listed in Portuguese.
+
+#### Default Query Configuration
+
+Every `HNKGooglePlacesAutocompleteQuery` has a `configuration` whether one is supplied or not. The default configuration values are: `country` = `nil`, `filter` = `HNKGooglePlacesTypeAutocompleteFilterAll`, `language` = `nil`, `latitude` and `longitude` = `0` (Google's way of indicating no location bias), `offset` = `NSNotFound`, and `searchRadius` = `20000000` (Google's way of indicating no specific search radius) 
+
+### Advanced Setup Topics
+
+#### setupSharedQueryWithAPIKey:configurationBlock:
+
+In addition to [setupSharedQueryWithAPIKey:](#setupsharedquerywithapikey), `HNKGooglePlacesAutocompleteQuery` provides `setupSharedQueryWithAPIKey:configurationBlock:` to specify [optional parameters](#query-configuration-properties) to be applied to _every_ Query.
+
+```objective-c
+[HNKGooglePlacesAutocompleteQuery setupSharedQueryWithAPIKey:@"YOUR_API_KEY"
+	configurationBlock:(HNKGooglePlacesAutocompleteQueryConfig *config) {
+		config.country = @"id";
+        config.filter = HNKGooglePlaceTypeAutocompleteFilterEstablishment;
+        config.language = @"ru";
+	}
+];
+```
+The example above specifies that the Places returned from every Query should be restricted to Indonesia, should be business establishments, and should be listed in Russian.
+
+If an individual query is made using [fetchPlacesForSearchQuery:configurationBlock:completion:](#fetchplacesforsearchqueryconfigurationblockcompletion), that query will run using that `configurationBlock` - subsequent queries will use the configuration supplied in setup.
 
 ### Advanced Place Topics
 
