@@ -51,7 +51,9 @@
     NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
 
     if (self.country) {
-        [parameters addEntriesFromDictionary:@{ @"components=country" : self.country }];
+
+        NSString *countryValue = [NSString stringWithFormat:@"country:%@", self.country];
+        [parameters addEntriesFromDictionary:@{ @"components" : countryValue }];
     }
 
     if (self.language) {
@@ -60,8 +62,8 @@
 
     if (self.latitude != 0 && self.longitude != 0) {
 
-        NSString *locationParameter = [NSString stringWithFormat:@"%f,%f", self.latitude, self.longitude];
-        [parameters addEntriesFromDictionary:@{ @"location" : locationParameter }];
+        NSString *locationValue = [NSString stringWithFormat:@"%f,%f", self.latitude, self.longitude];
+        [parameters addEntriesFromDictionary:@{ @"location" : locationValue }];
     }
 
     if (self.offset != NSNotFound) {
