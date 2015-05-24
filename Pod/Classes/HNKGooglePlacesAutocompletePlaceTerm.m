@@ -31,8 +31,9 @@
 
 #pragma mark <MTLJSONSerializing>
 
-+ (NSDictionary *)JSONKeyPathsByPropertyKey {
-  return @{ @"offset" : @"offset", @"value" : @"value" };
++ (NSDictionary *)JSONKeyPathsByPropertyKey
+{
+    return @{ @"offset" : @"offset", @"value" : @"value" };
 }
 
 @end

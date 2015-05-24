@@ -28,18 +28,17 @@
 /**
  *  Term identifying a section of the returned description
  */
-@interface HNKGooglePlacesAutocompletePlaceTerm
-    : HNKGooglePlacesAutocompleteModel
+@interface HNKGooglePlacesAutocompletePlaceTerm : HNKGooglePlacesAutocompleteModel
 
 /**
  *  Start position of this term in the description, measured in Unicode
  *  characters
  */
-@property(nonatomic, assign, readonly) NSInteger offset;
+@property (nonatomic, assign, readonly) NSInteger offset;
 
 /**
  *  Text of the term
  */
-@property(nonatomic, strong, readonly) NSString *value;
+@property (nonatomic, strong, readonly) NSString *value;
 
 @end
