@@ -39,7 +39,7 @@ describe(@"HNKGooglePlacesAutocompleteQueryConfig", ^{
                                     NSDictionary *params = [testInstanceNoLocation translateToServerRequestParameters];
 
                                     [[params should] equal:@{
-                                        @"components=country" : @"abc",
+                                        @"components" : @"country:abc",
                                         @"language" : @"def",
                                         @"offset" : @(100),
                                         @"radius" : @(1000),
@@ -84,7 +84,7 @@ describe(@"HNKGooglePlacesAutocompleteQueryConfig", ^{
                                     params = [testInstance translateToServerRequestParameters];
 
                                     [[params should] equal:@{
-                                        @"components=country" : @"abc",
+                                        @"components" : @"country:abc",
                                         @"language" : @"def",
                                         @"location" : @"50.500000,150.500000"
                                     }];
@@ -95,7 +95,7 @@ describe(@"HNKGooglePlacesAutocompleteQueryConfig", ^{
                                     params = [testInstance translateToServerRequestParameters];
 
                                     [[params should] equal:@{
-                                        @"components=country" : @"abc",
+                                        @"components" : @"country:abc",
                                         @"language" : @"def",
                                         @"location" : @"50.500000,150.500000",
                                         @"offset" : @(100),
@@ -107,7 +107,7 @@ describe(@"HNKGooglePlacesAutocompleteQueryConfig", ^{
                                     params = [testInstance translateToServerRequestParameters];
 
                                     [[params should] equal:@{
-                                        @"components=country" : @"abc",
+                                        @"components" : @"country:abc",
                                         @"language" : @"def",
                                         @"location" : @"50.500000,150.500000",
                                         @"offset" : @(100),

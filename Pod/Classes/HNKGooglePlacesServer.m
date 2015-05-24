@@ -26,42 +26,41 @@
 #import "HNKGooglePlacesServer.h"
 #import "HNKServer.h"
 
-static NSString *const kHNKGooglePlacesServerBaseURL =
-    @"https://maps.googleapis.com/maps/api/place/";
+static NSString *const kHNKGooglePlacesServerBaseURL = @"https://maps.googleapis.com/maps/api/place/";
 
 @implementation HNKGooglePlacesServer
 
 #pragma mark - Overrides
 
-+ (void)initialize {
-  if (self == [HNKGooglePlacesServer class]) {
++ (void)initialize
+{
+    if (self == [HNKGooglePlacesServer class]) {
 
-    [HNKServer setupWithBaseUrl:kHNKGooglePlacesServerBaseURL];
-  }
+        [HNKServer setupWithBaseUrl:kHNKGooglePlacesServerBaseURL];
+    }
 }
 
 #pragma mark - Requests
 
-+ (void)GET:(NSString *)path
-    parameters:(NSDictionary *)parameters
-    completion:(void (^)(id, NSError *))completion {
++ (void)GET:(NSString *)path parameters:(NSDictionary *)parameters completion:(void (^)(id, NSError *))completion
+{
 
-  [HNKServer GET:path
-      parameters:parameters
-      completion:^(id responseObject, NSError *error) {
+    [HNKServer GET:path
+        parameters:parameters
+        completion:^(id responseObject, NSError *error) {
 
-        if (completion) {
+            if (completion) {
 
-          if (error) {
+                if (error) {
 
-            completion(nil, error);
-            return;
-          }
+                    completion(nil, error);
+                    return;
+                }
 
-          completion(responseObject, nil);
-        }
+                completion(responseObject, nil);
+            }
 
-      }];
+        }];
 }
 
 @end
