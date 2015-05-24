@@ -163,7 +163,7 @@ describe(@"HNKGooglePlacesAutocompleteQuery", ^{
                            [[HNKGooglePlacesServer should] receive:@selector(GET:parameters:completion:)
                                                      withArguments:@"autocomplete/json",
                                                                    @{
-                                                                       @"components=country" : @"fr",
+                                                                       @"components" : @"country:fr",
                                                                        @"input" : @"Vict",
                                                                        @"key" : testInstanceWithNoConfig.apiKey,
                                                                        @"language" : @"pt_BR",
@@ -196,7 +196,7 @@ describe(@"HNKGooglePlacesAutocompleteQuery", ^{
                            [[HNKGooglePlacesServer should] receive:@selector(GET:parameters:completion:)
                                                      withArguments:@"autocomplete/json",
                                                                    @{
-                                                                       @"components=country" : @"fr",
+                                                                       @"components" : @"country:fr",
                                                                        @"input" : @"Vict",
                                                                        @"key" : testInstance.apiKey,
                                                                        @"language" : @"pt_BR",
@@ -492,7 +492,7 @@ describe(@"HNKGooglePlacesAutocompleteQuery", ^{
                                    [[HNKGooglePlacesServer should] receive:@selector(GET:parameters:completion:)
                                                              withArguments:@"autocomplete/json",
                                                                            @{
-                                                                               @"components=country" : @"fr",
+                                                                               @"components" : @"country:fr",
                                                                                @"input" : @"Vict",
                                                                                @"key" : testInstance.apiKey,
                                                                                @"language" : @"pt_BR",
