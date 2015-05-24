@@ -32,31 +32,29 @@
 
 #pragma mark <MTLJSONSerializing>
 
-+ (NSDictionary *)JSONKeyPathsByPropertyKey {
-  return @{ @"places" : @"predictions", @"status" : @"status" };
++ (NSDictionary *)JSONKeyPathsByPropertyKey
+{
+    return @{ @"places" : @"predictions", @"status" : @"status" };
 }
 
-+ (NSValueTransformer *)placesJSONTransformer {
-  return [NSValueTransformer mtl_JSONArrayTransformerWithModelClass:
-                                 [HNKGooglePlacesAutocompletePlace class]];
++ (NSValueTransformer *)placesJSONTransformer
+{
+    return [NSValueTransformer mtl_JSONArrayTransformerWithModelClass:[HNKGooglePlacesAutocompletePlace class]];
 }
 
-+ (NSValueTransformer *)statusJSONTransformer {
-  NSDictionary *statusesDictionary = @{
-    @"INVALID_REQUEST" :
-        @(HNKGooglePlacesAutocompleteQueryResponseStatusInvalidRequest),
-    @"OK" : @(HNKGooglePlacesAutocompleteQueryResponseStatusOK),
-    @"OVER_QUERY_LIMIT" :
-        @(HNKGooglePlacesAutocompleteQueryResponseStatusOverQueryLimit),
-    @"REQUEST_DENIED" :
-        @(HNKGooglePlacesAutocompleteQueryResponseStatusRequestDenied),
-    @"ZERO_RESULTS" :
-        @(HNKGooglePlacesAutocompleteQueryResponseStatusZeroResults)
-  };
++ (NSValueTransformer *)statusJSONTransformer
+{
+    NSDictionary *statusesDictionary = @{
+        @"INVALID_REQUEST" : @(HNKGooglePlacesAutocompleteQueryResponseStatusInvalidRequest),
+        @"OK" : @(HNKGooglePlacesAutocompleteQueryResponseStatusOK),
+        @"OVER_QUERY_LIMIT" : @(HNKGooglePlacesAutocompleteQueryResponseStatusOverQueryLimit),
+        @"REQUEST_DENIED" : @(HNKGooglePlacesAutocompleteQueryResponseStatusRequestDenied),
+        @"ZERO_RESULTS" : @(HNKGooglePlacesAutocompleteQueryResponseStatusZeroResults)
+    };
 
-  return [MTLValueTransformer transformerWithBlock:^(NSString *status) {
-    return statusesDictionary[status];
-  }];
+    return [MTLValueTransformer transformerWithBlock:^(NSString *status) {
+        return statusesDictionary[status];
+    }];
 }
 
 @end
