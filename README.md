@@ -12,10 +12,11 @@ An Objective-C wrapper for the Google Places Autocomplete API
 HNKGooglePlacesAutocomplete is an Objective-C wrapper for the Google Places Autocomplete API. It was inspired by [SPGooglePlacesAutocomplete](https://github.com/spoletto/SPGooglePlacesAutocomplete) with the intention of modernizing the implementation. HNKGooglePlacesAutocomplete encapsulates the same core functionality - Google Place Autocomplete suggestions and Google Place-to-CLPlacemark translation - with a more layered and pod-first approach.
 
 Improvements include:
-- Use of modern, vetted pods (AFNetworking, Mantle)
+- Modern, vetted pods utilized (AFNetworking, Mantle)
 - Code is well-tested using Kiwi
-- Example project does not use the deprecated UISearchDisplayController
-- Designed with reusability and Cocoapods in mind
+- Documentation is thorough
+- Example project does not use the deprecated `UISearchDisplayController`
+- Designed for reusability and dissemination with Cocoapods
 
 ## Communication
 
@@ -38,10 +39,6 @@ Improvements include:
 pod "HNKGooglePlacesAutocomplete", "~> 1.0"
 ```
 
-## Transitioning from SPGooglePlacesAutocomplete
-
-* Link to Demo V1
-
 ### API Key
 
 HNKGooglePlacesAutocomplete uses the [Google Places Autocomplete API](https://developers.google.com/places/webservice/autocomplete). You will need an API key for this service in order to use HNKGooglePlacesAutocomplete.
@@ -50,6 +47,10 @@ HNKGooglePlacesAutocomplete uses the [Google Places Autocomplete API](https://de
 * Create a new Project
 * Turn on the Places API
 * Find your API key on your Project's API Credentials
+
+### CoreLocation Framework
+
+HNKGooglePlacesAutocomplete makes use of the `CoreLocation` framework. Make sure this framework is added in your Xcode settings.
 
 ## Classes
 
@@ -62,7 +63,7 @@ These classes form the core functionality of HNKGooglePlacesAutocomplete
 
 ### Utilities
 
-- `CLPlacemark+HNKAdditions.h` - provides translation from a Place object to a `CLPlacemark`
+- `CLPlacemark+HNKAdditions.h` - provides translation from an `HNKGooglePlacesAutocompletePlace to a `CLPlacemark`
 
 ## Usage
 
@@ -70,7 +71,7 @@ These classes form the core functionality of HNKGooglePlacesAutocomplete
 
 Requests cannot be made without first supplying `HNKGooglePlacesAutocomplete` with your Google Places API Key (see [API Key](#api-key)). Once your API key is obtained, you can setup `HNKGooglePlacesAutocomplete` for use by calling `setupSharedQueryWithAPIKey` on `HNKGooglePlacesAutocompleteQuery` (typically within the `AppDelegate`):
 
-#### setupSharedQueryWithAPIKey:
+#### `setupSharedQueryWithAPIKey:`
 
 ```objective-c
 [HNKGooglePlacesAutocompleteQuery setupSharedQueryWithAPIKey:@"YOUR_API_KEY"];
@@ -82,7 +83,7 @@ You should replace `YOUR_API_KEY` with your Google Places API key.
 
 `HNKGooglePlacesAutocompleteQuery` is responsible for handling queries for Places. Once [Setup](#setup) is complete, queries can be made to `[HNKGooglePlacesAutocopmleteQuery sharedQuery]`.
 
-#### fetchPlacesForSearchQuery:completion:
+#### `fetchPlacesForSearchQuery:completion:`
 
 ```objective-c
 [[HNKGooglePlacesAutocomplete sharedQuery] fetchPlacesForSearchQuery:@"Amoeba" 
@@ -106,9 +107,9 @@ The `completion` block provides an array of `HNKGooglePlaceAutcompletePlace` obj
 
 ### CLPlacemark from Place
 
-HNKGooglePlacesAutocomplete comes with a category that facilitates translating Places to `CLPlacemarks` - this is often used when placing pins on a Map. To translate a Place to a `CLPlacemark`, first include the proper header: `#import "CLPlacemark+HNKAdditions.h"`. Then call as follows:
+HNKGooglePlacesAutocomplete comes with a category that facilitates translating `HNKGooglePlacesAutocompletePlace`s to `CLPlacemark`s - this is often used when placing pins on a Map. To translate a Place to a `CLPlacemark`, first include the proper header: `#import "CLPlacemark+HNKAdditions.h"`. Then call as follows:
 
-#### hnk_placemarkFromGooglePlace:apiKey:completion:
+#### `hnk_placemarkFromGooglePlace:apiKey:completion:`
 
 ```objective-c
 [CLPlacemark hnk_placemarkFromGooglePlace:place
@@ -122,7 +123,7 @@ HNKGooglePlacesAutocomplete comes with a category that facilitates translating P
     }
 ];
 ```
-You should replace YOUR_API_KEY with your Google Places API key; `hnk_placemarkFromGooglePlace` uses your API key to query the Google Place Details API if needed.
+You should replace `YOUR_API_KEY` with your Google Places API key; `hnk_placemarkFromGooglePlace` uses your API key to query the Google Place Details API if needed.
 
 ## Advanced Topics
 
@@ -134,7 +135,7 @@ Errors returned by HNKGooglePlacesAutocomplete have a domain that starts with `c
 
 A short description of the error can be found in the `error` object's `localizedDescription` property. 
 
-If the `error` has an underlying error, such as an error returned by `CLGeocoder`, it can be found in the `error` objects `userInfo` dictionary, under the `NSUnderlyingError` key.
+If the `error` has an underlying error, such as an error returned by `CLGeocoder`, it can be found in the `error` object's `userInfo` dictionary, under the `NSUnderlyingError` key.
 
 ### Advanced Query Topics
 
@@ -153,7 +154,7 @@ Configuration properties include:
 * `offset` - how many characters the user should type before a request is made
 * `searchRadius` - the distance in meters within which to bias results
 
-##### fetchPlacesForSearchQuery:configurationBlock:completion:
+##### `fetchPlacesForSearchQuery:configurationBlock:completion:`
 
 In addition to [fetchPlacesForSearchQuery:completion:](#fetchplacesforsearchquerycompletion), `HNKGooglePlacesAutocompleteQuery` provides `fetchPlacesForSearchQuery:configurationBlock:completion:` to allow optional parameters to be applied to _individual_ Queries.
 
@@ -173,13 +174,15 @@ Any or all of the Query Configuration properties can be set in the `configuratio
 
 The example above specifies that the Places returned should be restricted to France, should be cities, and should be listed in Portuguese.
 
+If a certain Query Configuration should be used for _every_ query, then setup should include a Query Configuration, via [setupSharedQueryWithAPIKey:configurationBlock:](#setupsharedquerywithapikeyconfigurationblock).
+
 #### Default Query Configuration
 
-Every `HNKGooglePlacesAutocompleteQuery` has a `configuration` whether one is supplied or not. The default configuration values are: `country` = `nil`, `filter` = `HNKGooglePlacesTypeAutocompleteFilterAll`, `language` = `nil`, `latitude` and `longitude` = `0` (Google's way of indicating no location bias), `offset` = `NSNotFound`, and `searchRadius` = `20000000` (Google's way of indicating no specific search radius) 
+Every `HNKGooglePlacesAutocompleteQuery` has a `configuration` whether one is explicitly supplied or not. The default configuration values are: `country` = `nil`, `filter` = `HNKGooglePlacesTypeAutocompleteFilterAll`, `language` = `nil`, `latitude` and `longitude` = `0` (Google's way of indicating no location bias), `offset` = `NSNotFound`, and `searchRadius` = `20000000` (Google's way of indicating no specific search radius) 
 
 ### Advanced Setup Topics
 
-#### setupSharedQueryWithAPIKey:configurationBlock:
+#### `setupSharedQueryWithAPIKey:configurationBlock:`
 
 In addition to [setupSharedQueryWithAPIKey:](#setupsharedquerywithapikey), `HNKGooglePlacesAutocompleteQuery` provides `setupSharedQueryWithAPIKey:configurationBlock:` to specify [optional parameters](#querying-with-optional-parameters) to be applied to _every_ Query.
 
@@ -208,9 +211,13 @@ The example above specifies that the Places returned from every Query should be 
 
 HNKGooglePlacesAutocompletePlace` objects have an array of `terms` that identify sections of the returned `name`. For example, if a user types "Amoeba" and a resulting Place suggestion had a `name` of "Amoeba Music, Telegraph Avenue, Berkeley, CA, United States", the `terms` array would contain entries indicating that the `name` was composed of the terms "Amoeba Music", "Telegraph Avenue", "Berkeley", "CA", and "United States".
 
+## Transitioning from SPGooglePlacesAutocomplete
+
+`TODO`
+
 ## Credits
 
-HNKGooglePlacesAutocomplete was created by [Harlan Kellaway](http://harlankellaway.com) with inspiration from [SPGooglePlacesAutocomplete](https://github.com/spoletto/SPGooglePlacesAutocomplete)
+HNKGooglePlacesAutocomplete was created by [Harlan Kellaway](http://harlankellaway.com). It was inspired by [SPGooglePlacesAutocomplete](https://github.com/spoletto/SPGooglePlacesAutocomplete).
 
 ## License & Terms
 
