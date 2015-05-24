@@ -188,9 +188,10 @@ static HNKGooglePlacesAutocompleteQuery *sharedQuery = nil;
 
 - (BOOL)shouldMakeServerRequestForSearchQuery:(NSString *)searchQuery
 {
+    BOOL hasNoOffset = (self.configuration.offset == NSNotFound);
     BOOL doesMeetOffset = (searchQuery.length >= self.configuration.offset);
 
-    return doesMeetOffset;
+    return hasNoOffset || doesMeetOffset;
 }
 
 - (BOOL)isInvalidSearchQuery:(NSString *)searchQuery
