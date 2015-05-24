@@ -124,9 +124,7 @@ HNKGooglePlacesAutocomplete comes with a category that facilitates translating P
   	completion:^(CLPlacemark *placemark, NSString *addressString, NSError *error) {
     	if(error) {
     		NSLog(@"ERROR: %@", error);
-    	}
-
-    	if(placemark) {
+    	} else {
     		NSLog(@"PLACEMARK: %@", placemark);
     	}
     }
@@ -135,6 +133,22 @@ HNKGooglePlacesAutocomplete comes with a category that facilitates translating P
 You should replace YOUR_API_KEY with your Google Places API key; `hnk_placemarkFromGooglePlace` uses your API key to query the Google Place Details API if needed.
 
 ### Advanced Topics
+
+The core functionality needed to use HNKGooglePlacesAutocomplete is described in [Setup](#setup), [Queries](#queries), and [Places](#places). The following sections describe additional topics that may be of use in particular situations.
+
+#### Advanced Setup Topics
+
+#### Advanced Query Topics
+
+##### Querying with Optional Parameters
+
+##### Query Errors
+
+##### 
+
+In addition to [fetchPlacesForSearchQuery:completion:](#fetchplacesforsearchquerycompletion), `HNKGooglePlacesAutocompleteQuery` provides `fetchPlacesForSearchQuery:configurationBlock:completion:` to _allow optional parameters to be applied to individual queries_.
+
+
 
 #### Advanced Place Topics
 
@@ -150,12 +164,6 @@ Place substrings are represented by `HNKGooglePlacesAutocompletePlaceSubstring` 
 Places contain an array of `terms` that identify sections of the returned `name`. For example, if a user types "Amoeba" and a resulting Place suggestion had a `name` of "Amoeba Music, Telegraph Avenue, Berkeley, CA, United States", the `terms` array would contain entries indicating that the `name` was composed of the terms "Amoeba Music", "Telegraph Avenue", "Berkeley", "CA", and "United States".
 
 Place terms are represented by `HNKGooglePlacesAutocompletePlaceTerm` objects.
-
-#### Advanced Query Topics
-
-##### Querying with Optional Parameters
-
-##### Query Errors
 
 ## Credits
 
