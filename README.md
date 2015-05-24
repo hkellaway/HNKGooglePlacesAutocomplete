@@ -88,9 +88,7 @@ You should replace `YOUR_API_KEY` with your Google Places API key.
 
 `HNKGooglePlacesAutocompleteQuery` is responsible for handling queries for Places. Once [Setup](#setup) is complete, queries can be made to `[HNKGooglePlacesAutocopmleteQuery sharedQuery]`.
 
-#### Querying for Places
-
-##### fetchPlacesForSearchQuery:completion:
+#### fetchPlacesForSearchQuery:completion:
 
 ```objective-c
 [[HNKGooglePlacesAutocomplete sharedQuery] fetchPlacesForSearchQuery:@"Amoeba" 
@@ -110,13 +108,13 @@ The `completion` block provides an array of `HNKGooglePlaceAutcompletePlace` obj
 
 ### Places
 
-`HNKGooglePlacesAutocompletePlace` objects are returned from queries and represent the suggested places for that query.
+`HNKGooglePlacesAutocompletePlace` objects are returned from Queries and represent the suggested Places for that Query.
 
-#### CLPlacemark from Google Place
+### CLPlacemark from Google Place
 
 HNKGooglePlacesAutocomplete comes with a category that facilitates translating Places to `CLPlacemarks` - this is often used when placing pins on a Map. To translate a Place to a `CLPlacemark`, first include the proper header: `#import "CLPlacemark+HNKAdditions.h"`. Then call as follows:
 
-##### hnk_placemarkFromGooglePlace:apiKey:completion:
+#### hnk_placemarkFromGooglePlace:apiKey:completion:
 
 ```objective-c
 [CLPlacemark hnk_placemarkFromGooglePlace:place
@@ -142,13 +140,49 @@ The core functionality needed to use HNKGooglePlacesAutocomplete is described in
 
 ##### Querying with Optional Parameters
 
+###### Query Configuration
+
+* `HNKGooglePlacesAutocompleQueryConfig` - object used to supply optional parameter values for requests
+
+Requests can include the following optional configuration parameters:
+
+* `country` - the country within which to restrict results; must be a a two character, ISO 3166-1 Alpha-2 compatible country code, such as "fr" for France
+* `filter` - an HNKGooglePlacesTypeAutocompleteFilter value that restricts results to specific [Place Types](https://developers.google.com/places/webservice/autocomplete#place_types)
+* `language` - the language in which results should be expressed; must be one of [Google's supported domain languages](https://developers.google.com/maps/faq#languagesupport)
+* `latitude` & `longitude` - the location to which results should be biased
+* `offset` - the position in the input term of the last character that the service uses to match predictions; i.e. if the input is "Google" and the offset is 3, the service will match on "Goo"
+* `searchRadius` - the distance in meters within which to bias place results
+
+Every `HNKGooglePlacesAutocompleteQuery` has a `configuration` whether one is supplied or not. The default configuration values are: `country` = `nil`, `filter` = `HNKGooglePlacesTypeAutocompleteFilterAll`, `language` = `nil`, `latitude` and `longitude` = `0` (Google's way of indicating no location bias), `offset` = `NSNotFound`, and `searchRadius` = `20000000` (Google's way of indicating no specific search radius) 
+
+###### fetchPlacesForSearchQuery:configurationBlock:completion:
+
+In addition to [fetchPlacesForSearchQuery:completion:](#fetchplacesforsearchquerycompletion), `HNKGooglePlacesAutocompleteQuery` provides `fetchPlacesForSearchQuery:configurationBlock:completion:` to _allow optional parameters to be applied to individual Queries_.
+
+```objective-c
+[[HNKGooglePlacesAutocomplete sharedQuery] fetchPlacesForSearchQuery:@"Amoeba"
+	configurationBlock:(HNKGooglePlacesAutocompleteQueryConfig *config) {
+		config.country = nil;
+        config.filter = HNKGooglePlaceTypeAutocompleteFilterAll;
+        config.language = nil;
+        config.latitude = kHNKLocationLatitudeNewYorkCity;
+        config.longitude = kHNKLocationLongitudeNewYorkCity;
+        config.offset = NSNotFound;
+        config.searchRadius = 100;
+	}
+	completion:^(NSArray *places, NSError *error)  {
+    	if (error) {
+        	NSLog(@"ERROR: %@", error);
+    	} else {
+        	for (HNKGooglePlacesAutocompletePlace *place in places) {
+	        	NSLog(@"%@", place);
+			}
+    	}
+    }
+];
+```
+
 ##### Query Errors
-
-##### 
-
-In addition to [fetchPlacesForSearchQuery:completion:](#fetchplacesforsearchquerycompletion), `HNKGooglePlacesAutocompleteQuery` provides `fetchPlacesForSearchQuery:configurationBlock:completion:` to _allow optional parameters to be applied to individual queries_.
-
-
 
 #### Advanced Place Topics
 
