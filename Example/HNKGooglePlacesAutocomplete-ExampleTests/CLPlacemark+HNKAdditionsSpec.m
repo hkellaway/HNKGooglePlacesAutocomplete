@@ -70,16 +70,6 @@ describe(@"CLPlacemark+HNKAdditions", ^{
                     @"status" : @"OK"
                 };
 
-                [HNKGooglePlacesServer stub:@selector(GET:parameters:completion:)
-                                  withBlock:^id(NSArray *params) {
-
-                                      HNKGooglePlacesServerCallback completion = params[2];
-                                      completion(testDetailsJSON, nil);
-
-                                      return nil;
-
-                                  }];
-
             });
 
             context(@"Place is solely a geocode result",
