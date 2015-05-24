@@ -38,12 +38,12 @@
  *  Note :Must be a two character, ISO 3166-1 Alpha-2
  *  compatible country code
  */
-@property(nonatomic, copy) NSString *country;
+@property (nonatomic, copy) NSString *country;
 
 /**
  *  Place type filter by which results are restricted
  */
-@property(nonatomic, assign) HNKGooglePlaceTypeAutocompleteFilter filter;
+@property (nonatomic, assign) HNKGooglePlaceTypeAutocompleteFilter filter;
 
 /**
  *  The language in which search results are returned
@@ -51,35 +51,34 @@
  *  The list of supported languages can be found here:
  *  https://developers.google.com/maps/faq#languagesupportNote
  */
-@property(nonatomic, copy) NSString *language;
+@property (nonatomic, copy) NSString *language;
 
 /**
  *  The latitude around which place information is returned
  */
-@property(nonatomic, assign) double latitude;
+@property (nonatomic, assign) double latitude;
 
 /**
  *  The longitude around which place information is returned
  */
-@property(nonatomic, assign) double longitude;
+@property (nonatomic, assign) double longitude;
 
 /**
  *  The position, in the input term, of the last
  *  character that the service uses to match predictions
  */
-@property(nonatomic, assign) NSInteger offset;
+@property (nonatomic, assign) NSInteger offset;
 
 /**
  *  Distance in meters within which place results are biased
  */
-@property(nonatomic, assign) NSInteger searchRadius;
+@property (nonatomic, assign) NSInteger searchRadius;
 
 #pragma mark - Initialization
 
 #pragma mark Convenience
 
-+ (instancetype)configWithConfig:
-        (HNKGooglePlacesAutocompleteQueryConfig *)config;
++ (instancetype)configWithConfig:(HNKGooglePlacesAutocompleteQueryConfig *)config;
 
 #pragma mark - Methods
 
