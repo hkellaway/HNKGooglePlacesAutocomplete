@@ -13,10 +13,9 @@ HNKGooglePlacesAutocomplete is an Objective-C wrapper for the Google Places Auto
 
 Improvements include:
 - Use of modern, vetted pods (AFNetworking, Mantle)
-- Core functionality is useable without requiring the CoreLocation framework
 - Code is well-tested using Kiwi
 - Example project does not use the deprecated UISearchDisplayController
-- Modularly designed with Cocoapods in mind
+- Designed with reusability and Cocoapods in mind
 
 ## Communication
 
@@ -42,38 +41,35 @@ pod "HNKGooglePlacesAutocomplete", "~> 1.0"
 ## Transitioning from SPGooglePlacesAutocomplete
 
 * Link to Demo V1
-* CoreLocation now optional - only if resolution to CLPlacemark is desired
 
 ### API Key
 
-HNKGooglePlacesAutocomplete uses the [Google Places Autocomplete API]. You will need an API key for this service in order to use HNKGooglePlacesAutocomplete.
+HNKGooglePlacesAutocomplete uses the [Google Places Autocomplete API](https://developers.google.com/places/webservice/autocomplete). You will need an API key for this service in order to use HNKGooglePlacesAutocomplete.
 
-* Create a [Google Developer account]
-* Once activated, find your API key on your [Settings] page
+* Create a [Google Developer account](https://developers.google.com/)
+* Create a new Project
+* Find your API key on your Project's API Credentials
 
 ## Classes
 
 ### Core Classes
 
-These classes form the core functionality of HNKGooglePlacesAutocomplete - the object used to query the API for Place suggestions and the resulting Place object
+These classes form the core functionality of HNKGooglePlacesAutocomplete
 
-- `HNKGooglePlacesAutocompletePlaceQuery`
-- `HNKGooglePlacesAutocompletePlace`
+- `HNKGooglePlacesAutocompletePlaceQuery` - used to query the API for Place suggestions
+- `HNKGooglePlacesAutocompletePlace` - the resulting Place object
 
 ### Supporting Classes
 
 These classes are part of or support the core functionality of HNKGooglePlacesAutocomplete
 
-- `HNKGooglePlacesAutocompleteQueryConfig`
-- `HNKGooglePlacesAutocompleteQueryResponse`
-- `HNKGooglePlacesAutocompletePlaceSubstring`
-- `HNKGooglePlacesAutocompletePlaceTerm`
+- `HNKGooglePlacesAutocompleteQueryConfig` - used to configure optional query parameters (See: [Querying with Optional Parameters](#querying-with-optional-parameters))
+- `HNKGooglePlacesAutocompletePlaceSubstring` - See: [Place Substrings](#place-substrings)
+- `HNKGooglePlacesAutocompletePlaceTerm` - See: [Place Terms](#place-terms)
 
-### Categories
+### CLPlacemark+HNKAdditions
 
-These categories add useful funtionality to the core of HNKGooglePlacesAutocomplete
-
-- `CLPlacemark+HNKAdditions.h`
+- `CLPlacemark+HNKAdditions.h` - provides the ability to translate a Place object to a `CLPlacemark`
 
 ## Usage
 
