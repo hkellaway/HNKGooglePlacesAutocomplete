@@ -29,39 +29,38 @@
 
 #pragma mark - Deserialization
 
-+ (NSArray *)modelsArrayFromJSONArray:(NSArray *)JSONArray {
-  NSMutableArray *models = [NSMutableArray arrayWithCapacity:[JSONArray count]];
++ (NSArray *)modelsArrayFromJSONArray:(NSArray *)JSONArray
+{
+    NSMutableArray *models = [NSMutableArray arrayWithCapacity:[JSONArray count]];
 
-  [JSONArray enumerateObjectsUsingBlock:^(NSDictionary *JSONDictionary,
-                                          NSUInteger idx, BOOL *stop) {
-    HNKGooglePlacesAutocompleteModel *model =
-        [[self class] modelFromJSONDictionary:JSONDictionary];
-    [models addObject:model];
-  }];
+    [JSONArray enumerateObjectsUsingBlock:^(NSDictionary *JSONDictionary, NSUInteger idx, BOOL *stop) {
+        HNKGooglePlacesAutocompleteModel *model = [[self class] modelFromJSONDictionary:JSONDictionary];
+        [models addObject:model];
+    }];
 
-  return models;
+    return models;
 }
 
-+ (instancetype)modelFromJSONDictionary:(NSDictionary *)JSONDictionary {
-  NSError *error = nil;
-  HNKGooglePlacesAutocompleteModel *model =
-      [MTLJSONAdapter modelOfClass:[self class]
-                fromJSONDictionary:JSONDictionary
-                             error:&error];
++ (instancetype)modelFromJSONDictionary:(NSDictionary *)JSONDictionary
+{
+    NSError *error = nil;
+    HNKGooglePlacesAutocompleteModel *model =
+        [MTLJSONAdapter modelOfClass:[self class] fromJSONDictionary:JSONDictionary error:&error];
 
-  if (error) {
-    return nil;
-  }
+    if (error) {
+        return nil;
+    }
 
-  return model;
+    return model;
 }
 
 #pragma mark - Protocol conformance
 
 #pragma mark <MTLJSONSerializing>
 
-+ (NSDictionary *)JSONKeyPathsByPropertyKey {
-  return @{};
++ (NSDictionary *)JSONKeyPathsByPropertyKey
+{
+    return @{};
 }
 
 @end
