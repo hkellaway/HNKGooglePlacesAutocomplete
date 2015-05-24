@@ -93,64 +93,69 @@ You should replace `YOUR_API_KEY` with your Google Places API key.
 ##### fetchPlacesForSearchQuery:completion:
 
 ```objective-c
-[[HNKGooglePlacesAutocomplete sharedQuery] fetchPlacesForSearchQuery:@"Amoeba" completion:^(NSArray *places, NSError *error)  {
-    if (error) {
-        NSLog(@"ERROR: %@", error);
-    } else {
-        for (HNKGooglePlacesAutocompletePlace *place in places) {
-	        NSLog(@"%@", place);
-		}
+[[HNKGooglePlacesAutocomplete sharedQuery] fetchPlacesForSearchQuery:@"Amoeba" 
+	completion:^(NSArray *places, NSError *error)  {
+    	if (error) {
+        	NSLog(@"ERROR: %@", error);
+    	} else {
+        	for (HNKGooglePlacesAutocompletePlace *place in places) {
+	        	NSLog(@"%@", place);
+			}
+    	}
     }
-}];
+];
 ```
 
 The `completion` block provides an array of `HNKGooglePlaceAutcompletePlace` objects when successful. If not successful, error information can be found in the `error` object.
 
-#### Places
+### Places
 
 `HNKGooglePlacesAutocompletePlace` objects are returned from queries and represent the suggested places for that query.
 
+#### CLPlacemark from Google Place
+
+HNKGooglePlacesAutocomplete comes with a category that facilitates translating Places to `CLPlacemarks` - this is often used when placing pins on a Map. To translate a Place to a `CLPlacemark`, first include the proper header: `#import "CLPlacemark+HNKAdditions.h"`. Then call as follows:
+
+##### hnk_placemarkFromGooglePlace:apiKey:completion:
+
+```objective-c
+[CLPlacemark hnk_placemarkFromGooglePlace:place
+	apiKey:YOUR_API_KEY
+  	completion:^(CLPlacemark *placemark, NSString *addressString, NSError *error) {
+    	if(error) {
+    		NSLog(@"ERROR: %@", error);
+    	}
+
+    	if(placemark) {
+    		NSLog(@"PLACEMARK: %@", placemark);
+    	}
+    }
+];
+```
+You should replace YOUR_API_KEY with your Google Places API key; `hnk_placemarkFromGooglePlace` uses your API key to query the Google Place Details API if needed.
+
+### Advanced Topics
+
+#### Advanced Place Topics
+
 ##### Place Substrings
 
-Places contain an array of `substrings` that describe the location of the entered term in the prediction result text - this is useful if the application is to highlight the user's query text in the result Place suggestions. For example, if a user typed `Amoeba` and a resulting Place suggestion had a `name` of "Amoeba Music, Telegraph Avenue, Berkeley, CA, United States", the `substrings` array would contain one entry indicating that the phrase "Amoeba" was in that `name` from character 0 to 6.
+Places contain an array of `substrings` that describe the location of the entered term in the prediction result text - this is useful if the application is to highlight the user's query text in the result Place suggestions. For example, if a user typed "Amoeba" and a resulting Place suggestion had a `name` of "Amoeba Music, Telegraph Avenue, Berkeley, CA, United States", the `substrings` array would contain one entry indicating that the phrase "Amoeba" was in that `name` from character 0 to 6.
 
 
 Place substrings are represented by `HNKGooglePlacesAutocompletePlaceSubstring` objects.
 
 ##### Place Terms
 
-Places contain an array of `terms` that identify sections of the returned `name`. For example, if a user types `Amoeba` and a resulting Place suggestion had a `name` of "Amoeba Music, Telegraph Avenue, Berkeley, CA, United States", the `terms` array would contain entries indicating that the `name` was composed of the terms "Amoeba Music", "Telegraph Avenue", "Berkeley", "CA", and "United States".
+Places contain an array of `terms` that identify sections of the returned `name`. For example, if a user types "Amoeba" and a resulting Place suggestion had a `name` of "Amoeba Music, Telegraph Avenue, Berkeley, CA, United States", the `terms` array would contain entries indicating that the `name` was composed of the terms "Amoeba Music", "Telegraph Avenue", "Berkeley", "CA", and "United States".
 
 Place terms are represented by `HNKGooglePlacesAutocompletePlaceTerm` objects.
 
-#### Resolving to CLPlacemark
+#### Advanced Query Topics
 
-HNKGooglePlacesAutocomplete comes with a category that facilitates translating Places to `CLPlacemarks` - this is often used when pins on a Map. To translate a Place to a `CLPlacemark`, first include the proper header: `#import "CLPlacemark+HNKAdditions.h"`. Then call as follows:
+##### Querying with Optional Parameters
 
-##### hnk_placemarkFromGooglePlace:apiKey:completion:
-
-```objective-c
-[CLPlacemark hnk_placemarkFromGooglePlace:place
-                                       apiKey:YOUR_API_KEY
-                                   completion:^(CLPlacemark *placemark, NSString *addressString, NSError *error) {
-                                   		if(error) {
-                                   			NSLog(@"ERROR: %@", error);
-                                   		}
-
-                                   		if(placemark) {
-                                   			NSLog(@"PLACEMARK: %@", placemark);
-                                   		}
- 
-                               		}
- ];
-```
-You should replace YOUR_API_KEY with your Google Places API key; `hnk_placemarkFromGooglePlace` uses your API key to query the Google Place Details API if needed.
-
-### Advanced Topics
-
-#### Querying with Optional Parameters
-
-#### Query Errors
+##### Query Errors
 
 ## Credits
 
