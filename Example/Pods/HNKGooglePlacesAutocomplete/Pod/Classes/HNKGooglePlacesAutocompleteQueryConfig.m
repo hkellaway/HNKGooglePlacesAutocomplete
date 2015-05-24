@@ -24,49 +24,25 @@
 
 #import "HNKGooglePlacesAutocompleteQueryConfig.h"
 
-@interface HNKGooglePlacesAutocompleteQueryConfig ()
-
-@property(nonatomic, copy, readwrite) NSString *country;
-@property(nonatomic, assign, readwrite)
-    HNKGooglePlaceTypeAutocompleteFilter filter;
-@property(nonatomic, copy, readwrite) NSString *language;
-@property(nonatomic, assign, readwrite) double latitude;
-@property(nonatomic, assign, readwrite) double longitude;
-@property(nonatomic, assign, readwrite) NSInteger offset;
-@property(nonatomic, assign, readwrite) NSInteger searchRadius;
-
-@end
-
 @implementation HNKGooglePlacesAutocompleteQueryConfig
 
-#pragma mark - Initializers
+#pragma mark - Initialization
 
-- (instancetype)initWithCountry:(NSString *)country
-                         filter:(HNKGooglePlaceTypeAutocompleteFilter)filter
-                       language:(NSString *)language
-                       latitude:(double)latitude
-                      longitude:(double)longitude
-                         offset:(NSInteger)offset
-                   searchRadius:(NSInteger)searchRadius {
-  self = [super init];
+#pragma mark Convenience
 
-  if (self) {
-    self.country = country;
-    self.filter = filter;
-    self.language = language;
-    self.latitude = latitude;
-    self.longitude = longitude;
-    self.offset = offset;
-    self.searchRadius = searchRadius;
-  }
++ (instancetype)configWithConfig:
+        (HNKGooglePlacesAutocompleteQueryConfig *)config {
+  HNKGooglePlacesAutocompleteQueryConfig *newConfig =
+      [[HNKGooglePlacesAutocompleteQueryConfig alloc] init];
+  newConfig.country = config.country;
+  newConfig.filter = config.filter;
+  newConfig.language = config.language;
+  newConfig.latitude = config.latitude;
+  newConfig.longitude = config.longitude;
+  newConfig.offset = config.offset;
+  newConfig.searchRadius = config.searchRadius;
 
-  return self;
-}
-
-- (instancetype)init {
-  NSAssert(FALSE, @"init should not be called");
-
-  return nil;
+  return newConfig;
 }
 
 #pragma mark - Methods
@@ -84,7 +60,7 @@
     [parameters addEntriesFromDictionary:@{ @"language" : self.language }];
   }
 
-  if (self.latitude != NSNotFound && self.longitude != NSNotFound) {
+  if (self.latitude != 0 && self.longitude != 0) {
 
     NSString *locationParameter =
         [NSString stringWithFormat:@"%f,%f", self.latitude, self.longitude];
@@ -105,6 +81,31 @@
   }
 
   return parameters;
+}
+
+#pragma mark - Overrides
+
+- (NSString *)description {
+  static NSString *noValue = @"N/A";
+
+  NSString *country = self.country ? self.country : noValue;
+  NSString *language = self.language ? self.language : noValue;
+  NSString *location =
+      (self.latitude == 0 && self.longitude == 0)
+          ? noValue
+          : [NSString
+                stringWithFormat:@"(%f, %f)", self.latitude, self.longitude];
+  NSString *offset =
+      (self.offset == NSNotFound)
+          ? noValue
+          : [NSString stringWithFormat:@"%li", (long)self.offset];
+
+  return [NSString stringWithFormat:@"<%@: %p> Country: %@; Filter: %li; "
+                                    @"Language: %@; Location: %@; Offset: %@; "
+                                    @"Search Radius: %li",
+                                    NSStringFromClass([self class]), self,
+                                    country, (long)self.filter, language,
+                                    location, offset, (long)self.searchRadius];
 }
 
 #pragma mark - Helpers

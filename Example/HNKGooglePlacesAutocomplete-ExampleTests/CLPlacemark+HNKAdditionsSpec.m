@@ -84,29 +84,30 @@ describe(@"CLPlacemark+HNKAdditions", ^{
 
             context(@"Place is solely a geocode result",
                     ^{
-                        
+
                         beforeEach(^{
-                            
-                            [mockPlace stub:@selector(types)
-                                  andReturn:@[ @(HNKGooglePlaceTypeGeocode) ]];
-                            [mockPlace stub:@selector(isPlaceType:) andReturn:theValue(YES) withArguments:theValue(HNKGooglePlaceTypeGeocode)];
-                            
+
+                            [mockPlace stub:@selector(types) andReturn:@[ @(HNKGooglePlaceTypeGeocode) ]];
+                            [mockPlace stub:@selector(isPlaceType:)
+                                    andReturn:theValue(YES)
+                                withArguments:theValue(HNKGooglePlaceTypeGeocode)];
+
                         });
-                        
+
                         it(@"Should not make server request",
                            ^{
-                               
+
                                [[HNKGooglePlacesServer shouldNot] receive:@selector(GET:parameters:completion:)];
-                               
+
                                [CLPlacemark hnk_placemarkFromGooglePlace:mockPlace apiKey:testApiKey completion:nil];
-                               
+
                            });
-                        
+
                         it(@"Should call Geocoder with Place's name",
                            ^{
                                [[mockGeocoder should] receive:@selector(geocodeAddressString:completionHandler:)
                                                 withArguments:mockPlace.name, any()];
-                               
+
                                [CLPlacemark hnk_placemarkFromGooglePlace:mockPlace apiKey:testApiKey completion:nil];
                            });
 
@@ -165,44 +166,82 @@ describe(@"CLPlacemark+HNKAdditions", ^{
                                                                   completion:nil];
                                });
 
-                            context(@"Geocoder returns error",
-                                    ^{
+                            context(
+                                @"Geocoder returns error",
+                                ^{
 
-                                        beforeEach(^{
+                                    __block NSError *testError;
 
-                                            [mockGeocoder stub:@selector(geocodeAddressString:completionHandler:)
-                                                     withBlock:^id(NSArray *params) {
+                                    beforeEach(^{
 
-                                                         NSError *testError = [NSError errorWithDomain:@"Test Domain"
-                                                                                                  code:-1
-                                                                                              userInfo:@{
-                                                                                                  @"user" : @"info"
-                                                                                              }];
+                                        [mockGeocoder stub:@selector(geocodeAddressString:completionHandler:)
+                                                 withBlock:^id(NSArray *params) {
 
-                                                         CLGeocoderGeocodeAddressCallback completionHandler = params[1];
-                                                         completionHandler(nil, testError);
+                                                     testError =
+                                                         [NSError errorWithDomain:@"kCLErrorDomain"
+                                                                             code:-1
+                                                                         userInfo:@{
+                                                                             @"NSLocalizedDescription" : @"abc",
+                                                                             @"NSLocalizedFailureReason" : @"xyz"
+                                                                         }];
 
-                                                         return nil;
-                                                     }];
+                                                     CLGeocoderGeocodeAddressCallback completionHandler = params[1];
+                                                     completionHandler(nil, testError);
+
+                                                     return nil;
+                                                 }];
+
+                                    });
+
+                                    it(@"Should call Geocoder with Place's name",
+                                       ^{
+                                           [[mockGeocoder should]
+                                                     receive:@selector(geocodeAddressString:completionHandler:)
+                                               withArguments:mockPlace.name, any()];
+
+                                           [CLPlacemark hnk_placemarkFromGooglePlace:mockPlace
+                                                                              apiKey:testApiKey
+                                                                          completion:^(CLPlacemark *placemark,
+                                                                                       NSString *addressString,
+                                                                                       NSError *error){
+                                                                          }];
+
+                                       });
+
+                                    context(
+                                        @"Geocoder returns error again",
+                                        ^{
+                                            it(@"Should return custom error with orignal error documented",
+                                               ^{
+                                                   __block NSError *errorReturned;
+                                                   NSError *expectedError = [NSError
+                                                       errorWithDomain:HNKGooglePlacesAutocompleteCLPlacemarkErrorDomain
+                                                                  code:HNKCLPlacemarkErrorCodeCLGeocoderFailure
+                                                              userInfo:@{
+                                                                  @"NSLocalizedDescription" :
+                                                                      HNKCLPlacemarkDescriptionForErrorCode(
+                                                                          HNKCLPlacemarkErrorCodeCLGeocoderFailure),
+                                                                  @"NSLocalizedFailureReason" :
+                                                                      testError.localizedFailureReason,
+                                                                  @"NSUnderlyingError" : testError
+                                                              }];
+                                                   [CLPlacemark hnk_placemarkFromGooglePlace:mockPlace
+                                                                                      apiKey:testApiKey
+                                                                                  completion:^(CLPlacemark *placemark,
+                                                                                               NSString *addressString,
+                                                                                               NSError *error) {
+
+                                                                                      errorReturned = error;
+
+                                                                                  }];
+
+                                                   [[expectFutureValue(errorReturned) shouldEventually]
+                                                       equal:expectedError];
+                                               });
 
                                         });
 
-                                        it(@"Should call Geocoder with Place's name",
-                                           ^{
-                                               [[mockGeocoder should]
-                                                         receive:@selector(geocodeAddressString:completionHandler:)
-                                                   withArguments:mockPlace.name, any()];
-
-                                               [CLPlacemark hnk_placemarkFromGooglePlace:mockPlace
-                                                                                  apiKey:testApiKey
-                                                                              completion:^(CLPlacemark *placemark,
-                                                                                           NSString *addressString,
-                                                                                           NSError *error){
-                                                                              }];
-
-                                           });
-
-                                    });
+                                });
 
                             context(
                                 @"Geocoder successful",
@@ -334,53 +373,66 @@ describe(@"CLPlacemark+HNKAdditions", ^{
 
                         });
 
-                    context(@"Fetching Place Details not successful",
-                            ^{
+                    context(
+                        @"Fetching Place Details not successful",
+                        ^{
 
-                                context(
-                                    @"Server error",
-                                    ^{
+                            context(
+                                @"Server error",
+                                ^{
 
-                                        __block NSError *testError;
+                                    __block NSError *testError;
 
-                                        beforeEach(^{
+                                    beforeEach(^{
 
-                                            testError = [NSError errorWithDomain:@"Test Domain"
-                                                                            code:100
-                                                                        userInfo:@{
-                                                                            @"user" : @"info"
-                                                                        }];
+                                        testError = [NSError errorWithDomain:@"Test Domain"
+                                                                        code:100
+                                                                    userInfo:@{
+                                                                        @"NSLocalizedDescription" : @"abc",
+                                                                        @"NSLocalizedFailureReason" : @"xyz"
+                                                                    }];
 
-                                            [HNKGooglePlacesServer stub:@selector(GET:parameters:completion:)
-                                                              withBlock:^id(NSArray *params) {
+                                        [HNKGooglePlacesServer stub:@selector(GET:parameters:completion:)
+                                                          withBlock:^id(NSArray *params) {
 
-                                                                  HNKGooglePlacesServerCallback completion = params[2];
-                                                                  completion(nil, testError);
+                                                              HNKGooglePlacesServerCallback completion = params[2];
+                                                              completion(nil, testError);
 
-                                                                  return nil;
+                                                              return nil;
 
-                                                              }];
-
-                                        });
-
-                                        it(@"Should return error",
-                                           ^{
-                                               __block NSError *errorReturned;
-                                               [CLPlacemark hnk_placemarkFromGooglePlace:mockPlace
-                                                                                  apiKey:testApiKey
-                                                                              completion:^(CLPlacemark *placemark,
-                                                                                           NSString *addressString,
-                                                                                           NSError *error) {
-
-                                                                                  errorReturned = error;
-
-                                                                              }];
-
-                                               [[expectFutureValue(errorReturned) shouldEventually] equal:testError];
-                                           });
+                                                          }];
 
                                     });
-                            });
+
+                                    it(@"Should return custom error with orignal error documented",
+                                       ^{
+                                           __block NSError *errorReturned;
+                                           NSError *expectedError = [NSError
+                                               errorWithDomain:HNKGooglePlacesAutocompleteCLPlacemarkErrorDomain
+                                                          code:HNKCLPlacemarkErrorCodeGoogleFailure
+                                                      userInfo:@{
+                                                          @"NSLocalizedDescription" :
+                                                              HNKCLPlacemarkDescriptionForErrorCode(
+                                                                  HNKCLPlacemarkErrorCodeGoogleFailure),
+                                                          @"NSLocalizedFailureReason" :
+                                                              testError.localizedFailureReason,
+                                                          @"NSUnderlyingError" : testError
+                                                      }];
+                                           [CLPlacemark hnk_placemarkFromGooglePlace:mockPlace
+                                                                              apiKey:testApiKey
+                                                                          completion:^(CLPlacemark *placemark,
+                                                                                       NSString *addressString,
+                                                                                       NSError *error) {
+
+                                                                              errorReturned = error;
+
+                                                                          }];
+
+                                           [[expectFutureValue(errorReturned) shouldEventually] equal:expectedError];
+                                       });
+
+                                });
+                        });
 
                 });
 
