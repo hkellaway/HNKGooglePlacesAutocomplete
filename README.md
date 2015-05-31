@@ -15,7 +15,6 @@ Improvements include:
 - Modern, vetted pods utilized (AFNetworking, Mantle)
 - Code is well-tested using Kiwi
 - Documentation is thorough
-- Example project does not use the deprecated `UISearchDisplayController`
 - Designed for reusability and dissemination with Cocoapods
 
 ## Communication
@@ -63,7 +62,7 @@ These classes form the core functionality of HNKGooglePlacesAutocomplete
 
 ### Utilities
 
-- `CLPlacemark+HNKAdditions.h` - provides translation from an `HNKGooglePlacesAutocompletePlace to a `CLPlacemark`
+- `CLPlacemark+HNKAdditions.h` - provides translation from an `HNKGooglePlacesAutocompletePlace` to a `CLPlacemark`
 
 ## Usage
 
@@ -151,7 +150,7 @@ Configuration properties include:
 * `filter` - an `HNKGooglePlacesTypeAutocompleteFilter` value that restricts results to specific [Place Types](https://developers.google.com/places/webservice/autocomplete#place_types)
 * `language` - the language in which results should be expressed; must be one of [Google's supported domain languages](https://developers.google.com/maps/faq#languagesupport)
 * `latitude` & `longitude` - the location to which results should be biased
-* `offset` - how many characters the user should type before a request is made
+* `offset` - how many characters are used in the request
 * `searchRadius` - the distance in meters within which to bias results
 
 ##### `fetchPlacesForSearchQuery:configurationBlock:completion:`
@@ -174,11 +173,20 @@ Any or all of the Query Configuration properties can be set in the `configuratio
 
 The example above specifies that the Places returned should be restricted to France, should be cities, and should be listed in Portuguese.
 
-If a certain Query Configuration should be used for _every_ query, then setup should include a Query Configuration, via [setupSharedQueryWithAPIKey:configurationBlock:](#setupsharedquerywithapikeyconfigurationblock).
+If a certain Query Configuration should be used for _every_ query, then _setup_ should include a Query Configuration, via [setupSharedQueryWithAPIKey:configurationBlock:](#setupsharedquerywithapikeyconfigurationblock).
 
 #### Default Query Configuration
 
-Every `HNKGooglePlacesAutocompleteQuery` has a `configuration` whether one is explicitly supplied or not. The default configuration values are: `country` = `nil`, `filter` = `HNKGooglePlacesTypeAutocompleteFilterAll`, `language` = `nil`, `latitude` and `longitude` = `0` (Google's way of indicating no location bias), `offset` = `NSNotFound`, and `searchRadius` = `20000000` (Google's way of indicating no specific search radius) 
+Every `HNKGooglePlacesAutocompleteQuery` has a `configuration` whether one is explicitly supplied or not. 
+
+The default configuration values are: 
+
+* `country` = `nil`
+* `filter` = `HNKGooglePlacesTypeAutocompleteFilterAll` 
+* `language` = `nil`
+* `latitude` and `longitude` = `0` (Google's way of indicating no location bias)
+* `offset` = `NSNotFound`
+* `searchRadius` = `20000000` (Google's way of indicating no specific search radius) 
 
 ### Advanced Setup Topics
 
@@ -203,13 +211,17 @@ The example above specifies that the Places returned from every Query should be 
 
 * `HNKGooglePlacesAutocompletePlaceSubstring`
 
-`HNKGooglePlacesAutocompletePlace` objects have an array of `substrings` that describe the location of the entered term in the prediction result text - this is useful if the application is to highlight the user's query text in the result Place suggestions. For example, if a user typed "Amoeba" and a resulting Place suggestion had a `name` of "Amoeba Music, Telegraph Avenue, Berkeley, CA, United States", the `substrings` array would contain one entry indicating that the phrase "Amoeba" was in that `name` from character 0 to 6.
+`HNKGooglePlacesAutocompletePlace` objects have an array of `substrings` that describe the location of the entered term in the prediction result text - this is useful if the application is to highlight the user's query text in the result Place suggestions. 
+
+For example, if a user typed "Amoeba" and a resulting Place suggestion had a `name` of "Amoeba Music, Telegraph Avenue, Berkeley, CA, United States", the `substrings` array would contain one entry indicating that the phrase "Amoeba" was in that `name` from character 0 to 6.
 
 #### Place Terms
 
 * `HNKGooglePlacesAutocompletePlaceTerm`
 
-HNKGooglePlacesAutocompletePlace` objects have an array of `terms` that identify sections of the returned `name`. For example, if a user types "Amoeba" and a resulting Place suggestion had a `name` of "Amoeba Music, Telegraph Avenue, Berkeley, CA, United States", the `terms` array would contain entries indicating that the `name` was composed of the terms "Amoeba Music", "Telegraph Avenue", "Berkeley", "CA", and "United States".
+HNKGooglePlacesAutocompletePlace` objects have an array of `terms` that identify sections of the returned `name`. 
+
+For example, if a user types "Amoeba" and a resulting Place suggestion had a `name` of "Amoeba Music, Telegraph Avenue, Berkeley, CA, United States", the `terms` array would contain entries indicating that the `name` was composed of the terms "Amoeba Music", "Telegraph Avenue", "Berkeley", "CA", and "United States".
 
 ## Transitioning from SPGooglePlacesAutocomplete
 
