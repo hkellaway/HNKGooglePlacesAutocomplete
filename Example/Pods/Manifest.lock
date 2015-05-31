@@ -39,23 +39,12 @@ PODS:
   - Mantle/extobjc (1.5.4)
 
 DEPENDENCIES:
-  - HNKGooglePlacesAutocomplete (from `https://github.com/hkellaway/HNKGooglePlacesAutocomplete.git`,
-    branch `release/1.0.0`)
+  - HNKGooglePlacesAutocomplete (~> 1.0)
   - Kiwi (~> 2.3)
-
-EXTERNAL SOURCES:
-  HNKGooglePlacesAutocomplete:
-    :branch: release/1.0.0
-    :git: https://github.com/hkellaway/HNKGooglePlacesAutocomplete.git
-
-CHECKOUT OPTIONS:
-  HNKGooglePlacesAutocomplete:
-    :commit: 4beeb38d68ee334c3e3c70fb05ea7d957680c405
-    :git: https://github.com/hkellaway/HNKGooglePlacesAutocomplete.git
 
 SPEC CHECKSUMS:
   AFNetworking: 05edc0ac4c4c8cf57bcf4b84be5b0744b6d8e71e
-  HNKGooglePlacesAutocomplete: 9582388e2802a7d06ce836f40ebf6157a56fe939
+  HNKGooglePlacesAutocomplete: 68a110a52782ab1cf32ffba0ac25acb6fa3ae8d8
   HNKServerFacade: 54102383a22b3aa61171574ad0b50ff24fd504cd
   Kiwi: f038a6c61f7a9e4d7766bff5717aa3b3fdb75f55
   Mantle: 60acd0cd363e27d945bda0a6b8e90577112d28f3
