@@ -208,18 +208,18 @@ typedef NS_ENUM(NSInteger, HNKGooglePlaceType) {
  *
  *  Note: For establishment type results, this is usually the business name
  */
-@property (nonatomic, strong, readonly) NSString *name;
+@property (nonatomic, copy, readonly) NSString *name;
 
 /**
- *  Collection of Substrings describe the location of the entered term in the
- *  prediction result text, so that the term can be highlighted if desired
+ *  Collection of Substrings that describe the location of the entered term in
+ *  the prediction result text, so that the term can be highlighted if desired
  */
 @property (nonatomic, strong, readonly) NSArray *substrings;
 
 /**
  *  A textual identifier that uniquely identifies a place
  */
-@property (nonatomic, strong, readonly) NSString *placeId;
+@property (nonatomic, copy, readonly) NSString *placeId;
 
 /**
  *  A collection of Terms identifying each section of the returned description

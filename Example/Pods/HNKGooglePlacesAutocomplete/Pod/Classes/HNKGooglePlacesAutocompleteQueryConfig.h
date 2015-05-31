@@ -35,7 +35,7 @@
 /**
  *  Country to which search results are restricted.
  *
- *  Note :Must be a two character, ISO 3166-1 Alpha-2
+ *  Note: Must be a two character, ISO 3166-1 Alpha-2
  *  compatible country code
  */
 @property (nonatomic, copy) NSString *country;
