@@ -72,7 +72,7 @@ static HNKGooglePlacesAutocompleteQuery *sharedQuery = nil;
 }
 
 + (instancetype)setupSharedQueryWithAPIKey:(NSString *)apiKey
-                        configurationBlock:(void (^)(HNKGooglePlacesAutocompleteQueryConfig *))configBlock
+                        configurationBlock:(HNKGooglePlacesAutocompleteQueryConfigBlock)configBlock
 {
     NSParameterAssert(apiKey);
 
@@ -159,7 +159,7 @@ static HNKGooglePlacesAutocompleteQuery *sharedQuery = nil;
 }
 
 - (void)fetchPlacesForSearchQuery:(NSString *)searchQuery
-               configurationBlock:(void (^)(HNKGooglePlacesAutocompleteQueryConfig *config))configBlock
+               configurationBlock:(HNKGooglePlacesAutocompleteQueryConfigBlock)configBlock
                        completion:(HNKGooglePlacesAutocompleteQueryCallback)completion
 {
     HNKGooglePlacesAutocompleteQueryConfig *configForRequest =
