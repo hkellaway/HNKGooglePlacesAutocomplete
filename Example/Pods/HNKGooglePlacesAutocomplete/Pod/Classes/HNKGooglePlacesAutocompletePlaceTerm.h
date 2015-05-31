@@ -39,6 +39,6 @@
 /**
  *  Text of the term
  */
-@property (nonatomic, strong, readonly) NSString *value;
+@property (nonatomic, copy, readonly) NSString *value;
 
 @end

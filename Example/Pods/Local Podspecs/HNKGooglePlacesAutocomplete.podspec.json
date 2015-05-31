@@ -1,6 +1,6 @@
 {
   "name": "HNKGooglePlacesAutocomplete",
-  "version": "0.7.0",
+  "version": "1.0.0",
   "summary": "An Objective-C wrapper for the Google Places Autocomplete API",
   "description": "An Objective-C wrapper for the GooglePlaces Autocomplete API. HNKGooglePlacesAutocomplete encapsulates the same core functionality as SPGooglePlacesAutocomplete - autocomplete suggestions and Google Place-to-CLPlacemark translation - with a more layered and pod-first approach.",
   "homepage": "https://github.com/hkellaway/HNKGooglePlacesAutocomplete",
@@ -13,7 +13,7 @@
   },
   "source": {
     "git": "https://github.com/hkellaway/HNKGooglePlacesAutocomplete.git",
-    "tag": "0.7.0"
+    "tag": "1.0.0"
   },
   "platforms": {
     "ios": "7.0"
@@ -23,6 +23,7 @@
     "Pod/Classes/HNKGooglePlacesAutocomplete.{h,m}",
     "Pod/Classes/CLPlacemark+HNKAdditions.{h,m}"
   ],
+  "frameworks": "CoreLocation",
   "dependencies": {
     "HNKServerFacade": [
       "~> 0.2"
