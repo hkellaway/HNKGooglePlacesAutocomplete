@@ -27,6 +27,7 @@
 #import "HNKGooglePlacesAutocompleteQueryResponse.h"
 
 typedef void (^HNKGooglePlacesAutocompleteQueryCallback)(NSArray *places, NSError *error);
+typedef void (^HNKGooglePlacesAutocompleteQueryConfigBlock)(HNKGooglePlacesAutocompleteQueryConfig *config);
 
 /**
  *  Error domain for HNKGooglePlacesAutocompleteQuery
@@ -117,7 +118,7 @@ HNKGooglePlacesAutocompleteQueryDescriptionForErrorCode(HNKGooglePlacesAutocompl
  *  @warning The provided API key cannot be nil
  */
 + (instancetype)setupSharedQueryWithAPIKey:(NSString *)apiKey
-                        configurationBlock:(void (^)(HNKGooglePlacesAutocompleteQueryConfig *config))configBlock;
+                        configurationBlock:(HNKGooglePlacesAutocompleteQueryConfigBlock)configBlock;
 
 /**
  * Returns shared HNKGooglePlacesAutocompleteQuery instance
@@ -147,7 +148,7 @@ HNKGooglePlacesAutocompleteQueryDescriptionForErrorCode(HNKGooglePlacesAutocompl
  *  @param completion   Block to be executed when the fetch finishes
  */
 - (void)fetchPlacesForSearchQuery:(NSString *)searchQuery
-               configurationBlock:(void (^)(HNKGooglePlacesAutocompleteQueryConfig *config))configBlock
+               configurationBlock:(HNKGooglePlacesAutocompleteQueryConfigBlock)configBlock
                        completion:(HNKGooglePlacesAutocompleteQueryCallback)completion;
 
 @end
