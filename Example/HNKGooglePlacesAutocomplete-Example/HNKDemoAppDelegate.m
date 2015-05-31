@@ -11,9 +11,7 @@
 #import <HNKGooglePlacesAutocomplete/HNKGooglePlacesAutocompleteQuery.h>
 #import <HNKGooglePlacesAutocomplete/HNKGooglePlacesAutocompleteQueryConfig.h>
 
-static NSString *const kHNKDemoGooglePlacesAutocompleteApiKey = @"AIzaSyAkR80JQgRgfnqBl6Db2RsnmkCG1LhuVn8";
-static double const kHNKLocationLatitudeNewYorkCity = 40.7127;
-static double const kHNKLocationLongitudeNewYorkCity = 74.0059;
+static NSString *const kHNKDemoGooglePlacesAutocompleteApiKey = @"YOUR_API_KEY";
 
 @interface HNKDemoAppDelegate ()
 
@@ -23,19 +21,7 @@ static double const kHNKLocationLongitudeNewYorkCity = 74.0059;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-
-    [HNKGooglePlacesAutocompleteQuery setupSharedQueryWithAPIKey:kHNKDemoGooglePlacesAutocompleteApiKey
-                                              configurationBlock:^(HNKGooglePlacesAutocompleteQueryConfig *config) {
-
-                                                  config.country = nil;
-                                                  config.filter = HNKGooglePlaceTypeAutocompleteFilterAll;
-                                                  config.language = nil;
-                                                  config.latitude = kHNKLocationLatitudeNewYorkCity;
-                                                  config.longitude = kHNKLocationLongitudeNewYorkCity;
-                                                  config.offset = 3;
-                                                  config.searchRadius = 100;
-
-                                              }];
+    [HNKGooglePlacesAutocompleteQuery setupSharedQueryWithAPIKey:kHNKDemoGooglePlacesAutocompleteApiKey];
 
     return YES;
 }
