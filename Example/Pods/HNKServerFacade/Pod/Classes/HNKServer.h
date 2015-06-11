@@ -30,15 +30,15 @@
 #pragma mark - Initialization
 
 /**
- *  Sets up Server with provided base URL
+ *  Returns an HNKServer instance with the provided base URL
  *
- *  Note: The base URL for the Server cannot be reset once setup
+ *  Note: This is the designated initializer
  *
- *  @param baseURLString Base URL for the Server
+ *  @param baseUrlString Base URL for Server
  *
- *  @warning The base URL provided cannot be nil
+ *  @return HNKServer instance with provided base URL
  */
-+ (void)setupWithBaseUrl:(NSString *)baseURLString;
+- (instancetype)initWithBaseURL:(NSString *)baseUrlString;
 
 #pragma mark - Configuration
 
@@ -47,7 +47,7 @@
 /**
  *  The base URL for the Server
  */
-+ (NSString *)baseURLString;
+- (NSString *)baseURLString;
 
 /**
  *  Whether the network activity indicator will display in the status bar during
@@ -55,12 +55,12 @@
  *
  *  Note: The default is YES
  */
-+ (BOOL)isNetworkActivityIndicatorEnabled;
+- (BOOL)isNetworkActivityIndicatorEnabled;
 
 /**
  *  The MIME types this Server will accept in request responses
  */
-+ (NSSet *)responseContentTypes;
+- (NSSet *)responseContentTypes;
 
 #pragma mark Methods
 
@@ -74,7 +74,7 @@
  *
  *  @warning The newContentTypes provided cannot be nil
  */
-+ (void)configureResponseContentTypes:(NSSet *)newContentTypes;
+- (void)configureResponseContentTypes:(NSSet *)newContentTypes;
 
 #pragma mark - Requests
 
@@ -85,8 +85,8 @@
  *  @param parameters Request parameters
  *  @param completion Block to be executed when the request finishes
  */
-+ (void)GET:(NSString *)path
-    parameters:(NSDictionary *)parameters
-    completion:(void (^)(id responseObject, NSError *error))completion;
+- (void)GET:(NSString *)path
+ parameters:(NSDictionary *)parameters
+ completion:(void (^)(id responseObject, NSError *error))completion;
 
 @end
