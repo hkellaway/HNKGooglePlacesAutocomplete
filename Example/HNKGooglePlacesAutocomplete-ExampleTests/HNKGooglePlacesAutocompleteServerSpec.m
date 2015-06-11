@@ -17,33 +17,21 @@ describe(@"HNKGooglePlacesServer", ^{
 
     describe(@"Method: initialize",
              ^{
+                 __block id mockServer;
+                 
+                 beforeEach(^{
+                     
+                     mockServer = [HNKServer nullMock];
+                    
+                     [HNKServer stub:@selector(alloc) andReturn:mockServer];
+                     
+                 });
 
                  it(@"Should setup HNKServer",
                     ^{
-                        [[HNKServer should] receive:@selector(setupWithBaseUrl:)
-                                      withArguments:@"https://maps.googleapis.com/maps/api/place/"];
+                        [[mockServer should] receive:@selector(initWithBaseURL:) withArguments:@"https://maps.googleapis.com/maps/api/place/"];
 
                         [HNKGooglePlacesServer initialize];
-                    });
-             });
-
-    describe(@"Method: GET:parameters:completion:",
-             ^{
-                 it(@"Should call HNKServer GET",
-                    ^{
-                        [[HNKServer should] receive:@selector(GET:parameters:completion:)
-                                      withArguments:@"autocomplete/json",
-                                                    @{ @"input" : @"Vict",
-                                                       @"key" : @"apikey" },
-                                                    any()];
-
-                        [HNKGooglePlacesServer GET:@"autocomplete/json"
-                                        parameters:@{
-                                            @"input" : @"Vict",
-                                            @"key" : @"apikey"
-                                        }
-                                        completion:nil];
-
                     });
              });
 
