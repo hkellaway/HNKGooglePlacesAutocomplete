@@ -9,9 +9,9 @@
 #import "HNKDemoAppDelegate.h"
 
 #import <HNKGooglePlacesAutocomplete/HNKGooglePlacesAutocompleteQuery.h>
-#import <HNKGooglePlacesAutocomplete/HNKGooglePlacesAutocompleteQueryConfig.h>
 
-static NSString *const kHNKDemoGooglePlacesAutocompleteApiKey = @"YOUR_API_KEY";
+#warning Repalace YOUR_API_KEY with your Google Places API key
+static NSString *const kHNKDemoGooglePlacesAutocompleteApiKey = @"AIzaSyC580KMKU_3hjhKfmcGBhIndK1_j82ObC8";
 
 @interface HNKDemoAppDelegate ()
 
