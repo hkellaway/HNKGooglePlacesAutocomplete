@@ -25,6 +25,9 @@
 
 #import <Mantle/Mantle.h>
 
+/**
+ *  Base model for objects deserialized from JSON
+ */
 @interface HNKGooglePlacesAutocompleteModel : MTLModel <MTLJSONSerializing>
 
 #pragma mark - Deserialization

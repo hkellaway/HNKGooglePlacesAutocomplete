@@ -40,18 +40,18 @@ static NSInteger const kHNKGooglePlacesAutocompleteWorldSearchRadius = 20000000;
 
 static NSString *const HNKGooglePlacesAutocompleteQueryStatusDescriptionUnknown = @"Status unknown";
 static NSString *const HNKGooglePlacesAutocompleteQueryStatusDescriptionInvalidRequest =
-    @"Invalid request; the input parameter may be missing";
+    @"Invalid request. The input parameter may be missing.";
 static NSString *const HNKGooglePlacesAutocompleteQueryStatusDescriptionOK =
-    @"No errors occurred and at least one result was returned";
+    @"No errors occurred and at least one result was returned.";
 static NSString *const HNKGooglePlacesAutocompleteQueryStatusDescriptionOverQueryLimit =
-    @"Query quota has been exceeded for provided API key";
+    @"Query quota has been exceeded for provided API key.";
 static NSString *const HNKGooglePlacesAutocompleteQueryStatusDescriptionRequestDenied =
-    @"Request denied; the key parameter may be invalid";
+    @"Request denied. The key parameter may be invalid.";
 static NSString *const HNKGooglePlacesAutocompleteQueryStatusDescriptionZeroResults =
-    @"No errors occurred but no results were returned";
+    @"No errors occurred but no results were returned.";
 static NSString *const HNKGooglePlacesAutocompleteQueryStatusDescriptionServerRequestFailed =
-    @"Non-API error occurred while making a request to the server";
-static NSString *const HNKGooglePlacesAutocompleteQueryStatusDescriptionSearchQueryNil = @"Search query cannot be nil";
+    @"Non-API error occurred while making a request to the server.";
+static NSString *const HNKGooglePlacesAutocompleteQueryStatusDescriptionSearchQueryNil = @"Search query cannot be nil.";
 
 @interface HNKGooglePlacesAutocompleteQuery ()
 

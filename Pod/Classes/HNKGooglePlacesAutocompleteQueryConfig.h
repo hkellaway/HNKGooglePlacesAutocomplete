@@ -78,6 +78,14 @@
 
 #pragma mark Convenience
 
+/**
+ *  Convenience initializer for a new config with the same
+ *  setup as the provided config
+ *
+ *  @param config Provided config
+ *
+ *  @return New config with the same setup as the provided config
+ */
 + (instancetype)configWithConfig:(HNKGooglePlacesAutocompleteQueryConfig *)config;
 
 #pragma mark - Methods

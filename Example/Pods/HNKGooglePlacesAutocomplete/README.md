@@ -1,8 +1,9 @@
 # HNKGooglePlacesAutocomplete
 
 [![CocoaPods](https://img.shields.io/cocoapods/v/HNKGooglePlacesAutocomplete.svg)](http://cocoapods.org/pods/HNKGooglePlacesAutocomplete)
-[![CocoaPods](https://img.shields.io/cocoapods/l/HNKGooglePlacesAutocomplete.svg)](https://raw.githubusercontent.com/hkellaway/HNKGooglePlacesAutocomplete/master/LICENSE)
+[![License](https://img.shields.io/cocoapods/l/HNKGooglePlacesAutocomplete.svg)](https://raw.githubusercontent.com/hkellaway/HNKGooglePlacesAutocomplete/master/LICENSE)
 [![CocoaPods](https://img.shields.io/cocoapods/p/HNKGooglePlacesAutocomplete.svg)](http://cocoapods.org/pods/HNKGooglePlacesAutocomplete)
+![Objective-C](https://img.shields.io/badge/language-objective--c-blue.svg)
 [![Build Status](https://travis-ci.org/hkellaway/HNKGooglePlacesAutocomplete.svg?branch=master)](https://travis-ci.org/hkellaway/HNKGooglePlacesAutocomplete)
 
 An Objective-C wrapper for the Google Places Autocomplete API
@@ -123,6 +124,8 @@ HNKGooglePlacesAutocomplete comes with a category that facilitates translating `
 ];
 ```
 You should replace `YOUR_API_KEY` with your Google Places API key; `hnk_placemarkFromGooglePlace` uses your API key to query the Google Place Details API if needed.
+
+For convenience, the API key you provided `HNKGooglePlacesAutocompleteQuery` during setup is available as a property: `[HNKGooglePlacesAutocompleteQuery sharedQuery].apiKey`
 
 ## Advanced Topics
 
