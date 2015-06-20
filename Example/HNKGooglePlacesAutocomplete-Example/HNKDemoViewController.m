@@ -35,10 +35,6 @@ static NSString *const kHNKDemoSearchResultsCellIdentifier = @"HNKDemoSearchResu
 
     self.searchQuery = [HNKGooglePlacesAutocompleteQuery sharedQuery];
     self.shouldBeginEditing = YES;
-
-    // TODO: Center to users's location on launch
-
-    // TODO: Provide button to recenter to user's location
 }
 
 #pragma mark - Protocol Conformance
@@ -73,8 +69,6 @@ static NSString *const kHNKDemoSearchResultsCellIdentifier = @"HNKDemoSearchResu
 
 - (void)mapView:(MKMapView *)mapView didAddAnnotationViews:(NSArray *)views
 {
-    // Whenever we've dropped a pin on the map, immediately select it to present
-    // its callout bubble.
     [self.mapView selectAnnotation:self.selectedPlaceAnnotation animated:YES];
 }
 
@@ -116,7 +110,6 @@ static NSString *const kHNKDemoSearchResultsCellIdentifier = @"HNKDemoSearchResu
 {
     [self handleSearchForSearchString:searchString];
 
-    // Return YES to cause the search result table view to be reloaded.
     return YES;
 }
 
@@ -126,7 +119,6 @@ static NSString *const kHNKDemoSearchResultsCellIdentifier = @"HNKDemoSearchResu
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
 {
     if (![searchBar isFirstResponder]) {
-        // User tapped the 'clear' button.
         self.shouldBeginEditing = NO;
         [self.searchDisplayController setActive:NO];
         [self.mapView removeAnnotation:self.selectedPlaceAnnotation];
@@ -193,8 +185,6 @@ static NSString *const kHNKDemoSearchResultsCellIdentifier = @"HNKDemoSearchResu
                                        } else if (placemark) {
                                            [self addPlacemarkAnnotationToMap:placemark addressString:addressString];
                                            [self recenterMapToPlacemark:placemark];
-                                           // ref:
-                                           // https://github.com/chenyuan/SPGooglePlacesAutocomplete/issues/10
                                            [self.searchDisplayController setActive:NO];
                                            [self.searchDisplayController.searchResultsTableView
                                                deselectRowAtIndexPath:indexPath
