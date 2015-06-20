@@ -63,138 +63,528 @@ typedef NS_ENUM(NSInteger, HNKGooglePlaceTypeAutocompleteFilter) {
 };
 
 /**
- *  All Place types
+ *  All possible Place tyles
  */
-typedef NS_ENUM(NSInteger, HNKGooglePlaceType) {
+typedef NS_ENUM(NSInteger, HNKGooglePlaceType){
+    /**
+     *  Unknown
+     */
     HNKGooglePlaceTypeUnknown = 0,
+    /**
+     *  Accounting
+     */
     HNKGooglePlaceTypeAccounting,
+    /**
+     *  Administrative Area Level 1
+     */
     HNKGooglePlaceTypeAdministrativeAreaLevel1,
+    /**
+     *  Administrative Area Level 2
+     */
     HNKGooglePlaceTypeAdministrativeAreaLevel2,
+    /**
+     *  Administrative Area Level 3
+     */
     HNKGooglePlaceTypeAdministrativeAreaLevel3,
+    /**
+     *  Administrative Area Level 4
+     */
     HNKGooglePlaceTypeAdministrativeAreaLevel4,
+    /**
+     *  Administrative Area Level 5
+     */
     HNKGooglePlaceTypeAdministrativeAreaLevel5,
+    /**
+     *  Airport
+     */
     HNKGooglePlaceTypeAirport,
+    /**
+     *  Amusement Park
+     */
     HNKGooglePlaceTypeAmusementPark,
+    /**
+     *  Aquarium
+     */
     HNKGooglePlaceTypeAquarium,
+    /**
+     *  Art Gallery
+     */
     HNKGooglePlaceTypeArtGallery,
+    /**
+     *  ATM
+     */
     HNKGooglePlaceTypeATM,
+    /**
+     *  Bakery
+     */
     HNKGooglePlaceTypeBakery,
+    /**
+     *  Bank
+     */
     HNKGooglePlaceTypeBank,
+    /**
+     *  Bar
+     */
     HNKGooglePlaceTypeBar,
+    /**
+     *  Beauty Salon
+     */
     HNKGooglePlaceTypeBeautySalon,
+    /**
+     *  Bicycle Store
+     */
     HNKGooglePlaceTypeBicycleStore,
+    /**
+     *  Book Store
+     */
     HNKGooglePlaceTypeBookStore,
+    /**
+     *  Bowling Alley
+     */
     HNKGooglePlaceTypeBowlingAlley,
+    /**
+     *  Bus Station
+     */
     HNKGooglePlaceTypeBusStation,
+    /**
+     *  Cafe
+     */
     HNKGooglePlaceTypeCafe,
+    /**
+     *  Camground
+     */
     HNKGooglePlaceTypeCampground,
+    /**
+     *  Car Dealer
+     */
     HNKGooglePlaceTypeCarDealer,
+    /**
+     *  Car Rental
+     */
     HNKGooglePlaceTypeCarRental,
+    /**
+     *  Car Repair
+     */
     HNKGooglePlaceTypeCarRepair,
+    /**
+     *  Car Wash
+     */
     HNKGooglePlaceTypeCarWash,
+    /**
+     *  Casino
+     */
     HNKGooglePlaceTypeCasino,
+    /**
+     *  Cemetery
+     */
     HNKGooglePlaceTypeCemetery,
+    /**
+     *  Church
+     */
     HNKGooglePlaceTypeChurch,
+    /**
+     *  City Hall
+     */
     HNKGooglePlaceTypeCityHall,
+    /**
+     *  Clothing Store
+     */
     HNKGooglePlaceTypeClothingStore,
+    /**
+     *  Colloquial Area
+     */
     HNKGooglePlaceTypeColloquialArea,
+    /**
+     *  Convenience Store
+     */
     HNKGooglePlaceTypeConvenienceStore,
+    /**
+     *  Country
+     */
     HNKGooglePlaceTypeCountry,
+    /**
+     *  Courthouse
+     */
     HNKGooglePlaceTypeCourthouse,
+    /**
+     *  Dentist
+     */
     HNKGooglePlaceTypeDentist,
+    /**
+     *  Department Store
+     */
     HNKGooglePlaceTypeDepartmentStore,
+    /**
+     *  Doctor
+     */
     HNKGooglePlaceTypeDoctor,
+    /**
+     *  Electrician
+     */
     HNKGooglePlaceTypeElectrician,
+    /**
+     *  Electronics Store
+     */
     HNKGooglePlaceTypeElectronicsStore,
+    /**
+     *  Embassy
+     */
     HNKGooglePlaceTypeEmbassy,
+    /**
+     *  Establishment
+     */
     HNKGooglePlaceTypeEstablishment,
+    /**
+     *  Finance
+     */
     HNKGooglePlaceTypeFinance,
+    /**
+     *  Fire Station
+     */
     HNKGooglePlaceTypeFireStation,
+    /**
+     *  Floor
+     */
     HNKGooglePlaceTypeFloor,
+    /**
+     *  Florist
+     */
     HNKGooglePlaceTypeFlorist,
+    /**
+     *  Food
+     */
     HNKGooglePlaceTypeFood,
+    /**
+     *  Funeral Home
+     */
     HNKGooglePlaceTypeFuneralHome,
+    /**
+     *  Furniture Store
+     */
     HNKGooglePlaceTypeFurnitureStore,
+    /**
+     *  Gas Station
+     */
     HNKGooglePlaceTypeGasStation,
+    /**
+     *  General Contractor
+     */
     HNKGooglePlaceTypeGeneralContractor,
+    /**
+     *  Geocode
+     */
     HNKGooglePlaceTypeGeocode,
+    /**
+     *  Grocery or Supermarket
+     */
     HNKGooglePlaceTypeGroceryOrSupermarket,
+    /**
+     *  Gym
+     */
     HNKGooglePlaceTypeGym,
+    /**
+     *  Hair Care
+     */
     HNKGooglePlaceTypeHairCare,
+    /**
+     *  Hardware Store
+     */
     HNKGooglePlaceTypeHardwareStore,
+    /**
+     *  Health
+     */
     HNKGooglePlaceTypeHealth,
+    /**
+     *  Hindu Temple
+     */
     HNKGooglePlaceTypeHinduTemple,
+    /**
+     *  Goods Store
+     */
     HNKGooglePlaceTypeHomeGoodsStore,
+    /**
+     *  Hospital
+     */
     HNKGooglePlaceTypeHospital,
+    /**
+     *  Insurance Agency
+     */
     HNKGooglePlaceTypeInsuranceAgency,
+    /**
+     *  Intersection
+     */
     HNKGooglePlaceTypeIntersection,
+    /**
+     *  Jewelry Store
+     */
     HNKGooglePlaceTypeJewelryStore,
+    /**
+     *  Laundry
+     */
     HNKGooglePlaceTypeLaundry,
+    /**
+     *  Lawyer
+     */
     HNKGooglePlaceTypeLawyer,
+    /**
+     *  Library
+     */
     HNKGooglePlaceTypeLibrary,
+    /**
+     *  Liquor Store
+     */
     HNKGooglePlaceTypeLiquorStore,
+    /**
+     *  Government Office
+     */
     HNKGooglePlaceTypeLocalGovernmentOffice,
+    /**
+     *  Locality
+     */
     HNKGooglePlaceTypeLocality,
+    /**
+     *  Locksmith
+     */
     HNKGooglePlaceTypeLocksmith,
+    /**
+     *  Lodging
+     */
     HNKGooglePlaceTypeLodging,
+    /**
+     *  Meal Delivery
+     */
     HNKGooglePlaceTypeMealDelivery,
+    /**
+     *  Meal Takeaway
+     */
     HNKGooglePlaceTypeMealTakeaway,
+    /**
+     *  Mosque
+     */
     HNKGooglePlaceTypeMosque,
+    /**
+     *  Movie Rental
+     */
     HNKGooglePlaceTypeMovieRental,
+    /**
+     *  Movie Theatre
+     */
     HNKGooglePlaceTypeMovieTheater,
+    /**
+     *  Moving Company
+     */
     HNKGooglePlaceTypeMovingCompany,
+    /**
+     *  Museum
+     */
     HNKGooglePlaceTypeMuseum,
+    /**
+     *  Natural Feature
+     */
     HNKGooglePlaceTypeNaturalFeature,
+    /**
+     *  Neighborhood
+     */
     HNKGooglePlaceTypeNeighborhood,
+    /**
+     *  Night Club
+     */
     HNKGooglePlaceTypeNightClub,
+    /**
+     *  Painter
+     */
     HNKGooglePlaceTypePainter,
+    /**
+     *  Park
+     */
     HNKGooglePlaceTypePark,
+    /**
+     *  Parking
+     */
     HNKGooglePlaceTypeParking,
+    /**
+     *  Pet Store
+     */
     HNKGooglePlaceTypePetStore,
+    /**
+     *  Pharmacy
+     */
     HNKGooglePlaceTypePharmacy,
+    /**
+     *  Physiotherapist
+     */
     HNKGooglePlaceTypePhysiotherapist,
+    /**
+     *  Place of Wordship
+     */
     HNKGooglePlaceTypePlaceOfWorship,
+    /**
+     *  Plumber
+     */
     HNKGooglePlaceTypePlumber,
+    /**
+     *  Point of Interest
+     */
     HNKGooglePlaceTypePointOfInterest,
+    /**
+     *  Police
+     */
     HNKGooglePlaceTypePolice,
+    /**
+     *  Political
+     */
     HNKGooglePlaceTypePolitical,
+    /**
+     *  Postal Code
+     */
     HNKGooglePlaceTypePostalCode,
+    /**
+     *  Postal Code Prefix
+     */
     HNKGooglePlaceTypePostalCodePrefix,
+    /**
+     *  Postal Code Suffix
+     */
     HNKGooglePlaceTypePostalCodeSuffix,
+    /**
+     *  Postal Town
+     */
     HNKGooglePlaceTypePostalTown,
+    /**
+     *  Post Box
+     */
     HNKGooglePlaceTypePostBox,
+    /**
+     *  Post Office
+     */
     HNKGooglePlaceTypePostOffice,
+    /**
+     *  Premise
+     */
     HNKGooglePlaceTypePremise,
+    /**
+     *  Real Estate Agency
+     */
     HNKGooglePlaceTypeRealEstateAgency,
+    /**
+     *  Restaurant
+     */
     HNKGooglePlaceTypeRestaurant,
+    /**
+     *  Roofing Contractor
+     */
     HNKGooglePlaceTypeRoofingContractor,
+    /**
+     *  Room
+     */
     HNKGooglePlaceTypeRoom,
+    /**
+     *  Route
+     */
     HNKGooglePlaceTypeRoute,
+    /**
+     *  RV Park
+     */
     HNKGooglePlaceTypeRVPark,
+    /**
+     *  School
+     */
     HNKGooglePlaceTypeSchool,
+    /**
+     *  Shoe Store
+     */
     HNKGooglePlaceTypeShoeStore,
+    /**
+     *  Shopping Mall
+     */
     HNKGooglePlaceTypeShoppingMall,
+    /**
+     *  Spa
+     */
     HNKGooglePlaceTypeSpa,
+    /**
+     *  Stadium
+     */
     HNKGooglePlaceTypeStadium,
+    /**
+     *  Storage
+     */
     HNKGooglePlaceTypeStorage,
+    /**
+     *  Store
+     */
     HNKGooglePlaceTypeStore,
+    /**
+     *  Street Address
+     */
     HNKGooglePlaceTypeStreetAddress,
+    /**
+     *  Street Number
+     */
     HNKGooglePlaceTypeStreetNumber,
+    /**
+     *  Sublocality
+     */
     HNKGooglePlaceTypeSublocality,
+    /**
+     *  Sublocality Level 1
+     */
     HNKGooglePlaceTypeSublocalityLevel1,
+    /**
+     *  Sublocality Level 2
+     */
     HNKGooglePlaceTypeSublocalityLevel2,
+    /**
+     *  Sublocality Level 3
+     */
     HNKGooglePlaceTypeSublocalityLevel3,
+    /**
+     *  Sublocality Level 4
+     */
     HNKGooglePlaceTypeSublocalityLevel4,
+    /**
+     *  Sublocality Level 5
+     */
     HNKGooglePlaceTypeSublocalityLevel5,
+    /**
+     *  Subpremise
+     */
     HNKGooglePlaceTypeSubpremise,
+    /**
+     *  Subway Station
+     */
     HNKGooglePlaceTypeSubwayStation,
+    /**
+     *  Synagogue
+     */
     HNKGooglePlaceTypeSynagogue,
+    /**
+     *  Taxi Stand
+     */
     HNKGooglePlaceTypeTaxiStand,
+    /**
+     *  Train Station
+     */
     HNKGooglePlaceTypeTrainStation,
+    /**
+     *  Transit Station
+     */
     HNKGooglePlaceTypeTransitStation,
+    /**
+     *  Travel Agency
+     */
     HNKGooglePlaceTypeTravelAgency,
+    /**
+     *  University
+     */
     HNKGooglePlaceTypeUniversity,
+    /**
+     *  Veterinary Care
+     */
     HNKGooglePlaceTypeVeterinaryCare,
+    /**
+     *  Zoo
+     */
     HNKGooglePlaceTypeZoo
 };
 
