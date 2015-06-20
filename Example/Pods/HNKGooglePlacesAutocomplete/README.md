@@ -1,9 +1,9 @@
 # HNKGooglePlacesAutocomplete
 
 [![CocoaPods](https://img.shields.io/cocoapods/v/HNKGooglePlacesAutocomplete.svg)](http://cocoapods.org/pods/HNKGooglePlacesAutocomplete)
+![Objective-C](https://img.shields.io/badge/language-objective--c-blue.svg)
 [![License](https://img.shields.io/cocoapods/l/HNKGooglePlacesAutocomplete.svg)](https://raw.githubusercontent.com/hkellaway/HNKGooglePlacesAutocomplete/master/LICENSE)
 [![CocoaPods](https://img.shields.io/cocoapods/p/HNKGooglePlacesAutocomplete.svg)](http://cocoapods.org/pods/HNKGooglePlacesAutocomplete)
-![Objective-C](https://img.shields.io/badge/language-objective--c-blue.svg)
 [![Build Status](https://travis-ci.org/hkellaway/HNKGooglePlacesAutocomplete.svg?branch=master)](https://travis-ci.org/hkellaway/HNKGooglePlacesAutocomplete)
 
 An Objective-C wrapper for the Google Places Autocomplete API
