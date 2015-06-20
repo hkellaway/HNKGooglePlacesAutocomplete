@@ -37,7 +37,7 @@ static HNKServer *server = nil;
 + (void)initialize
 {
     if (self == [HNKGooglePlacesServer class]) {
-        
+
         server = [[HNKServer alloc] initWithBaseURL:kHNKGooglePlacesServerBaseURL];
     }
 }

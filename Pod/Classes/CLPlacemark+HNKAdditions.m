@@ -33,9 +33,9 @@
 NSString *const HNKGooglePlacesAutocompleteCLPlacemarkErrorDomain =
     @"com.hnkgoogleplacesautocomplete.category.clplacemark.error";
 
-static NSString *const HNKCLPlacemarkErrorCodeDescriptionUnknown = @"Unknown error occurred";
-static NSString *const HNKCLPlacemarkErrorCodeDescriptionGeocoderFailure = @"Geocoder error";
-static NSString *const HNKCLPlacemarkErrorCodeDescriptionGoogleFailure = @"API error";
+static NSString *const HNKCLPlacemarkErrorCodeDescriptionUnknown = @"Unknown error occurred.";
+static NSString *const HNKCLPlacemarkErrorCodeDescriptionGeocoderFailure = @"Geocoder error occurred.";
+static NSString *const HNKCLPlacemarkErrorCodeDescriptionGoogleFailure = @"API error occurred.";
 
 #pragma mark Request constants
 
