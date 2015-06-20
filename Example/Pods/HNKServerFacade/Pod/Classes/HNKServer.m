@@ -28,88 +28,113 @@
 #import <AFNetworking/AFNetworking.h>
 #import <AFNetworking/AFNetworkActivityIndicatorManager.h>
 
+static NSString *const kHNKExceptionInvalidInitializer = @"HNKExceptionInvalidInitializer";
+static NSString *const kHNKExceptionTextInvalidInitializer = @"-initWithBaseURL: should be used for Server initialization";
+
+@interface HNKServer ()
+
+@property (nonatomic, copy) NSString *baseURLStr;
+@property (nonatomic, strong) AFHTTPSessionManager *httpSessionManager;
+
+@end
+
 @implementation HNKServer
 
 #pragma mark - Initialization
 
-static NSString *baseURLStr = nil;
-static AFHTTPSessionManager *httpSessionManager = nil;
+- (instancetype)initWithBaseURL:(NSString *)baseUrlString
+{
+    self = [super init];
+    
+    if(self) {
+        self.baseURLStr = [[NSURL URLWithString:baseUrlString] absoluteString];
+        
+        [self setupHttpSessionManager];
+        [self setupNetworkActivityIndicator];
+    }
+    
+    return self;
+}
 
-+ (void)setupWithBaseUrl:(NSString *)baseURLString {
-  static dispatch_once_t onceToken;
-
-  dispatch_once(&onceToken, ^{
-    NSParameterAssert(baseURLString);
-
-    baseURLStr = [[NSURL URLWithString:baseURLString] absoluteString];
-
-    [self setupHttpSessionManager];
-    [self setupNetworkActivityIndicator];
-  });
+- (instancetype)init
+{
+    NSException *exception = [NSException exceptionWithName:kHNKExceptionInvalidInitializer reason:kHNKExceptionTextInvalidInitializer userInfo:nil];
+    
+    [exception raise];
+    
+    return nil;
 }
 
 #pragma mark - Class methods
 
-+ (NSString *)baseURLString {
-  return baseURLStr;
+- (NSString *)baseURLString
+{
+    return self.baseURLStr.copy;
 }
 
-+ (BOOL)isNetworkActivityIndicatorEnabled {
-  return [AFNetworkActivityIndicatorManager sharedManager].isEnabled;
+- (BOOL)isNetworkActivityIndicatorEnabled
+{
+    return [AFNetworkActivityIndicatorManager sharedManager].isEnabled;
 }
 
-+ (NSSet *)responseContentTypes {
-  return httpSessionManager.responseSerializer.acceptableContentTypes;
+- (NSSet *)responseContentTypes
+{
+    return self.httpSessionManager.responseSerializer.acceptableContentTypes;
 }
 
 #pragma mark Configuration
 
-+ (void)configureResponseContentTypes:(NSSet *)newContentTypes {
-  NSParameterAssert(newContentTypes);
-
-  httpSessionManager.responseSerializer.acceptableContentTypes =
-      newContentTypes;
+- (void)configureResponseContentTypes:(NSSet *)newContentTypes
+{
+    NSParameterAssert(newContentTypes);
+    
+    self.httpSessionManager.responseSerializer.acceptableContentTypes =
+    newContentTypes;
 }
 
 #pragma mark Requests
 
-+ (void)GET:(NSString *)path
-    parameters:(NSDictionary *)parameters
-    completion:(void (^)(id responseObject, NSError *))completion {
-  NSString *urlString = [self urlStringFromPath:path];
-
-  [httpSessionManager GET:urlString
-      parameters:parameters
-      success:^(NSURLSessionDataTask *task, id responseObject) {
-        if (completion) {
-          completion(responseObject, nil);
-        }
-      }
-      failure:^(NSURLSessionDataTask *task, NSError *error) {
-        if (completion) {
-          completion(nil, error);
-        }
-      }];
+- (void)GET:(NSString *)path
+ parameters:(NSDictionary *)parameters
+ completion:(void (^)(id responseObject, NSError *))completion
+{
+    NSString *urlString = [self urlStringFromPath:path];
+    
+    [self.httpSessionManager GET:urlString
+                      parameters:parameters
+                         success:^(NSURLSessionDataTask *task, id responseObject) {
+                             if (completion) {
+                                 completion(responseObject, nil);
+                             }
+                         }
+                         failure:^(NSURLSessionDataTask *task, NSError *error) {
+                             if (completion) {
+                                 completion(nil, error);
+                             }
+                         }];
 }
 
 #pragma mark - Helpers
 
-+ (void)setupHttpSessionManager {
-  if (httpSessionManager == nil) {
-    httpSessionManager = [[AFHTTPSessionManager alloc]
-        initWithBaseURL:[NSURL URLWithString:baseURLStr]];
-  }
-
-  httpSessionManager.responseSerializer.acceptableContentTypes =
-      [NSSet setWithObject:@"application/json"];
+- (void)setupHttpSessionManager
+{
+    if (self.httpSessionManager == nil) {
+        self.httpSessionManager = [[AFHTTPSessionManager alloc]
+                                   initWithBaseURL:[NSURL URLWithString:self.baseURLStr]];
+    }
+    
+    self.httpSessionManager.responseSerializer.acceptableContentTypes =
+    [NSSet setWithObject:@"application/json"];
 }
 
-+ (void)setupNetworkActivityIndicator {
-  [AFNetworkActivityIndicatorManager sharedManager].enabled = YES;
+- (void)setupNetworkActivityIndicator
+{
+    [AFNetworkActivityIndicatorManager sharedManager].enabled = YES;
 }
 
-+ (NSString *)urlStringFromPath:(NSString *)path {
-  return [baseURLStr stringByAppendingPathComponent:path];
+- (NSString *)urlStringFromPath:(NSString *)path
+{
+    return [self.baseURLStr stringByAppendingPathComponent:path];
 }
 
 @end

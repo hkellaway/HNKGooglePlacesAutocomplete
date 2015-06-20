@@ -3,7 +3,7 @@ platform :ios, '7.0'
 
 target 'HNKGooglePlacesAutocomplete-Example' do
 
-pod "HNKGooglePlacesAutocomplete", "~> 1.0"
+pod 'HNKGooglePlacesAutocomplete', :git => 'https://github.com/hkellaway/HNKGooglePlacesAutocomplete.git', :branch => 'release/1.0.1'
 
 end
 

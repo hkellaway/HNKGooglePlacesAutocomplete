@@ -55,6 +55,9 @@ extern NSString *HNKCLPlacemarkDescriptionForErrorCode(HNKCLPlacemarkErrorCode e
 
 @class HNKGooglePlacesAutocompletePlace;
 
+/**
+ *  CLPlacemark category for use with HNKGooglePlacesAutocomplete
+ */
 @interface CLPlacemark (HNKAdditions)
 
 /**
