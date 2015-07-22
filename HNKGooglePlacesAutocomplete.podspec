@@ -25,6 +25,6 @@ Pod::Spec.new do |s|
   s.frameworks = 'CoreLocation'
 
   s.dependency "HNKServerFacade", "~> 0.3"
-  s.dependency "Mantle", "~> 1.5"
+  s.dependency "Mantle", "~> 2.0"
 
 end
