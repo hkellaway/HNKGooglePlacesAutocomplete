@@ -39,7 +39,7 @@
 
 + (NSValueTransformer *)placesJSONTransformer
 {
-    return [NSValueTransformer mtl_JSONArrayTransformerWithModelClass:[HNKGooglePlacesAutocompletePlace class]];
+    return [MTLJSONAdapter arrayTransformerWithModelClass:[HNKGooglePlacesAutocompletePlace class]];
 }
 
 + (NSValueTransformer *)statusJSONTransformer
@@ -52,7 +52,7 @@
         @"ZERO_RESULTS" : @(HNKGooglePlacesAutocompleteQueryResponseStatusZeroResults)
     };
 
-    return [MTLValueTransformer transformerWithBlock:^(NSString *status) {
+    return [MTLValueTransformer transformerUsingForwardBlock:^id(NSString *status, BOOL *success, NSError *__autoreleasing *error) {
         return statusesDictionary[status];
     }];
 }
