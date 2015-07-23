@@ -51,20 +51,20 @@
 // HNKGooglePlacesAutocomplete
 #define COCOAPODS_POD_AVAILABLE_HNKGooglePlacesAutocomplete
 #define COCOAPODS_VERSION_MAJOR_HNKGooglePlacesAutocomplete 1
-#define COCOAPODS_VERSION_MINOR_HNKGooglePlacesAutocomplete 0
-#define COCOAPODS_VERSION_PATCH_HNKGooglePlacesAutocomplete 1
+#define COCOAPODS_VERSION_MINOR_HNKGooglePlacesAutocomplete 1
+#define COCOAPODS_VERSION_PATCH_HNKGooglePlacesAutocomplete 0
 
 // HNKGooglePlacesAutocomplete/Models
 #define COCOAPODS_POD_AVAILABLE_HNKGooglePlacesAutocomplete_Models
 #define COCOAPODS_VERSION_MAJOR_HNKGooglePlacesAutocomplete_Models 1
-#define COCOAPODS_VERSION_MINOR_HNKGooglePlacesAutocomplete_Models 0
-#define COCOAPODS_VERSION_PATCH_HNKGooglePlacesAutocomplete_Models 1
+#define COCOAPODS_VERSION_MINOR_HNKGooglePlacesAutocomplete_Models 1
+#define COCOAPODS_VERSION_PATCH_HNKGooglePlacesAutocomplete_Models 0
 
 // HNKGooglePlacesAutocomplete/Models/Networking
 #define COCOAPODS_POD_AVAILABLE_HNKGooglePlacesAutocomplete_Models_Networking
 #define COCOAPODS_VERSION_MAJOR_HNKGooglePlacesAutocomplete_Models_Networking 1
-#define COCOAPODS_VERSION_MINOR_HNKGooglePlacesAutocomplete_Models_Networking 0
-#define COCOAPODS_VERSION_PATCH_HNKGooglePlacesAutocomplete_Models_Networking 1
+#define COCOAPODS_VERSION_MINOR_HNKGooglePlacesAutocomplete_Models_Networking 1
+#define COCOAPODS_VERSION_PATCH_HNKGooglePlacesAutocomplete_Models_Networking 0
 
 // HNKServerFacade
 #define COCOAPODS_POD_AVAILABLE_HNKServerFacade
@@ -74,13 +74,13 @@
 
 // Mantle
 #define COCOAPODS_POD_AVAILABLE_Mantle
-#define COCOAPODS_VERSION_MAJOR_Mantle 1
-#define COCOAPODS_VERSION_MINOR_Mantle 5
-#define COCOAPODS_VERSION_PATCH_Mantle 4
+#define COCOAPODS_VERSION_MAJOR_Mantle 2
+#define COCOAPODS_VERSION_MINOR_Mantle 0
+#define COCOAPODS_VERSION_PATCH_Mantle 2
 
 // Mantle/extobjc
 #define COCOAPODS_POD_AVAILABLE_Mantle_extobjc
-#define COCOAPODS_VERSION_MAJOR_Mantle_extobjc 1
-#define COCOAPODS_VERSION_MINOR_Mantle_extobjc 5
-#define COCOAPODS_VERSION_PATCH_Mantle_extobjc 4
+#define COCOAPODS_VERSION_MAJOR_Mantle_extobjc 2
+#define COCOAPODS_VERSION_MINOR_Mantle_extobjc 0
+#define COCOAPODS_VERSION_PATCH_Mantle_extobjc 2
 

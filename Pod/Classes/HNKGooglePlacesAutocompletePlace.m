@@ -61,13 +61,12 @@
 
 + (NSValueTransformer *)substringsJSONTransformer
 {
-    return
-        [NSValueTransformer mtl_JSONArrayTransformerWithModelClass:[HNKGooglePlacesAutocompletePlaceSubstring class]];
+    return [MTLJSONAdapter arrayTransformerWithModelClass:[HNKGooglePlacesAutocompletePlaceSubstring class]];
 }
 
 + (NSValueTransformer *)termsJSONTransformer
 {
-    return [NSValueTransformer mtl_JSONArrayTransformerWithModelClass:[HNKGooglePlacesAutocompletePlaceTerm class]];
+    return [MTLJSONAdapter arrayTransformerWithModelClass:[HNKGooglePlacesAutocompletePlaceTerm class]];
 }
 
 + (NSValueTransformer *)typesJSONTransformer
@@ -205,7 +204,7 @@
         @"zoo" : @(HNKGooglePlaceTypeZoo)
     };
 
-    return [MTLValueTransformer transformerWithBlock:^(NSArray *types) {
+    return [MTLValueTransformer transformerUsingForwardBlock:^(NSArray *types, BOOL *success, NSError **error) {
         NSMutableArray *typesToReturn = [NSMutableArray arrayWithCapacity:[types count]];
         for (NSString *type in types) {
             if ([typesDictionary objectForKey:type]) {

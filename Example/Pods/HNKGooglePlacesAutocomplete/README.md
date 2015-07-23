@@ -8,6 +8,8 @@
 
 An Objective-C wrapper for the Google Places Autocomplete API
 
+<img src="https://raw.githubusercontent.com/hkellaway/HNKGooglePlacesAutocomplete/master/example.png" title="demo" height="600" />
+
 ## Background
 
 HNKGooglePlacesAutocomplete is an Objective-C wrapper for the Google Places Autocomplete API. It encapsulates the same core functionality as [SPGooglePlacesAutocomplete](https://github.com/spoletto/SPGooglePlacesAutocomplete) - autocomplete suggestions and Google Place-to-CLPlacemark translation - with the intention of modernizing the approach.
@@ -22,7 +24,13 @@ Improvements include:
 
 - If you **have found a bug**, _and can provide steps to reliably reproduce it_, [open an issue](https://github.com/hkellaway/HNKGooglePlacesAutocomplete/issues/new).
 - If you **have a feature request**, [open an issue](https://github.com/hkellaway/HNKGooglePlacesAutocomplete/issues/new).
-- If you **want to contribute**, [submit a pull request](https://github.com/hkellaway/HNKGooglePlacesAutocomplete/pulls).
+- If you **want to contribute**, [submit a pull request](https://github.com/hkellaway/HNKGooglePlacesAutocomplete/pulls). Pull request should be made against the _develop_ branch.
+
+## Dependencies
+
+### Mantle
+
+As of version 1.1, HNKGooglePlacesAutocomplete uses Mantle 2.0. If you require Mantle 1.5, version 1.0.1 can be used - however, note that that only version 1.1+ will incorporate new updates.
 
 ## Getting Started
 
@@ -36,7 +44,7 @@ Improvements include:
 #### Podfile
 
 ```ruby
-pod "HNKGooglePlacesAutocomplete", "~> 1.0"
+pod "HNKGooglePlacesAutocomplete", "~> 1.1"
 ```
 
 ### API Key
@@ -46,7 +54,7 @@ HNKGooglePlacesAutocomplete uses the [Google Places Autocomplete API](https://de
 * Create a [Google Developer account](https://developers.google.com/)
 * Create a new Project
 * Turn on the Places API
-* Find your API key on your Project's API Credentials
+* Find your API key in your Project's API Credentials
 
 ### CoreLocation Framework
 
@@ -59,17 +67,17 @@ HNKGooglePlacesAutocomplete makes use of the `CoreLocation` framework. Make sure
 These classes form the core functionality of HNKGooglePlacesAutocomplete
 
 - `HNKGooglePlacesAutocompletePlaceQuery` - used to query the API for Place suggestions
-- `HNKGooglePlacesAutocompletePlace` - Place object resulting from a Query
+- `HNKGooglePlacesAutocompletePlace` - Place object returned from a Query
 
 ### Utilities
 
-- `CLPlacemark+HNKAdditions.h` - provides translation from an `HNKGooglePlacesAutocompletePlace` to a `CLPlacemark`
+- `CLPlacemark+HNKAdditions.h` - provides translation from `HNKGooglePlacesAutocompletePlace` to `CLPlacemark`
 
 ## Usage
 
 ### Setup
 
-Requests cannot be made without first supplying `HNKGooglePlacesAutocomplete` with your Google Places API Key (see [API Key](#api-key)). Once your API key is obtained, you can setup `HNKGooglePlacesAutocomplete` for use by calling `setupSharedQueryWithAPIKey` on `HNKGooglePlacesAutocompleteQuery` (typically within the `AppDelegate`):
+Requests cannot be made without first supplying `HNKGooglePlacesAutocomplete` with your Google Places API Key (see [API Key](#api-key)). Once your API key is obtained, you can setup `HNKGooglePlacesAutocomplete` for use by calling `setupSharedQueryWithAPIKey:` on `HNKGooglePlacesAutocompleteQuery` (typically within the `AppDelegate`):
 
 #### `setupSharedQueryWithAPIKey:`
 
@@ -86,7 +94,7 @@ You should replace `YOUR_API_KEY` with your Google Places API key.
 #### `fetchPlacesForSearchQuery:completion:`
 
 ```objective-c
-[[HNKGooglePlacesAutocomplete sharedQuery] fetchPlacesForSearchQuery:@"Amoeba" 
+[[HNKGooglePlacesAutocompleteQuery sharedQuery] fetchPlacesForSearchQuery:@"Amoeba" 
 	completion:^(NSArray *places, NSError *error)  {
     	if (error) {
         	NSLog(@"ERROR: %@", error);
@@ -137,7 +145,7 @@ Errors returned by HNKGooglePlacesAutocomplete have a domain that starts with `c
 
 A short description of the error can be found in the `error` object's `localizedDescription` property. 
 
-If the `error` has an underlying error, such as an error returned by `CLGeocoder`, it can be found in the `error` object's `userInfo` dictionary, under the `NSUnderlyingError` key.
+If the `error` has an underlying error, such as an error returned by `CLGeocoder`, it can be found in the `error` object's `userInfo` dictionary, via the `NSUnderlyingError` key.
 
 ### Advanced Query Topics
 
@@ -222,13 +230,9 @@ For example, if a user typed "Amoeba" and a resulting Place suggestion had a `na
 
 * `HNKGooglePlacesAutocompletePlaceTerm`
 
-HNKGooglePlacesAutocompletePlace` objects have an array of `terms` that identify sections of the returned `name`. 
+`HNKGooglePlacesAutocompletePlace` objects have an array of `terms` that identify sections of the returned `name`. 
 
 For example, if a user types "Amoeba" and a resulting Place suggestion had a `name` of "Amoeba Music, Telegraph Avenue, Berkeley, CA, United States", the `terms` array would contain entries indicating that the `name` was composed of the terms "Amoeba Music", "Telegraph Avenue", "Berkeley", "CA", and "United States".
-
-## Transitioning from SPGooglePlacesAutocomplete
-
-`TODO`
 
 ## Credits
 
@@ -236,6 +240,6 @@ HNKGooglePlacesAutocomplete was created by [Harlan Kellaway](http://harlankellaw
 
 ## License & Terms
 
-HNKGooglePlacesAutocomplete uses the Google Places API and is bound under [Google's Places API Policies](https://developers.google.com/places/webservice/policies)
+HNKGooglePlacesAutocomplete uses the Google Places API and is bound under [Google's Places API Policies](https://developers.google.com/places/webservice/policies).
 
 HNKGooglePlacesAutocomplete is available under the MIT license. See the [LICENSE](https://raw.githubusercontent.com/hkellaway/HNKGooglePlacesAutocomplete/master/LICENSE) file for more info.
