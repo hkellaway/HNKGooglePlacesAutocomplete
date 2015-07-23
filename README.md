@@ -24,7 +24,13 @@ Improvements include:
 
 - If you **have found a bug**, _and can provide steps to reliably reproduce it_, [open an issue](https://github.com/hkellaway/HNKGooglePlacesAutocomplete/issues/new).
 - If you **have a feature request**, [open an issue](https://github.com/hkellaway/HNKGooglePlacesAutocomplete/issues/new).
-- If you **want to contribute**, [submit a pull request](https://github.com/hkellaway/HNKGooglePlacesAutocomplete/pulls).
+- If you **want to contribute**, [submit a pull request](https://github.com/hkellaway/HNKGooglePlacesAutocomplete/pulls). Pull request should be made against the _develop_ branch.
+
+## Dependencies
+
+### Mantle
+
+As of version 1.1, HNKGooglePlacesAutocomplete uses Mantle 2.0. If you require Mantle 1.5, version 1.0.1 can be used - however, note that that only version 1.1+ will incorporate new updates.
 
 ## Getting Started
 
@@ -38,7 +44,7 @@ Improvements include:
 #### Podfile
 
 ```ruby
-pod "HNKGooglePlacesAutocomplete", "~> 1.0"
+pod "HNKGooglePlacesAutocomplete", "~> 1.1"
 ```
 
 ### API Key
@@ -228,16 +234,12 @@ For example, if a user typed "Amoeba" and a resulting Place suggestion had a `na
 
 For example, if a user types "Amoeba" and a resulting Place suggestion had a `name` of "Amoeba Music, Telegraph Avenue, Berkeley, CA, United States", the `terms` array would contain entries indicating that the `name` was composed of the terms "Amoeba Music", "Telegraph Avenue", "Berkeley", "CA", and "United States".
 
-## Transitioning from SPGooglePlacesAutocomplete
-
-`TODO`
-
 ## Credits
 
 HNKGooglePlacesAutocomplete was created by [Harlan Kellaway](http://harlankellaway.com). It was inspired by [SPGooglePlacesAutocomplete](https://github.com/spoletto/SPGooglePlacesAutocomplete).
 
 ## License & Terms
 
-HNKGooglePlacesAutocomplete uses the Google Places API and is bound under [Google's Places API Policies](https://developers.google.com/places/webservice/policies)
+HNKGooglePlacesAutocomplete uses the Google Places API and is bound under [Google's Places API Policies](https://developers.google.com/places/webservice/policies).
 
 HNKGooglePlacesAutocomplete is available under the MIT license. See the [LICENSE](https://raw.githubusercontent.com/hkellaway/HNKGooglePlacesAutocomplete/master/LICENSE) file for more info.
