@@ -24,7 +24,13 @@ Improvements include:
 
 - If you **have found a bug**, _and can provide steps to reliably reproduce it_, [open an issue](https://github.com/hkellaway/HNKGooglePlacesAutocomplete/issues/new).
 - If you **have a feature request**, [open an issue](https://github.com/hkellaway/HNKGooglePlacesAutocomplete/issues/new).
-- If you **want to contribute**, [submit a pull request](https://github.com/hkellaway/HNKGooglePlacesAutocomplete/pulls).
+- If you **want to contribute**, [submit a pull request](https://github.com/hkellaway/HNKGooglePlacesAutocomplete/pulls). Pull request should be made against the _develop_ branch.
+
+## Dependencies
+
+### Mantle
+
+As of version 1.1, HNKGooglePlacesAutocomplete uses Mantle 2.0. If you require Mantle 1.5, version 1.0.1 can be used - however, note that that only version 1.1+ will incorporate new updates.
 
 ## Getting Started
 
@@ -38,7 +44,7 @@ Improvements include:
 #### Podfile
 
 ```ruby
-pod "HNKGooglePlacesAutocomplete", "~> 1.0"
+pod "HNKGooglePlacesAutocomplete", "~> 1.1"
 ```
 
 ### API Key
