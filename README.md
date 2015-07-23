@@ -234,16 +234,12 @@ For example, if a user typed "Amoeba" and a resulting Place suggestion had a `na
 
 For example, if a user types "Amoeba" and a resulting Place suggestion had a `name` of "Amoeba Music, Telegraph Avenue, Berkeley, CA, United States", the `terms` array would contain entries indicating that the `name` was composed of the terms "Amoeba Music", "Telegraph Avenue", "Berkeley", "CA", and "United States".
 
-## Transitioning from SPGooglePlacesAutocomplete
-
-`TODO`
-
 ## Credits
 
 HNKGooglePlacesAutocomplete was created by [Harlan Kellaway](http://harlankellaway.com). It was inspired by [SPGooglePlacesAutocomplete](https://github.com/spoletto/SPGooglePlacesAutocomplete).
 
 ## License & Terms
 
-HNKGooglePlacesAutocomplete uses the Google Places API and is bound under [Google's Places API Policies](https://developers.google.com/places/webservice/policies)
+HNKGooglePlacesAutocomplete uses the Google Places API and is bound under [Google's Places API Policies](https://developers.google.com/places/webservice/policies).
 
 HNKGooglePlacesAutocomplete is available under the MIT license. See the [LICENSE](https://raw.githubusercontent.com/hkellaway/HNKGooglePlacesAutocomplete/master/LICENSE) file for more info.
