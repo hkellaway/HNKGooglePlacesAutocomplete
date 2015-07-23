@@ -24,6 +24,13 @@ PODS:
     - HNKGooglePlacesAutocomplete/Models (= 1.1.0)
     - HNKServerFacade (~> 0.3)
     - Mantle (~> 2.0)
+  - HNKGooglePlacesAutocomplete/Models (1.1.0):
+    - HNKGooglePlacesAutocomplete/Models/Networking (= 1.1.0)
+    - HNKServerFacade (~> 0.3)
+    - Mantle (~> 2.0)
+  - HNKGooglePlacesAutocomplete/Models/Networking (1.1.0):
+    - HNKServerFacade (~> 0.3)
+    - Mantle (~> 2.0)
   - HNKServerFacade (0.3.0):
     - AFNetworking (~> 2.5)
   - Kiwi (2.3.1)
@@ -33,18 +40,18 @@ PODS:
 
 DEPENDENCIES:
   - HNKGooglePlacesAutocomplete (from `https://github.com/hkellaway/HNKGooglePlacesAutocomplete.git`,
-    branch `release/1.1.0`)
+    tag `1.1.0`)
   - Kiwi (~> 2.3)
 
 EXTERNAL SOURCES:
   HNKGooglePlacesAutocomplete:
-    :branch: release/1.1.0
     :git: https://github.com/hkellaway/HNKGooglePlacesAutocomplete.git
+    :tag: 1.1.0
 
 CHECKOUT OPTIONS:
   HNKGooglePlacesAutocomplete:
-    :commit: fdf45a86893d127b7d2f1b3d9f5c2f1751d8d13b
     :git: https://github.com/hkellaway/HNKGooglePlacesAutocomplete.git
+    :tag: 1.1.0
 
 SPEC CHECKSUMS:
   AFNetworking: 05edc0ac4c4c8cf57bcf4b84be5b0744b6d8e71e
