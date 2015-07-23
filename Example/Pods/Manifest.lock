@@ -23,41 +23,34 @@ PODS:
   - HNKGooglePlacesAutocomplete (1.0.1):
     - HNKGooglePlacesAutocomplete/Models (= 1.0.1)
     - HNKServerFacade (~> 0.3)
-    - Mantle (~> 1.5)
+    - Mantle (~> 2.0)
   - HNKGooglePlacesAutocomplete/Models (1.0.1):
     - HNKGooglePlacesAutocomplete/Models/Networking (= 1.0.1)
     - HNKServerFacade (~> 0.3)
-    - Mantle (~> 1.5)
+    - Mantle (~> 2.0)
   - HNKGooglePlacesAutocomplete/Models/Networking (1.0.1):
     - HNKServerFacade (~> 0.3)
-    - Mantle (~> 1.5)
+    - Mantle (~> 2.0)
   - HNKServerFacade (0.3.0):
     - AFNetworking (~> 2.5)
   - Kiwi (2.3.1)
-  - Mantle (1.5.4):
-    - Mantle/extobjc (= 1.5.4)
-  - Mantle/extobjc (1.5.4)
+  - Mantle (2.0.2):
+    - Mantle/extobjc (= 2.0.2)
+  - Mantle/extobjc (2.0.2)
 
 DEPENDENCIES:
-  - HNKGooglePlacesAutocomplete (from `https://github.com/hkellaway/HNKGooglePlacesAutocomplete.git`,
-    branch `release/1.0.1`)
+  - HNKGooglePlacesAutocomplete (from `../`)
   - Kiwi (~> 2.3)
 
 EXTERNAL SOURCES:
   HNKGooglePlacesAutocomplete:
-    :branch: release/1.0.1
-    :git: https://github.com/hkellaway/HNKGooglePlacesAutocomplete.git
-
-CHECKOUT OPTIONS:
-  HNKGooglePlacesAutocomplete:
-    :commit: 1bf69dd762e93c5f63c23beebc72df0dce709e0a
-    :git: https://github.com/hkellaway/HNKGooglePlacesAutocomplete.git
+    :path: ../
 
 SPEC CHECKSUMS:
   AFNetworking: 05edc0ac4c4c8cf57bcf4b84be5b0744b6d8e71e
-  HNKGooglePlacesAutocomplete: a6a60139a4831fc147a739ead3bb158b11e2439d
+  HNKGooglePlacesAutocomplete: 6701e5ee6eb1dd3db1d23e2f8984c03ea9eedfbb
   HNKServerFacade: 0fa3839353480b8862563a34903ad1406a38b4c9
   Kiwi: f038a6c61f7a9e4d7766bff5717aa3b3fdb75f55
-  Mantle: 60acd0cd363e27d945bda0a6b8e90577112d28f3
+  Mantle: 967fd31ea0220890b2e76589198996b534bb3fb1
 
-COCOAPODS: 0.37.1
+COCOAPODS: 0.38.0
