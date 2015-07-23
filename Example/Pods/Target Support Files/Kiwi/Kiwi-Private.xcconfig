@@ -1,9 +1,0 @@
-#include "Kiwi.xcconfig"
-FRAMEWORK_SEARCH_PATHS = ${KIWI_FRAMEWORK_SEARCH_PATHS}
-FRAMEWORK_SEARCH_PATHS[sdk=iphoneos8.0] = ${KIWI_FRAMEWORK_SEARCH_PATHS}
-FRAMEWORK_SEARCH_PATHS[sdk=iphonesimulator8.0] = ${KIWI_FRAMEWORK_SEARCH_PATHS}
-GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
-HEADER_SEARCH_PATHS = "${PODS_ROOT}/Headers/Private" "${PODS_ROOT}/Headers/Private/Kiwi" "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/AFNetworking" "${PODS_ROOT}/Headers/Public/HNKGooglePlacesAutocomplete" "${PODS_ROOT}/Headers/Public/HNKServerFacade" "${PODS_ROOT}/Headers/Public/Kiwi" "${PODS_ROOT}/Headers/Public/Mantle"
-OTHER_LDFLAGS = ${KIWI_OTHER_LDFLAGS}
-PODS_ROOT = ${SRCROOT}
-SKIP_INSTALL = YES
