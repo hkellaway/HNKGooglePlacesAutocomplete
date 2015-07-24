@@ -53,7 +53,7 @@ HNKGooglePlacesAutocomplete uses the [Google Places Autocomplete API](https://de
 
 * Create a [Google Developer account](https://developers.google.com/)
 * Create a new Project
-* Turn on the Places API
+* Turn on the Google Places API Web Service
 * Find your API key in your Project's API Credentials
 
 ### CoreLocation Framework
