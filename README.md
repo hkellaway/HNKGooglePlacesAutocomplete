@@ -243,3 +243,7 @@ HNKGooglePlacesAutocomplete was created by [Harlan Kellaway](http://harlankellaw
 HNKGooglePlacesAutocomplete uses the Google Places API and is bound under [Google's Places API Policies](https://developers.google.com/places/webservice/policies).
 
 HNKGooglePlacesAutocomplete is available under the MIT license. See the [LICENSE](https://raw.githubusercontent.com/hkellaway/HNKGooglePlacesAutocomplete/master/LICENSE) file for more info.
+
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/hkellaway/hnkgoogleplacesautocomplete/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
