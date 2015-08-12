@@ -7,10 +7,13 @@
 //
 
 #import "TOMViewController.h"
+
 #import <HNKGooglePlacesAutocomplete/HNKGooglePlacesAutocomplete.h>
 #import <MapKit/MapKit.h>
 
 #import "CLPlacemark+HNKAdditions.h"
+
+static NSString *const kHNKDemoSearchResultsCellIdentifier = @"HNKDemoSearchResultsCellIdentifier";
 
 @interface TOMViewController () <UISearchBarDelegate, UITableViewDataSource, UITableViewDelegate>
 
@@ -24,18 +27,14 @@
 
 @implementation TOMViewController
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
     
     self.searchBar.delegate = self;
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     self.searchQuery = [HNKGooglePlacesAutocompleteQuery sharedQuery];
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 #pragma mark - UITableView DataSource
@@ -47,7 +46,7 @@
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"basicCell" forIndexPath:indexPath];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kHNKDemoSearchResultsCellIdentifier forIndexPath:indexPath];
     
     HNKGooglePlacesAutocompletePlace *thisPlace = self.searchResults[indexPath.row];
     cell.textLabel.text = thisPlace.name;
@@ -66,7 +65,7 @@
     [CLPlacemark hnk_placemarkFromGooglePlace: selectedPlace
                                        apiKey: self.searchQuery.apiKey
                                    completion:^(CLPlacemark *placemark, NSString *addressString, NSError *error) {
-                                       if (placemark){
+                                       if (placemark) {
                                            [self.tableView setHidden: YES];
                                            [self addPlacemarkAnnotationToMap:placemark addressString:addressString];
                                            [self recenterMapToPlacemark:placemark];
@@ -88,7 +87,7 @@
     {
         [self.tableView setHidden:NO];
     
-    [self.searchQuery fetchPlacesForSearchQuery: searchText
+        [self.searchQuery fetchPlacesForSearchQuery: searchText
                                      completion:^(NSArray *places, NSError *error) {
                                          if (error) {
                                              NSLog(@"ERROR: %@", error);
@@ -108,7 +107,7 @@
     [self.tableView setHidden:YES];
 }
 
-#pragma mark Map Helpers
+#pragma mark - Helpers
 
 - (void)addPlacemarkAnnotationToMap:(CLPlacemark *)placemark addressString:(NSString *)address
 {
