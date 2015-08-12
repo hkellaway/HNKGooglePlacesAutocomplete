@@ -8,7 +8,7 @@
 
 An Objective-C wrapper for the Google Places Autocomplete API
 
-<img src="https://raw.githubusercontent.com/hkellaway/HNKGooglePlacesAutocomplete/master/example.png" title="demo" height="600" />
+<img src="https://raw.githubusercontent.com/hkellaway/HNKGooglePlacesAutocomplete/develop/images/example.png" title="demo" height="600" />
 
 ## Background
 
