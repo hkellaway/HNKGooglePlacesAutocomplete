@@ -16,14 +16,15 @@
 		DC6F02831AF6F26D000CE728 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC6F02821AF6F26D000CE728 /* MapKit.framework */; };
 		DCA78AFD1AED6AA800F5F3B9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DCA78AFC1AED6AA800F5F3B9 /* main.m */; };
 		DCA78B001AED6AA800F5F3B9 /* HNKDemoAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DCA78AFF1AED6AA800F5F3B9 /* HNKDemoAppDelegate.m */; };
-		DCA78B031AED6AA800F5F3B9 /* HNKDemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DCA78B021AED6AA800F5F3B9 /* HNKDemoViewController.m */; };
-		DCA78B061AED6AA800F5F3B9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DCA78B041AED6AA800F5F3B9 /* Main.storyboard */; };
 		DCA78B081AED6AA800F5F3B9 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DCA78B071AED6AA800F5F3B9 /* Images.xcassets */; };
 		DCA78B0B1AED6AA800F5F3B9 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = DCA78B091AED6AA800F5F3B9 /* LaunchScreen.xib */; };
 		DCA78DAC1B12438200817F8B /* _clang-format in Resources */ = {isa = PBXBuildFile; fileRef = DCA78DAB1B12438200817F8B /* _clang-format */; };
 		DCD575001AF5B74500CE5A23 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCD574FF1AF5B74500CE5A23 /* CoreLocation.framework */; };
 		DCD575071AF6A67000CE5A23 /* CLPlacemark+HNKAdditionsSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = DCD575061AF6A67000CE5A23 /* CLPlacemark+HNKAdditionsSpec.m */; };
+		DCDAAB6C1B7ACC7C00107D29 /* google.png in Resources */ = {isa = PBXBuildFile; fileRef = DCDAAB6B1B7ACC7C00107D29 /* google.png */; };
 		DCFAD4BE1AF32BEC0042BB22 /* HNKGooglePlacesAutocompleteQuerySpec.m in Sources */ = {isa = PBXBuildFile; fileRef = DCFAD4BD1AF32BEC0042BB22 /* HNKGooglePlacesAutocompleteQuerySpec.m */; };
+		E2F468C91B7AA77000FA2667 /* HNKDemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2F468C61B7AA77000FA2667 /* HNKDemoViewController.m */; };
+		E2F468CA1B7AA77000FA2667 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2F468C71B7AA77000FA2667 /* Main.storyboard */; };
 		F506C4906E4964AE559012AE /* libPods-HNKGooglePlacesAutocomplete-Example.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D0EAF8F6FC72B250C169F3BB /* libPods-HNKGooglePlacesAutocomplete-Example.a */; };
 		FF43537F0B40492CE6E305C4 /* libPods-HNKGooglePlacesAutocomplete-ExampleTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 20B87C8F6F397F86222199FF /* libPods-HNKGooglePlacesAutocomplete-ExampleTests.a */; };
 /* End PBXBuildFile section */
@@ -57,9 +58,6 @@
 		DCA78AFC1AED6AA800F5F3B9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		DCA78AFE1AED6AA800F5F3B9 /* HNKDemoAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HNKDemoAppDelegate.h; sourceTree = "<group>"; };
 		DCA78AFF1AED6AA800F5F3B9 /* HNKDemoAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HNKDemoAppDelegate.m; sourceTree = "<group>"; };
-		DCA78B011AED6AA800F5F3B9 /* HNKDemoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HNKDemoViewController.h; sourceTree = "<group>"; };
-		DCA78B021AED6AA800F5F3B9 /* HNKDemoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HNKDemoViewController.m; sourceTree = "<group>"; };
-		DCA78B051AED6AA800F5F3B9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DCA78B071AED6AA800F5F3B9 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		DCA78B0A1AED6AA800F5F3B9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		DCA78B101AED6AA800F5F3B9 /* HNKGooglePlacesAutocomplete-ExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "HNKGooglePlacesAutocomplete-ExampleTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -67,7 +65,11 @@
 		DCA78DAB1B12438200817F8B /* _clang-format */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "_clang-format"; path = "../../_clang-format"; sourceTree = "<group>"; };
 		DCD574FF1AF5B74500CE5A23 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		DCD575061AF6A67000CE5A23 /* CLPlacemark+HNKAdditionsSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CLPlacemark+HNKAdditionsSpec.m"; sourceTree = "<group>"; };
+		DCDAAB6B1B7ACC7C00107D29 /* google.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = google.png; sourceTree = "<group>"; };
 		DCFAD4BD1AF32BEC0042BB22 /* HNKGooglePlacesAutocompleteQuerySpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HNKGooglePlacesAutocompleteQuerySpec.m; sourceTree = "<group>"; };
+		E2F468C61B7AA77000FA2667 /* HNKDemoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HNKDemoViewController.m; sourceTree = "<group>"; };
+		E2F468C71B7AA77000FA2667 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		E2F468C81B7AA77000FA2667 /* HNKDemoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HNKDemoViewController.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,11 +161,12 @@
 		DCA78AF91AED6AA800F5F3B9 /* HNKGooglePlacesAutocomplete-Example */ = {
 			isa = PBXGroup;
 			children = (
+				DCDAAB6A1B7ACC1600107D29 /* Resources */,
 				DCA78AFE1AED6AA800F5F3B9 /* HNKDemoAppDelegate.h */,
 				DCA78AFF1AED6AA800F5F3B9 /* HNKDemoAppDelegate.m */,
-				DCA78B011AED6AA800F5F3B9 /* HNKDemoViewController.h */,
-				DCA78B021AED6AA800F5F3B9 /* HNKDemoViewController.m */,
-				DCA78B041AED6AA800F5F3B9 /* Main.storyboard */,
+				E2F468C81B7AA77000FA2667 /* HNKDemoViewController.h */,
+				E2F468C61B7AA77000FA2667 /* HNKDemoViewController.m */,
+				E2F468C71B7AA77000FA2667 /* Main.storyboard */,
 				DCA78B071AED6AA800F5F3B9 /* Images.xcassets */,
 				DCA78B091AED6AA800F5F3B9 /* LaunchScreen.xib */,
 				DCA78AFA1AED6AA800F5F3B9 /* Supporting Files */,
@@ -198,6 +201,14 @@
 				DCA78B151AED6AA800F5F3B9 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		DCDAAB6A1B7ACC1600107D29 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				DCDAAB6B1B7ACC7C00107D29 /* google.png */,
+			);
+			name = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -285,9 +296,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DCA78B061AED6AA800F5F3B9 /* Main.storyboard in Resources */,
+				E2F468CA1B7AA77000FA2667 /* Main.storyboard in Resources */,
 				DCA78B0B1AED6AA800F5F3B9 /* LaunchScreen.xib in Resources */,
 				DCA78B081AED6AA800F5F3B9 /* Images.xcassets in Resources */,
+				DCDAAB6C1B7ACC7C00107D29 /* google.png in Resources */,
 				DCA78DAC1B12438200817F8B /* _clang-format in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -369,7 +381,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DCA78B031AED6AA800F5F3B9 /* HNKDemoViewController.m in Sources */,
+				E2F468C91B7AA77000FA2667 /* HNKDemoViewController.m in Sources */,
 				DCA78B001AED6AA800F5F3B9 /* HNKDemoAppDelegate.m in Sources */,
 				DCA78AFD1AED6AA800F5F3B9 /* main.m in Sources */,
 			);
@@ -401,14 +413,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		DCA78B041AED6AA800F5F3B9 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				DCA78B051AED6AA800F5F3B9 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		DCA78B091AED6AA800F5F3B9 /* LaunchScreen.xib */ = {
 			isa = PBXVariantGroup;
 			children = (

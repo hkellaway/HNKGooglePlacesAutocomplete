@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="6Ds-Tw-rFp">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--HNKGooglePlacesAutocomplete Demo-->
+        <scene sceneID="tCA-Qd-TLn">
+            <objects>
+                <viewController id="FPY-W5-02u" customClass="HNKDemoViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="SoZ-Wf-Ix3"/>
+                        <viewControllerLayoutGuide type="bottom" id="s2Z-tS-M8I"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="5j3-wg-R9J">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="ow1-Iu-jbe">
+                                <rect key="frame" x="0.0" y="108" width="600" height="492"/>
+                            </mapView>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="YyT-Gs-awo">
+                                <rect key="frame" x="0.0" y="64" width="600" height="44"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                            <tableView hidden="YES" clipsSubviews="YES" alpha="0.75" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="2vt-Ok-OMb">
+                                <rect key="frame" x="0.0" y="108" width="600" height="492"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="HNKDemoSearchResultsCellIdentifier" textLabel="Oxd-5T-twa" style="IBUITableViewCellStyleDefault" id="9Xf-vI-cHg" userLabel="Table View Cell">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="9Xf-vI-cHg" id="LEu-yf-aWI">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Oxd-5T-twa">
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="np0-4d-zKy" userLabel="Google Attribution View">
+                                <rect key="frame" x="0.0" y="580" width="600" height="20"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="google.png" translatesAutoresizingMaskIntoConstraints="NO" id="GSI-Gs-FKu">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="20"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="GSI-Gs-FKu" secondAttribute="trailing" id="H1b-E3-rVu"/>
+                                    <constraint firstAttribute="height" constant="20" id="RRY-XK-Sv0"/>
+                                    <constraint firstItem="GSI-Gs-FKu" firstAttribute="top" secondItem="np0-4d-zKy" secondAttribute="top" id="TwM-Yr-IoE"/>
+                                    <constraint firstAttribute="bottom" secondItem="GSI-Gs-FKu" secondAttribute="bottom" id="UIQ-GX-41K"/>
+                                    <constraint firstItem="GSI-Gs-FKu" firstAttribute="leading" secondItem="np0-4d-zKy" secondAttribute="leading" id="cS0-HA-ITQ"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="2vt-Ok-OMb" firstAttribute="centerX" secondItem="5j3-wg-R9J" secondAttribute="centerX" id="7oH-TM-1bQ"/>
+                            <constraint firstItem="2vt-Ok-OMb" firstAttribute="top" secondItem="YyT-Gs-awo" secondAttribute="bottom" id="C9j-oa-hMJ"/>
+                            <constraint firstItem="2vt-Ok-OMb" firstAttribute="width" secondItem="5j3-wg-R9J" secondAttribute="width" id="O0S-2N-UAY"/>
+                            <constraint firstItem="ow1-Iu-jbe" firstAttribute="top" secondItem="YyT-Gs-awo" secondAttribute="bottom" id="PVF-IU-Gm6"/>
+                            <constraint firstItem="s2Z-tS-M8I" firstAttribute="top" secondItem="np0-4d-zKy" secondAttribute="bottom" id="Qkr-6a-Wdf"/>
+                            <constraint firstItem="np0-4d-zKy" firstAttribute="leading" secondItem="5j3-wg-R9J" secondAttribute="leadingMargin" constant="-16" id="WQ8-ay-dc8"/>
+                            <constraint firstItem="2vt-Ok-OMb" firstAttribute="bottom" secondItem="s2Z-tS-M8I" secondAttribute="top" id="Wk7-7r-DBO"/>
+                            <constraint firstItem="ow1-Iu-jbe" firstAttribute="centerX" secondItem="5j3-wg-R9J" secondAttribute="centerX" id="XJc-XU-9NQ"/>
+                            <constraint firstItem="YyT-Gs-awo" firstAttribute="width" secondItem="5j3-wg-R9J" secondAttribute="width" id="ZLt-7n-GL6"/>
+                            <constraint firstItem="ow1-Iu-jbe" firstAttribute="bottom" secondItem="s2Z-tS-M8I" secondAttribute="top" id="fnf-Iz-0Vq"/>
+                            <constraint firstItem="YyT-Gs-awo" firstAttribute="centerX" secondItem="5j3-wg-R9J" secondAttribute="centerX" id="gys-va-fue"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="np0-4d-zKy" secondAttribute="trailing" constant="-16" id="ju5-1z-DVe"/>
+                            <constraint firstItem="np0-4d-zKy" firstAttribute="width" secondItem="5j3-wg-R9J" secondAttribute="width" id="m7Z-GM-v7w"/>
+                            <constraint firstItem="ow1-Iu-jbe" firstAttribute="width" secondItem="5j3-wg-R9J" secondAttribute="width" id="nOp-Yr-xU5"/>
+                            <constraint firstItem="YyT-Gs-awo" firstAttribute="top" secondItem="SoZ-Wf-Ix3" secondAttribute="bottom" id="yFW-Fz-qg0"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="m7Z-GM-v7w"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <navigationItem key="navigationItem" title="HNKGooglePlacesAutocomplete Demo" id="q9f-Pg-Wkx"/>
+                    <connections>
+                        <outlet property="mapView" destination="ow1-Iu-jbe" id="Atz-qi-xCB"/>
+                        <outlet property="searchBar" destination="YyT-Gs-awo" id="fZf-51-rfv"/>
+                        <outlet property="tableView" destination="2vt-Ok-OMb" id="5Rd-Tn-xnX"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qqF-cN-Ec3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1064" y="163"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Qo3-dz-DHh">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="6Ds-Tw-rFp" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="wtj-Tk-e2I">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="FPY-W5-02u" kind="relationship" relationship="rootViewController" id="fKb-5F-zvd"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="far-Di-7px" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="252" y="163"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="google.png" width="208" height="32"/>
+    </resources>
+</document>
