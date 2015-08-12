@@ -2,28 +2,26 @@
 //  HNKDemoViewController.m
 //  HNKGooglePlacesAutocomplete-Example
 //
-//  Created by Harlan Kellaway on 4/26/15.
+//  Created by Tom OMalley on 8/11/15.
 //  Copyright (c) 2015 Harlan Kellaway. All rights reserved.
 //
 
 #import "HNKDemoViewController.h"
 
-#import <CoreLocation/CLPlacemark.h>
 #import <HNKGooglePlacesAutocomplete/HNKGooglePlacesAutocomplete.h>
 #import <MapKit/MapKit.h>
 
 #import "CLPlacemark+HNKAdditions.h"
 
-static NSString *const kHNKDemoMapAnnotationIdentifier = @"HNKDemoMapAnnotationIdentifier";
 static NSString *const kHNKDemoSearchResultsCellIdentifier = @"HNKDemoSearchResultsCellIdentifier";
 
-@interface HNKDemoViewController () <MKMapViewDelegate, UITableViewDataSource, UITableViewDelegate>
+@interface HNKDemoViewController () <UISearchBarDelegate, UITableViewDataSource, UITableViewDelegate>
 
-@property (nonatomic, strong) MKPointAnnotation *selectedPlaceAnnotation;
-@property (nonatomic, strong) NSArray *searchResults;
-@property (nonatomic, strong) HNKGooglePlacesAutocompleteQuery *searchQuery;
-@property (nonatomic, assign) BOOL shouldBeginEditing;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
+@property (strong, nonatomic) HNKGooglePlacesAutocompleteQuery *searchQuery;
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
+@property (strong, nonatomic) NSArray *searchResults;
 
 @end
 
@@ -32,211 +30,108 @@ static NSString *const kHNKDemoSearchResultsCellIdentifier = @"HNKDemoSearchResu
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
+    
+    self.searchBar.delegate = self;
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
     self.searchQuery = [HNKGooglePlacesAutocompleteQuery sharedQuery];
-    self.shouldBeginEditing = YES;
 }
 
-#pragma mark - Protocol Conformance
+#pragma mark - UITableView DataSource
 
-#pragma mark MKMapView Delegate
-
-- (MKAnnotationView *)mapView:(MKMapView *)mapViewIn viewForAnnotation:(id<MKAnnotation>)annotation
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    if (mapViewIn != self.mapView || [annotation isKindOfClass:[MKUserLocation class]]) {
-        return nil;
-    }
-
-    MKPinAnnotationView *annotationView = (MKPinAnnotationView *)
-        [self.mapView dequeueReusableAnnotationViewWithIdentifier:kHNKDemoMapAnnotationIdentifier];
-
-    if (!annotationView) {
-        annotationView =
-            [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:kHNKDemoMapAnnotationIdentifier];
-    }
-
-    annotationView.animatesDrop = YES;
-    annotationView.canShowCallout = YES;
-
-    UIButton *detailButton = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
-    [detailButton addTarget:self
-                     action:@selector(annotationDetailButtonPressed:)
-           forControlEvents:UIControlEventTouchUpInside];
-    annotationView.rightCalloutAccessoryView = detailButton;
-
-    return annotationView;
+    return self.searchResults.count;
 }
 
-- (void)mapView:(MKMapView *)mapView didAddAnnotationViews:(NSArray *)views
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    [self.mapView selectAnnotation:self.selectedPlaceAnnotation animated:YES];
-}
-
-- (void)annotationDetailButtonPressed:(id)sender
-{
-    NSLog(@"Pin tapped");
-}
-
-#pragma mark UISearchDisplayDelegate
-
-- (void)handleSearchForSearchString:(NSString *)searchString
-{
-    if ([searchString isEqualToString:@""]) {
-
-        [self clearSearchResults];
-
-    } else {
-
-        [self.searchQuery fetchPlacesForSearchQuery:searchString
-                                         completion:^(NSArray *places, NSError *error) {
-                                             if (error) {
-                                                 UIAlertView *alert =
-                                                     [[UIAlertView alloc] initWithTitle:@"Could not fetch Places"
-                                                                                message:error.localizedDescription
-                                                                               delegate:nil
-                                                                      cancelButtonTitle:@"OK"
-                                                                      otherButtonTitles:nil, nil];
-                                                 [alert show];
-                                             } else {
-                                                 self.searchResults = places;
-                                                 [self.searchDisplayController.searchResultsTableView reloadData];
-                                             }
-                                         }];
-    }
-}
-
-- (BOOL)searchDisplayController:(UISearchDisplayController *)controller
-    shouldReloadTableForSearchString:(NSString *)searchString
-{
-    [self handleSearchForSearchString:searchString];
-
-    return YES;
-}
-
-#pragma mark -
-#pragma mark UISearchBar Delegate
-
-- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
-{
-    if (![searchBar isFirstResponder]) {
-        self.shouldBeginEditing = NO;
-        [self.searchDisplayController setActive:NO];
-        [self.mapView removeAnnotation:self.selectedPlaceAnnotation];
-    }
-}
-
-- (BOOL)searchBarShouldBeginEditing:(UISearchBar *)searchBar
-{
-    if (self.shouldBeginEditing) {
-
-        // Animate in the table view.
-        NSTimeInterval animationDuration = 0.3;
-        [UIView beginAnimations:nil context:NULL];
-        [UIView setAnimationDuration:animationDuration];
-        self.searchDisplayController.searchResultsTableView.alpha = 0.75;
-        [UIView commitAnimations];
-
-        [self.searchDisplayController.searchBar setShowsCancelButton:YES animated:YES];
-    }
-
-    BOOL boolToReturn = self.shouldBeginEditing;
-    self.shouldBeginEditing = YES;
-    return boolToReturn;
-}
-
-#pragma mark UITableViewDataSource
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    return [self.searchResults count];
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kHNKDemoSearchResultsCellIdentifier];
-
-    if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
-                                      reuseIdentifier:kHNKDemoSearchResultsCellIdentifier];
-    }
-
-    cell.textLabel.font = [UIFont fontWithName:@"GillSans" size:16.0];
-    cell.textLabel.text = [self placeAtIndexPath:indexPath].name;
-
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kHNKDemoSearchResultsCellIdentifier forIndexPath:indexPath];
+    
+    HNKGooglePlacesAutocompletePlace *thisPlace = self.searchResults[indexPath.row];
+    cell.textLabel.text = thisPlace.name;
     return cell;
 }
 
-#pragma mark UITableViewDelegate
+#pragma mark - UITableView Delegate
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    HNKGooglePlacesAutocompletePlace *place = [self placeAtIndexPath:indexPath];
-    [CLPlacemark hnk_placemarkFromGooglePlace:place
-                                       apiKey:self.searchQuery.apiKey
+    [self.searchBar setShowsCancelButton:NO animated:YES];
+    [self.searchBar resignFirstResponder];
+    
+    HNKGooglePlacesAutocompletePlace *selectedPlace = self.searchResults[indexPath.row];
+    
+    [CLPlacemark hnk_placemarkFromGooglePlace: selectedPlace
+                                       apiKey: self.searchQuery.apiKey
                                    completion:^(CLPlacemark *placemark, NSString *addressString, NSError *error) {
-                                       if (error) {
-                                           UIAlertView *alert =
-                                               [[UIAlertView alloc] initWithTitle:@"Could not map selected Place"
-                                                                          message:error.localizedDescription
-                                                                         delegate:nil
-                                                                cancelButtonTitle:@"OK"
-                                                                otherButtonTitles:nil, nil];
-                                           [alert show];
-                                       } else if (placemark) {
+                                       if (placemark) {
+                                           [self.tableView setHidden: YES];
                                            [self addPlacemarkAnnotationToMap:placemark addressString:addressString];
                                            [self recenterMapToPlacemark:placemark];
-                                           [self.searchDisplayController setActive:NO];
-                                           [self.searchDisplayController.searchResultsTableView
-                                               deselectRowAtIndexPath:indexPath
-                                                             animated:NO];
+                                           [self.tableView deselectRowAtIndexPath:indexPath animated:NO];
                                        }
                                    }];
 }
 
-#pragma mark - Helpers
+#pragma mark - UISearchBar Delegate
 
-- (HNKGooglePlacesAutocompletePlace *)placeAtIndexPath:(NSIndexPath *)indexPath
+-(void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar
 {
-    return self.searchResults[indexPath.row];
+    [searchBar setShowsCancelButton:YES animated:YES];
 }
 
-#pragma mark Map Helpers
+-(void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
+{
+    if(searchText.length > 0)
+    {
+        [self.tableView setHidden:NO];
+    
+        [self.searchQuery fetchPlacesForSearchQuery: searchText
+                                     completion:^(NSArray *places, NSError *error) {
+                                         if (error) {
+                                             NSLog(@"ERROR: %@", error);
+                                         } else {
+                                             self.searchResults = places;
+                                             [self.tableView reloadData];
+                                         }
+                                     }];
+    }
+}
+
+-(void)searchBarCancelButtonClicked:(UISearchBar *)searchBar
+{
+    searchBar.text = @"";
+    [searchBar setShowsCancelButton:NO animated:YES];
+    [searchBar resignFirstResponder];
+    [self.tableView setHidden:YES];
+}
+
+#pragma mark - Helpers
 
 - (void)addPlacemarkAnnotationToMap:(CLPlacemark *)placemark addressString:(NSString *)address
 {
-    [self.mapView removeAnnotation:self.selectedPlaceAnnotation];
-
-    self.selectedPlaceAnnotation = [[MKPointAnnotation alloc] init];
-    self.selectedPlaceAnnotation.coordinate = placemark.location.coordinate;
-    self.selectedPlaceAnnotation.title = address;
-
-    [self.mapView addAnnotation:self.selectedPlaceAnnotation];
+    [self.mapView removeAnnotations:self.mapView.annotations];
+    
+    MKPointAnnotation *annotation = [[MKPointAnnotation alloc] init];
+    annotation.coordinate = placemark.location.coordinate;
+    annotation.title = address;
+    
+    [self.mapView addAnnotation:annotation];
 }
 
 - (void)recenterMapToPlacemark:(CLPlacemark *)placemark
 {
     MKCoordinateRegion region;
     MKCoordinateSpan span;
-
+    
     span.latitudeDelta = 0.02;
     span.longitudeDelta = 0.02;
-
+    
     region.span = span;
     region.center = placemark.location.coordinate;
-
-    [self.mapView setRegion:region];
-}
-
-#pragma mark Search Helpers
-
-- (void)clearSearchResults
-{
-    self.searchResults = @[];
-}
-
-- (void)handleSearchError:(NSError *)error
-{
-    NSLog(@"ERROR = %@", error);
+    
+    [self.mapView setRegion:region animated:YES];
 }
 
 @end
