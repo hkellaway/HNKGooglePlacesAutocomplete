@@ -8,7 +8,7 @@
 
 An Objective-C wrapper for the Google Places Autocomplete API
 
-<img src="https://raw.githubusercontent.com/hkellaway/HNKGooglePlacesAutocomplete/develop/images/example.png" title="demo" height="600" />
+<img src="https://raw.githubusercontent.com/hkellaway/HNKGooglePlacesAutocomplete/master/images/example.png" title="demo" height="600" />
 
 ## Background
 
@@ -30,7 +30,7 @@ Improvements include:
 
 ### Mantle
 
-As of version 1.1, HNKGooglePlacesAutocomplete uses Mantle 2.0. If you require Mantle 1.5, version 1.0.1 can be used - however, note that that only version 1.1+ will incorporate new updates.
+As of version 1.1, HNKGooglePlacesAutocomplete uses Mantle 2.0. If you require Mantle 1.x, version 1.0.1 can be used - however, note that that only version 1.1+ will incorporate new updates.
 
 ## Getting Started
 
@@ -237,6 +237,8 @@ For example, if a user types "Amoeba" and a resulting Place suggestion had a `na
 ## Credits
 
 HNKGooglePlacesAutocomplete was created by [Harlan Kellaway](http://harlankellaway.com). It was inspired by [SPGooglePlacesAutocomplete](https://github.com/spoletto/SPGooglePlacesAutocomplete).
+
+Thanks to all [contributors](https://github.com/hkellaway/HNKGooglePlacesAutocomplete/contributors) :tada:
 
 ## License & Terms
 
