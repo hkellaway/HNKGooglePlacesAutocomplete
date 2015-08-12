@@ -21,6 +21,7 @@
 		DCA78DAC1B12438200817F8B /* _clang-format in Resources */ = {isa = PBXBuildFile; fileRef = DCA78DAB1B12438200817F8B /* _clang-format */; };
 		DCD575001AF5B74500CE5A23 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCD574FF1AF5B74500CE5A23 /* CoreLocation.framework */; };
 		DCD575071AF6A67000CE5A23 /* CLPlacemark+HNKAdditionsSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = DCD575061AF6A67000CE5A23 /* CLPlacemark+HNKAdditionsSpec.m */; };
+		DCDAAB6C1B7ACC7C00107D29 /* google.png in Resources */ = {isa = PBXBuildFile; fileRef = DCDAAB6B1B7ACC7C00107D29 /* google.png */; };
 		DCFAD4BE1AF32BEC0042BB22 /* HNKGooglePlacesAutocompleteQuerySpec.m in Sources */ = {isa = PBXBuildFile; fileRef = DCFAD4BD1AF32BEC0042BB22 /* HNKGooglePlacesAutocompleteQuerySpec.m */; };
 		E2F468C91B7AA77000FA2667 /* HNKDemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2F468C61B7AA77000FA2667 /* HNKDemoViewController.m */; };
 		E2F468CA1B7AA77000FA2667 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2F468C71B7AA77000FA2667 /* Main.storyboard */; };
@@ -64,6 +65,7 @@
 		DCA78DAB1B12438200817F8B /* _clang-format */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "_clang-format"; path = "../../_clang-format"; sourceTree = "<group>"; };
 		DCD574FF1AF5B74500CE5A23 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		DCD575061AF6A67000CE5A23 /* CLPlacemark+HNKAdditionsSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CLPlacemark+HNKAdditionsSpec.m"; sourceTree = "<group>"; };
+		DCDAAB6B1B7ACC7C00107D29 /* google.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = google.png; sourceTree = "<group>"; };
 		DCFAD4BD1AF32BEC0042BB22 /* HNKGooglePlacesAutocompleteQuerySpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HNKGooglePlacesAutocompleteQuerySpec.m; sourceTree = "<group>"; };
 		E2F468C61B7AA77000FA2667 /* HNKDemoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HNKDemoViewController.m; sourceTree = "<group>"; };
 		E2F468C71B7AA77000FA2667 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
@@ -159,6 +161,7 @@
 		DCA78AF91AED6AA800F5F3B9 /* HNKGooglePlacesAutocomplete-Example */ = {
 			isa = PBXGroup;
 			children = (
+				DCDAAB6A1B7ACC1600107D29 /* Resources */,
 				DCA78AFE1AED6AA800F5F3B9 /* HNKDemoAppDelegate.h */,
 				DCA78AFF1AED6AA800F5F3B9 /* HNKDemoAppDelegate.m */,
 				E2F468C81B7AA77000FA2667 /* HNKDemoViewController.h */,
@@ -198,6 +201,14 @@
 				DCA78B151AED6AA800F5F3B9 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		DCDAAB6A1B7ACC1600107D29 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				DCDAAB6B1B7ACC7C00107D29 /* google.png */,
+			);
+			name = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -288,6 +299,7 @@
 				E2F468CA1B7AA77000FA2667 /* Main.storyboard in Resources */,
 				DCA78B0B1AED6AA800F5F3B9 /* LaunchScreen.xib in Resources */,
 				DCA78B081AED6AA800F5F3B9 /* Images.xcassets in Resources */,
+				DCDAAB6C1B7ACC7C00107D29 /* google.png in Resources */,
 				DCA78DAC1B12438200817F8B /* _clang-format in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
