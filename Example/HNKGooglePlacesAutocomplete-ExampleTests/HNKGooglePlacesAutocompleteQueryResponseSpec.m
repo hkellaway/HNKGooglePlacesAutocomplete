@@ -12,8 +12,8 @@
 
 SPEC_BEGIN(HNKGooglePlacesAutocompleteQueryResponseSpec)
 
-__block HNKGooglePlacesAutocompleteQueryResponse *testInstance;
 __block NSDictionary *json;
+__block NSDictionary *errorJSON;
 
 beforeAll(^{
 
@@ -35,52 +35,82 @@ beforeAll(^{
             }
         ],
         @"status" : @"OK"
-    };
-
-    testInstance = [HNKGooglePlacesAutocompleteQueryResponse modelFromJSONDictionary:json];
+        };
+    
+    errorJSON = @{
+                  @"error_message" : @"The provided API key is invalid.",
+                  @"predictions" : @[],
+                  @"status" : @"REQUEST_DENIED"
+                  };
 
 });
 
 describe(@"HNKGooglePlacesAutocompleteQueryResponse", ^{
 
-    specify(^{
-
-        [[testInstance should] beNonNil];
-
-    });
-
     describe(@"Deserialization",
              ^{
+                 
+                 context(@"Places returned", ^ {
+                     
+                     __block HNKGooglePlacesAutocompleteQueryResponse *testInstance;
+                     
+                     beforeEach(^ {
+                         
+                         testInstance = [HNKGooglePlacesAutocompleteQueryResponse modelFromJSONDictionary:json];
+                         
+                     });
 
-                 it(@"Should assign properties correctly",
-                    ^{
-                        [[theValue(testInstance.status) should]
-                            equal:theValue(HNKGooglePlacesAutocompleteQueryResponseStatusOK)];
-
-                        HNKGooglePlacesAutocompletePlace *place = testInstance.places[0];
-                        [[place.name should] equal:@"Victoria, BC, Canadá"];
-
-                        HNKGooglePlacesAutocompletePlaceSubstring *substring = place.substrings[0];
-                        [[theValue(substring.length) should] equal:theValue(4)];
-                        [[theValue(substring.offset) should] equal:theValue(0)];
-
-                        [[place.placeId should] equal:@"ChIJcWGw3Ytzj1QR7Ui7HnTz6Dg"];
-
-                        HNKGooglePlacesAutocompletePlaceTerm *term1 = place.terms[0];
-                        HNKGooglePlacesAutocompletePlaceTerm *term2 = place.terms[1];
-                        HNKGooglePlacesAutocompletePlaceTerm *term3 = place.terms[2];
-                        [[theValue(term1.offset) should] equal:theValue(0)];
-                        [[term1.value should] equal:@"Victoria"];
-                        [[theValue(term2.offset) should] equal:theValue(10)];
-                        [[term2.value should] equal:@"BC"];
-                        [[theValue(term3.offset) should] equal:theValue(14)];
-                        [[term3.value should] equal:@"Canadá"];
-
-                        [[place.types[0] should] equal:theValue(HNKGooglePlaceTypeLocality)];
-                        [[place.types[1] should] equal:theValue(HNKGooglePlaceTypePolitical)];
-                        [[place.types[2] should] equal:theValue(HNKGooglePlaceTypeGeocode)];
-
-                    });
+                     it(@"Should assign properties correctly",
+                        ^{
+                            [[theValue(testInstance.status) should]
+                             equal:theValue(HNKGooglePlacesAutocompleteQueryResponseStatusOK)];
+                            [[testInstance.errorMessage should] beNil];
+                            
+                            HNKGooglePlacesAutocompletePlace *place = testInstance.places[0];
+                            [[place.name should] equal:@"Victoria, BC, Canadá"];
+                            
+                            HNKGooglePlacesAutocompletePlaceSubstring *substring = place.substrings[0];
+                            [[theValue(substring.length) should] equal:theValue(4)];
+                            [[theValue(substring.offset) should] equal:theValue(0)];
+                            
+                            [[place.placeId should] equal:@"ChIJcWGw3Ytzj1QR7Ui7HnTz6Dg"];
+                            
+                            HNKGooglePlacesAutocompletePlaceTerm *term1 = place.terms[0];
+                            HNKGooglePlacesAutocompletePlaceTerm *term2 = place.terms[1];
+                            HNKGooglePlacesAutocompletePlaceTerm *term3 = place.terms[2];
+                            [[theValue(term1.offset) should] equal:theValue(0)];
+                            [[term1.value should] equal:@"Victoria"];
+                            [[theValue(term2.offset) should] equal:theValue(10)];
+                            [[term2.value should] equal:@"BC"];
+                            [[theValue(term3.offset) should] equal:theValue(14)];
+                            [[term3.value should] equal:@"Canadá"];
+                            
+                            [[place.types[0] should] equal:theValue(HNKGooglePlaceTypeLocality)];
+                            [[place.types[1] should] equal:theValue(HNKGooglePlaceTypePolitical)];
+                            [[place.types[2] should] equal:theValue(HNKGooglePlaceTypeGeocode)];
+                            
+                        });
+                 });
+                 
+                 context(@"Error returned", ^ {
+                     
+                     __block HNKGooglePlacesAutocompleteQueryResponse *testInstance;
+                     
+                     beforeEach(^ {
+                         
+                         testInstance = [HNKGooglePlacesAutocompleteQueryResponse modelFromJSONDictionary:errorJSON];
+                         
+                     });
+                     
+                     it(@"Should assign properties correctly",
+                        ^{
+                            [[theValue(testInstance.status) should]
+                             equal:theValue(HNKGooglePlacesAutocompleteQueryResponseStatusRequestDenied)];
+                            [[testInstance.errorMessage should] equal:@"The provided API key is invalid."];
+                            [[testInstance.places should] beEmpty];
+                            
+                        });
+                 });
 
              });
 
