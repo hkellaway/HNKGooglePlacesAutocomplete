@@ -8,7 +8,7 @@
 
 An Objective-C wrapper for the Google Places Autocomplete API
 
-<img src="https://raw.githubusercontent.com/hkellaway/HNKGooglePlacesAutocomplete/master/example.png" title="demo" height="600" />
+<img src="https://raw.githubusercontent.com/hkellaway/HNKGooglePlacesAutocomplete/master/images/example.png" title="demo" height="600" />
 
 ## Background
 
@@ -30,7 +30,7 @@ Improvements include:
 
 ### Mantle
 
-As of version 1.1, HNKGooglePlacesAutocomplete uses Mantle 2.0. If you require Mantle 1.5, version 1.0.1 can be used - however, note that that only version 1.1+ will incorporate new updates.
+As of version 1.1, HNKGooglePlacesAutocomplete uses Mantle 2.0. If you require Mantle 1.x, version 1.0.1 can be used - however, note that that only version 1.1+ will incorporate new updates.
 
 ## Getting Started
 
@@ -53,7 +53,7 @@ HNKGooglePlacesAutocomplete uses the [Google Places Autocomplete API](https://de
 
 * Create a [Google Developer account](https://developers.google.com/)
 * Create a new Project
-* Turn on the Places API
+* Turn on the Google Places API Web Service
 * Find your API key in your Project's API Credentials
 
 ### CoreLocation Framework
@@ -238,8 +238,14 @@ For example, if a user types "Amoeba" and a resulting Place suggestion had a `na
 
 HNKGooglePlacesAutocomplete was created by [Harlan Kellaway](http://harlankellaway.com). It was inspired by [SPGooglePlacesAutocomplete](https://github.com/spoletto/SPGooglePlacesAutocomplete).
 
+Thanks to all [contributors](https://github.com/hkellaway/HNKGooglePlacesAutocomplete/contributors) :tada:
+
 ## License & Terms
 
 HNKGooglePlacesAutocomplete uses the Google Places API and is bound under [Google's Places API Policies](https://developers.google.com/places/webservice/policies).
 
 HNKGooglePlacesAutocomplete is available under the MIT license. See the [LICENSE](https://raw.githubusercontent.com/hkellaway/HNKGooglePlacesAutocomplete/master/LICENSE) file for more info.
+
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/hkellaway/hnkgoogleplacesautocomplete/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+

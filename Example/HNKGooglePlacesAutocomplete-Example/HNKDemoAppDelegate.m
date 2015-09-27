@@ -11,7 +11,8 @@
 #import <HNKGooglePlacesAutocomplete/HNKGooglePlacesAutocompleteQuery.h>
 
 #warning Replace YOUR_API_KEY with your Google Places API key
-static NSString *const kHNKDemoGooglePlacesAutocompleteApiKey = @"YOUR_API_KEY";
+static NSString *const kHNKDemoGooglePlacesAutocompleteApiKey = @"AIzaSyD7G3cmW8quLO2iUg5TkRBamusEg1MTZH4";
+//static NSString *const kHNKDemoGooglePlacesAutocompleteApiKey = @"a";
 
 @interface HNKDemoAppDelegate ()
 
@@ -21,7 +22,9 @@ static NSString *const kHNKDemoGooglePlacesAutocompleteApiKey = @"YOUR_API_KEY";
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    [HNKGooglePlacesAutocompleteQuery setupSharedQueryWithAPIKey:kHNKDemoGooglePlacesAutocompleteApiKey];
+    [HNKGooglePlacesAutocompleteQuery setupSharedQueryWithAPIKey:kHNKDemoGooglePlacesAutocompleteApiKey configurationBlock:^(HNKGooglePlacesAutocompleteQueryConfig *config) {
+        config.offset = 2;
+    }];
 
     return YES;
 }
