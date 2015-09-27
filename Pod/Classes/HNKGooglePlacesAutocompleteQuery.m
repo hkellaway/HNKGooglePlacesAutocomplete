@@ -27,7 +27,7 @@
 #import "HNKGooglePlacesServer.h"
 #import "HNKGooglePlacesAutocompleteQueryResponse.h"
 
-#pragma mark Error Domain
+#pragma mark Error Constants
 
 NSString *const HNKGooglePlacesAutocompleteQueryErrorDomain = @"com.hnkgoogleplacesautocomplete.query.fetch.error";
 
@@ -51,6 +51,14 @@ static NSString *const HNKGooglePlacesAutocompleteQueryStatusDescriptionZeroResu
 static NSString *const HNKGooglePlacesAutocompleteQueryStatusDescriptionServerRequestFailed =
     @"Non-API error occurred while making a request to the server.";
 static NSString *const HNKGooglePlacesAutocompleteQueryStatusDescriptionSearchQueryNil = @"Search query cannot be nil.";
+
+#pragma mark Enums
+
+typedef NS_ENUM(NSInteger, HNKGooglePlacesAutocompleteQueryType) {
+    HNKGooglePlacesAutocompleteQueryTypeValid,
+    HNKGooglePlacesAutocompleteQueryTypeEmpty,
+    HNKGooglePlacesAutocompleteQueryTypeNil
+};
 
 @interface HNKGooglePlacesAutocompleteQuery ()
 
@@ -145,18 +153,21 @@ static HNKGooglePlacesAutocompleteQuery *sharedQuery = nil;
     if (configBlock) {
         configBlock(configForRequest);
     }
-
-    BOOL isInvalidSearchQuery = [self isInvalidSearchQuery:searchQuery];
-
-    if ([self shouldMakeServerRequestForSearchQuery:searchQuery] && !isInvalidSearchQuery) {
-
-        [self serverRequestWithSearchQuery:searchQuery configuration:configForRequest completion:completion];
-
+    
+    if ([self shouldMakeServerRequestForSearchQuery:searchQuery]) {
+        
+        HNKGooglePlacesAutocompleteQueryType searchQueryType = [self searchQueryTypeForSearchQuery:searchQuery];
+        
+        if (searchQueryType == HNKGooglePlacesAutocompleteQueryTypeValid) {
+            
+            [self serverRequestWithSearchQuery:searchQuery configuration:configForRequest completion:completion];
+        } else {
+            
+            [self completeWithErrorForInvalidSearchQueryOfType:searchQueryType completion:completion];
+        }
     } else {
-
-        if (isInvalidSearchQuery) {
-
-            [self completeWithErrorForInvalidSearchQuery:searchQuery completion:completion];
+        if (completion) {
+            completion(@[], nil);
         }
     }
 }
@@ -171,12 +182,15 @@ static HNKGooglePlacesAutocompleteQuery *sharedQuery = nil;
     return hasNoOffset || doesMeetOffset;
 }
 
-- (BOOL)isInvalidSearchQuery:(NSString *)searchQuery
+- (HNKGooglePlacesAutocompleteQueryType)searchQueryTypeForSearchQuery:(NSString *)searchQuery
 {
-    BOOL isNil = searchQuery == nil;
-    BOOL isEmpty = [searchQuery isEqualToString:@""];
-
-    return (isNil || isEmpty);
+    if (searchQuery == nil) {
+        return HNKGooglePlacesAutocompleteQueryTypeNil;
+    } else if ([searchQuery isEqualToString:@""]) {
+        return HNKGooglePlacesAutocompleteQueryTypeEmpty;
+    } else {
+        return HNKGooglePlacesAutocompleteQueryTypeValid;
+    }
 }
 
 - (void)serverRequestWithSearchQuery:(NSString *)searchQuery
@@ -244,19 +258,15 @@ static HNKGooglePlacesAutocompleteQuery *sharedQuery = nil;
     completion(nil, errorToReturn);
 }
 
-- (void)completeWithErrorForInvalidSearchQuery:(NSString *)searchQuery
-                                    completion:(HNKGooglePlacesAutocompleteQueryCallback)completion
+- (void)completeWithErrorForInvalidSearchQueryOfType:(HNKGooglePlacesAutocompleteQueryType)type
+                                          completion:(HNKGooglePlacesAutocompleteQueryCallback)completion
 {
-    if (searchQuery == nil) {
-
+    if (type == HNKGooglePlacesAutocompleteQueryTypeNil) {
         [self completeForSearchQueryNil:completion];
-        return;
-    }
-
-    if ([searchQuery isEqualToString:@""]) {
-
+    } else if (type == HNKGooglePlacesAutocompleteQueryTypeEmpty) {
         [self completeForSearchQueryEmpty:completion];
-        return;
+    } else {
+        NSAssert(FALSE, @"Unknown invalid search query type.");
     }
 }
 
