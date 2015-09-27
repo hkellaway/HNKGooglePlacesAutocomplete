@@ -34,7 +34,9 @@
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey
 {
-    return @{ @"places" : @"predictions", @"status" : @"status" };
+    return @{ @"places" : @"predictions",
+              @"status" : @"status",
+              @"errorMessage" : @"error_message"};
 }
 
 + (NSValueTransformer *)placesJSONTransformer

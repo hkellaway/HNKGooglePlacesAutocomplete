@@ -241,7 +241,7 @@ static HNKGooglePlacesAutocompleteQuery *sharedQuery = nil;
 {
     HNKGooglePlacesAutocompleteQueryResponse *queryResponse =
         [HNKGooglePlacesAutocompleteQueryResponse modelFromJSONDictionary:JSON];
-    NSError *statusError = [self customErrorForStatus:queryResponse.status];
+    NSError *statusError = [self customErrorForErrorMessage:queryResponse.errorMessage status:queryResponse.status];
 
     if (statusError) {
 
@@ -298,6 +298,15 @@ static HNKGooglePlacesAutocompleteQuery *sharedQuery = nil;
     NSError *error = [self customErrorForStatus:HNKGooglePlacesAutocompleteQueryResponseStatusInvalidRequest];
 
     completion(nil, error);
+}
+
+- (NSError *)customErrorForErrorMessage:(NSString *)errorMessage status:(HNKGooglePlacesAutocompleteQueryResponseStatus)status
+{
+    if (errorMessage && ![errorMessage isEqualToString:@""]) {
+        return [self customErrorWithCode:status andDescription:errorMessage];
+    } else {
+        return [self customErrorForStatus:status];
+    }
 }
 
 - (NSError *)customErrorForStatus:(HNKGooglePlacesAutocompleteQueryResponseStatus)status

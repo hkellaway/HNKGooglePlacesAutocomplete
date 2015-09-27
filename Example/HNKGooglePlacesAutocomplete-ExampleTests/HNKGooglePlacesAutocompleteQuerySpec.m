@@ -405,49 +405,142 @@ describe(@"HNKGooglePlacesAutocompleteQuery", ^{
                             context(
                                 @"With bad status code",
                                 ^{
-                                    beforeEach(^{
-
-                                        NSDictionary *statusErrorJSON =
+                                    context(@"No API error message", ^{
+                                        
+                                        beforeEach(^{
+                                            
+                                            NSDictionary *statusErrorJSON =
                                             @{ @"predictions" : @[],
                                                @"status" : @"REQUEST_DENIED" };
-
-                                        [HNKGooglePlacesServer stub:@selector(GET:parameters:completion:)
-                                                          withBlock:^id(NSArray *params) {
-
-                                                              HNKGooglePlacesServerCallback completion = params[2];
-                                                              completion(statusErrorJSON, nil);
-
-                                                              return nil;
-
-                                                          }];
-
+                                            
+                                            [HNKGooglePlacesServer stub:@selector(GET:parameters:completion:)
+                                                              withBlock:^id(NSArray *params) {
+                                                                  
+                                                                  HNKGooglePlacesServerCallback completion = params[2];
+                                                                  completion(statusErrorJSON, nil);
+                                                                  
+                                                                  return nil;
+                                                                  
+                                                              }];
+                                            
+                                        });
+                                        
+                                        it(@"Should return custom error with custom description",
+                                           ^{
+                                               __block NSError *errorToRecieve;
+                                               NSError *expectedError = [NSError
+                                                                         errorWithDomain:HNKGooglePlacesAutocompleteQueryErrorDomain
+                                                                         code:
+                                                                         HNKGooglePlacesAutocompleteQueryResponseStatusRequestDenied
+                                                                         userInfo:@{
+                                                                                    @"NSLocalizedDescription" :
+                                                                                        HNKGooglePlacesAutocompleteQueryDescriptionForErrorCode(
+                                                                                                                                                HNKGooglePlacesAutocompleteQueryErrorCodeRequestDenied),
+                                                                                    @"NSLocalizedFailureReason" :
+                                                                                        HNKGooglePlacesAutocompleteQueryDescriptionForErrorCode(
+                                                                                                                                                HNKGooglePlacesAutocompleteQueryErrorCodeRequestDenied)
+                                                                                    }];
+                                               
+                                               [testInstance fetchPlacesForSearchQuery:@"Vict"
+                                                                            completion:^(NSArray *places, NSError *error) {
+                                                                                errorToRecieve = error;
+                                                                            }];
+                                               
+                                               [[errorToRecieve should] equal:expectedError];
+                                               
+                                           });
                                     });
-
-                                    it(@"Should return custom error",
-                                       ^{
-                                           __block NSError *errorToRecieve;
-                                           NSError *expectedError = [NSError
-                                               errorWithDomain:HNKGooglePlacesAutocompleteQueryErrorDomain
-                                                          code:
-                                                              HNKGooglePlacesAutocompleteQueryResponseStatusRequestDenied
-                                                      userInfo:@{
-                                                          @"NSLocalizedDescription" :
-                                                              HNKGooglePlacesAutocompleteQueryDescriptionForErrorCode(
-                                                                  HNKGooglePlacesAutocompleteQueryErrorCodeRequestDenied),
-                                                          @"NSLocalizedFailureReason" :
-                                                              HNKGooglePlacesAutocompleteQueryDescriptionForErrorCode(
-                                                                  HNKGooglePlacesAutocompleteQueryErrorCodeRequestDenied)
-                                                      }];
-
-                                           [testInstance fetchPlacesForSearchQuery:@"Vict"
-                                                                        completion:^(NSArray *places, NSError *error) {
-                                                                            errorToRecieve = error;
-                                                                        }];
-
-                                           [[errorToRecieve should] equal:expectedError];
-
-                                       });
-
+                                    
+                                    context(@"Empty API error message", ^{
+                                        
+                                        beforeEach(^{
+                                            
+                                            NSDictionary *statusErrorJSON =
+                                            @{ @"predictions" : @[],
+                                               @"status" : @"REQUEST_DENIED",
+                                               @"error_message" : @"" };
+                                            
+                                            [HNKGooglePlacesServer stub:@selector(GET:parameters:completion:)
+                                                              withBlock:^id(NSArray *params) {
+                                                                  
+                                                                  HNKGooglePlacesServerCallback completion = params[2];
+                                                                  completion(statusErrorJSON, nil);
+                                                                  
+                                                                  return nil;
+                                                                  
+                                                              }];
+                                            
+                                        });
+                                        
+                                        it(@"Should return custom error with custom description",
+                                           ^{
+                                               __block NSError *errorToRecieve;
+                                               NSError *expectedError = [NSError
+                                                                         errorWithDomain:HNKGooglePlacesAutocompleteQueryErrorDomain
+                                                                         code:
+                                                                         HNKGooglePlacesAutocompleteQueryResponseStatusRequestDenied
+                                                                         userInfo:@{
+                                                                                    @"NSLocalizedDescription" :
+                                                                                        HNKGooglePlacesAutocompleteQueryDescriptionForErrorCode(
+                                                                                                                                                HNKGooglePlacesAutocompleteQueryErrorCodeRequestDenied),
+                                                                                    @"NSLocalizedFailureReason" :
+                                                                                        HNKGooglePlacesAutocompleteQueryDescriptionForErrorCode(
+                                                                                                                                                HNKGooglePlacesAutocompleteQueryErrorCodeRequestDenied)
+                                                                                    }];
+                                               
+                                               [testInstance fetchPlacesForSearchQuery:@"Vict"
+                                                                            completion:^(NSArray *places, NSError *error) {
+                                                                                errorToRecieve = error;
+                                                                            }];
+                                               
+                                               [[errorToRecieve should] equal:expectedError];
+                                               
+                                           });
+                                    });
+                                    
+                                    context(@"Non-empty API error message", ^{
+                                        
+                                        beforeEach(^{
+                                            
+                                            NSDictionary *statusErrorJSON =
+                                            @{ @"predictions" : @[],
+                                               @"status" : @"REQUEST_DENIED",
+                                               @"error_message" : @"The provided API key is invalid." };
+                                            
+                                            [HNKGooglePlacesServer stub:@selector(GET:parameters:completion:)
+                                                              withBlock:^id(NSArray *params) {
+                                                                  
+                                                                  HNKGooglePlacesServerCallback completion = params[2];
+                                                                  completion(statusErrorJSON, nil);
+                                                                  
+                                                                  return nil;
+                                                                  
+                                                              }];
+                                            
+                                        });
+                                        
+                                        it(@"Should return custom error with API error message",
+                                           ^{
+                                               __block NSError *errorToRecieve;
+                                               NSError *expectedError = [NSError
+                                                                         errorWithDomain:HNKGooglePlacesAutocompleteQueryErrorDomain
+                                                                         code:
+                                                                         HNKGooglePlacesAutocompleteQueryResponseStatusRequestDenied
+                                                                         userInfo:@{
+                                                                                    @"NSLocalizedDescription" :  @"The provided API key is invalid.",
+                                                                                    @"NSLocalizedFailureReason" :  @"The provided API key is invalid."
+                                                                                    }];
+                                               
+                                               [testInstance fetchPlacesForSearchQuery:@"Vict"
+                                                                            completion:^(NSArray *places, NSError *error) {
+                                                                                errorToRecieve = error;
+                                                                            }];
+                                               
+                                               [[errorToRecieve should] equal:expectedError];
+                                               
+                                           });
+                                    });
+                                    
                                 });
                         });
 

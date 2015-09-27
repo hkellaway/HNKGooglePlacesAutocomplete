@@ -71,4 +71,10 @@ typedef NS_ENUM(NSInteger, HNKGooglePlacesAutocompleteQueryResponseStatus) {
  */
 @property (nonatomic, assign, readonly) HNKGooglePlacesAutocompleteQueryResponseStatus status;
 
+/**
+ *  When the status code returned is other than OK, this may hold
+ *  additional information about the reasons behind the given status code.
+ */
+@property (nonatomic, copy, readonly) NSString *errorMessage;
+
 @end

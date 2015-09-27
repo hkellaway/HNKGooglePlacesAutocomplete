@@ -1,7 +1,8 @@
 language: objective-c
-install:
-  - brew remove --force xctool
-  - brew install xctool --HEAD
+osx_image: xcode7
+xcode_project: Example/HNKGooglePlacesAutocomplete-Example.xcworkspace
+xcode_scheme: HNKGooglePlacesAutocomplete-Example
+podfile: Example/Podfile
 
 script:
-   - xctool test -workspace Example/HNKGooglePlacesAutocomplete-Example.xcworkspace -scheme HNKGooglePlacesAutocomplete-Example -sdk iphonesimulator8.1
+   - xcodebuild test -workspace Example/HNKGooglePlacesAutocomplete-Example.xcworkspace -scheme HNKGooglePlacesAutocomplete-Example -sdk iphonesimulator
