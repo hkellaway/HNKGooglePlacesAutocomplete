@@ -88,6 +88,13 @@
  */
 + (instancetype)configWithConfig:(HNKGooglePlacesAutocompleteQueryConfig *)config;
 
+/**
+ *  Config object with default configuration values..
+ *
+ *  @return Default configuration.
+ */
++ (instancetype)defaultConfig;
+
 #pragma mark - Methods
 
 /**
