@@ -135,13 +135,6 @@ static HNKGooglePlacesAutocompleteQuery *sharedQuery = nil;
     return defaultConfiguration;
 }
 
-#pragma mark - Getters
-
-- (NSString *)apiKey
-{
-    return _apiKey;
-}
-
 #pragma mark - Requests
 
 - (void)fetchPlacesForSearchQuery:(NSString *)searchQuery
