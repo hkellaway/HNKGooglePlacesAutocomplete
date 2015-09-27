@@ -91,6 +91,7 @@ static NSString *const kHNKDemoSearchResultsCellIdentifier = @"HNKDemoSearchResu
                                      completion:^(NSArray *places, NSError *error) {
                                          if (error) {
                                              NSLog(@"ERROR: %@", error);
+                                             [self handleSearchError:error];
                                          } else {
                                              self.searchResults = places;
                                              [self.tableView reloadData];
@@ -132,6 +133,17 @@ static NSString *const kHNKDemoSearchResultsCellIdentifier = @"HNKDemoSearchResu
     region.center = placemark.location.coordinate;
     
     [self.mapView setRegion:region animated:YES];
+}
+
+- (void)handleSearchError:(NSError *)error
+{
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Error"
+                                                                   message:error.localizedDescription
+                                                            preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil];
+    
+    [alert addAction:cancelAction];
+    [self presentViewController:alert animated:YES completion:nil];
 }
 
 @end
