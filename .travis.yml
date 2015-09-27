@@ -6,3 +6,4 @@ podfile: Example/Podfile
 
 script:
    - xcodebuild test -workspace Example/HNKGooglePlacesAutocomplete-Example.xcworkspace -scheme HNKGooglePlacesAutocomplete-Example -sdk iphonesimulator
+   - pod lib lint --quick
