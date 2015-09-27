@@ -14,6 +14,56 @@ SPEC_BEGIN(HNKGooglePlacesAutocompleteQueryConfigSpec)
 
 describe(@"HNKGooglePlacesAutocompleteQueryConfig", ^{
 
+    describe(@"configWithConfig", ^{
+        
+        __block HNKGooglePlacesAutocompleteQueryConfig *testInstance;
+        
+        beforeEach(^{
+            
+            HNKGooglePlacesAutocompleteQueryConfig *testConfig = [[HNKGooglePlacesAutocompleteQueryConfig alloc] init];
+            testConfig.country = @"fr";
+            testConfig.filter = HNKGooglePlaceTypeAutocompleteFilterCity;
+            testConfig.language = @"pt";
+            testConfig.latitude = 100;
+            testConfig.longitude = 50;
+            testConfig.offset = 3;
+            testConfig.searchRadius = 100000;
+            
+            testInstance = [HNKGooglePlacesAutocompleteQueryConfig configWithConfig:testConfig];
+            
+        });
+        
+        it(@"Should return a new config with same config values", ^{
+        
+            [[testInstance.country should] equal:@"fr"];
+            [[theValue(testInstance.filter) should] equal:theValue(HNKGooglePlaceTypeAutocompleteFilterCity)];
+            [[testInstance.language should] equal:@"pt"];
+            [[theValue(testInstance.latitude) should] equal:theValue(100)];
+            [[theValue(testInstance.longitude) should] equal:theValue(50)];
+            [[theValue(testInstance.offset) should] equal:theValue(3)];
+            [[theValue(testInstance.searchRadius) should] equal:theValue(100000)];
+        
+        });
+    });
+    
+    describe(@"defaultConfig", ^{
+        
+        it(@"Should have default config values", ^{
+            
+            HNKGooglePlacesAutocompleteQueryConfig *defaultConfig = [HNKGooglePlacesAutocompleteQueryConfig defaultConfig];
+            
+            [[defaultConfig.country should] beNil];
+            [[theValue(defaultConfig.filter) should] equal:theValue(HNKGooglePlaceTypeAutocompleteFilterAll)];
+            [[defaultConfig.language should] beNil];
+            [[theValue(defaultConfig.latitude) should] equal:theValue(0)];
+            [[theValue(defaultConfig.longitude) should] equal:theValue(0)];
+            [[theValue(defaultConfig.offset) should] equal:theValue(NSNotFound)];
+            [[theValue(defaultConfig.searchRadius) should] equal:theValue(20000000)];
+            
+        });
+        
+    });
+    
     describe(@"translateToServerRequestParameters",
              ^{
 
