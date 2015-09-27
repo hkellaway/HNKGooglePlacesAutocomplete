@@ -21,7 +21,7 @@ static NSString *const kHNKDemoGooglePlacesAutocompleteApiKey = @"YOUR_API_KEY";
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    [HNKGooglePlacesAutocompleteQuery setupSharedQueryWithAPIKey:kHNKDemoGooglePlacesAutocompleteApiKey];
+    [HNKGooglePlacesAutocompleteQuery setupSharedQueryWithAPIKey: kHNKDemoGooglePlacesAutocompleteApiKey];
 
     return YES;
 }
