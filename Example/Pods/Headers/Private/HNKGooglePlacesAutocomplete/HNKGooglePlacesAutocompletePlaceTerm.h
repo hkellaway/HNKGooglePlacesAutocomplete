@@ -1,1 +1,1 @@
-../../../../../Pod/Classes/HNKGooglePlacesAutocompletePlaceTerm.h
+../../../HNKGooglePlacesAutocomplete/Pod/Classes/HNKGooglePlacesAutocompletePlaceTerm.h
