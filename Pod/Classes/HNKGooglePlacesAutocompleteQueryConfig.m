@@ -24,6 +24,8 @@
 
 #import "HNKGooglePlacesAutocompleteQueryConfig.h"
 
+static NSInteger const kHNKGooglePlacesAutocompleteWorldSearchRadius = 20000000;
+
 @implementation HNKGooglePlacesAutocompleteQueryConfig
 
 #pragma mark - Initialization
@@ -42,6 +44,21 @@
     newConfig.searchRadius = config.searchRadius;
 
     return newConfig;
+}
+
++ (instancetype)defaultConfig
+{
+    HNKGooglePlacesAutocompleteQueryConfig *defaultConfiguration =
+    [[HNKGooglePlacesAutocompleteQueryConfig alloc] init];
+    defaultConfiguration.country = nil;
+    defaultConfiguration.filter = HNKGooglePlaceTypeAutocompleteFilterAll;
+    defaultConfiguration.language = nil;
+    defaultConfiguration.latitude = 0;
+    defaultConfiguration.longitude = 0;
+    defaultConfiguration.offset = NSNotFound;
+    defaultConfiguration.searchRadius = kHNKGooglePlacesAutocompleteWorldSearchRadius;
+    
+    return defaultConfiguration;
 }
 
 #pragma mark - Methods

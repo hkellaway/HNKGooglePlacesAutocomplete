@@ -251,7 +251,7 @@ describe(@"HNKGooglePlacesAutocompleteQuery", ^{
                                                                         errorToRecieve = error;
                                                                     }];
 
-                                       [[errorToRecieve should] equal:expectedError];
+                                       [[errorToRecieve shouldEventually] equal:expectedError];
                                    });
 
                             });
@@ -279,7 +279,7 @@ describe(@"HNKGooglePlacesAutocompleteQuery", ^{
                                                                         errorToRecieve = error;
                                                                     }];
 
-                                       [[errorToRecieve should] equal:expectedError];
+                                       [[errorToRecieve shouldEventually] equal:expectedError];
                                    });
 
                             });
@@ -320,6 +320,18 @@ describe(@"HNKGooglePlacesAutocompleteQuery", ^{
                                    [testInstanceWithOffset fetchPlacesForSearchQuery:testSearchQuery completion:nil];
 
                                });
+                            
+                            it(@"Should complete with no Places", ^{
+                                
+                                __block NSArray *result = nil;
+                                
+                                [testInstanceWithOffset fetchPlacesForSearchQuery:testSearchQuery completion:^(NSArray *places, NSError *error) {
+                                    result = places;
+                                }];
+                                
+                                [[result shouldEventually] equal:@[]];
+                                
+                            });
 
                         });
 
