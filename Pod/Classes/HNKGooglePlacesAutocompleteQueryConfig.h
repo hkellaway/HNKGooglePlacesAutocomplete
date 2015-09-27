@@ -89,7 +89,7 @@
 + (instancetype)configWithConfig:(HNKGooglePlacesAutocompleteQueryConfig *)config;
 
 /**
- *  Config object with default configuration values..
+ *  Config object with default configuration values.
  *
  *  @return Default configuration.
  */
