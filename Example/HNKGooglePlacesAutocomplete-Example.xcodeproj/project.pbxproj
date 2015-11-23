@@ -223,6 +223,7 @@
 				DCA78AF41AED6AA800F5F3B9 /* Frameworks */,
 				DCA78AF51AED6AA800F5F3B9 /* Resources */,
 				7ED68BB202E0F8FFEDE93FE4 /* Copy Pods Resources */,
+				1C723DCD9D7B6EB2A6C46A29 /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -242,6 +243,7 @@
 				DCA78B0D1AED6AA800F5F3B9 /* Frameworks */,
 				DCA78B0E1AED6AA800F5F3B9 /* Resources */,
 				525622BDEC7E2D68BB31BEB4 /* Copy Pods Resources */,
+				AC798AEF74E19F9BF41630DC /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -314,6 +316,21 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		1C723DCD9D7B6EB2A6C46A29 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HNKGooglePlacesAutocomplete-Example/Pods-HNKGooglePlacesAutocomplete-Example-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		4607F3ACCB188AB72CC5E67C /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -357,6 +374,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HNKGooglePlacesAutocomplete-Example/Pods-HNKGooglePlacesAutocomplete-Example-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AC798AEF74E19F9BF41630DC /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HNKGooglePlacesAutocomplete-ExampleTests/Pods-HNKGooglePlacesAutocomplete-ExampleTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		E2D498F5E4DE8E8F7AEB2403 /* Check Pods Manifest.lock */ = {
