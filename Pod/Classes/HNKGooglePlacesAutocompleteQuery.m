@@ -64,6 +64,7 @@ typedef NS_ENUM(NSInteger, HNKGooglePlacesAutocompleteQueryType) {
 
 @property (nonatomic, copy, readwrite) NSString *apiKey;
 @property (nonatomic, strong, readwrite) HNKGooglePlacesAutocompleteQueryConfig *configuration;
+@property (nonatomic, assign, readwrite) id <HNKGooglePlacesNetworkingManager> networkingManager;
 
 @end
 
@@ -75,21 +76,40 @@ static HNKGooglePlacesAutocompleteQuery *sharedQuery = nil;
 
 + (instancetype)setupSharedQueryWithAPIKey:(NSString *)apiKey
 {
-    return [self setupSharedQueryWithAPIKey:apiKey configurationBlock:nil];
+    return [self setupSharedQueryWithAPIKey:apiKey
+                         configurationBlock:nil];
 }
 
 + (instancetype)setupSharedQueryWithAPIKey:(NSString *)apiKey
                         configurationBlock:(HNKGooglePlacesAutocompleteQueryConfigBlock)configBlock
 {
+    return [self setupSharedQueryWithAPIKey:apiKey
+                          networkingManager:[HNKGooglePlacesServer new]
+                         configurationBlock:configBlock];
+}
+
++ (instancetype)setupSharedQueryWithAPIKey:(NSString *)apiKey
+                         networkingManager:(id <HNKGooglePlacesNetworkingManager>)networkingManager
+{
+    return [self setupSharedQueryWithAPIKey:apiKey
+                          networkingManager:networkingManager
+                         configurationBlock:nil];
+}
+
++ (instancetype)setupSharedQueryWithAPIKey:(NSString *)apiKey
+                         networkingManager:(id <HNKGooglePlacesNetworkingManager>)networkingManager
+                        configurationBlock:(HNKGooglePlacesAutocompleteQueryConfigBlock)configBlock
+{
     NSParameterAssert(apiKey);
-
+    NSParameterAssert(networkingManager);
+    
     static dispatch_once_t onceToken;
-
+    
     dispatch_once(&onceToken,
                   ^{
-                      sharedQuery = [[self alloc] initWithAPIKey:apiKey configurationBlock:configBlock];
+                      sharedQuery = [[self alloc] initWithAPIKey:apiKey configurationBlock:configBlock networkingManager:networkingManager];
                   });
-
+    
     return sharedQuery;
 }
 
@@ -109,14 +129,15 @@ static HNKGooglePlacesAutocompleteQuery *sharedQuery = nil;
 
 - (instancetype)initWithAPIKey:(NSString *)apiKey
             configurationBlock:(void (^)(HNKGooglePlacesAutocompleteQueryConfig *))configBlock
+             networkingManager:(id<HNKGooglePlacesNetworkingManager>)networkingManager
 {
     self = [super init];
 
     if (self) {
 
         self.apiKey = apiKey;
-
         self.configuration = [HNKGooglePlacesAutocompleteQueryConfig defaultConfig];
+        self.networkingManager = networkingManager;
 
         if (configBlock) {
 
@@ -199,7 +220,7 @@ static HNKGooglePlacesAutocompleteQuery *sharedQuery = nil;
 {
     NSDictionary *parameters = [self serverRequestParametersForSearchQuery:searchQuery configuration:configuration];
 
-    [HNKGooglePlacesServer GET:kHNKGooglePlacesServerRequestPathAutocomplete
+    [self.networkingManager GET:kHNKGooglePlacesServerRequestPathAutocomplete
                     parameters:parameters
                     completion:^(NSDictionary *JSON, NSError *error) {
 

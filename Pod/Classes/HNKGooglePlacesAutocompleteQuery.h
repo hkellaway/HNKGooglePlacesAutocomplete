@@ -25,6 +25,7 @@
 
 #import "HNKGooglePlacesAutocompleteQueryConfig.h"
 #import "HNKGooglePlacesAutocompleteQueryResponse.h"
+#import "HNKGooglePlacesNetworkingManager.h"
 
 typedef void (^HNKGooglePlacesAutocompleteQueryCallback)(NSArray *places, NSError *error);
 typedef void (^HNKGooglePlacesAutocompleteQueryConfigBlock)(HNKGooglePlacesAutocompleteQueryConfig *config);
@@ -84,6 +85,11 @@ HNKGooglePlacesAutocompleteQueryDescriptionForErrorCode(HNKGooglePlacesAutocompl
 @property (nonatomic, copy, readonly) NSString *apiKey;
 
 /**
+ *  Networking manager used for all requests
+ */
+@property (nonatomic, assign, readonly) id <HNKGooglePlacesNetworkingManager> networkingManager;
+
+/**
  *  Configuration used for requests
  *
  *  Note: If no configuration is provided, a default is
@@ -96,6 +102,8 @@ HNKGooglePlacesAutocompleteQueryDescriptionForErrorCode(HNKGooglePlacesAutocompl
 @property (nonatomic, strong, readonly) HNKGooglePlacesAutocompleteQueryConfig *configuration;
 
 #pragma mark - Initialization
+
+#ifdef HNK_AFNETWORKING
 
 /**
  *  Sets up shared HNKGooglePlacesAutocompleteQuery instance with provided
@@ -119,6 +127,35 @@ HNKGooglePlacesAutocompleteQueryDescriptionForErrorCode(HNKGooglePlacesAutocompl
  */
 + (instancetype)setupSharedQueryWithAPIKey:(NSString *)apiKey
                         configurationBlock:(HNKGooglePlacesAutocompleteQueryConfigBlock)configBlock;
+
+#else
+
+/**
+ *  Sets up shared HNKGooglePlacesAutocompleteQuery instance with provided
+ *  API key and configuration for all requests
+ *
+ *  @param apiKey        API key used for all requests
+ *
+ *  @warning The provided API key cannot be nil
+ */
++ (instancetype)setupSharedQueryWithAPIKey:(NSString *)apiKey
+                         networkingManager:(id<HNKGooglePlacesNetworkingManager>)networkingManager;
+
+/**
+ *  Sets up shared HNKGooglePlacesAutocompleteQuery instance with provided
+ *  API key and configuration for all requests
+ *
+ *  @param apiKey       API key used for all requests
+ *  @param configBlock  Block used to setup configuration
+ *                      for all requests
+ *
+ *  @warning The provided API key cannot be nil
+ */
++ (instancetype)setupSharedQueryWithAPIKey:(NSString *)apiKey
+                         networkingManager:(id<HNKGooglePlacesNetworkingManager>)networkingManager;
+                        configurationBlock:(HNKGooglePlacesAutocompleteQueryConfigBlock)configBlock;
+
+#endif
 
 /**
  * Returns shared HNKGooglePlacesAutocompleteQuery instance
