@@ -2,3 +2,4 @@
 #import <UIKit/UIKit.h>
 #endif
 
+#define HNK_AFNETWORKING 1

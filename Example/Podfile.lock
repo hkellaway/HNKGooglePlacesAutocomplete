@@ -20,16 +20,13 @@ PODS:
   - AFNetworking/UIKit (2.6.3):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
-  - HNKGooglePlacesAutocomplete (1.1.1):
-    - HNKGooglePlacesAutocomplete/Models (= 1.1.1)
+  - HNKGooglePlacesAutocomplete (1.2.0):
+    - HNKGooglePlacesAutocomplete/AFNetworking (= 1.2.0)
+    - HNKGooglePlacesAutocomplete/Core (= 1.2.0)
+  - HNKGooglePlacesAutocomplete/AFNetworking (1.2.0):
+    - HNKGooglePlacesAutocomplete/Core
     - HNKServerFacade (~> 0.3)
-    - Mantle (~> 2.0)
-  - HNKGooglePlacesAutocomplete/Models (1.1.1):
-    - HNKGooglePlacesAutocomplete/Models/Networking (= 1.1.1)
-    - HNKServerFacade (~> 0.3)
-    - Mantle (~> 2.0)
-  - HNKGooglePlacesAutocomplete/Models/Networking (1.1.1):
-    - HNKServerFacade (~> 0.3)
+  - HNKGooglePlacesAutocomplete/Core (1.2.0):
     - Mantle (~> 2.0)
   - HNKServerFacade (0.3.0):
     - AFNetworking (~> 2.5)
@@ -48,7 +45,7 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   AFNetworking: cb8d14a848e831097108418f5d49217339d4eb60
-  HNKGooglePlacesAutocomplete: e3628e130ad9c6b909760bf314b98227b03e708f
+  HNKGooglePlacesAutocomplete: 3d37658e4f79bd088c906f1e81b35f2e1f97e2a5
   HNKServerFacade: 0fa3839353480b8862563a34903ad1406a38b4c9
   Kiwi: f49c9d54b28917df5928fe44968a39ed198cb8a8
   Mantle: 1912395033f601de5adc8ee91e48f46e4c7051ad

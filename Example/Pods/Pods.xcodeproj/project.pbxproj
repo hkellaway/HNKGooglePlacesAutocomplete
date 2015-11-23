@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		00804041F71337A4868AF0A46AA067A4 /* KWSymbolicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 53F834A5BD2412C6ED915804C42F9734 /* KWSymbolicator.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		01021579F8F9B20286330DE45074D8E2 /* HNKGooglePlacesAutocompletePlaceTerm.h in Headers */ = {isa = PBXBuildFile; fileRef = 812BE6E2D9BEA8F57779479C33312120 /* HNKGooglePlacesAutocompletePlaceTerm.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		01021579F8F9B20286330DE45074D8E2 /* HNKGooglePlacesAutocompletePlaceTerm.h in Headers */ = {isa = PBXBuildFile; fileRef = E055FC2F3C0BC3B9436DB1F2BE8C865D /* HNKGooglePlacesAutocompletePlaceTerm.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		013ED832B6B246DAB484BC886523CF98 /* KWContainMatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 7244173CCFB10CBF0DA2DB2AD144E1D3 /* KWContainMatcher.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		01B449A1462A090D3A7EFB4624796DA3 /* KWRespondToSelectorMatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = ABEADEBD55B501541FE81A32738D4E3C /* KWRespondToSelectorMatcher.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		030105578DD4AEA335965E9C786A9AC5 /* KWInvocationCapturer.m in Sources */ = {isa = PBXBuildFile; fileRef = EE88C5F2FE03F0ED12D4A2C5B397D664 /* KWInvocationCapturer.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
@@ -26,7 +26,7 @@
 		0DC020E1773792FD6F51CB5A19BAB4E5 /* KWMock.m in Sources */ = {isa = PBXBuildFile; fileRef = A707D4C5C0074ADA5D4CE2482E4897B0 /* KWMock.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		0DC160497D072064C1A088C2D1A1E26C /* KWAsyncVerifier.m in Sources */ = {isa = PBXBuildFile; fileRef = 21D31BD32F810271E251634C2E64723E /* KWAsyncVerifier.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		0F8217A7033D4B1169408CA2DEBFA592 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A5925EE08401CBB4AFB920DEADD22BD /* Foundation.framework */; };
-		103A2AF4228E87C8A0D438B0E4BA3A88 /* HNKGooglePlacesAutocompleteModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 746B072A367450EC981E160DDC71EF02 /* HNKGooglePlacesAutocompleteModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		103A2AF4228E87C8A0D438B0E4BA3A88 /* HNKGooglePlacesAutocompleteModel.h in Headers */ = {isa = PBXBuildFile; fileRef = C45A912CA0636EE29C3C0B96BB2CCF27 /* HNKGooglePlacesAutocompleteModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		10A76B837D9FABC6B1AAB0898D9F754E /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42C8480F0C7626EE32F7F56CAD5CC672 /* CoreLocation.framework */; };
 		12CDA88D58C29CBC1C761984F920F19C /* KWBeSubclassOfClassMatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = FFA9F8422C98C6923C8ED17F6C9F7633 /* KWBeSubclassOfClassMatcher.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		1420CF373E7446B0C6AB92D90C8C5338 /* KWMatcher.h in Headers */ = {isa = PBXBuildFile; fileRef = F809E8922751A3CA00F47FB0EF6E3738 /* KWMatcher.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -39,7 +39,7 @@
 		1DB9BC5CD626522506FC71A9890CFC4D /* KWCaptureSpy.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F2575755D8CBC80022FA3DD43BD94FE /* KWCaptureSpy.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		1E310D0CE3BE27EF253B6D822B0AEE5E /* AFURLResponseSerialization.h in Headers */ = {isa = PBXBuildFile; fileRef = 8ED3898F7CB1FC631FCB35B8399B1765 /* AFURLResponseSerialization.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1E62C95C081F7ECE8166D8BC0E1206F6 /* KWFailure.m in Sources */ = {isa = PBXBuildFile; fileRef = 96566E10A1DCD9EF994C0C5ECA6DF8B5 /* KWFailure.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		1E74168F605FF3F835B1B359DED9D774 /* HNKGooglePlacesAutocomplete-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 53169ADDDFE062CF80075CEA0E545104 /* HNKGooglePlacesAutocomplete-dummy.m */; };
+		1E74168F605FF3F835B1B359DED9D774 /* HNKGooglePlacesAutocomplete-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = F0DF36B046A370BB5E176F99CAC07CDD /* HNKGooglePlacesAutocomplete-dummy.m */; };
 		1E98EE2A2074055127E66157077E6979 /* KWRespondToSelectorMatcher.h in Headers */ = {isa = PBXBuildFile; fileRef = AC9B6554F541C70A89EA9BEB2E47C683 /* KWRespondToSelectorMatcher.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1EA344A871C8FEF4D34655D34C88CFB6 /* MTLValueTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = CBE60B4383014CE4026DC2843D33A8A8 /* MTLValueTransformer.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		211D4EA06F5920376A069ACB55DF6006 /* AFHTTPRequestOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = EE04D833D6FEC93163732197F0F1AC3A /* AFHTTPRequestOperation.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -47,13 +47,13 @@
 		229C22E2738607C4F305A01A025D3100 /* KWSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E6C57AC801D55136CF7119BA1E50C23 /* KWSpec.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		23335E8FB1DD5415D1F77910AB12D617 /* KWAsyncVerifier.h in Headers */ = {isa = PBXBuildFile; fileRef = 8AA66A2174EF0354D13B04F583B0CEF7 /* KWAsyncVerifier.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		29D324DC93DB90202C07CDDE42624412 /* KWMessageTracker.h in Headers */ = {isa = PBXBuildFile; fileRef = BA0A36B4EB34DA1688F4FE2361DE3D21 /* KWMessageTracker.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		29FDB2309D53923C23F52E8F34ED97CE /* HNKGooglePlacesAutocompletePlaceSubstring.h in Headers */ = {isa = PBXBuildFile; fileRef = E17B3604BA5A476BFFFEF454268CF8C7 /* HNKGooglePlacesAutocompletePlaceSubstring.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2A03B86677C89FC60D26CF6CE48D295E /* HNKGooglePlacesAutocompletePlaceSubstring.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C17D5E16041B03E710E57A0582D760C /* HNKGooglePlacesAutocompletePlaceSubstring.m */; };
-		2A5B1228088AC4F81761C37A6F17F11B /* HNKGooglePlacesAutocompleteModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CC49B7F989C693124A5A6263EAA9613 /* HNKGooglePlacesAutocompleteModel.m */; };
+		29FDB2309D53923C23F52E8F34ED97CE /* HNKGooglePlacesAutocompletePlaceSubstring.h in Headers */ = {isa = PBXBuildFile; fileRef = 133309ECC315F3B6388374A1886352F8 /* HNKGooglePlacesAutocompletePlaceSubstring.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2A03B86677C89FC60D26CF6CE48D295E /* HNKGooglePlacesAutocompletePlaceSubstring.m in Sources */ = {isa = PBXBuildFile; fileRef = C928B8F31C5FEBB65DFA4CFCF55CF699 /* HNKGooglePlacesAutocompletePlaceSubstring.m */; };
+		2A5B1228088AC4F81761C37A6F17F11B /* HNKGooglePlacesAutocompleteModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DE1021CF8B3C964444B2413EC4F2AF8 /* HNKGooglePlacesAutocompleteModel.m */; };
 		2B4335ACEDE0F345250CE03A61ED697C /* KWMessagePattern.m in Sources */ = {isa = PBXBuildFile; fileRef = A626911511F7F71B240E0F18C29BACA8 /* KWMessagePattern.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		2B8269A87473D9F1259E9BD98E7588D3 /* AFNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = 1617E5947FA44AF777CA9E0A7474F153 /* AFNetworking.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2CF66E8669A348C421E93F2F67C6A61E /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C8AAF736C9FCC36A00EC6AD4CEF466A /* AFHTTPSessionManager.m */; };
-		2DD15DA70210CD4B062BDCC65AE4398B /* HNKGooglePlacesAutocompletePlace.m in Sources */ = {isa = PBXBuildFile; fileRef = B1055D4E334783DE26533A81B7D18468 /* HNKGooglePlacesAutocompletePlace.m */; };
+		2DD15DA70210CD4B062BDCC65AE4398B /* HNKGooglePlacesAutocompletePlace.m in Sources */ = {isa = PBXBuildFile; fileRef = 613BF8718D4F880251CFF6E5B46F3803 /* HNKGooglePlacesAutocompletePlace.m */; };
 		2EE25DE0E0B39275625DFB5DB6149A69 /* Pods-HNKGooglePlacesAutocomplete-Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 64568695E9842E9657591683E8D3B34B /* Pods-HNKGooglePlacesAutocomplete-Example-dummy.m */; };
 		2EE673E81F486CF0B439E61584473844 /* KWBeforeEachNode.h in Headers */ = {isa = PBXBuildFile; fileRef = C3B83FE33F2344D623F7936F0F1318B7 /* KWBeforeEachNode.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2F06F68FF55433A0DB60D4070D9316EF /* KWMatchVerifier.m in Sources */ = {isa = PBXBuildFile; fileRef = 276EC8BC36E90D226AC0F50CA006E6DD /* KWMatchVerifier.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
@@ -65,7 +65,7 @@
 		335E0DA9096ED7EA292ADFA0E520E8A9 /* KWIntercept.m in Sources */ = {isa = PBXBuildFile; fileRef = 55B562DAF03E7821379BBF9FEE8E391F /* KWIntercept.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		350E0FAC40839054F96D4CD2C3120E3F /* KWObjCUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = 5EB84CCB033F3751EF4117A3676C4971 /* KWObjCUtilities.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3510172AA3EBD0962DA84E0996686B6C /* KWItNode.m in Sources */ = {isa = PBXBuildFile; fileRef = C661A134F30374B1918E1A5F75AEB18C /* KWItNode.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		38162B354506954D19681FEA6EE3C2AF /* HNKGooglePlacesAutocompletePlaceTerm.m in Sources */ = {isa = PBXBuildFile; fileRef = FBC83B9C119882DE3265F742AA254D22 /* HNKGooglePlacesAutocompletePlaceTerm.m */; };
+		38162B354506954D19681FEA6EE3C2AF /* HNKGooglePlacesAutocompletePlaceTerm.m in Sources */ = {isa = PBXBuildFile; fileRef = 01289D0E22F7353B4A4C2EBFD997D208 /* HNKGooglePlacesAutocompletePlaceTerm.m */; };
 		399AC825EE10F70364CE7B0AA89F466D /* UIAlertView+AFNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = 93111A21979581F71F0325520BC45E72 /* UIAlertView+AFNetworking.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		39C9EF320622EA4DDFB86F2C00D0E71A /* KWBeKindOfClassMatcher.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DD2C8685250692FF1EEDB2E40B151D3 /* KWBeKindOfClassMatcher.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3A11ACB2B8B22B6364C429C1387CEE56 /* KWDeviceInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 658FD1CA5D1BBFB70427B2EF1FF6F982 /* KWDeviceInfo.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -89,7 +89,7 @@
 		4AFE65D9222243F6E478CB9A1FC01E61 /* KWPendingNode.h in Headers */ = {isa = PBXBuildFile; fileRef = 99EFD418E8A1615A7D461F60114D13D2 /* KWPendingNode.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4B9B430B62FCF3DC50060BBBA691FFA8 /* KWContextNode.m in Sources */ = {isa = PBXBuildFile; fileRef = CA0A4E34EEC0BEA4BB375DD6992D1208 /* KWContextNode.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		4CC731CE12CBDE0407D447CEB8F3DAEA /* KWFutureObject.m in Sources */ = {isa = PBXBuildFile; fileRef = EC0D42564722A9B831F14F1D228E5854 /* KWFutureObject.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		4D3CE49C076B9477DB54A929AC6DF41F /* CLPlacemark+HNKAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 5104492958707CC0078CC97201F983B2 /* CLPlacemark+HNKAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4D3CE49C076B9477DB54A929AC6DF41F /* CLPlacemark+HNKAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = D5CF6F7FB39B245C1A0E01529F1025D9 /* CLPlacemark+HNKAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4E42D825B49C25125D9C02750DA45F5F /* KWSuiteConfigurationBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DB2BA025DB15A858F047FDE2886B0B9 /* KWSuiteConfigurationBase.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		4EB2C2215793A87B26CE33C6432D4F0E /* metamacros.h in Headers */ = {isa = PBXBuildFile; fileRef = CA5A5D915B1FF007518EC21C929DDB59 /* metamacros.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		503C7DC4B5C405C35CED99469B0B6BAA /* NSObject+KiwiStubAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = E25D9E3F6145910152061F749FF8DBE2 /* NSObject+KiwiStubAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -110,7 +110,7 @@
 		600B4BE9E687EBB5566007B731ADAB8E /* KWMock.h in Headers */ = {isa = PBXBuildFile; fileRef = 5EC280D29E6C975327C67E7CE3341141 /* KWMock.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		626F497F8A0CFA26D7A2C1346E09A85A /* KWMatcherFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = A9C92602A0F64F5A1067E702D7CD8AEE /* KWMatcherFactory.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		642CCA03962A800EF3D38B25D96B8887 /* KWMessageTracker.m in Sources */ = {isa = PBXBuildFile; fileRef = CF5DF884BC38A63AE8AD2D116FDB3AE1 /* KWMessageTracker.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		6442B80606B21F68B41802252CAB5BE3 /* HNKGooglePlacesAutocompleteQueryResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C7D646F86DB7590AA9925E907B06471 /* HNKGooglePlacesAutocompleteQueryResponse.m */; };
+		6442B80606B21F68B41802252CAB5BE3 /* HNKGooglePlacesAutocompleteQueryResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 0811E25F21D7C86F997C2B9FF6E4F20C /* HNKGooglePlacesAutocompleteQueryResponse.m */; };
 		6479E9834DCC9BF19A4EFD7B783D5BD4 /* NSValueTransformer+MTLInversionAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = A9F6510EBD2A5E84A302D0E4070CABFF /* NSValueTransformer+MTLInversionAdditions.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		64B23C53D32B941768EE77F3F2354DEE /* KWBeWithinMatcher.h in Headers */ = {isa = PBXBuildFile; fileRef = B83F124A642AABC90CDB4F82519E5612 /* KWBeWithinMatcher.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		64D2187C5EC5EFECC24B738E52727836 /* KWBeMemberOfClassMatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 943E947DADBAC4A270A9DF2A536403DC /* KWBeMemberOfClassMatcher.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
@@ -135,7 +135,7 @@
 		784CC621252E4B87D7DEA189B321E10B /* KWMatcherFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = BE258D785DD92B81323D92B9C8DE2304 /* KWMatcherFactory.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		7A720547880FFECFF12EDD5C51C2FC5A /* KWHaveValueMatcher.h in Headers */ = {isa = PBXBuildFile; fileRef = 16CC3BAD60F13727A8966A03A92D8E0E /* KWHaveValueMatcher.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7C36AC148AC35B82D9ED8FC8BFE27A15 /* MTLTransformerErrorHandling.m in Sources */ = {isa = PBXBuildFile; fileRef = F18FDC2B60F39823C0D78CA7EB2504BE /* MTLTransformerErrorHandling.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		7C3B1B634D343280A186B4C81F3A4DF1 /* HNKGooglePlacesAutocompletePlace.h in Headers */ = {isa = PBXBuildFile; fileRef = 2BAB43E272745A28223C5DF84A7C6353 /* HNKGooglePlacesAutocompletePlace.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7C3B1B634D343280A186B4C81F3A4DF1 /* HNKGooglePlacesAutocompletePlace.h in Headers */ = {isa = PBXBuildFile; fileRef = 8685FEF6826359FD3DE5843A6F429078 /* HNKGooglePlacesAutocompletePlace.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7CF1B019F289F431FD6F2BE6F9D80E2F /* KWHaveMatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C9DFC704204D7C6D4067C152E96ED54 /* KWHaveMatcher.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		7F3FAC2650CA6252A779CED2F58F4A75 /* KWExistVerifier.m in Sources */ = {isa = PBXBuildFile; fileRef = D3430EF6521F4C668B4D726D97EFBB5D /* KWExistVerifier.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		7FA52E72414B5752EDA8FBD5111A0F0E /* KWMatchVerifier.h in Headers */ = {isa = PBXBuildFile; fileRef = 5287A1B0AF3BB1988CCDC5EAB6DB14D6 /* KWMatchVerifier.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -149,12 +149,12 @@
 		84C8C07A0C2667E175DA835D049409E7 /* KWExistVerifier.h in Headers */ = {isa = PBXBuildFile; fileRef = C5EC62776EFF048A36F3CDABEE9A1CCF /* KWExistVerifier.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		854BC4449D8CAD0F2799B021D1914C3B /* UIRefreshControl+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 7292A9ED5D83A89EE5771FFE866AE041 /* UIRefreshControl+AFNetworking.m */; };
 		8635C11169804FADD7F39924A0B1A5DA /* KWMessagePattern.h in Headers */ = {isa = PBXBuildFile; fileRef = 46C8DA9E68C6C8726691018C63757AED /* KWMessagePattern.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		86E4DC6E76A01DEFA5F388C9D130648F /* HNKGooglePlacesAutocompleteQueryConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D7F33D97F1DB5B660C0C1D9C3567E9B /* HNKGooglePlacesAutocompleteQueryConfig.m */; };
+		86E4DC6E76A01DEFA5F388C9D130648F /* HNKGooglePlacesAutocompleteQueryConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 67619D259B914755CE0A5F5BE6EEAB0D /* HNKGooglePlacesAutocompleteQueryConfig.m */; };
 		876C2EF5FE318346CDCB4BFE25A9D5B2 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 8681915C00094E313400B321228D68A7 /* AFHTTPRequestOperation.m */; };
 		88840CEA0C2D79246E7CB51231B19C32 /* KWDeviceInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = D963663BFDF4A02DA8429F64A80187BC /* KWDeviceInfo.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		88AE799221773ED64B22DDB423E1A193 /* MTLTransformerErrorHandling.h in Headers */ = {isa = PBXBuildFile; fileRef = 52A055FB87290E27B24C6DE59D49FA7B /* MTLTransformerErrorHandling.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		899A5CF752635393D528193063A3824B /* HNKGooglePlacesAutocompleteQueryResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = 808CC04EE3C67CE84B7C179849B7A0E1 /* HNKGooglePlacesAutocompleteQueryResponse.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		8A4E6EE95A3AB7E77364EA440E05C4B0 /* HNKGooglePlacesAutocomplete.h in Headers */ = {isa = PBXBuildFile; fileRef = E0AA908CF079A3D8BC1AE51AB9539346 /* HNKGooglePlacesAutocomplete.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		899A5CF752635393D528193063A3824B /* HNKGooglePlacesAutocompleteQueryResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = 84F726BBEF9E95886DE79EE9E8136A85 /* HNKGooglePlacesAutocompleteQueryResponse.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8A4E6EE95A3AB7E77364EA440E05C4B0 /* HNKGooglePlacesAutocomplete.h in Headers */ = {isa = PBXBuildFile; fileRef = 8949C9EC53E25675F853EC1ADA0ED4A9 /* HNKGooglePlacesAutocomplete.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8A57D07B8C603E94B0E52361C8A9FFAD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A5925EE08401CBB4AFB920DEADD22BD /* Foundation.framework */; };
 		8D514F1D9F1A374616E1DAEF47AF10E9 /* KWSuiteConfigurationBase.h in Headers */ = {isa = PBXBuildFile; fileRef = A49D9F29EAF827DD529B14DB51900510 /* KWSuiteConfigurationBase.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8D8E2A94A141EBF8CAB850701996E617 /* KWBeBetweenMatcher.h in Headers */ = {isa = PBXBuildFile; fileRef = 7FF1E1440C136A4DE374A57B9D164A41 /* KWBeBetweenMatcher.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -169,7 +169,7 @@
 		998CE044046FA01D898B8E59CF4DCC48 /* KWChangeMatcher.h in Headers */ = {isa = PBXBuildFile; fileRef = D91A9C789FD883BE3B88772BF9488C29 /* KWChangeMatcher.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		99D716716CE57BC4578EA55CD130D387 /* KWContainStringMatcher.h in Headers */ = {isa = PBXBuildFile; fileRef = 503955F7D42117B11A2CA00DC9364E64 /* KWContainStringMatcher.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		99E82D6DC032555656E37AF2367B20D3 /* UIButton+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = CA7E5B8A3129AE2C6B5362B1E4654E30 /* UIButton+AFNetworking.m */; };
-		99FBF244F61B25AA8AA331314267BA56 /* HNKGooglePlacesAutocompleteQueryConfig.h in Headers */ = {isa = PBXBuildFile; fileRef = 5C87F33991BF36A7EBD70E026CDFDEFE /* HNKGooglePlacesAutocompleteQueryConfig.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		99FBF244F61B25AA8AA331314267BA56 /* HNKGooglePlacesAutocompleteQueryConfig.h in Headers */ = {isa = PBXBuildFile; fileRef = 3788C6E0CC122A33EA5C269146C57BC7 /* HNKGooglePlacesAutocompleteQueryConfig.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9A04E971065AF4281E43947994A53D07 /* UIWebView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = A1372BE90A1A8F037D10305F190A1DCB /* UIWebView+AFNetworking.m */; };
 		9B47A1441B897F71505D8BE670B0940B /* UIAlertView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 615094143422131A7BA98EF3A74723D3 /* UIAlertView+AFNetworking.m */; };
 		9B93A55313031AE850C1DFE563C22F3C /* MTLModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D6EAF666CB1A66499A0B8F37B97F724 /* MTLModel.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
@@ -192,7 +192,7 @@
 		AA1878AF77941A366B76872A45B219DB /* KWEqualMatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = D89B42600833DE7AA093FE013AA57CC6 /* KWEqualMatcher.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		ABB773ADF4E5C95BCC8C41055FF20D25 /* NSObject+MTLComparisonAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = DE07D6EFD13EB709D89E402BDF5C1FCB /* NSObject+MTLComparisonAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		ABE1544E64CC8A595426B1213647794D /* NSValueTransformer+MTLPredefinedTransformerAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 071915A46F94B3130AA6B8F20C3FA8D0 /* NSValueTransformer+MTLPredefinedTransformerAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		AC1FD684FD331977B857F04DDB027F25 /* HNKGooglePlacesServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 26CFE4E5A20BDBEF368184807626EF02 /* HNKGooglePlacesServer.m */; };
+		AC1FD684FD331977B857F04DDB027F25 /* HNKGooglePlacesServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F87A9BF76642EEB01BD3506169DA16D /* HNKGooglePlacesServer.m */; };
 		AD802556737B5E626B16AFD0639F4D3D /* KWItNode.h in Headers */ = {isa = PBXBuildFile; fileRef = CC695CE615FEC656646DC052978EF4A5 /* KWItNode.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AE607E682415FAA160B33C7C13A8475B /* UIActivityIndicatorView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F1B08DA6827F4574570346CEF73B684 /* UIActivityIndicatorView+AFNetworking.m */; };
 		AE83CF7BC3AEA4212CE5CBA487817D0F /* NSDictionary+MTLJSONKeyPath.m in Sources */ = {isa = PBXBuildFile; fileRef = 183935EC0F0C03352BEDCC35120A2C74 /* NSDictionary+MTLJSONKeyPath.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
@@ -246,12 +246,12 @@
 		D070B784EFCA099C141EEAB69FBCC870 /* UIImageView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 8983FD7C8C0C43AC4FD968A5B119DFBF /* UIImageView+AFNetworking.m */; };
 		D0DF7F4B9AB77029A595687344025114 /* KWReporting.h in Headers */ = {isa = PBXBuildFile; fileRef = C4214B01750177AB7CCF8962B95E6C19 /* KWReporting.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D14415B0DC91C5B7AD3557B49CBD7B04 /* KWExampleSuite.h in Headers */ = {isa = PBXBuildFile; fileRef = 835F55E6EC8D9B75CD0D7A9B2FB19886 /* KWExampleSuite.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		D2A5B3711368C16CE5A48F3BD461B3DE /* HNKGooglePlacesAutocompleteQuery.h in Headers */ = {isa = PBXBuildFile; fileRef = 36ABAFEB8116DC687C4BFA8DA949B1FD /* HNKGooglePlacesAutocompleteQuery.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D2A5B3711368C16CE5A48F3BD461B3DE /* HNKGooglePlacesAutocompleteQuery.h in Headers */ = {isa = PBXBuildFile; fileRef = F0FC400273C9D68DC584934C5CEFDC97 /* HNKGooglePlacesAutocompleteQuery.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D4105B910E1AAB86603CD5B4F2F8D78F /* KWBlock.h in Headers */ = {isa = PBXBuildFile; fileRef = A58CC937C35229AE716567A5D4430CF4 /* KWBlock.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D41A87C254575241521C4FBAEED10439 /* KiwiConfiguration.h in Headers */ = {isa = PBXBuildFile; fileRef = 40BB077BBB92E99A441FF38D312333BD /* KiwiConfiguration.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D472C126499D1E1843A7E9EF2A0F5822 /* KWGenericMatchingAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = A0D80A8F344CCB11225154115BE068F2 /* KWGenericMatchingAdditions.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		D4A65C2E29ACB340587FD41196176F8A /* UIImageView+AFNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = D654325456338239EADBEC3A21B5E7FB /* UIImageView+AFNetworking.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		D4BDCDF9086041CB45E91BCF8E0E4043 /* HNKGooglePlacesServer.h in Headers */ = {isa = PBXBuildFile; fileRef = 920CFF925500F53475A9A17D1359156F /* HNKGooglePlacesServer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D4BDCDF9086041CB45E91BCF8E0E4043 /* HNKGooglePlacesServer.h in Headers */ = {isa = PBXBuildFile; fileRef = 94CF6417D372EA954833376051D5D600 /* HNKGooglePlacesServer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D4CA4DC49A1F7EA34498140923043CA9 /* KWCaptureSpy.h in Headers */ = {isa = PBXBuildFile; fileRef = 70DBA773896DD23A6C2D764C9C38512B /* KWCaptureSpy.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D4EB5B19B5D86909968D12C1482EAE0F /* KWNotificationMatcher.h in Headers */ = {isa = PBXBuildFile; fileRef = 7B92740CD674EB5C9EF9715069CD83ED /* KWNotificationMatcher.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D59423F5B27BBF3F8C7629544B26427E /* NSObject+KiwiStubAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = B14273D5B15E3B2E7AFE0FAD39772902 /* NSObject+KiwiStubAdditions.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
@@ -263,13 +263,13 @@
 		DB2E92A71137AD2E6993E8B0CE682C89 /* AFURLConnectionOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 014D69996E012AC59A29AED1084ED823 /* AFURLConnectionOperation.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DB42C604EF2F39D542F805AC6A05E090 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26BD83539A66D34CFCDC8451BBDD984C /* MobileCoreServices.framework */; };
 		DB5D23366ADCBA5C64411177922A061C /* NSError+MTLModelException.m in Sources */ = {isa = PBXBuildFile; fileRef = B64406F3613307C0C53BC24244347E12 /* NSError+MTLModelException.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		DB6D0AD503C2C2696B1DCE135B53DE4B /* CLPlacemark+HNKAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = C4CF63547D55AC98419472FB4F16C8AF /* CLPlacemark+HNKAdditions.m */; };
+		DB6D0AD503C2C2696B1DCE135B53DE4B /* CLPlacemark+HNKAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FE60032772F88772C390ED037067047 /* CLPlacemark+HNKAdditions.m */; };
 		DBCC15607B6D268982FCDC158654DB5D /* Kiwi.h in Headers */ = {isa = PBXBuildFile; fileRef = 592D94F44C13D0E4EF353D4A5B99DEBA /* Kiwi.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DECD5915774351B8473476B041DD87D7 /* AFHTTPSessionManager.h in Headers */ = {isa = PBXBuildFile; fileRef = C421614DBF77F172CB8C1097820944E2 /* AFHTTPSessionManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DED3428C3C5005A7870D22DD963F730D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A5925EE08401CBB4AFB920DEADD22BD /* Foundation.framework */; };
 		DF4E20E7C63D4E570E3423A687A3198B /* KWBeZeroMatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = AA931FDF52992972E4E22286C87D7627 /* KWBeZeroMatcher.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		E2DA1370F83A7CEBDE2BFA4CD9EC0858 /* KWContainMatcher.h in Headers */ = {isa = PBXBuildFile; fileRef = A5E68594A7ADB291AD95C3C5619B76E3 /* KWContainMatcher.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		E369630508288727945AB6CEB5DFE886 /* HNKGooglePlacesAutocompleteQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BB95BEB6EAD7AD893FC8B5A0594AC50 /* HNKGooglePlacesAutocompleteQuery.m */; };
+		E369630508288727945AB6CEB5DFE886 /* HNKGooglePlacesAutocompleteQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A0802B918DDFE22E0CAC80C221742C8 /* HNKGooglePlacesAutocompleteQuery.m */; };
 		E41A74F02FD75FEE347BE3405D07B62F /* KWStringUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E92768B6A9A6FDD2A0697E51EB040F4 /* KWStringUtilities.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		E4E3A4A6A5F9D07FB985023448C3C185 /* NSObject+KiwiSpyAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 13A0BC23C8870396009DA0EE232CCA14 /* NSObject+KiwiSpyAdditions.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		E5931D37CEBB532D57E78BA2CC2C1426 /* KWAfterEachNode.m in Sources */ = {isa = PBXBuildFile; fileRef = E9B53D174BDBA52A30C9FE346A38B494 /* KWAfterEachNode.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
@@ -368,6 +368,7 @@
 
 /* Begin PBXFileReference section */
 		006A5F3AB7099F96A7F1943E821034EE /* Pods-HNKGooglePlacesAutocomplete-ExampleTests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-HNKGooglePlacesAutocomplete-ExampleTests-frameworks.sh"; sourceTree = "<group>"; };
+		01289D0E22F7353B4A4C2EBFD997D208 /* HNKGooglePlacesAutocompletePlaceTerm.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = HNKGooglePlacesAutocompletePlaceTerm.m; sourceTree = "<group>"; };
 		014D69996E012AC59A29AED1084ED823 /* AFURLConnectionOperation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AFURLConnectionOperation.h; path = AFNetworking/AFURLConnectionOperation.h; sourceTree = "<group>"; };
 		016CE8145221FC8FDA3DFC2537BDC8BA /* KWBeIdenticalToMatcher.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = KWBeIdenticalToMatcher.m; path = Classes/Matchers/KWBeIdenticalToMatcher.m; sourceTree = "<group>"; };
 		01EE5DE65D28929427738E07933CB74B /* KWBackgroundTask.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = KWBackgroundTask.m; path = Classes/Core/KWBackgroundTask.m; sourceTree = "<group>"; };
@@ -379,12 +380,12 @@
 		071915A46F94B3130AA6B8F20C3FA8D0 /* NSValueTransformer+MTLPredefinedTransformerAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSValueTransformer+MTLPredefinedTransformerAdditions.h"; path = "Mantle/NSValueTransformer+MTLPredefinedTransformerAdditions.h"; sourceTree = "<group>"; };
 		07675234B36681F126ABA5123FCE4D0C /* KWRegisterMatchersNode.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = KWRegisterMatchersNode.m; path = Classes/Nodes/KWRegisterMatchersNode.m; sourceTree = "<group>"; };
 		0774A2D800D75D5196B2E00CF4D4AAEF /* KWBlockRaiseMatcher.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = KWBlockRaiseMatcher.h; path = Classes/Matchers/KWBlockRaiseMatcher.h; sourceTree = "<group>"; };
+		0811E25F21D7C86F997C2B9FF6E4F20C /* HNKGooglePlacesAutocompleteQueryResponse.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = HNKGooglePlacesAutocompleteQueryResponse.m; sourceTree = "<group>"; };
 		094E3F672D1BDE6D63D1392D2C9725FA /* NSError+MTLModelException.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSError+MTLModelException.h"; path = "Mantle/NSError+MTLModelException.h"; sourceTree = "<group>"; };
 		097AE026902AF49BDD8C0C4B05E3F330 /* Kiwi-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Kiwi-prefix.pch"; sourceTree = "<group>"; };
 		0AF7EDC79F1A5B10003EA4621C3E56C1 /* UIButton+AFNetworking.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIButton+AFNetworking.h"; path = "UIKit+AFNetworking/UIButton+AFNetworking.h"; sourceTree = "<group>"; };
 		0C05C48FD5BAE113785D88F926509AF6 /* HNKServerFacade.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = HNKServerFacade.h; path = Pod/Classes/HNKServerFacade.h; sourceTree = "<group>"; };
 		0C1390078FD7BFB77217351D961C201C /* AFNetworkActivityIndicatorManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AFNetworkActivityIndicatorManager.h; path = "UIKit+AFNetworking/AFNetworkActivityIndicatorManager.h"; sourceTree = "<group>"; };
-		0C17D5E16041B03E710E57A0582D760C /* HNKGooglePlacesAutocompletePlaceSubstring.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = HNKGooglePlacesAutocompletePlaceSubstring.m; sourceTree = "<group>"; };
 		0CD1438B52E9029CAC30E3EE94401391 /* KWSpec.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = KWSpec.h; path = Classes/Core/KWSpec.h; sourceTree = "<group>"; };
 		0DB2BA025DB15A858F047FDE2886B0B9 /* KWSuiteConfigurationBase.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = KWSuiteConfigurationBase.m; path = Classes/Config/KWSuiteConfigurationBase.m; sourceTree = "<group>"; };
 		0DD130A3F3C8305228B4A9154C891C1F /* MTLModel+NSCoding.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "MTLModel+NSCoding.h"; path = "Mantle/MTLModel+NSCoding.h"; sourceTree = "<group>"; };
@@ -395,9 +396,11 @@
 		12D9EE754E2017201AFC9CFAEDA1DD0D /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.0.sdk/System/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		130F1A644804D6B638397E5855264BE1 /* AFURLConnectionOperation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AFURLConnectionOperation.m; path = AFNetworking/AFURLConnectionOperation.m; sourceTree = "<group>"; };
 		1320A30E632E78E7EF2FAA8D4159A7D4 /* KWEqualMatcher.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = KWEqualMatcher.h; path = Classes/Matchers/KWEqualMatcher.h; sourceTree = "<group>"; };
+		133309ECC315F3B6388374A1886352F8 /* HNKGooglePlacesAutocompletePlaceSubstring.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = HNKGooglePlacesAutocompletePlaceSubstring.h; sourceTree = "<group>"; };
 		13A0BC23C8870396009DA0EE232CCA14 /* NSObject+KiwiSpyAdditions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSObject+KiwiSpyAdditions.m"; path = "Classes/Core/NSObject+KiwiSpyAdditions.m"; sourceTree = "<group>"; };
 		13AE9C25D82755E7ACF144935DA4C206 /* KWContextNode.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = KWContextNode.h; path = Classes/Nodes/KWContextNode.h; sourceTree = "<group>"; };
 		154685192C1F3CAA35299180A5998EB8 /* NSObject+MTLComparisonAdditions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSObject+MTLComparisonAdditions.m"; path = "Mantle/NSObject+MTLComparisonAdditions.m"; sourceTree = "<group>"; };
+		16143B226659935B005D5BF06882A49A /* HNKGooglePlacesAutocomplete.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = HNKGooglePlacesAutocomplete.xcconfig; sourceTree = "<group>"; };
 		1617E5947FA44AF777CA9E0A7474F153 /* AFNetworking.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AFNetworking.h; path = AFNetworking/AFNetworking.h; sourceTree = "<group>"; };
 		1636A0C522F5BE4EC236230C4450E591 /* KWBeWithinMatcher.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = KWBeWithinMatcher.m; path = Classes/Matchers/KWBeWithinMatcher.m; sourceTree = "<group>"; };
 		16CC3BAD60F13727A8966A03A92D8E0E /* KWHaveValueMatcher.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = KWHaveValueMatcher.h; path = Classes/Matchers/KWHaveValueMatcher.h; sourceTree = "<group>"; };
@@ -409,12 +412,10 @@
 		186929A22E1973B96746509DABD077BE /* AFURLSessionManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AFURLSessionManager.m; path = AFNetworking/AFURLSessionManager.m; sourceTree = "<group>"; };
 		191E8908DB993ABE6C28E832BE77AD6F /* KWLetNode.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = KWLetNode.h; path = Classes/Nodes/KWLetNode.h; sourceTree = "<group>"; };
 		1A5925EE08401CBB4AFB920DEADD22BD /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		1BB95BEB6EAD7AD893FC8B5A0594AC50 /* HNKGooglePlacesAutocompleteQuery.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = HNKGooglePlacesAutocompleteQuery.m; sourceTree = "<group>"; };
 		1C9DFC704204D7C6D4067C152E96ED54 /* KWHaveMatcher.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = KWHaveMatcher.m; path = Classes/Matchers/KWHaveMatcher.m; sourceTree = "<group>"; };
-		1CC49B7F989C693124A5A6263EAA9613 /* HNKGooglePlacesAutocompleteModel.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = HNKGooglePlacesAutocompleteModel.m; sourceTree = "<group>"; };
 		1E92768B6A9A6FDD2A0697E51EB040F4 /* KWStringUtilities.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = KWStringUtilities.m; path = Classes/Core/KWStringUtilities.m; sourceTree = "<group>"; };
-		1F0EB112609801BA63D1E394119A42B5 /* HNKGooglePlacesAutocomplete-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "HNKGooglePlacesAutocomplete-prefix.pch"; sourceTree = "<group>"; };
 		1F255FB1BA8F1A379615288830B80F19 /* KWGenericMatcher.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = KWGenericMatcher.m; path = Classes/Matchers/KWGenericMatcher.m; sourceTree = "<group>"; };
+		1FE60032772F88772C390ED037067047 /* CLPlacemark+HNKAdditions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "CLPlacemark+HNKAdditions.m"; sourceTree = "<group>"; };
 		21B3C2CD79A2D57DF6D7908483208AE2 /* KWAny.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = KWAny.h; path = Classes/Core/KWAny.h; sourceTree = "<group>"; };
 		21D31BD32F810271E251634C2E64723E /* KWAsyncVerifier.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = KWAsyncVerifier.m; path = Classes/Verifiers/KWAsyncVerifier.m; sourceTree = "<group>"; };
 		239DC7C942C1970A9B404EADC816111C /* Pods-HNKGooglePlacesAutocomplete-ExampleTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-HNKGooglePlacesAutocomplete-ExampleTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -425,17 +426,14 @@
 		25932F4BF300DBB90A3BF7807F9F8753 /* KWWorkarounds.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = KWWorkarounds.m; path = Classes/Core/KWWorkarounds.m; sourceTree = "<group>"; };
 		26AC52D27795F59C52576BACD7A75995 /* HNKServer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = HNKServer.h; path = Pod/Classes/HNKServer.h; sourceTree = "<group>"; };
 		26BD83539A66D34CFCDC8451BBDD984C /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.0.sdk/System/Library/Frameworks/MobileCoreServices.framework; sourceTree = DEVELOPER_DIR; };
-		26CFE4E5A20BDBEF368184807626EF02 /* HNKGooglePlacesServer.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = HNKGooglePlacesServer.m; sourceTree = "<group>"; };
 		275159CBFA60512F701844CB69448865 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.0.sdk/System/Library/Frameworks/CoreGraphics.framework; sourceTree = DEVELOPER_DIR; };
 		276EC8BC36E90D226AC0F50CA006E6DD /* KWMatchVerifier.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = KWMatchVerifier.m; path = Classes/Verifiers/KWMatchVerifier.m; sourceTree = "<group>"; };
 		28E9A5EACABA6B44534E09F77577EAB7 /* KWValue.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = KWValue.h; path = Classes/Core/KWValue.h; sourceTree = "<group>"; };
 		29AB5045DC41A4FA5BC8F6D8D0AF2C66 /* AFHTTPRequestOperationManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AFHTTPRequestOperationManager.h; path = AFNetworking/AFHTTPRequestOperationManager.h; sourceTree = "<group>"; };
 		2B6EB41F12F617509C4C5B4AA66BA076 /* AFURLResponseSerialization.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AFURLResponseSerialization.m; path = AFNetworking/AFURLResponseSerialization.m; sourceTree = "<group>"; };
-		2BAB43E272745A28223C5DF84A7C6353 /* HNKGooglePlacesAutocompletePlace.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = HNKGooglePlacesAutocompletePlace.h; sourceTree = "<group>"; };
 		2C4E9263BFCE9F24A08D13571B0C416B /* KWFutureObject.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = KWFutureObject.h; path = Classes/Core/KWFutureObject.h; sourceTree = "<group>"; };
 		2D3DFC0C0B5F4F3B7E8EE65824F0FAC6 /* KWHaveValueMatcher.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = KWHaveValueMatcher.m; path = Classes/Matchers/KWHaveValueMatcher.m; sourceTree = "<group>"; };
 		2D7B8549B858DE955F2E910024D22649 /* UIKit+AFNetworking.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIKit+AFNetworking.h"; path = "UIKit+AFNetworking/UIKit+AFNetworking.h"; sourceTree = "<group>"; };
-		2D7F33D97F1DB5B660C0C1D9C3567E9B /* HNKGooglePlacesAutocompleteQueryConfig.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = HNKGooglePlacesAutocompleteQueryConfig.m; sourceTree = "<group>"; };
 		2E6C57AC801D55136CF7119BA1E50C23 /* KWSpec.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = KWSpec.m; path = Classes/Core/KWSpec.m; sourceTree = "<group>"; };
 		2F2575755D8CBC80022FA3DD43BD94FE /* KWCaptureSpy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = KWCaptureSpy.m; path = Classes/Core/KWCaptureSpy.m; sourceTree = "<group>"; };
 		2F6B2A8BE46695E78486692F35DA09B5 /* MTLReflection.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MTLReflection.m; path = Mantle/MTLReflection.m; sourceTree = "<group>"; };
@@ -449,7 +447,7 @@
 		354B93259BA9A828476DF3F20C9CDD0A /* KWHaveMatcher.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = KWHaveMatcher.h; path = Classes/Matchers/KWHaveMatcher.h; sourceTree = "<group>"; };
 		35F40B9FB6C70529E37538C68104A40F /* NSDictionary+MTLMappingAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSDictionary+MTLMappingAdditions.h"; path = "Mantle/NSDictionary+MTLMappingAdditions.h"; sourceTree = "<group>"; };
 		3658FB77192F97B8254EF1A19F924495 /* NSDictionary+MTLManipulationAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSDictionary+MTLManipulationAdditions.h"; path = "Mantle/NSDictionary+MTLManipulationAdditions.h"; sourceTree = "<group>"; };
-		36ABAFEB8116DC687C4BFA8DA949B1FD /* HNKGooglePlacesAutocompleteQuery.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = HNKGooglePlacesAutocompleteQuery.h; sourceTree = "<group>"; };
+		3788C6E0CC122A33EA5C269146C57BC7 /* HNKGooglePlacesAutocompleteQueryConfig.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = HNKGooglePlacesAutocompleteQueryConfig.h; sourceTree = "<group>"; };
 		384493BDB92D066B7BE24D1A8008372E /* KWStringContainsMatcher.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = KWStringContainsMatcher.h; path = Classes/Matchers/KWStringContainsMatcher.h; sourceTree = "<group>"; };
 		38BC33DC61801FEC37174BCD3FECD30E /* KWSharedExample.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = KWSharedExample.h; path = "Classes/Shared Examples/KWSharedExample.h"; sourceTree = "<group>"; };
 		39E8AFEBA726AA56056C538FEA5A13E2 /* UIWebView+AFNetworking.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIWebView+AFNetworking.h"; path = "UIKit+AFNetworking/UIWebView+AFNetworking.h"; sourceTree = "<group>"; };
@@ -463,6 +461,7 @@
 		3F9F386014ED10BC68605493F99B55A5 /* KWStringPrefixMatcher.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = KWStringPrefixMatcher.h; path = Classes/Matchers/KWStringPrefixMatcher.h; sourceTree = "<group>"; };
 		40BB077BBB92E99A441FF38D312333BD /* KiwiConfiguration.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = KiwiConfiguration.h; path = Classes/Core/KiwiConfiguration.h; sourceTree = "<group>"; };
 		40E5246E922533FC294BFA25D7911A7B /* KWStringPrefixMatcher.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = KWStringPrefixMatcher.m; path = Classes/Matchers/KWStringPrefixMatcher.m; sourceTree = "<group>"; };
+		42A369E4800A4986760B12B28D095301 /* HNKGooglePlacesAutocomplete-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "HNKGooglePlacesAutocomplete-prefix.pch"; sourceTree = "<group>"; };
 		42C8480F0C7626EE32F7F56CAD5CC672 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.0.sdk/System/Library/Frameworks/CoreLocation.framework; sourceTree = DEVELOPER_DIR; };
 		43E7133654677AFC291E7114B5AA2ED8 /* KWRegularExpressionPatternMatcher.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = KWRegularExpressionPatternMatcher.h; path = Classes/Matchers/KWRegularExpressionPatternMatcher.h; sourceTree = "<group>"; };
 		46C8DA9E68C6C8726691018C63757AED /* KWMessagePattern.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = KWMessagePattern.h; path = Classes/Core/KWMessagePattern.h; sourceTree = "<group>"; };
@@ -474,11 +473,9 @@
 		4E93A14B778B9D42BEE240B814F06916 /* Kiwi.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Kiwi.xcconfig; sourceTree = "<group>"; };
 		4FEF4F76E767AF665CFB0BB0AD447B88 /* KWBeKindOfClassMatcher.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = KWBeKindOfClassMatcher.m; path = Classes/Matchers/KWBeKindOfClassMatcher.m; sourceTree = "<group>"; };
 		503955F7D42117B11A2CA00DC9364E64 /* KWContainStringMatcher.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = KWContainStringMatcher.h; path = Classes/Matchers/KWContainStringMatcher.h; sourceTree = "<group>"; };
-		5104492958707CC0078CC97201F983B2 /* CLPlacemark+HNKAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "CLPlacemark+HNKAdditions.h"; sourceTree = "<group>"; };
 		5287A1B0AF3BB1988CCDC5EAB6DB14D6 /* KWMatchVerifier.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = KWMatchVerifier.h; path = Classes/Verifiers/KWMatchVerifier.h; sourceTree = "<group>"; };
 		52961E635E42120ACF65841B561F3DA4 /* KWMatching.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = KWMatching.h; path = Classes/Core/KWMatching.h; sourceTree = "<group>"; };
 		52A055FB87290E27B24C6DE59D49FA7B /* MTLTransformerErrorHandling.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MTLTransformerErrorHandling.h; path = Mantle/MTLTransformerErrorHandling.h; sourceTree = "<group>"; };
-		53169ADDDFE062CF80075CEA0E545104 /* HNKGooglePlacesAutocomplete-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "HNKGooglePlacesAutocomplete-dummy.m"; sourceTree = "<group>"; };
 		53E4473986882976BD6C973A787200C4 /* KWRegularExpressionPatternMatcher.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = KWRegularExpressionPatternMatcher.m; path = Classes/Matchers/KWRegularExpressionPatternMatcher.m; sourceTree = "<group>"; };
 		53F834A5BD2412C6ED915804C42F9734 /* KWSymbolicator.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = KWSymbolicator.m; path = Classes/Core/KWSymbolicator.m; sourceTree = "<group>"; };
 		5409D5B8CABEC0FAD44ABD78A625ED30 /* KWCallSite.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = KWCallSite.m; path = Classes/Core/KWCallSite.m; sourceTree = "<group>"; };
@@ -489,7 +486,6 @@
 		58D60742528970761F2E92AF7FF74AB4 /* KiwiBlockMacros.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = KiwiBlockMacros.h; path = Classes/Core/KiwiBlockMacros.h; sourceTree = "<group>"; };
 		590B93A3914DE21C6DA8238828FF455C /* KWLet.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = KWLet.h; path = Classes/Core/KWLet.h; sourceTree = "<group>"; };
 		592D94F44C13D0E4EF353D4A5B99DEBA /* Kiwi.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Kiwi.h; path = Classes/Core/Kiwi.h; sourceTree = "<group>"; };
-		5C87F33991BF36A7EBD70E026CDFDEFE /* HNKGooglePlacesAutocompleteQueryConfig.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = HNKGooglePlacesAutocompleteQueryConfig.h; sourceTree = "<group>"; };
 		5C8AAF736C9FCC36A00EC6AD4CEF466A /* AFHTTPSessionManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AFHTTPSessionManager.m; path = AFNetworking/AFHTTPSessionManager.m; sourceTree = "<group>"; };
 		5DD2C8685250692FF1EEDB2E40B151D3 /* KWBeKindOfClassMatcher.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = KWBeKindOfClassMatcher.h; path = Classes/Matchers/KWBeKindOfClassMatcher.h; sourceTree = "<group>"; };
 		5EB84CCB033F3751EF4117A3676C4971 /* KWObjCUtilities.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = KWObjCUtilities.h; path = Classes/Core/KWObjCUtilities.h; sourceTree = "<group>"; };
@@ -497,6 +493,7 @@
 		5EC280D29E6C975327C67E7CE3341141 /* KWMock.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = KWMock.h; path = Classes/Mocking/KWMock.h; sourceTree = "<group>"; };
 		5FAB121DF4CC5C0AFFAAA23CF6714A7B /* KWInequalityMatcher.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = KWInequalityMatcher.m; path = Classes/Matchers/KWInequalityMatcher.m; sourceTree = "<group>"; };
 		60BBE0C58936712C6EB2B2BBF7CDA0F5 /* KWFormatter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = KWFormatter.m; path = Classes/Core/KWFormatter.m; sourceTree = "<group>"; };
+		613BF8718D4F880251CFF6E5B46F3803 /* HNKGooglePlacesAutocompletePlace.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = HNKGooglePlacesAutocompletePlace.m; sourceTree = "<group>"; };
 		615094143422131A7BA98EF3A74723D3 /* UIAlertView+AFNetworking.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIAlertView+AFNetworking.m"; path = "UIKit+AFNetworking/UIAlertView+AFNetworking.m"; sourceTree = "<group>"; };
 		6227A16EA81D0867AB04B53B2E408ACE /* NSNumber+KiwiAdditions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSNumber+KiwiAdditions.m"; path = "Classes/Core/NSNumber+KiwiAdditions.m"; sourceTree = "<group>"; };
 		62F5D5C4DF92105A67037FC4EC63869E /* KWIntercept.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = KWIntercept.h; path = Classes/Stubbing/KWIntercept.h; sourceTree = "<group>"; };
@@ -505,7 +502,9 @@
 		64568695E9842E9657591683E8D3B34B /* Pods-HNKGooglePlacesAutocomplete-Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-HNKGooglePlacesAutocomplete-Example-dummy.m"; sourceTree = "<group>"; };
 		658FD1CA5D1BBFB70427B2EF1FF6F982 /* KWDeviceInfo.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = KWDeviceInfo.h; path = Classes/Core/KWDeviceInfo.h; sourceTree = "<group>"; };
 		65A15074B514B7D47C2E68131ECB076E /* Kiwi-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Kiwi-dummy.m"; sourceTree = "<group>"; };
+		67619D259B914755CE0A5F5BE6EEAB0D /* HNKGooglePlacesAutocompleteQueryConfig.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = HNKGooglePlacesAutocompleteQueryConfig.m; sourceTree = "<group>"; };
 		6813630F3F752DC10DD74C6A2B50E284 /* KWAny.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = KWAny.m; path = Classes/Core/KWAny.m; sourceTree = "<group>"; };
+		6A0802B918DDFE22E0CAC80C221742C8 /* HNKGooglePlacesAutocompleteQuery.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = HNKGooglePlacesAutocompleteQuery.m; sourceTree = "<group>"; };
 		6A5C9ADAA5BE5AC4A09185A374CEFCBA /* HNKServerFacade-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "HNKServerFacade-prefix.pch"; sourceTree = "<group>"; };
 		6B8673E2DD02608E445D476D31BF01D7 /* UIRefreshControl+AFNetworking.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIRefreshControl+AFNetworking.h"; path = "UIKit+AFNetworking/UIRefreshControl+AFNetworking.h"; sourceTree = "<group>"; };
 		6E0EA6A6D47165FD151ACC9AA3DEFCAF /* EXTScope.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = EXTScope.m; path = Mantle/extobjc/EXTScope.m; sourceTree = "<group>"; };
@@ -516,7 +515,6 @@
 		7290D8587FD12CC7E9D8F10166CFFA39 /* NSInvocation+OCMAdditions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSInvocation+OCMAdditions.m"; path = "Classes/Core/NSInvocation+OCMAdditions.m"; sourceTree = "<group>"; };
 		7292A9ED5D83A89EE5771FFE866AE041 /* UIRefreshControl+AFNetworking.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIRefreshControl+AFNetworking.m"; path = "UIKit+AFNetworking/UIRefreshControl+AFNetworking.m"; sourceTree = "<group>"; };
 		73BFF6CCE5E6021FB8DDA97F9D9A1DF6 /* KWGenericMatcher.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = KWGenericMatcher.h; path = Classes/Matchers/KWGenericMatcher.h; sourceTree = "<group>"; };
-		746B072A367450EC981E160DDC71EF02 /* HNKGooglePlacesAutocompleteModel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = HNKGooglePlacesAutocompleteModel.h; sourceTree = "<group>"; };
 		74E7D361B3DE74184B3D5044B0D4C4A0 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.0.sdk/System/Library/Frameworks/SystemConfiguration.framework; sourceTree = DEVELOPER_DIR; };
 		763C6F0450EB7CDB67E814BB9B41AFE0 /* NSValueTransformer+MTLInversionAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSValueTransformer+MTLInversionAdditions.h"; path = "Mantle/NSValueTransformer+MTLInversionAdditions.h"; sourceTree = "<group>"; };
 		76A7BBB85E0AFEA8ABFEDB59230A3CED /* KWFailure.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = KWFailure.h; path = Classes/Core/KWFailure.h; sourceTree = "<group>"; };
@@ -529,22 +527,22 @@
 		7D94BE3810D45D40125CBF4159E35131 /* Mantle.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Mantle.h; path = Mantle/Mantle.h; sourceTree = "<group>"; };
 		7E524BAF8BAAB8C095BA6C6FCD229593 /* KWPendingNode.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = KWPendingNode.m; path = Classes/Nodes/KWPendingNode.m; sourceTree = "<group>"; };
 		7FF1E1440C136A4DE374A57B9D164A41 /* KWBeBetweenMatcher.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = KWBeBetweenMatcher.h; path = Classes/Matchers/KWBeBetweenMatcher.h; sourceTree = "<group>"; };
-		808CC04EE3C67CE84B7C179849B7A0E1 /* HNKGooglePlacesAutocompleteQueryResponse.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = HNKGooglePlacesAutocompleteQueryResponse.h; sourceTree = "<group>"; };
 		80D782707D3C057338C01F2A489DB64D /* HNKServerFacade.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = HNKServerFacade.xcconfig; sourceTree = "<group>"; };
 		80D7F73A02FF94F40049D2D57B8BBD27 /* KWAfterEachNode.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = KWAfterEachNode.h; path = Classes/Nodes/KWAfterEachNode.h; sourceTree = "<group>"; };
-		812BE6E2D9BEA8F57779479C33312120 /* HNKGooglePlacesAutocompletePlaceTerm.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = HNKGooglePlacesAutocompletePlaceTerm.h; sourceTree = "<group>"; };
 		82CB530FE641A6F9E8C23EBA200DFDFF /* NSObject+KiwiMockAdditions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSObject+KiwiMockAdditions.m"; path = "Classes/Mocking/NSObject+KiwiMockAdditions.m"; sourceTree = "<group>"; };
 		835F55E6EC8D9B75CD0D7A9B2FB19886 /* KWExampleSuite.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = KWExampleSuite.h; path = Classes/Core/KWExampleSuite.h; sourceTree = "<group>"; };
+		84F726BBEF9E95886DE79EE9E8136A85 /* HNKGooglePlacesAutocompleteQueryResponse.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = HNKGooglePlacesAutocompleteQueryResponse.h; sourceTree = "<group>"; };
 		85603F26542DAA9C2D5F62205135E058 /* KWProbePoller.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = KWProbePoller.m; path = Classes/Core/KWProbePoller.m; sourceTree = "<group>"; };
 		85BF0668E79F42B71FBAFC4719CEFE9E /* libAFNetworking.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libAFNetworking.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		8652DA2B2848E42B081079D8C0A35532 /* KWStub.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = KWStub.m; path = Classes/Stubbing/KWStub.m; sourceTree = "<group>"; };
 		8681915C00094E313400B321228D68A7 /* AFHTTPRequestOperation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AFHTTPRequestOperation.m; path = AFNetworking/AFHTTPRequestOperation.m; sourceTree = "<group>"; };
+		8685FEF6826359FD3DE5843A6F429078 /* HNKGooglePlacesAutocompletePlace.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = HNKGooglePlacesAutocompletePlace.h; sourceTree = "<group>"; };
 		892DC17F5BCF418663F52A94E08EBC94 /* Mantle.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Mantle.xcconfig; sourceTree = "<group>"; };
+		8949C9EC53E25675F853EC1ADA0ED4A9 /* HNKGooglePlacesAutocomplete.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = HNKGooglePlacesAutocomplete.h; sourceTree = "<group>"; };
 		8983FD7C8C0C43AC4FD968A5B119DFBF /* UIImageView+AFNetworking.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIImageView+AFNetworking.m"; path = "UIKit+AFNetworking/UIImageView+AFNetworking.m"; sourceTree = "<group>"; };
 		8AA66A2174EF0354D13B04F583B0CEF7 /* KWAsyncVerifier.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = KWAsyncVerifier.h; path = Classes/Verifiers/KWAsyncVerifier.h; sourceTree = "<group>"; };
 		8AF071DE1426C811798B8F17DED26390 /* KWBackgroundTask.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = KWBackgroundTask.h; path = Classes/Core/KWBackgroundTask.h; sourceTree = "<group>"; };
 		8B850A8A0217FDCD9A7B598803CCC54D /* KWGenericMatchEvaluator.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = KWGenericMatchEvaluator.h; path = Classes/Matchers/KWGenericMatchEvaluator.h; sourceTree = "<group>"; };
-		8C7D646F86DB7590AA9925E907B06471 /* HNKGooglePlacesAutocompleteQueryResponse.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = HNKGooglePlacesAutocompleteQueryResponse.m; sourceTree = "<group>"; };
 		8D00EF9FE0CF5CE2B102FEA353AE8B61 /* KWBlock.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = KWBlock.m; path = Classes/Core/KWBlock.m; sourceTree = "<group>"; };
 		8E6D4F07966FDDBBF95D8D6F2A43DFA2 /* KWExampleDelegate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = KWExampleDelegate.h; path = Classes/Core/KWExampleDelegate.h; sourceTree = "<group>"; };
 		8ED3898F7CB1FC631FCB35B8399B1765 /* AFURLResponseSerialization.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AFURLResponseSerialization.h; path = AFNetworking/AFURLResponseSerialization.h; sourceTree = "<group>"; };
@@ -553,11 +551,11 @@
 		90EB1AD85778B68A6DC9933B3F318365 /* libKiwi.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libKiwi.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		911AB5F21BB5764877120AE83286DE88 /* KWBeEmptyMatcher.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = KWBeEmptyMatcher.h; path = Classes/Matchers/KWBeEmptyMatcher.h; sourceTree = "<group>"; };
 		918411AD9A47482D505D819A3B5F4EC6 /* Pods-HNKGooglePlacesAutocomplete-ExampleTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-HNKGooglePlacesAutocomplete-ExampleTests-acknowledgements.markdown"; sourceTree = "<group>"; };
-		920CFF925500F53475A9A17D1359156F /* HNKGooglePlacesServer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = HNKGooglePlacesServer.h; sourceTree = "<group>"; };
 		924D985B6A7D7001908F73F27B3F337E /* KWCountType.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = KWCountType.h; path = Classes/Core/KWCountType.h; sourceTree = "<group>"; };
 		925E456E2D7AB5EE3D8DAA5FBA2F5069 /* KWBeTrueMatcher.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = KWBeTrueMatcher.h; path = Classes/Matchers/KWBeTrueMatcher.h; sourceTree = "<group>"; };
 		93111A21979581F71F0325520BC45E72 /* UIAlertView+AFNetworking.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIAlertView+AFNetworking.h"; path = "UIKit+AFNetworking/UIAlertView+AFNetworking.h"; sourceTree = "<group>"; };
 		943E947DADBAC4A270A9DF2A536403DC /* KWBeMemberOfClassMatcher.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = KWBeMemberOfClassMatcher.m; path = Classes/Matchers/KWBeMemberOfClassMatcher.m; sourceTree = "<group>"; };
+		94CF6417D372EA954833376051D5D600 /* HNKGooglePlacesServer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = HNKGooglePlacesServer.h; sourceTree = "<group>"; };
 		95B813A1308AE0AC30DFB107248DCE2A /* Pods-HNKGooglePlacesAutocomplete-Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-HNKGooglePlacesAutocomplete-Example.debug.xcconfig"; sourceTree = "<group>"; };
 		96566E10A1DCD9EF994C0C5ECA6DF8B5 /* KWFailure.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = KWFailure.m; path = Classes/Core/KWFailure.m; sourceTree = "<group>"; };
 		96B5E6CEF9A93163E5E3087403174FC6 /* KWConformToProtocolMatcher.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = KWConformToProtocolMatcher.m; path = Classes/Matchers/KWConformToProtocolMatcher.m; sourceTree = "<group>"; };
@@ -567,6 +565,8 @@
 		9C268C5599791047233D50F57BA181D4 /* NSInvocation+OCMAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSInvocation+OCMAdditions.h"; path = "Classes/Core/NSInvocation+OCMAdditions.h"; sourceTree = "<group>"; };
 		9D0E7675E7BAD6CFDAF649ADE53A67EA /* libHNKServerFacade.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libHNKServerFacade.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		9DA8210C63E2F232CDBC7E19DCAA5D8E /* KWBeSubclassOfClassMatcher.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = KWBeSubclassOfClassMatcher.h; path = Classes/Matchers/KWBeSubclassOfClassMatcher.h; sourceTree = "<group>"; };
+		9DE1021CF8B3C964444B2413EC4F2AF8 /* HNKGooglePlacesAutocompleteModel.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = HNKGooglePlacesAutocompleteModel.m; sourceTree = "<group>"; };
+		9F87A9BF76642EEB01BD3506169DA16D /* HNKGooglePlacesServer.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = HNKGooglePlacesServer.m; sourceTree = "<group>"; };
 		A017081A002828A5D275A336A7704C70 /* AFHTTPRequestOperationManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AFHTTPRequestOperationManager.m; path = AFNetworking/AFHTTPRequestOperationManager.m; sourceTree = "<group>"; };
 		A0D80A8F344CCB11225154115BE068F2 /* KWGenericMatchingAdditions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = KWGenericMatchingAdditions.m; path = Classes/Matchers/KWGenericMatchingAdditions.m; sourceTree = "<group>"; };
 		A1372BE90A1A8F037D10305F190A1DCB /* UIWebView+AFNetworking.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIWebView+AFNetworking.m"; path = "UIKit+AFNetworking/UIWebView+AFNetworking.m"; sourceTree = "<group>"; };
@@ -592,7 +592,6 @@
 		ADCB8306A5C1F70DAEFFE88528D1F799 /* KWNull.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = KWNull.m; path = Classes/Core/KWNull.m; sourceTree = "<group>"; };
 		AFF8FBFEEF8789D38B7143B3B30EC440 /* KWSharedExample.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = KWSharedExample.m; path = "Classes/Shared Examples/KWSharedExample.m"; sourceTree = "<group>"; };
 		B0B7FC6A05FFF96D4DF139D1B990F597 /* KWStringUtilities.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = KWStringUtilities.h; path = Classes/Core/KWStringUtilities.h; sourceTree = "<group>"; };
-		B1055D4E334783DE26533A81B7D18468 /* HNKGooglePlacesAutocompletePlace.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = HNKGooglePlacesAutocompletePlace.m; sourceTree = "<group>"; };
 		B11356B0EF3E1BB2A2E27FE87EE950A2 /* MTLModel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MTLModel.h; path = Mantle/MTLModel.h; sourceTree = "<group>"; };
 		B14273D5B15E3B2E7AFE0FAD39772902 /* NSObject+KiwiStubAdditions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSObject+KiwiStubAdditions.m"; path = "Classes/Stubbing/NSObject+KiwiStubAdditions.m"; sourceTree = "<group>"; };
 		B1A05814BE385602B93D8347DC006574 /* KWAllTestsSuite.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = KWAllTestsSuite.m; path = Classes/Config/KWAllTestsSuite.m; sourceTree = "<group>"; };
@@ -601,7 +600,6 @@
 		B64406F3613307C0C53BC24244347E12 /* NSError+MTLModelException.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSError+MTLModelException.m"; path = "Mantle/NSError+MTLModelException.m"; sourceTree = "<group>"; };
 		B83F124A642AABC90CDB4F82519E5612 /* KWBeWithinMatcher.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = KWBeWithinMatcher.h; path = Classes/Matchers/KWBeWithinMatcher.h; sourceTree = "<group>"; };
 		B931337345CAD94380C09283F6EEAC8B /* MTLJSONAdapter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MTLJSONAdapter.m; path = Mantle/MTLJSONAdapter.m; sourceTree = "<group>"; };
-		B935B8FDDD1D05DE0874A9F4314FDE84 /* HNKGooglePlacesAutocomplete.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = HNKGooglePlacesAutocomplete.xcconfig; sourceTree = "<group>"; };
 		BA0A36B4EB34DA1688F4FE2361DE3D21 /* KWMessageTracker.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = KWMessageTracker.h; path = Classes/Core/KWMessageTracker.h; sourceTree = "<group>"; };
 		BA6428E9F66FD5A23C0A2E06ED26CD2F /* Podfile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		BBAE97E01DE7367D5B0F6CA5E65529D5 /* EXTKeyPathCoding.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = EXTKeyPathCoding.h; path = Mantle/extobjc/EXTKeyPathCoding.h; sourceTree = "<group>"; };
@@ -617,7 +615,7 @@
 		C3FBF05385D492B902E64BA5F718B528 /* NSObject+KiwiSpyAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSObject+KiwiSpyAdditions.h"; path = "Classes/Core/NSObject+KiwiSpyAdditions.h"; sourceTree = "<group>"; };
 		C4214B01750177AB7CCF8962B95E6C19 /* KWReporting.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = KWReporting.h; path = Classes/Core/KWReporting.h; sourceTree = "<group>"; };
 		C421614DBF77F172CB8C1097820944E2 /* AFHTTPSessionManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AFHTTPSessionManager.h; path = AFNetworking/AFHTTPSessionManager.h; sourceTree = "<group>"; };
-		C4CF63547D55AC98419472FB4F16C8AF /* CLPlacemark+HNKAdditions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "CLPlacemark+HNKAdditions.m"; sourceTree = "<group>"; };
+		C45A912CA0636EE29C3C0B96BB2CCF27 /* HNKGooglePlacesAutocompleteModel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = HNKGooglePlacesAutocompleteModel.h; sourceTree = "<group>"; };
 		C5163E6127399E229CBF534DF76D845B /* KWExampleNodeVisitor.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = KWExampleNodeVisitor.h; path = Classes/Core/KWExampleNodeVisitor.h; sourceTree = "<group>"; };
 		C5EC62776EFF048A36F3CDABEE9A1CCF /* KWExistVerifier.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = KWExistVerifier.h; path = Classes/Verifiers/KWExistVerifier.h; sourceTree = "<group>"; };
 		C5FADC8F62412D647A25A7FE964B51C1 /* KWNilMatcher.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = KWNilMatcher.m; path = Classes/Matchers/KWNilMatcher.m; sourceTree = "<group>"; };
@@ -626,6 +624,7 @@
 		C66502554FD51F3B86CBCBA307A6D689 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.0.sdk/System/Library/Frameworks/Security.framework; sourceTree = DEVELOPER_DIR; };
 		C70B60A8402EBF98AC9248C40194381D /* KWGenericMatchingAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = KWGenericMatchingAdditions.h; path = Classes/Matchers/KWGenericMatchingAdditions.h; sourceTree = "<group>"; };
 		C90568F182C1EAA8CB99871775974581 /* NSValueTransformer+MTLPredefinedTransformerAdditions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSValueTransformer+MTLPredefinedTransformerAdditions.m"; path = "Mantle/NSValueTransformer+MTLPredefinedTransformerAdditions.m"; sourceTree = "<group>"; };
+		C928B8F31C5FEBB65DFA4CFCF55CF699 /* HNKGooglePlacesAutocompletePlaceSubstring.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = HNKGooglePlacesAutocompletePlaceSubstring.m; sourceTree = "<group>"; };
 		C9D743C8C02FD7BF7FD1AB2217D84A07 /* NSObject+KiwiMockAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSObject+KiwiMockAdditions.h"; path = "Classes/Mocking/NSObject+KiwiMockAdditions.h"; sourceTree = "<group>"; };
 		CA0A4E34EEC0BEA4BB375DD6992D1208 /* KWContextNode.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = KWContextNode.m; path = Classes/Nodes/KWContextNode.m; sourceTree = "<group>"; };
 		CA5A5D915B1FF007518EC21C929DDB59 /* metamacros.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = metamacros.h; path = Mantle/extobjc/metamacros.h; sourceTree = "<group>"; };
@@ -644,6 +643,7 @@
 		D3430EF6521F4C668B4D726D97EFBB5D /* KWExistVerifier.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = KWExistVerifier.m; path = Classes/Verifiers/KWExistVerifier.m; sourceTree = "<group>"; };
 		D44A78C3BFAA9A4AF9506D0C46EFCC6D /* KWUserDefinedMatcher.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = KWUserDefinedMatcher.h; path = Classes/Matchers/KWUserDefinedMatcher.h; sourceTree = "<group>"; };
 		D559FDC07F0F5470A5368222CE83ED7F /* KWBeforeAllNode.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = KWBeforeAllNode.m; path = Classes/Nodes/KWBeforeAllNode.m; sourceTree = "<group>"; };
+		D5CF6F7FB39B245C1A0E01529F1025D9 /* CLPlacemark+HNKAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "CLPlacemark+HNKAdditions.h"; sourceTree = "<group>"; };
 		D654325456338239EADBEC3A21B5E7FB /* UIImageView+AFNetworking.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIImageView+AFNetworking.h"; path = "UIKit+AFNetworking/UIImageView+AFNetworking.h"; sourceTree = "<group>"; };
 		D684B8CE6D4E8EE738ECF49E9E87980F /* AFURLRequestSerialization.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AFURLRequestSerialization.m; path = AFNetworking/AFURLRequestSerialization.m; sourceTree = "<group>"; };
 		D89B42600833DE7AA093FE013AA57CC6 /* KWEqualMatcher.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = KWEqualMatcher.m; path = Classes/Matchers/KWEqualMatcher.m; sourceTree = "<group>"; };
@@ -652,10 +652,9 @@
 		D9871FF83842FD95248DAC597E2670F3 /* KWExampleSuiteBuilder.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = KWExampleSuiteBuilder.h; path = Classes/Core/KWExampleSuiteBuilder.h; sourceTree = "<group>"; };
 		DA2B0999B29CDFD8B130BA68115AC539 /* KWConformToProtocolMatcher.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = KWConformToProtocolMatcher.h; path = Classes/Matchers/KWConformToProtocolMatcher.h; sourceTree = "<group>"; };
 		DE07D6EFD13EB709D89E402BDF5C1FCB /* NSObject+MTLComparisonAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSObject+MTLComparisonAdditions.h"; path = "Mantle/NSObject+MTLComparisonAdditions.h"; sourceTree = "<group>"; };
+		E055FC2F3C0BC3B9436DB1F2BE8C865D /* HNKGooglePlacesAutocompletePlaceTerm.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = HNKGooglePlacesAutocompletePlaceTerm.h; sourceTree = "<group>"; };
 		E09B6074B50AD79C57BCC08D507C10D1 /* KWAfterAllNode.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = KWAfterAllNode.m; path = Classes/Nodes/KWAfterAllNode.m; sourceTree = "<group>"; };
-		E0AA908CF079A3D8BC1AE51AB9539346 /* HNKGooglePlacesAutocomplete.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = HNKGooglePlacesAutocomplete.h; sourceTree = "<group>"; };
 		E13404834AF72FCD226A65519C6B7F34 /* Pods-HNKGooglePlacesAutocomplete-ExampleTests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-HNKGooglePlacesAutocomplete-ExampleTests-acknowledgements.plist"; sourceTree = "<group>"; };
-		E17B3604BA5A476BFFFEF454268CF8C7 /* HNKGooglePlacesAutocompletePlaceSubstring.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = HNKGooglePlacesAutocompletePlaceSubstring.h; sourceTree = "<group>"; };
 		E17E80562D44A6301576A379A3149716 /* HNKServer.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = HNKServer.m; path = Pod/Classes/HNKServer.m; sourceTree = "<group>"; };
 		E1C08A6B1EC69207E0FD839C1D30EBC1 /* KWExpectationType.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = KWExpectationType.h; path = Classes/Core/KWExpectationType.h; sourceTree = "<group>"; };
 		E1DA1DB4C2B90CF3464F78B8D940A118 /* NSArray+MTLManipulationAdditions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSArray+MTLManipulationAdditions.m"; path = "Mantle/NSArray+MTLManipulationAdditions.m"; sourceTree = "<group>"; };
@@ -679,13 +678,14 @@
 		EE25E3A743970CA727DE0A2B8AF835F8 /* KWMessageSpying.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = KWMessageSpying.h; path = Classes/Core/KWMessageSpying.h; sourceTree = "<group>"; };
 		EE88C5F2FE03F0ED12D4A2C5B397D664 /* KWInvocationCapturer.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = KWInvocationCapturer.m; path = Classes/Core/KWInvocationCapturer.m; sourceTree = "<group>"; };
 		F0CFFFD039729A6E30328958E15EEEE1 /* KWAfterAllNode.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = KWAfterAllNode.h; path = Classes/Nodes/KWAfterAllNode.h; sourceTree = "<group>"; };
+		F0DF36B046A370BB5E176F99CAC07CDD /* HNKGooglePlacesAutocomplete-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "HNKGooglePlacesAutocomplete-dummy.m"; sourceTree = "<group>"; };
+		F0FC400273C9D68DC584934C5CEFDC97 /* HNKGooglePlacesAutocompleteQuery.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = HNKGooglePlacesAutocompleteQuery.h; sourceTree = "<group>"; };
 		F13A1A76EEC31814818CAD90F30698C3 /* KWBlockRaiseMatcher.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = KWBlockRaiseMatcher.m; path = Classes/Matchers/KWBlockRaiseMatcher.m; sourceTree = "<group>"; };
 		F18FDC2B60F39823C0D78CA7EB2504BE /* MTLTransformerErrorHandling.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MTLTransformerErrorHandling.m; path = Mantle/MTLTransformerErrorHandling.m; sourceTree = "<group>"; };
 		F2D79449D561116E4E2DA01E0A118CF3 /* KWSharedExampleRegistry.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = KWSharedExampleRegistry.m; path = "Classes/Shared Examples/KWSharedExampleRegistry.m"; sourceTree = "<group>"; };
 		F3B7F62014EDD4818A0490748A75B365 /* KWNull.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = KWNull.h; path = Classes/Core/KWNull.h; sourceTree = "<group>"; };
 		F809E8922751A3CA00F47FB0EF6E3738 /* KWMatcher.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = KWMatcher.h; path = Classes/Core/KWMatcher.h; sourceTree = "<group>"; };
 		F8970F3F6CB65BD27F0F87CAECEFD84B /* Pods-HNKGooglePlacesAutocomplete-Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-HNKGooglePlacesAutocomplete-Example-acknowledgements.plist"; sourceTree = "<group>"; };
-		FBC83B9C119882DE3265F742AA254D22 /* HNKGooglePlacesAutocompletePlaceTerm.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = HNKGooglePlacesAutocompletePlaceTerm.m; sourceTree = "<group>"; };
 		FDA85AA7542EC8589D92EDDFA75A44E0 /* KWSymbolicator.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = KWSymbolicator.h; path = Classes/Core/KWSymbolicator.h; sourceTree = "<group>"; };
 		FE965060FB2D6CA382A470312A7AEC2F /* KWChangeMatcher.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = KWChangeMatcher.m; path = Classes/Matchers/KWChangeMatcher.m; sourceTree = "<group>"; };
 		FFA9F8422C98C6923C8ED17F6C9F7633 /* KWBeSubclassOfClassMatcher.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = KWBeSubclassOfClassMatcher.m; path = Classes/Matchers/KWBeSubclassOfClassMatcher.m; sourceTree = "<group>"; };
@@ -757,13 +757,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		15B6EC22ADA05B3AC46EC2EA688F8155 /* Models */ = {
+		125E7A3685A2E5FE9F887DCA99E02901 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				56B4829DC9AB5ECBD33A33A0F9A6FFD3 /* Networking */,
-				E485A6E62BFD25B65B2EE89ECCE1B9D6 /* Pod */,
+				D5CF6F7FB39B245C1A0E01529F1025D9 /* CLPlacemark+HNKAdditions.h */,
+				1FE60032772F88772C390ED037067047 /* CLPlacemark+HNKAdditions.m */,
+				8949C9EC53E25675F853EC1ADA0ED4A9 /* HNKGooglePlacesAutocomplete.h */,
+				C45A912CA0636EE29C3C0B96BB2CCF27 /* HNKGooglePlacesAutocompleteModel.h */,
+				9DE1021CF8B3C964444B2413EC4F2AF8 /* HNKGooglePlacesAutocompleteModel.m */,
+				8685FEF6826359FD3DE5843A6F429078 /* HNKGooglePlacesAutocompletePlace.h */,
+				613BF8718D4F880251CFF6E5B46F3803 /* HNKGooglePlacesAutocompletePlace.m */,
+				133309ECC315F3B6388374A1886352F8 /* HNKGooglePlacesAutocompletePlaceSubstring.h */,
+				C928B8F31C5FEBB65DFA4CFCF55CF699 /* HNKGooglePlacesAutocompletePlaceSubstring.m */,
+				E055FC2F3C0BC3B9436DB1F2BE8C865D /* HNKGooglePlacesAutocompletePlaceTerm.h */,
+				01289D0E22F7353B4A4C2EBFD997D208 /* HNKGooglePlacesAutocompletePlaceTerm.m */,
+				F0FC400273C9D68DC584934C5CEFDC97 /* HNKGooglePlacesAutocompleteQuery.h */,
+				6A0802B918DDFE22E0CAC80C221742C8 /* HNKGooglePlacesAutocompleteQuery.m */,
+				3788C6E0CC122A33EA5C269146C57BC7 /* HNKGooglePlacesAutocompleteQueryConfig.h */,
+				67619D259B914755CE0A5F5BE6EEAB0D /* HNKGooglePlacesAutocompleteQueryConfig.m */,
+				84F726BBEF9E95886DE79EE9E8136A85 /* HNKGooglePlacesAutocompleteQueryResponse.h */,
+				0811E25F21D7C86F997C2B9FF6E4F20C /* HNKGooglePlacesAutocompleteQueryResponse.m */,
+				94CF6417D372EA954833376051D5D600 /* HNKGooglePlacesServer.h */,
+				9F87A9BF76642EEB01BD3506169DA16D /* HNKGooglePlacesServer.m */,
 			);
-			name = Models;
+			path = Classes;
 			sourceTree = "<group>";
 		};
 		186A4F40D2456680407D39852AE704F2 /* extobjc */ = {
@@ -991,39 +1008,14 @@
 			name = Serialization;
 			sourceTree = "<group>";
 		};
-		318AA4F8C7E7D2B1E762CF093934A1A5 /* Pod */ = {
+		48CA28F1DB3F0DCE488AAA1053938F12 /* HNKGooglePlacesAutocomplete */ = {
 			isa = PBXGroup;
 			children = (
-				B418E2CF4B0886B16FACFFBA079A6E3B /* Classes */,
-			);
-			path = Pod;
-			sourceTree = "<group>";
-		};
-		409BE12914A07A7C6BF30024CB146B45 /* Pod */ = {
-			isa = PBXGroup;
-			children = (
-				96CA74A0BBE7C19B8B522844024B6B76 /* Classes */,
-			);
-			path = Pod;
-			sourceTree = "<group>";
-		};
-		42AE8788DEFE88AD551CAE04DB9DE4B0 /* HNKGooglePlacesAutocomplete */ = {
-			isa = PBXGroup;
-			children = (
-				15B6EC22ADA05B3AC46EC2EA688F8155 /* Models */,
-				318AA4F8C7E7D2B1E762CF093934A1A5 /* Pod */,
-				A624DF0CCA9577CFC9227315652BAE57 /* Support Files */,
+				A2D8B894A31B35E01674A18E47CA0849 /* Core */,
+				8B92B3EE479921447CCF51A678080A87 /* Support Files */,
 			);
 			name = HNKGooglePlacesAutocomplete;
 			path = ../..;
-			sourceTree = "<group>";
-		};
-		47A609DE684C219DD7C082DF1D1F27D3 /* Development Pods */ = {
-			isa = PBXGroup;
-			children = (
-				42AE8788DEFE88AD551CAE04DB9DE4B0 /* HNKGooglePlacesAutocomplete */,
-			);
-			name = "Development Pods";
 			sourceTree = "<group>";
 		};
 		490BEBB15E2CF0425391B4C2591C9AAC /* Pods-HNKGooglePlacesAutocomplete-Example */ = {
@@ -1094,12 +1086,12 @@
 			path = "Target Support Files/Pods-HNKGooglePlacesAutocomplete-ExampleTests";
 			sourceTree = "<group>";
 		};
-		56B4829DC9AB5ECBD33A33A0F9A6FFD3 /* Networking */ = {
+		5CB67DD56B344070BAD72EB7046798B6 /* Pod */ = {
 			isa = PBXGroup;
 			children = (
-				409BE12914A07A7C6BF30024CB146B45 /* Pod */,
+				125E7A3685A2E5FE9F887DCA99E02901 /* Classes */,
 			);
-			name = Networking;
+			path = Pod;
 			sourceTree = "<group>";
 		};
 		630956FA2BAEDD7C3EA1B407FFDE3D36 /* NSURLSession */ = {
@@ -1165,7 +1157,7 @@
 			isa = PBXGroup;
 			children = (
 				BA6428E9F66FD5A23C0A2E06ED26CD2F /* Podfile */,
-				47A609DE684C219DD7C082DF1D1F27D3 /* Development Pods */,
+				F557EFC447C7C9B99A8CAB818240BC88 /* Development Pods */,
 				F4CDA5FA9197A41E0081E84F932906EB /* Frameworks */,
 				C8F66966A419458F2438654F44D78910 /* Pods */,
 				C5B8C6619B869137EA94CE2CB08F4BFB /* Products */,
@@ -1182,6 +1174,17 @@
 			name = Security;
 			sourceTree = "<group>";
 		};
+		8B92B3EE479921447CCF51A678080A87 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				16143B226659935B005D5BF06882A49A /* HNKGooglePlacesAutocomplete.xcconfig */,
+				F0DF36B046A370BB5E176F99CAC07CDD /* HNKGooglePlacesAutocomplete-dummy.m */,
+				42A369E4800A4986760B12B28D095301 /* HNKGooglePlacesAutocomplete-prefix.pch */,
+			);
+			name = "Support Files";
+			path = "Example/Pods/Target Support Files/HNKGooglePlacesAutocomplete";
+			sourceTree = "<group>";
+		};
 		8ECB1FCF49BD63E14200FF2506F85F89 /* AFNetworking */ = {
 			isa = PBXGroup;
 			children = (
@@ -1195,15 +1198,6 @@
 				69913ADCBABFC64A6B9AFED934F6EF3A /* UIKit */,
 			);
 			path = AFNetworking;
-			sourceTree = "<group>";
-		};
-		96CA74A0BBE7C19B8B522844024B6B76 /* Classes */ = {
-			isa = PBXGroup;
-			children = (
-				920CFF925500F53475A9A17D1359156F /* HNKGooglePlacesServer.h */,
-				26CFE4E5A20BDBEF368184807626EF02 /* HNKGooglePlacesServer.m */,
-			);
-			path = Classes;
 			sourceTree = "<group>";
 		};
 		97E50F080E808D79C2BCEDA30A95CE0F /* Support Files */ = {
@@ -1241,25 +1235,12 @@
 			path = "../Target Support Files/Mantle";
 			sourceTree = "<group>";
 		};
-		A624DF0CCA9577CFC9227315652BAE57 /* Support Files */ = {
+		A2D8B894A31B35E01674A18E47CA0849 /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				B935B8FDDD1D05DE0874A9F4314FDE84 /* HNKGooglePlacesAutocomplete.xcconfig */,
-				53169ADDDFE062CF80075CEA0E545104 /* HNKGooglePlacesAutocomplete-dummy.m */,
-				1F0EB112609801BA63D1E394119A42B5 /* HNKGooglePlacesAutocomplete-prefix.pch */,
+				5CB67DD56B344070BAD72EB7046798B6 /* Pod */,
 			);
-			name = "Support Files";
-			path = "Example/Pods/Target Support Files/HNKGooglePlacesAutocomplete";
-			sourceTree = "<group>";
-		};
-		B418E2CF4B0886B16FACFFBA079A6E3B /* Classes */ = {
-			isa = PBXGroup;
-			children = (
-				5104492958707CC0078CC97201F983B2 /* CLPlacemark+HNKAdditions.h */,
-				C4CF63547D55AC98419472FB4F16C8AF /* CLPlacemark+HNKAdditions.m */,
-				E0AA908CF079A3D8BC1AE51AB9539346 /* HNKGooglePlacesAutocomplete.h */,
-			);
-			path = Classes;
+			name = Core;
 			sourceTree = "<group>";
 		};
 		B985C2E564BF3F48ED2B355478B2FC8F /* Support Files */ = {
@@ -1298,27 +1279,6 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		D7C3DF03E176636F93E0BD89D92F187B /* Classes */ = {
-			isa = PBXGroup;
-			children = (
-				746B072A367450EC981E160DDC71EF02 /* HNKGooglePlacesAutocompleteModel.h */,
-				1CC49B7F989C693124A5A6263EAA9613 /* HNKGooglePlacesAutocompleteModel.m */,
-				2BAB43E272745A28223C5DF84A7C6353 /* HNKGooglePlacesAutocompletePlace.h */,
-				B1055D4E334783DE26533A81B7D18468 /* HNKGooglePlacesAutocompletePlace.m */,
-				E17B3604BA5A476BFFFEF454268CF8C7 /* HNKGooglePlacesAutocompletePlaceSubstring.h */,
-				0C17D5E16041B03E710E57A0582D760C /* HNKGooglePlacesAutocompletePlaceSubstring.m */,
-				812BE6E2D9BEA8F57779479C33312120 /* HNKGooglePlacesAutocompletePlaceTerm.h */,
-				FBC83B9C119882DE3265F742AA254D22 /* HNKGooglePlacesAutocompletePlaceTerm.m */,
-				36ABAFEB8116DC687C4BFA8DA949B1FD /* HNKGooglePlacesAutocompleteQuery.h */,
-				1BB95BEB6EAD7AD893FC8B5A0594AC50 /* HNKGooglePlacesAutocompleteQuery.m */,
-				5C87F33991BF36A7EBD70E026CDFDEFE /* HNKGooglePlacesAutocompleteQueryConfig.h */,
-				2D7F33D97F1DB5B660C0C1D9C3567E9B /* HNKGooglePlacesAutocompleteQueryConfig.m */,
-				808CC04EE3C67CE84B7C179849B7A0E1 /* HNKGooglePlacesAutocompleteQueryResponse.h */,
-				8C7D646F86DB7590AA9925E907B06471 /* HNKGooglePlacesAutocompleteQueryResponse.m */,
-			);
-			path = Classes;
-			sourceTree = "<group>";
-		};
 		DDE66084ECA9019A6061E9696DB1CD51 /* HNKServerFacade */ = {
 			isa = PBXGroup;
 			children = (
@@ -1330,20 +1290,20 @@
 			path = HNKServerFacade;
 			sourceTree = "<group>";
 		};
-		E485A6E62BFD25B65B2EE89ECCE1B9D6 /* Pod */ = {
-			isa = PBXGroup;
-			children = (
-				D7C3DF03E176636F93E0BD89D92F187B /* Classes */,
-			);
-			path = Pod;
-			sourceTree = "<group>";
-		};
 		F4CDA5FA9197A41E0081E84F932906EB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				67E910407FC08FE1059BB255CAAED79C /* iOS */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F557EFC447C7C9B99A8CAB818240BC88 /* Development Pods */ = {
+			isa = PBXGroup;
+			children = (
+				48CA28F1DB3F0DCE488AAA1053938F12 /* HNKGooglePlacesAutocomplete */,
+			);
+			name = "Development Pods";
 			sourceTree = "<group>";
 		};
 		FEBDBE9AED350600100F6A870DAD68C7 /* Support Files */ = {
@@ -1981,7 +1941,7 @@
 		};
 		0D9BA786583664FC6B797C17F886A04E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B935B8FDDD1D05DE0874A9F4314FDE84 /* HNKGooglePlacesAutocomplete.xcconfig */;
+			baseConfigurationReference = 16143B226659935B005D5BF06882A49A /* HNKGooglePlacesAutocomplete.xcconfig */;
 			buildSettings = {
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_PREFIX_HEADER = "Target Support Files/HNKGooglePlacesAutocomplete/HNKGooglePlacesAutocomplete-prefix.pch";
@@ -1999,7 +1959,7 @@
 		};
 		25BE4AF6AACFA446A9E8621E7C3D70C1 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B935B8FDDD1D05DE0874A9F4314FDE84 /* HNKGooglePlacesAutocomplete.xcconfig */;
+			baseConfigurationReference = 16143B226659935B005D5BF06882A49A /* HNKGooglePlacesAutocomplete.xcconfig */;
 			buildSettings = {
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_PREFIX_HEADER = "Target Support Files/HNKGooglePlacesAutocomplete/HNKGooglePlacesAutocomplete-prefix.pch";
