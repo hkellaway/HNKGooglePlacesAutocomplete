@@ -265,6 +265,7 @@
 		DB5D23366ADCBA5C64411177922A061C /* NSError+MTLModelException.m in Sources */ = {isa = PBXBuildFile; fileRef = B64406F3613307C0C53BC24244347E12 /* NSError+MTLModelException.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		DB6D0AD503C2C2696B1DCE135B53DE4B /* CLPlacemark+HNKAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FE60032772F88772C390ED037067047 /* CLPlacemark+HNKAdditions.m */; };
 		DBCC15607B6D268982FCDC158654DB5D /* Kiwi.h in Headers */ = {isa = PBXBuildFile; fileRef = 592D94F44C13D0E4EF353D4A5B99DEBA /* Kiwi.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		DCA4B4501C03B3190010821D /* HNKGooglePlacesNetworkingManager.h in Headers */ = {isa = PBXBuildFile; fileRef = DCA4B44F1C03B3190010821D /* HNKGooglePlacesNetworkingManager.h */; };
 		DECD5915774351B8473476B041DD87D7 /* AFHTTPSessionManager.h in Headers */ = {isa = PBXBuildFile; fileRef = C421614DBF77F172CB8C1097820944E2 /* AFHTTPSessionManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DED3428C3C5005A7870D22DD963F730D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A5925EE08401CBB4AFB920DEADD22BD /* Foundation.framework */; };
 		DF4E20E7C63D4E570E3423A687A3198B /* KWBeZeroMatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = AA931FDF52992972E4E22286C87D7627 /* KWBeZeroMatcher.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
@@ -651,6 +652,7 @@
 		D963663BFDF4A02DA8429F64A80187BC /* KWDeviceInfo.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = KWDeviceInfo.m; path = Classes/Core/KWDeviceInfo.m; sourceTree = "<group>"; };
 		D9871FF83842FD95248DAC597E2670F3 /* KWExampleSuiteBuilder.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = KWExampleSuiteBuilder.h; path = Classes/Core/KWExampleSuiteBuilder.h; sourceTree = "<group>"; };
 		DA2B0999B29CDFD8B130BA68115AC539 /* KWConformToProtocolMatcher.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = KWConformToProtocolMatcher.h; path = Classes/Matchers/KWConformToProtocolMatcher.h; sourceTree = "<group>"; };
+		DCA4B44F1C03B3190010821D /* HNKGooglePlacesNetworkingManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HNKGooglePlacesNetworkingManager.h; sourceTree = "<group>"; };
 		DE07D6EFD13EB709D89E402BDF5C1FCB /* NSObject+MTLComparisonAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSObject+MTLComparisonAdditions.h"; path = "Mantle/NSObject+MTLComparisonAdditions.h"; sourceTree = "<group>"; };
 		E055FC2F3C0BC3B9436DB1F2BE8C865D /* HNKGooglePlacesAutocompletePlaceTerm.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = HNKGooglePlacesAutocompletePlaceTerm.h; sourceTree = "<group>"; };
 		E09B6074B50AD79C57BCC08D507C10D1 /* KWAfterAllNode.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = KWAfterAllNode.m; path = Classes/Nodes/KWAfterAllNode.m; sourceTree = "<group>"; };
@@ -779,6 +781,7 @@
 				0811E25F21D7C86F997C2B9FF6E4F20C /* HNKGooglePlacesAutocompleteQueryResponse.m */,
 				94CF6417D372EA954833376051D5D600 /* HNKGooglePlacesServer.h */,
 				9F87A9BF76642EEB01BD3506169DA16D /* HNKGooglePlacesServer.m */,
+				DCA4B44F1C03B3190010821D /* HNKGooglePlacesNetworkingManager.h */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -1484,6 +1487,7 @@
 			files = (
 				211D4EA06F5920376A069ACB55DF6006 /* AFHTTPRequestOperation.h in Headers */,
 				F4A1512E8C4D8C8194CBB276BF72A552 /* AFHTTPRequestOperationManager.h in Headers */,
+				DCA4B4501C03B3190010821D /* HNKGooglePlacesNetworkingManager.h in Headers */,
 				DECD5915774351B8473476B041DD87D7 /* AFHTTPSessionManager.h in Headers */,
 				F4DCBA2A42A38C6E7A755182DA50DEA2 /* AFNetworkActivityIndicatorManager.h in Headers */,
 				2B8269A87473D9F1259E9BD98E7588D3 /* AFNetworking.h in Headers */,

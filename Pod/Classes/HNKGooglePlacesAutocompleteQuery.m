@@ -75,10 +75,6 @@ static HNKGooglePlacesAutocompleteQuery *sharedQuery = nil;
 
 + (instancetype)setupSharedQueryWithAPIKey:(NSString *)apiKey
 {
-#ifdef HNK_AFNETWORKING
-    NSLog(@"HERE");
-#endif
-    
     return [self setupSharedQueryWithAPIKey:apiKey configurationBlock:nil];
 }
 
