@@ -18,7 +18,7 @@ Improvements include:
 - Modern, vetted pods utilized (AFNetworking, Mantle)
 - Code is well-tested using Kiwi
 - Documentation is thorough
-- Designed for reusability and dissemination with Cocoapods
+- Designed for reusability and dissemination with CocoaPods
 
 ## Communication
 
@@ -39,7 +39,7 @@ As of version 1.1, HNKGooglePlacesAutocomplete uses Mantle 2.0. If you require M
 
 ### Installation with CocoaPods
 
-[CocoaPods](http://cocoapods.org) is a dependency manager for Objective-C, which automates and simplifies the process of using 3rd-party libraries like HNKGooglePlacesAutocomplete in your projects. Cocoapods is the preferred way to incorporate HNKGooglePlacesAutocomplete in your project; if you are unfamiliar with how to install Cocoapods or how create a Podfile, there are many tutorials online.
+[CocoaPods](http://cocoapods.org) is a dependency manager for Objective-C, which automates and simplifies the process of using 3rd-party libraries like HNKGooglePlacesAutocomplete in your projects. CocoaPods is the preferred way to incorporate HNKGooglePlacesAutocomplete in your project; if you are unfamiliar with how to install CocoaPods or how create a Podfile, there are many tutorials online.
 
 #### Podfile
 
