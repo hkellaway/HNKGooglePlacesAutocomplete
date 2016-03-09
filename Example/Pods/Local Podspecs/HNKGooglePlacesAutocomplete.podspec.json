@@ -21,8 +21,8 @@
   "requires_arc": true,
   "source_files": "Pod/Classes/*.{h,m}",
   "dependencies": {
-    "HNKServerFacade": [
-      "~> 0.3"
+    "AFNetworking": [
+      "~> 3.0"
     ],
     "Mantle": [
       "~> 2.0"

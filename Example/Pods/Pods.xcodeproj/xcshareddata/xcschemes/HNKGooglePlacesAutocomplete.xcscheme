@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '3849D3480758C50430B3E1F3'
+               BlueprintIdentifier = '0D69869E7999ACE773539241'
                BlueprintName = 'HNKGooglePlacesAutocomplete'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'libHNKGooglePlacesAutocomplete.a'>
