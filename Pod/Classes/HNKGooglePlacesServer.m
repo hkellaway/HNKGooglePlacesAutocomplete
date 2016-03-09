@@ -23,8 +23,9 @@
 // THE SOFTWARE.
 //
 
+#import <AFNetworking/AFNetworking.h>
+#import <AFNetworking/AFNetworkActivityIndicatorManager.h>
 #import "HNKGooglePlacesServer.h"
-#import "HNKServer.h"
 
 static NSString *const kHNKGooglePlacesServerBaseURL = @"https://maps.googleapis.com/maps/api/place/";
 
@@ -32,13 +33,19 @@ static NSString *const kHNKGooglePlacesServerBaseURL = @"https://maps.googleapis
 
 #pragma mark - Overrides
 
-static HNKServer *server = nil;
+static AFHTTPSessionManager *httpSessionManager = nil;
 
 + (void)initialize
 {
     if (self == [HNKGooglePlacesServer class]) {
 
-        server = [[HNKServer alloc] initWithBaseURL:kHNKGooglePlacesServerBaseURL];
+        httpSessionManager = [[AFHTTPSessionManager alloc]
+                                   initWithBaseURL:[NSURL URLWithString:kHNKGooglePlacesServerBaseURL]];
+    
+        httpSessionManager.responseSerializer.acceptableContentTypes =
+        [NSSet setWithObject:@"application/json"];
+        
+        [AFNetworkActivityIndicatorManager sharedManager].enabled = YES;
     }
 }
 
@@ -46,22 +53,20 @@ static HNKServer *server = nil;
 
 + (void)GET:(NSString *)path parameters:(NSDictionary *)parameters completion:(void (^)(id, NSError *))completion
 {
-    [server GET:path
-        parameters:parameters
-        completion:^(id responseObject, NSError *error) {
-
-            if (completion) {
-
-                if (error) {
-
-                    completion(nil, error);
-                    return;
-                }
-
-                completion(responseObject, nil);
-            }
-
-        }];
+    NSString *urlString = [kHNKGooglePlacesServerBaseURL stringByAppendingPathComponent:path];
+    
+    [httpSessionManager GET:urlString
+                      parameters:parameters
+                         success:^(NSURLSessionDataTask *task, id responseObject) {
+                             if (completion) {
+                                 completion(responseObject, nil);
+                             }
+                         }
+                         failure:^(NSURLSessionDataTask *task, NSError *error) {
+                             if (completion) {
+                                 completion(nil, error);
+                             }
+                         }];
 }
 
 @end
