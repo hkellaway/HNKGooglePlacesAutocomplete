@@ -14,12 +14,6 @@ An Objective-C wrapper for the Google Places Autocomplete API
 
 HNKGooglePlacesAutocomplete is an Objective-C wrapper for the Google Places Autocomplete API. It encapsulates the same core functionality as [SPGooglePlacesAutocomplete](https://github.com/spoletto/SPGooglePlacesAutocomplete) - autocomplete suggestions and Google Place-to-CLPlacemark translation - with the intention of modernizing the approach.
 
-Improvements include:
-- Modern, vetted pods utilized (AFNetworking, Mantle)
-- Code is well-tested using Kiwi
-- Documentation is thorough
-- Designed for reusability and dissemination with CocoaPods
-
 ## Communication
 
 - If you **have found a bug**, _and can provide steps to reliably reproduce it_, [open an issue](https://github.com/hkellaway/HNKGooglePlacesAutocomplete/issues/new).
@@ -27,6 +21,10 @@ Improvements include:
 - If you **want to contribute**, [submit a pull request](https://github.com/hkellaway/HNKGooglePlacesAutocomplete/pulls). Pull request should be made against the _develop_ branch.
 
 ## Dependencies
+
+### AFNetworking
+
+As of version 1.2, HNKGooglePlacesAutocomplete uses AFNetworking 3.0. If you require AFNetworking 2.x, version 1.1. can be used - however not that only versions 1.2+ will incorporate new updates.
 
 ### Mantle
 
@@ -44,7 +42,7 @@ As of version 1.1, HNKGooglePlacesAutocomplete uses Mantle 2.0. If you require M
 #### Podfile
 
 ```ruby
-pod "HNKGooglePlacesAutocomplete", "~> 1.1"
+pod "HNKGooglePlacesAutocomplete", "~> 1.2"
 ```
 
 ### API Key
@@ -236,7 +234,7 @@ For example, if a user types "Amoeba" and a resulting Place suggestion had a `na
 
 ## Credits
 
-HNKGooglePlacesAutocomplete was created by [Harlan Kellaway](http://harlankellaway.com). It was inspired by [SPGooglePlacesAutocomplete](https://github.com/spoletto/SPGooglePlacesAutocomplete).
+HNKGooglePlacesAutocomplete was created by [Harlan Kellaway](http://harlankellaway.com). It was inspired by [SPGooglePlacesAutocomplete](https://github.com/chenyuan/SPGooglePlacesAutocomplete).
 
 Thanks to all [contributors](https://github.com/hkellaway/HNKGooglePlacesAutocomplete/contributors) :tada:
 
