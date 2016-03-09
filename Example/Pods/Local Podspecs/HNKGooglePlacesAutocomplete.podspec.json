@@ -19,37 +19,13 @@
     "ios": "8.0"
   },
   "requires_arc": true,
-  "source_files": [
-    "Pod/Classes/HNKGooglePlacesAutocomplete.{h,m}",
-    "Pod/Classes/CLPlacemark+HNKAdditions.{h,m}"
-  ],
-  "frameworks": "CoreLocation",
+  "source_files": "Pod/Classes/*.{h,m}",
   "dependencies": {
-    "HNKServerFacade": [
-      "~> 0.3"
+    "AFNetworking": [
+      "~> 3.0"
     ],
     "Mantle": [
       "~> 2.0"
     ]
-  },
-  "subspecs": [
-    {
-      "name": "Models",
-      "source_files": [
-        "Pod/Classes/HNKGooglePlacesAutocompleteModel.{h,m}",
-        "Pod/Classes/HNKGooglePlacesAutocompleteQuery.{h,m}",
-        "Pod/Classes/HNKGooglePlacesAutocompleteQueryConfig.{h,m}",
-        "Pod/Classes/HNKGooglePlacesAutocompleteQueryResponse.{h,m}",
-        "Pod/Classes/HNKGooglePlacesAutocompletePlace.{h,m}",
-        "Pod/Classes/HNKGooglePlacesAutocompletePlaceSubstring.{h,m}",
-        "Pod/Classes/HNKGooglePlacesAutocompletePlaceTerm.{h,m}"
-      ],
-      "subspecs": [
-        {
-          "name": "Networking",
-          "source_files": "Pod/Classes/HNKGooglePlacesServer.{h,m}"
-        }
-      ]
-    }
-  ]
+  }
 }

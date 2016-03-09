@@ -11,20 +11,9 @@ Pod::Spec.new do |s|
   s.platform     = :ios, "8.0"
   s.requires_arc = true
 
-  s.source_files  = 'Pod/Classes/HNKGooglePlacesAutocomplete.{h,m}', 'Pod/Classes/CLPlacemark+HNKAdditions.{h,m}'
+  s.source_files  = 'Pod/Classes/*.{h,m}'
 
-  s.subspec 'Models' do |ss|
-
-    ss.subspec 'Networking' do |sss|
-      sss.source_files = 'Pod/Classes/HNKGooglePlacesServer.{h,m}'
-    end
-
-    ss.source_files = 'Pod/Classes/HNKGooglePlacesAutocompleteModel.{h,m}', 'Pod/Classes/HNKGooglePlacesAutocompleteQuery.{h,m}', 'Pod/Classes/HNKGooglePlacesAutocompleteQueryConfig.{h,m}', 'Pod/Classes/HNKGooglePlacesAutocompleteQueryResponse.{h,m}', 'Pod/Classes/HNKGooglePlacesAutocompletePlace.{h,m}', 'Pod/Classes/HNKGooglePlacesAutocompletePlaceSubstring.{h,m}', 'Pod/Classes/HNKGooglePlacesAutocompletePlaceTerm.{h,m}'
-  end
-
-  s.frameworks = 'CoreLocation'
-
-  s.dependency "HNKServerFacade", "~> 0.3"
+  s.dependency "AFNetworking", "~> 3.0"
   s.dependency "Mantle", "~> 2.0"
 
 end

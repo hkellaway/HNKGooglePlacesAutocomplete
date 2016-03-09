@@ -8,8 +8,9 @@
 
 #import "Kiwi.h"
 
+#import <AFNetworking/AFNetworking.h>
+#import <AFNetworking/AFNetworkActivityIndicatorManager.h>
 #import <HNKGooglePlacesAutocomplete/HNKGooglePlacesServer.h>
-#import <HNKServerFacade/HNKServer.h>
 
 SPEC_BEGIN(HNKGooglePlacesServerSpec)
 
@@ -17,19 +18,19 @@ describe(@"HNKGooglePlacesServer", ^{
 
     describe(@"Method: initialize",
              ^{
-                 __block id mockServer;
+                 __block id mockHTTPSessionManager;
                  
                  beforeEach(^{
                      
-                     mockServer = [HNKServer nullMock];
+                     mockHTTPSessionManager = [AFHTTPSessionManager nullMock];
                     
-                     [HNKServer stub:@selector(alloc) andReturn:mockServer];
+                     [AFHTTPSessionManager stub:@selector(alloc) andReturn:mockHTTPSessionManager];
                      
                  });
 
-                 it(@"Should setup HNKServer",
+                 it(@"Should setup AFHTTPSessionManager",
                     ^{
-                        [[mockServer should] receive:@selector(initWithBaseURL:) withArguments:@"https://maps.googleapis.com/maps/api/place/"];
+                        [[mockHTTPSessionManager should] receive:@selector(initWithBaseURL:) withArguments:[NSURL URLWithString:@"https://maps.googleapis.com/maps/api/place/"]];
 
                         [HNKGooglePlacesServer initialize];
                     });
