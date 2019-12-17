@@ -43,6 +43,14 @@ static NSString *const kHNKGooglePlacesServerRequestPathDetails = @"details/json
 
 @implementation CLPlacemark (HNKAdditions)
 
++ (void)hnk_placemarkFromJSON:(NSDictionary *)json
+                              apiKey:(NSString *)apiKey
+                          completion:(void (^)(CLPlacemark *, NSString *, NSError *))completion
+{
+    HNKGooglePlacesAutocompletePlace *place = [HNKGooglePlacesAutocompletePlace modelFromJSONDictionary:json];
+    return [CLPlacemark hnk_placemarkFromGooglePlace:place apiKey:apiKey completion:completion];
+}
+
 + (void)hnk_placemarkFromGooglePlace:(HNKGooglePlacesAutocompletePlace *)place
                               apiKey:(NSString *)apiKey
                           completion:(void (^)(CLPlacemark *, NSString *, NSError *))completion

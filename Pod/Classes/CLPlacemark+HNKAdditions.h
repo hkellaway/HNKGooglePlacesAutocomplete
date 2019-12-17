@@ -57,6 +57,10 @@ extern NSString *HNKCLPlacemarkDescriptionForErrorCode(HNKCLPlacemarkErrorCode e
 
 @interface CLPlacemark (HNKAdditions)
 
++ (void)hnk_placemarkFromJSON:(NSDictionary *)json
+                       apiKey:(NSString *)apiKey
+                   completion:(void (^)(CLPlacemark *, NSString *, NSError *))completion;
+
 /**
  *  Creates a CLPlacemark from an object representing a Google Place
  *
