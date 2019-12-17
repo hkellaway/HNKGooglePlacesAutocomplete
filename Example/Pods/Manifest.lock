@@ -21,32 +21,41 @@ PODS:
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
   - HNKGooglePlacesAutocomplete (1.0.0):
+    - AFNetworking (= 2.5.4)
     - HNKGooglePlacesAutocomplete/Models (= 1.0.0)
-    - HNKServerFacade (~> 0.2)
     - Mantle (~> 1.5)
   - HNKGooglePlacesAutocomplete/Models (1.0.0):
+    - AFNetworking (= 2.5.4)
     - HNKGooglePlacesAutocomplete/Models/Networking (= 1.0.0)
-    - HNKServerFacade (~> 0.2)
     - Mantle (~> 1.5)
   - HNKGooglePlacesAutocomplete/Models/Networking (1.0.0):
-    - HNKServerFacade (~> 0.2)
+    - AFNetworking (= 2.5.4)
     - Mantle (~> 1.5)
-  - HNKServerFacade (0.2.1):
-    - AFNetworking (~> 2.5)
-  - Kiwi (2.3.1)
-  - Mantle (1.5.4):
-    - Mantle/extobjc (= 1.5.4)
-  - Mantle/extobjc (1.5.4)
+  - Kiwi (2.4.0)
+  - Mantle (1.5.8):
+    - Mantle/extobjc (= 1.5.8)
+  - Mantle/extobjc (1.5.8)
 
 DEPENDENCIES:
-  - HNKGooglePlacesAutocomplete (~> 1.0)
+  - HNKGooglePlacesAutocomplete (from `../`)
   - Kiwi (~> 2.3)
+
+SPEC REPOS:
+  trunk:
+    - AFNetworking
+    - Kiwi
+    - Mantle
+
+EXTERNAL SOURCES:
+  HNKGooglePlacesAutocomplete:
+    :path: "../"
 
 SPEC CHECKSUMS:
   AFNetworking: 05edc0ac4c4c8cf57bcf4b84be5b0744b6d8e71e
-  HNKGooglePlacesAutocomplete: 68a110a52782ab1cf32ffba0ac25acb6fa3ae8d8
-  HNKServerFacade: 54102383a22b3aa61171574ad0b50ff24fd504cd
-  Kiwi: f038a6c61f7a9e4d7766bff5717aa3b3fdb75f55
-  Mantle: 60acd0cd363e27d945bda0a6b8e90577112d28f3
+  HNKGooglePlacesAutocomplete: df24f7b3d2eeca22f5b3db80bd70f0e160e605d8
+  Kiwi: f49c9d54b28917df5928fe44968a39ed198cb8a8
+  Mantle: f03b2b606c3f0cabd80214ad8a2fed6b464a7359
 
-COCOAPODS: 0.37.1
+PODFILE CHECKSUM: e726fc8dc6a5d7ba98e29d5248da4524b27f1544
+
+COCOAPODS: 1.8.4

@@ -24,43 +24,103 @@
 //
 
 #import "HNKGooglePlacesServer.h"
-#import "HNKServer.h"
+
+#import <AFNetworking/AFNetworking.h>
+#import <AFNetworking/AFNetworkActivityIndicatorManager.h>
+
 
 static NSString *const kHNKGooglePlacesServerBaseURL = @"https://maps.googleapis.com/maps/api/place/";
 
 @implementation HNKGooglePlacesServer
 
-#pragma mark - Overrides
+#pragma mark - Initialization
+
+static NSString *baseURLStr = nil;
+static AFHTTPSessionManager *httpSessionManager = nil;
 
 + (void)initialize
 {
     if (self == [HNKGooglePlacesServer class]) {
 
-        [HNKServer setupWithBaseUrl:kHNKGooglePlacesServerBaseURL];
+        [HNKGooglePlacesServer setupWithBaseUrl:kHNKGooglePlacesServerBaseURL];
     }
+}
+
++ (void)setupWithBaseUrl:(NSString *)baseURLString {
+  static dispatch_once_t onceToken;
+
+  dispatch_once(&onceToken, ^{
+    NSParameterAssert(baseURLString);
+
+    baseURLStr = [[NSURL URLWithString:baseURLString] absoluteString];
+
+    [self setupHttpSessionManager];
+    [self setupNetworkActivityIndicator];
+  });
+}
+
+#pragma mark - Class methods
+
++ (NSString *)baseURLString {
+  return baseURLStr;
+}
+
++ (BOOL)isNetworkActivityIndicatorEnabled {
+  return [AFNetworkActivityIndicatorManager sharedManager].isEnabled;
+}
+
++ (NSSet *)responseContentTypes {
+  return httpSessionManager.responseSerializer.acceptableContentTypes;
+}
+
+#pragma mark Configuration
+
++ (void)configureResponseContentTypes:(NSSet *)newContentTypes {
+  NSParameterAssert(newContentTypes);
+
+  httpSessionManager.responseSerializer.acceptableContentTypes =
+      newContentTypes;
 }
 
 #pragma mark - Requests
 
-+ (void)GET:(NSString *)path parameters:(NSDictionary *)parameters completion:(void (^)(id, NSError *))completion
-{
++ (void)GET:(NSString *)path
+    parameters:(NSDictionary *)parameters
+    completion:(void (^)(id responseObject, NSError *))completion {
+  NSString *urlString = [self urlStringFromPath:path];
 
-    [HNKServer GET:path
-        parameters:parameters
-        completion:^(id responseObject, NSError *error) {
+  [httpSessionManager GET:urlString
+      parameters:parameters
+      success:^(NSURLSessionDataTask *task, id responseObject) {
+        if (completion) {
+          completion(responseObject, nil);
+        }
+      }
+      failure:^(NSURLSessionDataTask *task, NSError *error) {
+        if (completion) {
+          completion(nil, error);
+        }
+      }];
+}
 
-            if (completion) {
+#pragma mark - Helpers
 
-                if (error) {
++ (void)setupHttpSessionManager {
+  if (httpSessionManager == nil) {
+    httpSessionManager = [[AFHTTPSessionManager alloc]
+        initWithBaseURL:[NSURL URLWithString:baseURLStr]];
+  }
 
-                    completion(nil, error);
-                    return;
-                }
+  httpSessionManager.responseSerializer.acceptableContentTypes =
+      [NSSet setWithObject:@"application/json"];
+}
 
-                completion(responseObject, nil);
-            }
++ (void)setupNetworkActivityIndicator {
+  [AFNetworkActivityIndicatorManager sharedManager].enabled = YES;
+}
 
-        }];
++ (NSString *)urlStringFromPath:(NSString *)path {
+  return [baseURLStr stringByAppendingPathComponent:path];
 }
 
 @end

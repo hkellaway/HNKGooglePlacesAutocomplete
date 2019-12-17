@@ -7,12 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		DC0A83ED1AED8229001EB35D /* HNKGooglePlacesAutocompletePlaceTermSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = DC0A83EC1AED8229001EB35D /* HNKGooglePlacesAutocompletePlaceTermSpec.m */; };
-		DC0A83F61AED8F1D001EB35D /* HNKGooglePlacesAutocompletePlaceSubstringSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = DC0A83F51AED8F1D001EB35D /* HNKGooglePlacesAutocompletePlaceSubstringSpec.m */; };
-		DC1699521AFF03C9000D8E26 /* HNKGooglePlacesAutocompleteQueryConfigSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = DC1699511AFF03C9000D8E26 /* HNKGooglePlacesAutocompleteQueryConfigSpec.m */; };
-		DC345C2A1AEDA518009D3645 /* HNKGooglePlacesAutocompletePlaceSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = DC345C291AEDA518009D3645 /* HNKGooglePlacesAutocompletePlaceSpec.m */; };
-		DC345C2F1AEDC5C8009D3645 /* HNKGooglePlacesAutocompleteQueryResponseSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = DC345C2E1AEDC5C8009D3645 /* HNKGooglePlacesAutocompleteQueryResponseSpec.m */; };
-		DC345C3B1AF09FC7009D3645 /* HNKGooglePlacesAutocompleteServerSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = DC345C3A1AF09FC7009D3645 /* HNKGooglePlacesAutocompleteServerSpec.m */; };
+		808444A30893D3934213E709 /* libPods-HNKGooglePlacesAutocomplete-ExampleTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F5DABFE1E17303566BD8BA4E /* libPods-HNKGooglePlacesAutocomplete-ExampleTests.a */; };
 		DC6F02831AF6F26D000CE728 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC6F02821AF6F26D000CE728 /* MapKit.framework */; };
 		DCA78AFD1AED6AA800F5F3B9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DCA78AFC1AED6AA800F5F3B9 /* main.m */; };
 		DCA78B001AED6AA800F5F3B9 /* HNKDemoAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DCA78AFF1AED6AA800F5F3B9 /* HNKDemoAppDelegate.m */; };
@@ -22,10 +17,7 @@
 		DCA78B0B1AED6AA800F5F3B9 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = DCA78B091AED6AA800F5F3B9 /* LaunchScreen.xib */; };
 		DCA78DAC1B12438200817F8B /* _clang-format in Resources */ = {isa = PBXBuildFile; fileRef = DCA78DAB1B12438200817F8B /* _clang-format */; };
 		DCD575001AF5B74500CE5A23 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCD574FF1AF5B74500CE5A23 /* CoreLocation.framework */; };
-		DCD575071AF6A67000CE5A23 /* CLPlacemark+HNKAdditionsSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = DCD575061AF6A67000CE5A23 /* CLPlacemark+HNKAdditionsSpec.m */; };
-		DCFAD4BE1AF32BEC0042BB22 /* HNKGooglePlacesAutocompleteQuerySpec.m in Sources */ = {isa = PBXBuildFile; fileRef = DCFAD4BD1AF32BEC0042BB22 /* HNKGooglePlacesAutocompleteQuerySpec.m */; };
-		F506C4906E4964AE559012AE /* libPods-HNKGooglePlacesAutocomplete-Example.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D0EAF8F6FC72B250C169F3BB /* libPods-HNKGooglePlacesAutocomplete-Example.a */; };
-		FF43537F0B40492CE6E305C4 /* libPods-HNKGooglePlacesAutocomplete-ExampleTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 20B87C8F6F397F86222199FF /* libPods-HNKGooglePlacesAutocomplete-ExampleTests.a */; };
+		E7B2A88773B5029E06DEDB94 /* libPods-HNKGooglePlacesAutocomplete-Example.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 156B9CFAA7B6368FD3F6A7E5 /* libPods-HNKGooglePlacesAutocomplete-Example.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,18 +31,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0A5485CEF38C794987700904 /* Pods-HNKGooglePlacesAutocomplete-ExampleTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HNKGooglePlacesAutocomplete-ExampleTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HNKGooglePlacesAutocomplete-ExampleTests/Pods-HNKGooglePlacesAutocomplete-ExampleTests.debug.xcconfig"; sourceTree = "<group>"; };
-		20B87C8F6F397F86222199FF /* libPods-HNKGooglePlacesAutocomplete-ExampleTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-HNKGooglePlacesAutocomplete-ExampleTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		26A7E8D0F78A6E915F9B03AF /* Pods-HNKGooglePlacesAutocomplete-ExampleTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HNKGooglePlacesAutocomplete-ExampleTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-HNKGooglePlacesAutocomplete-ExampleTests/Pods-HNKGooglePlacesAutocomplete-ExampleTests.release.xcconfig"; sourceTree = "<group>"; };
-		7B836E5632B34FC1CB845488 /* Pods-HNKGooglePlacesAutocomplete-Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HNKGooglePlacesAutocomplete-Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-HNKGooglePlacesAutocomplete-Example/Pods-HNKGooglePlacesAutocomplete-Example.release.xcconfig"; sourceTree = "<group>"; };
-		D0EAF8F6FC72B250C169F3BB /* libPods-HNKGooglePlacesAutocomplete-Example.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-HNKGooglePlacesAutocomplete-Example.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		DA2524585B0166608A39236E /* Pods-HNKGooglePlacesAutocomplete-Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HNKGooglePlacesAutocomplete-Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HNKGooglePlacesAutocomplete-Example/Pods-HNKGooglePlacesAutocomplete-Example.debug.xcconfig"; sourceTree = "<group>"; };
-		DC0A83EC1AED8229001EB35D /* HNKGooglePlacesAutocompletePlaceTermSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HNKGooglePlacesAutocompletePlaceTermSpec.m; sourceTree = "<group>"; };
-		DC0A83F51AED8F1D001EB35D /* HNKGooglePlacesAutocompletePlaceSubstringSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HNKGooglePlacesAutocompletePlaceSubstringSpec.m; sourceTree = "<group>"; };
-		DC1699511AFF03C9000D8E26 /* HNKGooglePlacesAutocompleteQueryConfigSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HNKGooglePlacesAutocompleteQueryConfigSpec.m; sourceTree = "<group>"; };
-		DC345C291AEDA518009D3645 /* HNKGooglePlacesAutocompletePlaceSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HNKGooglePlacesAutocompletePlaceSpec.m; sourceTree = "<group>"; };
-		DC345C2E1AEDC5C8009D3645 /* HNKGooglePlacesAutocompleteQueryResponseSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HNKGooglePlacesAutocompleteQueryResponseSpec.m; sourceTree = "<group>"; };
-		DC345C3A1AF09FC7009D3645 /* HNKGooglePlacesAutocompleteServerSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HNKGooglePlacesAutocompleteServerSpec.m; sourceTree = "<group>"; };
+		156B9CFAA7B6368FD3F6A7E5 /* libPods-HNKGooglePlacesAutocomplete-Example.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-HNKGooglePlacesAutocomplete-Example.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8D5EDF2713B7EEC8BE82934A /* Pods-HNKGooglePlacesAutocomplete-Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HNKGooglePlacesAutocomplete-Example.release.xcconfig"; path = "Target Support Files/Pods-HNKGooglePlacesAutocomplete-Example/Pods-HNKGooglePlacesAutocomplete-Example.release.xcconfig"; sourceTree = "<group>"; };
+		9DB367316419D0C2167E22C2 /* Pods-HNKGooglePlacesAutocomplete-Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HNKGooglePlacesAutocomplete-Example.debug.xcconfig"; path = "Target Support Files/Pods-HNKGooglePlacesAutocomplete-Example/Pods-HNKGooglePlacesAutocomplete-Example.debug.xcconfig"; sourceTree = "<group>"; };
+		A27BEC2AC93DDF329345798B /* Pods-HNKGooglePlacesAutocomplete-ExampleTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HNKGooglePlacesAutocomplete-ExampleTests.debug.xcconfig"; path = "Target Support Files/Pods-HNKGooglePlacesAutocomplete-ExampleTests/Pods-HNKGooglePlacesAutocomplete-ExampleTests.debug.xcconfig"; sourceTree = "<group>"; };
+		AA694BE9A246577ECE39E3F1 /* Pods-HNKGooglePlacesAutocomplete-ExampleTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HNKGooglePlacesAutocomplete-ExampleTests.release.xcconfig"; path = "Target Support Files/Pods-HNKGooglePlacesAutocomplete-ExampleTests/Pods-HNKGooglePlacesAutocomplete-ExampleTests.release.xcconfig"; sourceTree = "<group>"; };
 		DC6F02821AF6F26D000CE728 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		DCA78AF71AED6AA800F5F3B9 /* HNKGooglePlacesAutocomplete-Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "HNKGooglePlacesAutocomplete-Example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCA78AFB1AED6AA800F5F3B9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -66,8 +51,7 @@
 		DCA78B151AED6AA800F5F3B9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DCA78DAB1B12438200817F8B /* _clang-format */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "_clang-format"; path = "../../_clang-format"; sourceTree = "<group>"; };
 		DCD574FF1AF5B74500CE5A23 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
-		DCD575061AF6A67000CE5A23 /* CLPlacemark+HNKAdditionsSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CLPlacemark+HNKAdditionsSpec.m"; sourceTree = "<group>"; };
-		DCFAD4BD1AF32BEC0042BB22 /* HNKGooglePlacesAutocompleteQuerySpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HNKGooglePlacesAutocompleteQuerySpec.m; sourceTree = "<group>"; };
+		F5DABFE1E17303566BD8BA4E /* libPods-HNKGooglePlacesAutocomplete-ExampleTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-HNKGooglePlacesAutocomplete-ExampleTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,7 +61,7 @@
 			files = (
 				DC6F02831AF6F26D000CE728 /* MapKit.framework in Frameworks */,
 				DCD575001AF5B74500CE5A23 /* CoreLocation.framework in Frameworks */,
-				F506C4906E4964AE559012AE /* libPods-HNKGooglePlacesAutocomplete-Example.a in Frameworks */,
+				E7B2A88773B5029E06DEDB94 /* libPods-HNKGooglePlacesAutocomplete-Example.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -85,55 +69,40 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FF43537F0B40492CE6E305C4 /* libPods-HNKGooglePlacesAutocomplete-ExampleTests.a in Frameworks */,
+				808444A30893D3934213E709 /* libPods-HNKGooglePlacesAutocomplete-ExampleTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		49501A1E331EFD1ED185A611 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				9DB367316419D0C2167E22C2 /* Pods-HNKGooglePlacesAutocomplete-Example.debug.xcconfig */,
+				8D5EDF2713B7EEC8BE82934A /* Pods-HNKGooglePlacesAutocomplete-Example.release.xcconfig */,
+				A27BEC2AC93DDF329345798B /* Pods-HNKGooglePlacesAutocomplete-ExampleTests.debug.xcconfig */,
+				AA694BE9A246577ECE39E3F1 /* Pods-HNKGooglePlacesAutocomplete-ExampleTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		96CE1BBE25C46A86D71B6BBC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				DC6F02821AF6F26D000CE728 /* MapKit.framework */,
 				DCD574FF1AF5B74500CE5A23 /* CoreLocation.framework */,
-				D0EAF8F6FC72B250C169F3BB /* libPods-HNKGooglePlacesAutocomplete-Example.a */,
-				20B87C8F6F397F86222199FF /* libPods-HNKGooglePlacesAutocomplete-ExampleTests.a */,
+				156B9CFAA7B6368FD3F6A7E5 /* libPods-HNKGooglePlacesAutocomplete-Example.a */,
+				F5DABFE1E17303566BD8BA4E /* libPods-HNKGooglePlacesAutocomplete-ExampleTests.a */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		D3E3F1FA7798A3158B585540 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				DA2524585B0166608A39236E /* Pods-HNKGooglePlacesAutocomplete-Example.debug.xcconfig */,
-				7B836E5632B34FC1CB845488 /* Pods-HNKGooglePlacesAutocomplete-Example.release.xcconfig */,
-				0A5485CEF38C794987700904 /* Pods-HNKGooglePlacesAutocomplete-ExampleTests.debug.xcconfig */,
-				26A7E8D0F78A6E915F9B03AF /* Pods-HNKGooglePlacesAutocomplete-ExampleTests.release.xcconfig */,
-			);
-			name = Pods;
 			sourceTree = "<group>";
 		};
 		DC0A83EE1AED8362001EB35D /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				DC345C391AF09F6C009D3645 /* Networking */,
-				DC345C291AEDA518009D3645 /* HNKGooglePlacesAutocompletePlaceSpec.m */,
-				DC0A83F51AED8F1D001EB35D /* HNKGooglePlacesAutocompletePlaceSubstringSpec.m */,
-				DC0A83EC1AED8229001EB35D /* HNKGooglePlacesAutocompletePlaceTermSpec.m */,
-				DCFAD4BD1AF32BEC0042BB22 /* HNKGooglePlacesAutocompleteQuerySpec.m */,
-				DC1699511AFF03C9000D8E26 /* HNKGooglePlacesAutocompleteQueryConfigSpec.m */,
-				DC345C2E1AEDC5C8009D3645 /* HNKGooglePlacesAutocompleteQueryResponseSpec.m */,
 			);
 			name = Models;
-			sourceTree = "<group>";
-		};
-		DC345C391AF09F6C009D3645 /* Networking */ = {
-			isa = PBXGroup;
-			children = (
-				DC345C3A1AF09FC7009D3645 /* HNKGooglePlacesAutocompleteServerSpec.m */,
-			);
-			name = Networking;
 			sourceTree = "<group>";
 		};
 		DCA78AEE1AED6AA800F5F3B9 = {
@@ -142,8 +111,8 @@
 				DCA78AF91AED6AA800F5F3B9 /* HNKGooglePlacesAutocomplete-Example */,
 				DCA78B131AED6AA800F5F3B9 /* Tests */,
 				DCA78AF81AED6AA800F5F3B9 /* Products */,
-				D3E3F1FA7798A3158B585540 /* Pods */,
 				96CE1BBE25C46A86D71B6BBC /* Frameworks */,
+				49501A1E331EFD1ED185A611 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -184,7 +153,6 @@
 		DCA78B131AED6AA800F5F3B9 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				DCD575061AF6A67000CE5A23 /* CLPlacemark+HNKAdditionsSpec.m */,
 				DC0A83EE1AED8362001EB35D /* Models */,
 				DCA78B141AED6AA800F5F3B9 /* Supporting Files */,
 			);
@@ -207,11 +175,10 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DCA78B1A1AED6AA800F5F3B9 /* Build configuration list for PBXNativeTarget "HNKGooglePlacesAutocomplete-Example" */;
 			buildPhases = (
-				4607F3ACCB188AB72CC5E67C /* Check Pods Manifest.lock */,
+				99558A4AAD40038B1321DF9F /* [CP] Check Pods Manifest.lock */,
 				DCA78AF31AED6AA800F5F3B9 /* Sources */,
 				DCA78AF41AED6AA800F5F3B9 /* Frameworks */,
 				DCA78AF51AED6AA800F5F3B9 /* Resources */,
-				7ED68BB202E0F8FFEDE93FE4 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -226,11 +193,10 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DCA78B1D1AED6AA800F5F3B9 /* Build configuration list for PBXNativeTarget "HNKGooglePlacesAutocomplete-ExampleTests" */;
 			buildPhases = (
-				E2D498F5E4DE8E8F7AEB2403 /* Check Pods Manifest.lock */,
+				AF614973AD40E331B4B42DA4 /* [CP] Check Pods Manifest.lock */,
 				DCA78B0C1AED6AA800F5F3B9 /* Sources */,
 				DCA78B0D1AED6AA800F5F3B9 /* Frameworks */,
 				DCA78B0E1AED6AA800F5F3B9 /* Resources */,
-				525622BDEC7E2D68BB31BEB4 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -266,6 +232,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -302,64 +269,48 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		4607F3ACCB188AB72CC5E67C /* Check Pods Manifest.lock */ = {
+		99558A4AAD40038B1321DF9F /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputPaths = (
+			inputFileListPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-HNKGooglePlacesAutocomplete-Example-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		525622BDEC7E2D68BB31BEB4 /* Copy Pods Resources */ = {
+		AF614973AD40E331B4B42DA4 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputPaths = (
+			inputFileListPaths = (
 			);
-			name = "Copy Pods Resources";
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-HNKGooglePlacesAutocomplete-ExampleTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HNKGooglePlacesAutocomplete-ExampleTests/Pods-HNKGooglePlacesAutocomplete-ExampleTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		7ED68BB202E0F8FFEDE93FE4 /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HNKGooglePlacesAutocomplete-Example/Pods-HNKGooglePlacesAutocomplete-Example-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		E2D498F5E4DE8E8F7AEB2403 /* Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -379,14 +330,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DC345C2A1AEDA518009D3645 /* HNKGooglePlacesAutocompletePlaceSpec.m in Sources */,
-				DC0A83F61AED8F1D001EB35D /* HNKGooglePlacesAutocompletePlaceSubstringSpec.m in Sources */,
-				DCFAD4BE1AF32BEC0042BB22 /* HNKGooglePlacesAutocompleteQuerySpec.m in Sources */,
-				DC345C3B1AF09FC7009D3645 /* HNKGooglePlacesAutocompleteServerSpec.m in Sources */,
-				DCD575071AF6A67000CE5A23 /* CLPlacemark+HNKAdditionsSpec.m in Sources */,
-				DC345C2F1AEDC5C8009D3645 /* HNKGooglePlacesAutocompleteQueryResponseSpec.m in Sources */,
-				DC1699521AFF03C9000D8E26 /* HNKGooglePlacesAutocompleteQueryConfigSpec.m in Sources */,
-				DC0A83ED1AED8229001EB35D /* HNKGooglePlacesAutocompletePlaceTermSpec.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -504,7 +447,7 @@
 		};
 		DCA78B1B1AED6AA800F5F3B9 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = DA2524585B0166608A39236E /* Pods-HNKGooglePlacesAutocomplete-Example.debug.xcconfig */;
+			baseConfigurationReference = 9DB367316419D0C2167E22C2 /* Pods-HNKGooglePlacesAutocomplete-Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -516,7 +459,7 @@
 		};
 		DCA78B1C1AED6AA800F5F3B9 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7B836E5632B34FC1CB845488 /* Pods-HNKGooglePlacesAutocomplete-Example.release.xcconfig */;
+			baseConfigurationReference = 8D5EDF2713B7EEC8BE82934A /* Pods-HNKGooglePlacesAutocomplete-Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -528,7 +471,7 @@
 		};
 		DCA78B1E1AED6AA800F5F3B9 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0A5485CEF38C794987700904 /* Pods-HNKGooglePlacesAutocomplete-ExampleTests.debug.xcconfig */;
+			baseConfigurationReference = A27BEC2AC93DDF329345798B /* Pods-HNKGooglePlacesAutocomplete-ExampleTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -548,7 +491,7 @@
 		};
 		DCA78B1F1AED6AA800F5F3B9 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 26A7E8D0F78A6E915F9B03AF /* Pods-HNKGooglePlacesAutocomplete-ExampleTests.release.xcconfig */;
+			baseConfigurationReference = AA694BE9A246577ECE39E3F1 /* Pods-HNKGooglePlacesAutocomplete-ExampleTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (
