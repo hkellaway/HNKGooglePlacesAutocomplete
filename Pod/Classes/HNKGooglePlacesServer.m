@@ -55,11 +55,16 @@ static AFHTTPSessionManager *httpSessionManager = nil;
 {
     NSString *urlString = [kHNKGooglePlacesServerBaseURL stringByAppendingPathComponent:path];
     
-    [httpSessionManager GET:urlString parameters:parameters progress:^(NSProgress *downloadProgress) { } success:^(NSURLSessionDataTask *task, id responseObject) {
+    [httpSessionManager GET:urlString
+                 parameters:parameters
+                    headers:nil
+                   progress:nil
+                    success:^(NSURLSessionDataTask *task, id responseObject) {
         if (completion) {
             completion(responseObject, nil);
         }
-    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+    }
+                    failure:^(NSURLSessionDataTask *task, NSError *error) {
         if (completion) {
             completion(nil, error);
         }

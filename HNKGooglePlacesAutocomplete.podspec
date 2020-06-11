@@ -8,12 +8,12 @@ Pod::Spec.new do |s|
   s.author       = { "Harlan Kellaway" => "hello@harlankellaway.com" }
   s.source       = { :git => "https://github.com/hkellaway/HNKGooglePlacesAutocomplete.git", :tag => s.version.to_s }
   
-  s.platform     = :ios, "8.0"
+  s.platform     = :ios, "9.0"
   s.requires_arc = true
 
   s.source_files  = 'Pod/Classes/*.{h,m}'
 
-  s.dependency "AFNetworking", "~> 3.0"
+  s.dependency "AFNetworking", "~> 4.0"
   s.dependency "Mantle", "~> 2.0"
 
 end
